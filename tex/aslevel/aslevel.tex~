@@ -1,0 +1,74 @@
+\chapter{Characterization of the Internet on Autonomous System Level}\label{chap:aslevel}
+
+%intro and problem
+The Internet is a network of autonomous systems.
+The scalability of the Internet is achieved by topological adressing.
+In this chapter 
+
+The performance of content delivery highly depends on the available resources and the number of consumers.
+The interaction of such applications with the network and other players, e.g. cloud providers, are usually not considered by the application developers.
+
+% overview 
+% in this chapter, ...
+In this chapter, we characterize the number of resources available in autonomous systems for the two content delivery concepts, a) peer-to-peer networks and b) content delivery networks.
+While peers can easily be identified by, e.g., by requesting trackers.
+In order to characterize the distribution of resources in content delivery networks, simple tracking is not possible, since no publicly available registers exist.
+Due to the location based server assignment for content delivery a distributed measurement architecture is necessary to identify the server resources.
+We compare the capabilities of a crowdsourcing platform and a PlanetLab testbed for distributed active measurements.
+To get a global view on the number of resources available we evaluate the Internet Census Dataset, which contains a complete scan of the IP address range.
+
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.8\textwidth]{aslevel/figs/astopo}
+%  \caption{Interactions between considered stakeholders in the application scenarios.}
+%  \label{fig:aslevel:astopo}
+%\end{figure}
+\begin{figure}[bt]
+	\centering
+\vspace{-0.5cm}
+\hspace{-0.5cm}
+	\begin{subfigure}[b]{0.54\textwidth}
+	  \includegraphics[width=\textwidth]{aslevel/figs/p2p}
+    \caption{Peer-to-peer}
+    \label{fig:aslevel:cdn}
+  \end{subfigure}
+\hspace{-0.5cm}
+	\begin{subfigure}[b]{0.54\textwidth}
+	 	\includegraphics[width=\textwidth]{aslevel/figs/cdn}
+    \caption{Content delivery network}
+    \label{fig:aslevel:cdn}	  
+	\end{subfigure}
+\hspace{-0.5cm}
+\vspace{-0.5cm}
+	\caption{Autonomous system topology with a peer-to-peer (left) and a content delivery network (right).}
+\end{figure}
+
+% details, figure
+We identify the number of peers per swarm available in each autonomus system. We investigate the performance of different peer selection strategies. , as shown in \reffig{fig:aslevel:topo}.
+% we consider + metrics
+As key performance indicators we determine the traffic volume and the traffic costs of Internet service providers.
+\begin{enumerate*}
+\item user satisfaction, realised by a \gls{QoE} metric,
+\item cost reduction in compute and network infrastructure.
+\end{enumerate*}
+
+% contribution
+The contribution of this chapter is threefold:
+\begin{enumerate}
+\item inter-domain
+\item oppppppp
+\item model IP distribution
+\end{enumerate}
+
+The content from this chapter has been published in \cite{burger2012profit,burger2014vantage,burger2016hierarchical}.
+In \refsec{sec:aslevel:background} we .
+in \refsec{sec:aslevel:p2p} we discuss 
+In \refsec{sec:aslevel:crowd} 
+In \refsec{sec:aslevel:census} 
+Finally, we discuss lessons learned in \refsec{sec:aslevel:lessons_learned}.
+
+\input{aslevel/background/background}
+\input{aslevel/p2p/p2p}
+\input{aslevel/crowd/crowd}
+\input{aslevel/census/census}
+\input{aslevel/lessons_learned/lessons_learned}

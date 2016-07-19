@@ -1,0 +1,61 @@
+\section{Distribution of IP Addresses on Autonomous Systems}\label{sec:census}
+
+The performance of systems using CPE or resources provided by end-users depend on the capacity and number of devices available.
+To assess the potential of a hierarchical cache system in an ISPs network, the number of active subscribers in an autonomous systems has to be known.
+Assuming that the number of active IP-addresses is correlated to the number of subcribers in an autonomous system, we use the Internet Census Dataset to determine the distribution of active IP-addresses on autonomous systems.
+
+The Internet Census Dataset\cite{carna2013} was conducted from June to October 2012.
+The complete IPv4-address room was scanned using a bot-net consisting of 4,200,000 nodes.
+In the ICMP ping scan more than 420 million replied to requests more than once.
+The service probe data reveal open ports on devices which is used to infer the type of device.
+The Internet Census Dataset was validated forensically in \cite{dainotticaida}.
+In \cite{krenc2014internet} the scope of the dataset is taken into perspective and show that, although there are some qualitative problems, the measurement data seems to be authentic.
+
+We use an IP to ASN mapping to derive the autonomous system number for each IP-address. There are different services, that provide an IP to ASN mapping.
+The whois-service can be used to get the current ASN for an IP-address.
+To enable an efficient evaluation we used the MAXMIND GeoLite ASN database \cite{geo_ip}, which is updated every month and can be downloaded and used as a local database.
+The results of the MAXMIND GeoLite ASN database were cross checked with results obtained from whois, which showed no differences.
+
+The ICMP ping scan discovered a total of 598,180,914 IP-addresses.
+The service probe scan discovered 244,000 IP-addresses that listen to port 9100 and are identified as print servers, and 70.84 million IP-addresses of web-servers that listen to port 80.
+Assuming that most network functions do not reply to ICMP ping requests and neglecting different network functions, this results in 88.1\% of IP-addresses assigned to end-user devices.
+Since the Internet Census the number of Internet users increased, which also has to be considered.
+According to \cite{itu2015facts} there is a 7\% annual increase in fixed-broadband subsrciptions in the past three years.
+%From 2012 to 2014 the number of Internet users increased by almost 500,000,000 according to \cite{•}.
+
+\begin{figure}[tb]
+\centering
+\includegraphics[0.49\textwidth]{aslevel/census/figs/asrank}
+\caption{Rank of Internet providers with number of active IP-addresses per AS.}
+\label{fig:asrank}
+\end{figure}
+
+\reffig{fig:asrank} shows the number of active IP-addresses per AS ranked in descending order.
+The top 5 ASes are shown in table~\ref{tab:asrank}.
+The AS with most active IP-addresses is ChinaTelecom with almost 60 million active IPs, followed by another chinese provider.
+The largest AS in the US is Comcast on rank three.
+The largest Korean and German providers are ranked 4 and 5 with more than 18 million active IPs.
+The number of active IP addresses can be approximated with a power law with slope 1.5 that drops a little for low ranks.
+This shows that the distribution of active IP addresses on ASes is highly heterogeneous.
+That means the potential of approaches leveraging spare resources on home gateways depends on the AS.
+
+\begin{table}[tb]
+\centering
+\caption{Rank of top 5 provider with most active IP-addresses.}
+\label{tab:asrank}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+rank r & ASN & provider & \# active IPs  \\ 
+\hline 
+1 & 4134 & ChinaTelecom & 59,824,824 \\ 
+2 & 4837 & China-Network-Communication-Group & 27,776,643 \\ 
+3 & 7922 & Comcast & 20,227,918 \\ 
+4 & 4766 & KoreaTelecom & 18,502,963 \\
+5 & 3320 & DeutscheTelekomAG & 18,476,519 \\
+\hline 
+\end{tabular}
+\end{table}
+
+%\input{aslevel/census/dataset/dataset}
+%\input{aslevel/census/evaluation/evaluation}
+%\input{aslevel/census/potential/potential} 
