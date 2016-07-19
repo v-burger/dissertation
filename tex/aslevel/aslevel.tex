@@ -1,19 +1,21 @@
-\chapter{Characterization of the Internet on Autonomous System Level}\label{chap:aslevel}
+\chapter{Characterization of the Content Delivery Networks on Autonomous System Level}\label{chap:aslevel}
 
 %intro and problem
 The Internet is a network of autonomous systems.
 The scalability of the Internet is achieved by topological addressing.
 ISPs acquire transit providers to be connected to remote parts of the Internet or agree on peering relationships to exchange data without money flow.
-In this chapter we
-
+In 2015 61\% of all Internet video was carried by CDNs according to \cite{cisco}.
+The vast amount of traffic causes high costs for ISPs, who need to provide the transport infrastructure necessary and pay transit fees incurred.
+In order to develop traffic management mechanisms, aiming to reduce transit traffic and optimize content delivery, it is crucial to understand the current situation of content delivery networks and the number and distribution of available resources.
 The performance of content delivery highly depends on the available resources and the number of consumers.
+
 The interaction of such applications with the network and other players, e.g. cloud providers, are usually not considered by the application developers.
 
 In peer-to-peer networks
 
 % overview
 % in this chapter, ...
-In this chapter, we characterize the number of resources available in autonomous systems for the two content delivery concepts, a) peer-to-peer networks and b) content delivery networks.
+In this chapter, we characterize the number of resources available in autonomous systems for the two content delivery concepts, a) peer-to-peer networks and b) content delivery networks and characterize the topology of autonomous systems.
 In peer-to-peer networks peers serve and request chunks of content at the same time, hence peers are also the resources for content delivery.
 In content delivery networks the resources are content caches that run in data centers. To get content even closer to users caches can also be installed at the last mile or on customer premise equipment in home networks.
 
@@ -55,26 +57,28 @@ To get a global view on the number of resources available in each autonomous sys
 % details, figure
 We identify the number of peers per swarm available in each autonomous system. We investigate the performance of different peer selection strategies. , as shown in \reffig{fig:aslevel:topo}.
 % we consider + metrics
-As key performance indicators we determine the traffic volume and the traffic costs of Internet service providers.
+As key performance indicators we determine
 \begin{enumerate*}
-\item user satisfaction, realized by a \gls{QoE} metric,
-\item cost reduction in compute and network infrastructure.
+\item the traffic volume and
+\item the traffic costs
 \end{enumerate*}
+of Internet service providers.
 
 % contribution
 The contribution of this chapter is threefold:
 \begin{enumerate}
-\item inter-domain
-\item oppppppp
-\item model IP distribution
+\item We determine the potential for locality in peer-to-peer networks.
+\item We develop and evaluate optimization strategies for peer selection.
+\item We determine the distribution of content servers in a global CDN.
+\item We provide a model for the distribution of IP-addresses on autonomous system.
 \end{enumerate}
 
 The content from this chapter has been published in \cite{burger2012profit,burger2014vantage,burger2016hierarchical}.
-In \refsec{sec:aslevel:background} we .
-in \refsec{sec:aslevel:p2p} we discuss
-In \refsec{sec:aslevel:crowd}
-In \refsec{sec:aslevel:census}
-Finally, we discuss lessons learned in \refsec{sec:aslevel:lessons_learned}.
+\refsec{sec:aslevel:background} describes the background and presents related work.
+ The applied methodology to characterize the BitTorrent traffic and to estimate transit costs is described in \refsec{sec:aslevel:p2p}.
+In \refsec{sec:aslevel:crowd} two approaches for distributed active measurements are compared.
+The evaluation of the Internet-Census dataset and the derived model for the distribution of IP-addresses on autonomous systems is shown in \refsec{sec:aslevel:census}.
+We discuss lessons learned in \refsec{sec:aslevel:lessons_learned}.
 
 \input{aslevel/background/background}
 \input{aslevel/p2p/p2p}
