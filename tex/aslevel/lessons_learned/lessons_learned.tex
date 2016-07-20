@@ -1,41 +1,44 @@
 \section{Lessons Learned}\label{sec:application:lessons_learned}
-This chapter studied Internet \emph{Video Streaming} and \emph{File Synchronisation} as two prominent examples of modern network applications.
-During the operation and use of these applications, a number of stakeholders interact, each with different preferences and demands on what qualifies as optimal performance of the application.
-The \emph{application provider} controls the application and directly influences the performance of the application for all other stakeholders.
-In case of the Video Streaming scenario, we consider the application provider to be interested in increasing the \gls{QoE} for the application user while also maintaining a low utilisation of network and compute resources, as they would incur additional costs.
-In the File Synchronisation scenario the application operator is interested in the file synchronisation occurring as soon as possible, as this has been identified as a main impact factor of the users \gls{QoE}.
-The \emph{user} is interested in a high \gls{QoE} as well as increasing the battery life of the \gls{UE}.
-As in the last chapter, the \emph{network operator} is interested to quantify and decrease the impact of application traffic on its network infrastructure.
+In this chapter we characterized content delivery networks on autonomous systems level by This chapter studied Internet \emph{Video Streaming} and \emph{File Synchronisation} as two prominent examples of modern network applications.
+To assess the potential of peer assisted approaches, we determine the number of active IP-addresses from the Internet Census Dataset.
 
-The application operator has direct control over the application and is thus able to manipulate application behaviour in order to improve the respective key performance indicators.
-For the specific applications we consider adoption of the video transmission mechanisms and parameters for the video streaming scenario as well as diverse file upload scheduling mechanisms and parameters for the file synchronisation scenario.
-While users in these scenarios have no direct possibility to influence their key performance indicator, the video streaming scenario considers users to be heterogeneous, i.e. consisting of different subsets of users with different \gls{QoE} requirements which have to be considered.
-Furthermore, we consider network operator to be passive, as \refchap{chap:network} showed that it is not beneficial for them to optimise their network parameters for specific applications.
+P2P -> CDN
+to accurately model content delivery networks ... is described.
 
-While studying both the Video Streaming and the File Synchronisation scenario, we find three major outcomes.
+While ... we find three major outcomes.
 
-First, we study the impact of different video transmission mechanisms and parameter settings on energy consumption, number of connections established to the mobile network and traffic wastefully transmitted in case the user aborts video playback before completion.
-To this end, we provide both a network model for \gls{LTE} mobile networks as well as playback models for the respective video transmission mechanisms.
-Then, we evaluate the models regarding the identified metrics for a range of relevant parameters.
-We find that live streaming the same content consumes at worst \SI{711}{\percent} more energy than the download mechanism for the lowest possible bit rate. For the highest viable bit rate the ratio decreases, however the live streaming still consumes \SI{117}{\percent} more energy than the download mechanism.
-In contrast, we observe that when considering the wasted traffic relative to the total content size, the download mechanism causes, even for the best case user scenario, \SI{12300}{\percent} of the data wasted by the live streaming scenario.
-The streaming mechanism results in only five times the wasted traffic of the amount lost during live streaming, while only consuming between \SI{39.9}{\percent} and \SI{89.3}{\percent} of the energy of the live mechanism.	
-Overall, we find that the streaming mechanism provides good results for all considered metrics and can be customised by adapting the streaming buffer size to the application operators needs. 
+First, we have investigated where in the Internet BitTorrent traffic is located and which ISPs benefit from its optimization. To this end, we used measurements of live BitTorrent swarms to derive the location of BitTorrent peers and data provided by Caida.org in order to calculate the actual AS path between any two peers.
+Our results show that the traffic optimization potential depends heavily on the type of ISP. Different ISPs will pursue different strategies to increase revenues. Non \tier ISPs, i.e., stub, small and large ISPs have a high potential to benefit from biased peer selection strategies. Large ISPs profit most from selfish-ISP selection. Small and stub ISPs have the largest benefit when peers connect based on shortest AS paths as currently discussed by the ALTO IETF group. In contrary \tier ISPs loose most from the peer selection strategies. \Tier ISPs profit from the currently uncontrolled data exchange, which brings high revenues from transit services. Hence, \tier providers will try to avoid peer selection strategies or try to keep the swarms unstructured by controlling the peer selection.
+Our results confirm that selecting peers based on their locality has a high potential to shorten AS paths between peers and to optimize the overlay network. In the observed BitTorrent swarms twice as much traffic can be kept intra-AS using locality peer selection. Thus, the inter-AS traffic is almost reduced by \unit[50]{\%} in \tier and in large ISPs.
 
-Next, we consider the impact of both the buffer size of the streaming mechanism and the available network load on different scenarios: Video Streaming or Video Browsing.
-We find that buffer sizes smaller than \SI{0.5}{\second} provide unacceptable \gls{QoE} for all considered users regardless of sensitivity to stalling.
-Buffer sizes between \SI{2}{\second} and \SI{4}{\second} however are acceptable to most users regardless of sensitivity.
-When considering the Video Browsing scenario, we find that even if the length of the watched video is known \gls{QoE} depends on the sensitivity of the user to initial stalling, however we are able to determine local \gls{QoE} optima for all considered values of sensitivity.
+Second we propose the usage of crowdsourcing platforms for distributed network measurements to increase the coverage of vantage points.
+We evaluated the capability to discover global networks by comparing the coverage of video server detected using a crowdsourcing platform as opposed to using the PlanetLab platform.
+To this end, we used exemplary measurements of the global video CDN YouTube, conducted in both the PlanetLab platform as well as the crowdsourcing platform Microworkers.
+Our results show that the vantage points of the concurring measurement platforms have very different characteristics.
+In the PlanetLab measurement the country with most measurement points is the US, while more than 50\% of measurement points are located in West-Europe.
+In contrary most measurement points are located in Asia-Pacific and East-Europe in the crowdsourcing measurement.
+We could show that the distribution of vantage points has high impact on the capability of measuring a global content distribution network.
+The capability of PlanetLab to measure a global CDNs is rather low, since 80\% of requests are directed to the United States.
+Our results confirm that the coverage of vantage points is increased by crowdsourcing.
+Using the crowdsourcing platform we obtain a diverse set of vantage points that reveals more than twice as many autonomous systems deploying video servers than the widely used PlanetLab platform.
+Part of future work is to determine if the coverage of vantage points can be even further increased by targeting workers from specific locations to get representative measurement points for all parts of the world.
 
-Finally, when considering the file synchronisation scenario, we find that of the three considered scheduling mechanisms, both the interval and the size based algorithms, provide best results.
-If the application provider allows parameter selection for a given scheduling mechanism to be performed by the user, in order to increase \gls{QoE}, the interval mechanism provides more intuitive configuration.
-This would for example allow the user to increase the inter-send interval from \SI{32}{\second} to \SI{128}{\second} which can double the time spent in disconnected state, saving energy and also reduce the connection count by \SI{50}{\percent}, putting less strain on the network.
+Finally, when considering ..., we find that of the three considered scheduling mechanisms, .
+If ...
+This would for example allow ..
 
-Based on the results obtained in this chapter, we observe that additionally to the tradeoffs in the network, highlighted in the last chapter, similar tradeoffs also exist in the application layer.
+Based on the results obtained in this chapter, we determine
+the characteristics of peer-to-peer networks
+the characteristics of CDNs
+the distribution of active subscriber lines on autonomous systems, which connect potential resources in customer premise equipment.
+Upper bounds / potential of p2p cdn approach.
 Including the application providers as stakeholders and considering their key performance indicators requires new models but also allows us to better understand the impact of mechanisms implemented in applications.
 Key performance indicators of application providers sometimes overlap with those relevant to users, as application providers try to improve the experience of users in order to reduce churn.
 
-Highlighted by both, the Video Streaming scenario and the File Synchronisation scenario, is the fact that oversimplifying the user population as one homogeneous group can decrease the overall \gls{QoE}.
-While general \gls{QoE} management mechanisms intent to optimise the \gls{MOS}, this only increases the mean \gls{QoE}, which may cause suboptimal results if the population of users present with a large variance in opinion scores.
-Thus, we suggest to either identify and cluster similar user groups or expose tradeoffs, within reason, to the user.
-This approach could be seen as extending the \emph{Economic Traffic Management} approach to the user.
+Highlighted by both, the P2P approach and the CDN approach the distribution of peers on autonomous systems and the popularity of content is highly heterogeneous.
+Dynamics (orange paper)
+
+While general traffic management mechanisms intent to optimize the cdn
+this only increases the efficincy of the ISP cache, which may cause suboptimal results if the popularity of videos large variance.
+Thus, we suggest to  tradeoffs, within reason, to the user.
+%This approach could be seen as extending the \emph{Economic Traffic Management} approach to the user.
