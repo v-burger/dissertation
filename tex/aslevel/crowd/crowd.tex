@@ -1,5 +1,7 @@
 \section{Characterizing Content Delivery Networks by Distributed Active Measurements}\label{sec:aslevel:crowd}
 
+The most popular peer-to-peer overlay network today is Youtube.
+Therefore we focus on YouTube.
 % motivation
 Internet video constitutes more than half of all consumer Internet traffic globally, and its percentage will further increase \cite{ciscovni2013}. Most of the video traffic is delivered by content delivery networks (CDNs). Today the world's largest video CDN is YouTube. Since Google took over YouTube in 2006 the infrastructure of the video delivery platform has grown to be a global content delivery network.
 The global expansion of the CDN was also necessary to cope with growing demand of user demands and the high expectations on the video playback. Therefore, content delivery networks try to bring content geographically close to users.
@@ -10,12 +12,12 @@ To understand and monitor the impact of YouTube traffic on ISPs and the topology
 The problem is that probes disseminated from PlanetLab nodes origin solely from National Research and Education Networks~(NRENs). This may not reflect the perspective of access ISPs which have a different connection to the YouTube CDN with different peering or transit agreements.
 
 % our methodology
-To achieve a better view on the YouTube CDN from the perspective of end users in access networks we use a commercial crowdsourcing platform to recruit regular Internet users as measurement probes. 
-Thus, we increase the coverage of vantage points for the distributed measurement of the YouTube CDN. 
-To evaluate the impact of the measurement platform and the coverage of their vantage point,  we perform the same measurements using PlanetLab nodes and crowdsourcing users and compare the obtained results. 
+To achieve a better view on the YouTube CDN from the perspective of end users in access networks we use a commercial crowdsourcing platform to recruit regular Internet users as measurement probes.
+Thus, we increase the coverage of vantage points for the distributed measurement of the YouTube CDN.
+To evaluate the impact of the measurement platform and the coverage of their vantage point,  we perform the same measurements using PlanetLab nodes and crowdsourcing users and compare the obtained results.
 
 % our contribution
-Our measurements show that distributed measurements in PlanetLab are not capable to capture a globally distributed network, since the PlanetLab nodes are located in NRENs where the view on the Internet is limited. We demonstrate that recruiting users via crowdsourcing platforms as measurement probes can offer a complementary view on the Internet, since they provide access to real end users devices located out side of these dedicated research networks. 
+Our measurements show that distributed measurements in PlanetLab are not capable to capture a globally distributed network, since the PlanetLab nodes are located in NRENs where the view on the Internet is limited. We demonstrate that recruiting users via crowdsourcing platforms as measurement probes can offer a complementary view on the Internet, since they provide access to real end users devices located out side of these dedicated research networks.
 This complementary view can help to gain a better understanding of the characteristics of Video CDNs.
 Concepts like ALTO or economic traffic management (ETM) \cite{bookchapter2009-12} need a global view of the CDN structure to optimize traffic beyond the borders of ISPs.
 %what in turn  might have implications for network operators in mechanism design and resource provisioning.
