@@ -1,4 +1,4 @@
-\section{Numerical Results and Their Implications}\label{sec:results}
+\subsection{Numerical Results and Their Implications}\label{sec:p2p:results}
 
 %\begin{figure*}[bt]
 %\begin{minipage}[b]{0.32\textwidth}
@@ -48,7 +48,7 @@
 
 In this section we present the numerical results obtained by applying our methodology to the measurement data and describe their importance for ISPs. First we show how the peers are distributed over the different ASes. Then we characterize the traffic emerged by BitTorrent swarms and investigate the impact of locality and selfish-ISP peer selection algorithm. Finally, we estimate the transit costs arising by the BitTorrent swarms and investigate the potential of ISPs to maximize their balance by the peer selection algorithms.
 
-\subsection{Distribution of Peers in the Internet Hierarchy}
+\subsubsection{Distribution of Peers in the Internet Hierarchy}
 In the following we describe how peers of BitTorrent swarms are distributed over the Internet.
 Figure~\ref{fig:npeers_perTier} shows the distribution of peers over the different tiers. The peers of all torrents are considered. Most of the peers are in large ISP ASes, where \unit[40]{\%} of all peers are located. In small ISP and stub ASes a similar amount of \unit[29]{\%} and \unit[31]{\%} of the peers is located, respectively. Only very few peers are located in \tier ASes, which is less than \unit[1]{\%} of all peers in all swarms. Hence, the access to peers by \tier ASes is negligible. That means that \tier ASes barely have an impact on ALTO mechanisms that control only the peers of the own AS.
 
@@ -79,7 +79,7 @@ Figure~\ref{fig:CDF_npeers_perswarm} shows the cumulative distribution function 
 	\begin{subfigure}[b]{0.49\textwidth}
 	 	\includegraphics[width=\textwidth]{aslevel/p2p/results/figs/savings}
     \caption{Savings}
-    \label{fig:savings}	  
+    \label{fig:savings}
 	\end{subfigure}
 	\caption{Total balance of transit costs (left) and total savings over random selection (right) normalized by the overall revenue for random peer selection.}
 \end{figure}
@@ -110,7 +110,7 @@ In \reffig{fig:CDF_maxpeers_perswarm_perAS} we calculated the cumulative probabi
 %Inline with \cite{Hossfeld2011}?.
 In \tier ASes there is barely no chance to connect to a local neighbor.
 
-\subsection{Traffic Characteristics for P2P Guidance Strategies}
+\subsubsection{Traffic Characteristics for P2P Guidance Strategies}
 In this subsection we characterize the traffic produced by BitTorrent swarms. Further on we investigate the potential of ALTO techniques to optimize the swarm in terms of load on the network and AS path length.
 First we look at the traffic characteristics of the standard BitTorrent algorithm and in the following we compare the different selection strategies.
 The number of AS hops is the number of ASes on the AS path connecting two peers without regarding the source AS. The number of hops are weighted by $L(\alpha,\beta)$, i.e. the amount of traffic and the number of concurring AS paths, see \refequ{equ:linkload}. Figure~\ref{fig:CDF_hops} shows the amount of traffic on AS paths with length in AS hops for the different selection strategies. The median is about 2 AS hops if peers are selected randomly. Most traffic is on paths with two or three AS hops without selection strategy. Paths are up to 10 AS hops in the investigated swarms.
@@ -145,9 +145,9 @@ Figure~\ref{fig:outgoing} depicts the outgoing traffic for the different selecti
 
 Figure~\ref{fig:outgoing_CDF} shows the cumulative distribution function of the outgoing AS traffic grouped by the AS type. The outgoing traffic is normalized by the overall outgoing AS traffic of the random peer selection strategy. AS mention before \tier ASes have most outgoing traffic on a per AS basis. Further on we observe that the outgoing traffic decreases with size of the AS. Also noticeable is that with the locality peer selection algorithm we get less outgoing traffic, especially for large ISPs. The difference is not very big for a single AS, but the large number of ASes makes a big difference in the total outgoing AS traffic.
 
-\subsection{Transit Costs}
+\subsubsection{Transit Costs}
 Now we estimate the transit costs emerged by BitTorrent traffic for the different ISPs and show the potential to save costs and maximize revenues of the peer selection algorithms. We use the overall revenues for random selection, i.e., the sum of total revenues of all AS types, to normalize the values derived in this section. As the overall total balance is zero, the overall total revenues equal the overall total costs.
-As described in \refsec{sec:methodology} every customer/provider AS $\alpha$ on an AS path connecting peers is charged by $\pm L(\alpha,\beta)$.
+As described in \refsec{sec:p2p:methodology} every customer/provider AS $\alpha$ on an AS path connecting peers is charged by $\pm L(\alpha,\beta)$.
 
 Figure~\ref{fig:costs_CDF} shows the cumulative distribution function of transit costs, as calculated in \refequ{equ:costs}, for the ASes grouped by AS types. Hence, the amount ASes pay providers for transit services. The costs are normalized by the overall revenues of random selection. \tier ASes do not have providers and therefore no transit costs. Local peer selection reduces the transit costs, regarding the overall distribution of costs, for all non \tier AS types. Costs of large ASes, i.e., ASes that have many customers and forward a lot of traffic, tend be higher.
 

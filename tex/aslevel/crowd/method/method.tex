@@ -1,10 +1,10 @@
-\section{Measurement Description}
+\subsection{Distributed Active Measurement Description}
 \label{sec:method}
 
 To assess the capability of crowdsourcing for distributed active measurements we conduct measurements with both  PlanetLab and the commercial Crowdsourcing platform Microworkers~\cite{microworkers}.
 We measure the global expansion of the YouTube CDN by resolving physical server IP-addresses for clients in different locations.
 
-\subsection{Description of the PlanetLab Measurement}
+\subsubsection{Description of the PlanetLab Measurement}
 
 PlanetLab is a publicly available test bed, which currently consists of 1173 nodes at 561 sites.
 The sites are usually located at universities or research institutes.
@@ -16,8 +16,8 @@ The IP addresses of the PlanetLab clients and the resolved IP addresses of the p
 To be able to investigate locality in the YouTube CDN, the geo-location of servers and clients is necessary.
 For that purpose the IP addresses were mapped to geographic coordinates with MaxMinds GeoIP database \cite{geolite}.
 The measurement was conducted on 220 randomly chosen PlanetLab nodes in March 2012.
- 
-\subsection{Description of the Crowdsourcing Measurement}
+
+\subsubsection{Description of the Crowdsourcing Measurement}
 To measure the topology of the YouTube CDN from an end users point of view who is connected by an ISP network we used the crowdsourcing platform Microworker~\cite{microworkers}.
 The workers were asked to access a web page with an embedded Java application, which automatically conducts client side measurements.
 These include, among others, the extraction of the default and fallback server URLs from three predetermined YouTube video pages.
@@ -28,4 +28,3 @@ In a first measurement run, in December 2011, 60 different users of Microworkers
 Previous evaluation have shown, that the majority of the platform users is located in Asia~\cite{conf2011-410}, and accordingly most of the participants of there first campaign were from Bangladesh.
 In order to obtain wide measurement coverage the number of Asian workers participating in a second measurement campaign, conducted in March 2012, was restricted.
 In total, 247 workers from 32 different countries, finished the measurements successfully identifying 1592 unique physical YouTube server IP addresses.
-

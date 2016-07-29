@@ -1,4 +1,4 @@
-\section{Characterizing Content Delivery Networks by Distributed Active Measurements}\label{sec:aslevel:crowd}
+\section{Content Delivery Network Characterization by Distributed Active Measurements}\label{sec:aslevel:crowd}
 
 The most popular peer-to-peer overlay network today is Youtube.
 Therefore we focus on YouTube.
@@ -8,7 +8,7 @@ The global expansion of the CDN was also necessary to cope with growing demand o
 However, the traffic from content delivery networks is highly asymmetric and produces a large amount of costly inter-domain traffic \cite{labovitz2010internet}. Especially Internet Service Providers~(ISPs) providing access to many end users have problems to deal with the huge amount of traffic originating from YouTube. Furthermore, the Google CDN is constantly growing and changing, which makes it difficult for access providers to adapt their infrastructure accordingly.
 
 % problem statement
-To understand and monitor the impact of YouTube traffic on ISPs and the topology of CDNs appropriate measurements are aquired. Due to YouTube's load-balancing and caching mechanisms the YouTube video server selection is highly dependent on the location of the measurement points. Hence, we need a globally distributed measurement platform to perform active measurements to uncover the location of YouTube servers. Recent work \cite{adhikari2012vivisecting,adhikari2011you} has performed such measurements in PlanetLab~\cite{planetlab}, a global test bed that provides measurement nodes at universities and research institutes.
+To understand and monitor the impact of YouTube traffic on ISPs and the topology of CDNs appropriate measurements are acquired. Due to YouTube's load-balancing and caching mechanisms the YouTube video server selection is highly dependent on the location of the measurement points. Hence, we need a globally distributed measurement platform to perform active measurements to uncover the location of YouTube servers. Recent work \cite{adhikari2012vivisecting,adhikari2011you} has performed such measurements in PlanetLab~\cite{planetlab}, a global test bed that provides measurement nodes at universities and research institutes.
 The problem is that probes disseminated from PlanetLab nodes origin solely from National Research and Education Networks~(NRENs). This may not reflect the perspective of access ISPs which have a different connection to the YouTube CDN with different peering or transit agreements.
 
 % our methodology
@@ -28,6 +28,6 @@ Finally, models for simulation and performance evaluation of mechanisms incorpor
 The measurements conducted in the PlanetLab and via crowdsourcing are described in Section~\ref{sec:method}.
 In Section~\ref{sec:results} we provide details on the measurement results and their importance for the design of distributed network measurements.
 
-\input{aslevel/crowd/crowdsourcing/crowdsourcing}
+%\input{aslevel/crowd/crowdsourcing/crowdsourcing}
 \input{aslevel/crowd/method/method}
 \input{aslevel/crowd/results/results}
