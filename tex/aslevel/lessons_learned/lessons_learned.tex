@@ -1,6 +1,7 @@
 \section{Lessons Learned}\label{sec:application:lessons_learned}
-In this chapter we characterized content delivery networks on autonomous systems level by This chapter studied Internet \emph{Video Streaming} and \emph{File Synchronisation} as two prominent examples of modern network applications.
-To assess the potential of peer assisted approaches, we determine the number of active IP-addresses from the Internet Census Dataset.
+In this chapter we characterized content delivery networks on autonomous systems level by evaluating measurements of the most common content delivery principles P2P and CDN.
+For that purpose we used measurements conducted on the distributed platform PlanetLab and a crowdsourcing platform.
+To assess the potential of approaches that are peer assisted, we determined the number of active IP-addresses from the Internet Census Dataset.
 
 P2P -> CDN
 to accurately model content delivery networks ... is described.
@@ -8,22 +9,20 @@ to accurately model content delivery networks ... is described.
 While ... we find three major outcomes.
 
 First, we have investigated where in the Internet BitTorrent traffic is located and which ISPs benefit from its optimization. To this end, we used measurements of live BitTorrent swarms to derive the location of BitTorrent peers and data provided by Caida.org in order to calculate the actual AS path between any two peers.
-Our results show that the traffic optimization potential depends heavily on the type of ISP. Different ISPs will pursue different strategies to increase revenues. Non \tier ISPs, i.e., stub, small and large ISPs have a high potential to benefit from biased peer selection strategies. Large ISPs profit most from selfish-ISP selection. Small and stub ISPs have the largest benefit when peers connect based on shortest AS paths as currently discussed by the ALTO IETF group. In contrary \tier ISPs loose most from the peer selection strategies. \Tier ISPs profit from the currently uncontrolled data exchange, which brings high revenues from transit services. Hence, \tier providers will try to avoid peer selection strategies or try to keep the swarms unstructured by controlling the peer selection.
+Our results show that the traffic optimization potential depends heavily on the type of ISP. Different ISPs will pursue different strategies to increase revenues.
 Our results confirm that selecting peers based on their locality has a high potential to shorten AS paths between peers and to optimize the overlay network. In the observed BitTorrent swarms twice as much traffic can be kept intra-AS using locality peer selection. Thus, the inter-AS traffic is almost reduced by \unit[50]{\%} in \tier and in large ISPs.
 
-Second we propose the usage of crowdsourcing platforms for distributed network measurements to increase the coverage of vantage points.
+Second, we proposed the usage of crowdsourcing platforms for distributed network measurements to increase the coverage of vantage points.
 We evaluated the capability to discover global networks by comparing the coverage of video server detected using a crowdsourcing platform as opposed to using the PlanetLab platform.
 To this end, we used exemplary measurements of the global video CDN YouTube, conducted in both the PlanetLab platform as well as the crowdsourcing platform Microworkers.
 Our results show that the vantage points of the concurring measurement platforms have very different characteristics.
-In the PlanetLab measurement the country with most measurement points is the US, while more than 50\% of measurement points are located in West-Europe.
-In contrary most measurement points are located in Asia-Pacific and East-Europe in the crowdsourcing measurement.
 We could show that the distribution of vantage points has high impact on the capability of measuring a global content distribution network.
 The capability of PlanetLab to measure a global CDNs is rather low, since 80\% of requests are directed to the United States.
 Our results confirm that the coverage of vantage points is increased by crowdsourcing.
 Using the crowdsourcing platform we obtain a diverse set of vantage points that reveals more than twice as many autonomous systems deploying video servers than the widely used PlanetLab platform.
-Part of future work is to determine if the coverage of vantage points can be even further increased by targeting workers from specific locations to get representative measurement points for all parts of the world.
+%Part of future work is to determine if the coverage of vantage points can be even further increased by targeting workers from specific locations to get representative measurement points for all parts of the world.
 
-Finally, when considering ..., we find that of the three considered scheduling mechanisms, .
+Finally, when analyzing the Internet census dataset, we find that the distribution of IP-addresses is highly heterogeneous showing that 30\% of the active IPs belong to the 10 largest autonomous systems.
 If ...
 This would for example allow ..
 
@@ -32,8 +31,8 @@ the characteristics of peer-to-peer networks
 the characteristics of CDNs
 the distribution of active subscriber lines on autonomous systems, which connect potential resources in customer premise equipment.
 Upper bounds / potential of p2p cdn approach.
-Including the application providers as stakeholders and considering their key performance indicators requires new models but also allows us to better understand the impact of mechanisms implemented in applications.
-Key performance indicators of application providers sometimes overlap with those relevant to users, as application providers try to improve the experience of users in order to reduce churn.
+%Including the application providers as stakeholders and considering their key performance indicators requires new models but also allows us to better understand the impact of mechanisms implemented in applications.
+%Key performance indicators of application providers sometimes overlap with those relevant to users, as application providers try to improve the experience of users in order to reduce churn.
 
 Highlighted by both, the P2P approach and the CDN approach the distribution of peers on autonomous systems and the popularity of content is highly heterogeneous.
 Dynamics (orange paper)
