@@ -1,0 +1,4446 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%Creator: MATLAB, The MathWorks, Inc. Version 7.11.0.584 (R2010b). Operating System: Linux 4.4.0-31-generic #50-Ubuntu SMP Wed Jul 13 00:07:12 UTC 2016 x86_64.
+%%Title: figs/eps/activeIPs.eps
+%%CreationDate: 07/29/2016  11:47:40
+%%DocumentNeededFonts: Helvetica
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%Extensions: CMYK
+%%Pages: 1
+%%BoundingBox:     0     0   538   436
+%%EndComments
+
+%%BeginProlog
+% MathWorks dictionary
+/MathWorks 160 dict begin
+% definition operators
+/bdef {bind def} bind def
+/ldef {load def} bind def
+/xdef {exch def} bdef
+/xstore {exch store} bdef
+% operator abbreviations
+/c  /clip ldef
+/cc /concat ldef
+/cp /closepath ldef
+/gr /grestore ldef
+/gs /gsave ldef
+/mt /moveto ldef
+/np /newpath ldef
+/cm /currentmatrix ldef
+/sm /setmatrix ldef
+/rm /rmoveto ldef
+/rl /rlineto ldef
+/s {show newpath} bdef
+/sc {setcmykcolor} bdef
+/sr /setrgbcolor ldef
+/sg /setgray ldef
+/w /setlinewidth ldef
+/j /setlinejoin ldef
+/cap /setlinecap ldef
+/rc {rectclip} bdef
+/rf {rectfill} bdef
+% page state control
+/pgsv () def
+/bpage {/pgsv save def} bdef
+/epage {pgsv restore} bdef
+/bplot /gsave ldef
+/eplot {stroke grestore} bdef
+% orientation switch
+/portraitMode 0 def /landscapeMode 1 def /rotateMode 2 def
+% coordinate system mappings
+/dpi2point 0 def
+% font control
+/FontSize 0 def
+/FMS {/FontSize xstore findfont [FontSize 0 0 FontSize neg 0 0]
+  makefont setfont} bdef
+/reencode {exch dup where {pop load} {pop StandardEncoding} ifelse
+  exch dup 3 1 roll findfont dup length dict begin
+  { 1 index /FID ne {def}{pop pop} ifelse } forall
+  /Encoding exch def currentdict end definefont pop} bdef
+/isroman {findfont /CharStrings get /Agrave known} bdef
+/FMSR {3 1 roll 1 index dup isroman {reencode} {pop pop} ifelse
+  exch FMS} bdef
+/csm {1 dpi2point div -1 dpi2point div scale neg translate
+ dup landscapeMode eq {pop -90 rotate}
+  {rotateMode eq {90 rotate} if} ifelse} bdef
+% line types: solid, dotted, dashed, dotdash
+/SO { [] 0 setdash } bdef
+/DO { [.5 dpi2point mul 4 dpi2point mul] 0 setdash } bdef
+/DA { [6 dpi2point mul] 0 setdash } bdef
+/DD { [.5 dpi2point mul 4 dpi2point mul 6 dpi2point mul 4
+  dpi2point mul] 0 setdash } bdef
+% macros for lines and objects
+/L {lineto stroke} bdef
+/MP {3 1 roll moveto 1 sub {rlineto} repeat} bdef
+/AP {{rlineto} repeat} bdef
+/PDlw -1 def
+/W {/PDlw currentlinewidth def setlinewidth} def
+/PP {closepath eofill} bdef
+/DP {closepath stroke} bdef
+/MR {4 -2 roll moveto dup  0 exch rlineto exch 0 rlineto
+  neg 0 exch rlineto closepath} bdef
+/FR {MR stroke} bdef
+/PR {MR fill} bdef
+/L1i {{currentfile picstr readhexstring pop} image} bdef
+/tMatrix matrix def
+/MakeOval {newpath tMatrix currentmatrix pop translate scale
+0 0 1 0 360 arc tMatrix setmatrix} bdef
+/FO {MakeOval stroke} bdef
+/PO {MakeOval fill} bdef
+/PD {currentlinewidth 2 div 0 360 arc fill
+   PDlw -1 eq not {PDlw w /PDlw -1 def} if} def
+/FA {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arc tMatrix setmatrix stroke} bdef
+/PA {newpath tMatrix currentmatrix pop	translate 0 0 moveto scale
+  0 0 1 5 -2 roll arc closepath tMatrix setmatrix fill} bdef
+/FAn {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arcn tMatrix setmatrix stroke} bdef
+/PAn {newpath tMatrix currentmatrix pop translate 0 0 moveto scale
+  0 0 1 5 -2 roll arcn closepath tMatrix setmatrix fill} bdef
+/vradius 0 def /hradius 0 def /lry 0 def
+/lrx 0 def /uly 0 def /ulx 0 def /rad 0 def
+/MRR {/vradius xdef /hradius xdef /lry xdef /lrx xdef /uly xdef
+  /ulx xdef newpath tMatrix currentmatrix pop ulx hradius add uly
+  vradius add translate hradius vradius scale 0 0 1 180 270 arc 
+  tMatrix setmatrix lrx hradius sub uly vradius add translate
+  hradius vradius scale 0 0 1 270 360 arc tMatrix setmatrix
+  lrx hradius sub lry vradius sub translate hradius vradius scale
+  0 0 1 0 90 arc tMatrix setmatrix ulx hradius add lry vradius sub
+  translate hradius vradius scale 0 0 1 90 180 arc tMatrix setmatrix
+  closepath} bdef
+/FRR {MRR stroke } bdef
+/PRR {MRR fill } bdef
+/MlrRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lry uly sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 90 270 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 270 90 arc tMatrix setmatrix
+  closepath} bdef
+/FlrRR {MlrRR stroke } bdef
+/PlrRR {MlrRR fill } bdef
+/MtbRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lrx ulx sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 180 360 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 0 180 arc tMatrix setmatrix
+  closepath} bdef
+/FtbRR {MtbRR stroke } bdef
+/PtbRR {MtbRR fill } bdef
+/stri 6 array def /dtri 6 array def
+/smat 6 array def /dmat 6 array def
+/tmat1 6 array def /tmat2 6 array def /dif 3 array def
+/asub {/ind2 exch def /ind1 exch def dup dup
+  ind1 get exch ind2 get sub exch } bdef
+/tri_to_matrix {
+  2 0 asub 3 1 asub 4 0 asub 5 1 asub
+  dup 0 get exch 1 get 7 -1 roll astore } bdef
+/compute_transform {
+  dmat dtri tri_to_matrix tmat1 invertmatrix 
+  smat stri tri_to_matrix tmat2 concatmatrix } bdef
+/ds {stri astore pop} bdef
+/dt {dtri astore pop} bdef
+/db {2 copy /cols xdef /rows xdef mul dup 3 mul string
+  currentfile exch readhexstring pop
+  dup 0 3 index getinterval /rbmap xdef
+  dup 2 index dup getinterval /gbmap xdef
+  1 index dup 2 mul exch getinterval /bbmap xdef pop pop}bdef
+/it {gs np dtri aload pop moveto lineto lineto cp c
+  cols rows 8 compute_transform 
+  rbmap gbmap bbmap true 3 colorimage gr}bdef
+/il {newpath moveto lineto stroke}bdef
+currentdict end def
+%%EndProlog
+
+%%BeginSetup
+MathWorks begin
+
+0 cap
+
+end
+%%EndSetup
+
+%%Page: 1 1
+%%BeginPageSetup
+%%PageBoundingBox:     0     0   538   436
+MathWorks begin
+bpage
+%%EndPageSetup
+
+%%BeginObject: obj1
+bplot
+
+/dpi2point 12 def
+portraitMode 0000 5184 csm
+
+    0   -48  6464  5232 MR c np
+85 dict begin %Colortable dictionary
+/c0 { 0.000000 0.000000 0.000000 sr} bdef
+/c1 { 1.000000 1.000000 1.000000 sr} bdef
+/c2 { 0.900000 0.000000 0.000000 sr} bdef
+/c3 { 0.000000 0.820000 0.000000 sr} bdef
+/c4 { 0.000000 0.000000 0.800000 sr} bdef
+/c5 { 0.910000 0.820000 0.320000 sr} bdef
+/c6 { 1.000000 0.260000 0.820000 sr} bdef
+/c7 { 0.000000 0.820000 0.820000 sr} bdef
+c0
+1 j
+1 sg
+   0    0 6913 5185 PR
+6 w
+0 4225 5356 0 0 -4225 899 4614 4 MP
+PP
+-5356 0 0 4225 5356 0 0 -4225 899 4614 5 MP stroke
+4 w
+DO
+SO
+6 w
+0 sg
+ 899 4614 mt 6255 4614 L
+ 899  389 mt 6255  389 L
+ 899 4614 mt  899  389 L
+6255 4614 mt 6255  389 L
+ 899 4614 mt 6255 4614 L
+ 899 4614 mt  899  389 L
+ 899 4614 mt  899 4587 L
+ 899  389 mt  899  415 L
+ 899 4614 mt  899 4560 L
+ 899  389 mt  899  442 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+ 739 4916 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+ 979 4782 mt 
+(0) s
+1221 4614 mt 1221 4587 L
+1221  389 mt 1221  415 L
+1410 4614 mt 1410 4587 L
+1410  389 mt 1410  415 L
+1543 4614 mt 1543 4587 L
+1543  389 mt 1543  415 L
+1647 4614 mt 1647 4587 L
+1647  389 mt 1647  415 L
+1732 4614 mt 1732 4587 L
+1732  389 mt 1732  415 L
+1804 4614 mt 1804 4587 L
+1804  389 mt 1804  415 L
+1866 4614 mt 1866 4587 L
+1866  389 mt 1866  415 L
+1921 4614 mt 1921 4587 L
+1921  389 mt 1921  415 L
+1970 4614 mt 1970 4587 L
+1970  389 mt 1970  415 L
+1970 4614 mt 1970 4560 L
+1970  389 mt 1970  442 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+1810 4916 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+2050 4782 mt 
+(1) s
+2292 4614 mt 2292 4587 L
+2292  389 mt 2292  415 L
+2481 4614 mt 2481 4587 L
+2481  389 mt 2481  415 L
+2615 4614 mt 2615 4587 L
+2615  389 mt 2615  415 L
+2718 4614 mt 2718 4587 L
+2718  389 mt 2718  415 L
+2803 4614 mt 2803 4587 L
+2803  389 mt 2803  415 L
+2875 4614 mt 2875 4587 L
+2875  389 mt 2875  415 L
+2937 4614 mt 2937 4587 L
+2937  389 mt 2937  415 L
+2992 4614 mt 2992 4587 L
+2992  389 mt 2992  415 L
+3041 4614 mt 3041 4587 L
+3041  389 mt 3041  415 L
+3041 4614 mt 3041 4560 L
+3041  389 mt 3041  442 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+2881 4916 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+3121 4782 mt 
+(2) s
+3363 4614 mt 3363 4587 L
+3363  389 mt 3363  415 L
+3552 4614 mt 3552 4587 L
+3552  389 mt 3552  415 L
+3686 4614 mt 3686 4587 L
+3686  389 mt 3686  415 L
+3790 4614 mt 3790 4587 L
+3790  389 mt 3790  415 L
+3874 4614 mt 3874 4587 L
+3874  389 mt 3874  415 L
+3946 4614 mt 3946 4587 L
+3946  389 mt 3946  415 L
+4008 4614 mt 4008 4587 L
+4008  389 mt 4008  415 L
+4063 4614 mt 4063 4587 L
+4063  389 mt 4063  415 L
+4112 4614 mt 4112 4587 L
+4112  389 mt 4112  415 L
+4112 4614 mt 4112 4560 L
+4112  389 mt 4112  442 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+3952 4916 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+4192 4782 mt 
+(3) s
+4435 4614 mt 4435 4587 L
+4435  389 mt 4435  415 L
+4623 4614 mt 4623 4587 L
+4623  389 mt 4623  415 L
+4757 4614 mt 4757 4587 L
+4757  389 mt 4757  415 L
+4861 4614 mt 4861 4587 L
+4861  389 mt 4861  415 L
+4946 4614 mt 4946 4587 L
+4946  389 mt 4946  415 L
+5017 4614 mt 5017 4587 L
+5017  389 mt 5017  415 L
+5079 4614 mt 5079 4587 L
+5079  389 mt 5079  415 L
+5134 4614 mt 5134 4587 L
+5134  389 mt 5134  415 L
+5183 4614 mt 5183 4587 L
+5183  389 mt 5183  415 L
+5183 4614 mt 5183 4560 L
+5183  389 mt 5183  442 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+5023 4916 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+5263 4782 mt 
+(4) s
+5506 4614 mt 5506 4587 L
+5506  389 mt 5506  415 L
+5694 4614 mt 5694 4587 L
+5694  389 mt 5694  415 L
+5828 4614 mt 5828 4587 L
+5828  389 mt 5828  415 L
+5932 4614 mt 5932 4587 L
+5932  389 mt 5932  415 L
+6017 4614 mt 6017 4587 L
+6017  389 mt 6017  415 L
+6089 4614 mt 6089 4587 L
+6089  389 mt 6089  415 L
+6151 4614 mt 6151 4587 L
+6151  389 mt 6151  415 L
+6205 4614 mt 6205 4587 L
+6205  389 mt 6205  415 L
+6255 4614 mt 6255 4587 L
+6255  389 mt 6255  415 L
+6255 4614 mt 6255 4560 L
+6255  389 mt 6255  442 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+6095 4916 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+6335 4782 mt 
+(5) s
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  952 4614 L
+6255 4614 mt 6201 4614 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+ 544 4694 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+ 784 4560 mt 
+(0) s
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 3557 mt  952 3557 L
+6255 3557 mt 6201 3557 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+ 544 3637 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+ 784 3503 mt 
+(2) s
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 2501 mt  952 2501 L
+6255 2501 mt 6201 2501 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+ 544 2581 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+ 784 2447 mt 
+(4) s
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 1445 mt  952 1445 L
+6255 1445 mt 6201 1445 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+ 544 1525 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+ 784 1391 mt 
+(6) s
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899  389 mt  952  389 L
+6255  389 mt 6201  389 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+ 544  469 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 144 FMSR
+
+ 784  335 mt 
+(8) s
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt  899 4614 L
+ 899 4614 mt 6255 4614 L
+ 899  389 mt 6255  389 L
+ 899 4614 mt  899  389 L
+6255 4614 mt 6255  389 L
+gs 899 389 5357 4226 MR c np
+gr
+
+gs 778 385 5196 4351 MR c np
+  60   60  899  506 FO
+  60   60 1221  682 FO
+  60   60 1410  755 FO
+  60   60 1543  775 FO
+  60   60 1647  776 FO
+  60   60 1732  914 FO
+  60   60 1804  982 FO
+  60   60 1866 1002 FO
+  60   60 1921 1011 FO
+  60   60 1970 1012 FO
+  60   60 2014 1012 FO
+  60   60 2055 1027 FO
+  60   60 2092 1036 FO
+  60   60 2126 1036 FO
+  60   60 2158 1048 FO
+  60   60 2188 1065 FO
+  60   60 2217 1090 FO
+  60   60 2243 1095 FO
+  60   60 2268 1103 FO
+  60   60 2292 1111 FO
+  60   60 2315 1112 FO
+  60   60 2337 1114 FO
+  60   60 2357 1118 FO
+  60   60 2377 1130 FO
+  60   60 2396 1130 FO
+  60   60 2414 1135 FO
+  60   60 2432 1144 FO
+  60   60 2449 1150 FO
+  60   60 2465 1152 FO
+  60   60 2481 1165 FO
+  60   60 2496 1188 FO
+  60   60 2511 1190 FO
+  60   60 2525 1192 FO
+  60   60 2539 1193 FO
+  60   60 2553 1198 FO
+  60   60 2566 1211 FO
+  60   60 2578 1221 FO
+  60   60 2591 1234 FO
+  60   60 2603 1234 FO
+  60   60 2615 1240 FO
+  60   60 2626 1242 FO
+  60   60 2637 1250 FO
+  60   60 2648 1261 FO
+  60   60 2659 1262 FO
+  60   60 2669 1264 FO
+  60   60 2680 1265 FO
+  60   60 2690 1266 FO
+  60   60 2699 1279 FO
+  60   60 2709 1280 FO
+  60   60 2718 1280 FO
+  60   60 2728 1281 FO
+  60   60 2737 1282 FO
+  60   60 2746 1284 FO
+  60   60 2754 1285 FO
+  60   60 2763 1301 FO
+  60   60 2771 1307 FO
+  60   60 2779 1307 FO
+  60   60 2787 1308 FO
+  60   60 2795 1311 FO
+  60   60 2803 1313 FO
+  60   60 2811 1313 FO
+  60   60 2819 1315 FO
+  60   60 2826 1320 FO
+  60   60 2833 1327 FO
+  60   60 2840 1327 FO
+  60   60 2848 1331 FO
+  60   60 2855 1332 FO
+  60   60 2861 1335 FO
+  60   60 2868 1337 FO
+  60   60 2875 1342 FO
+  60   60 2882 1343 FO
+  60   60 2888 1347 FO
+  60   60 2894 1351 FO
+  60   60 2901 1357 FO
+  60   60 2907 1358 FO
+  60   60 2913 1362 FO
+  60   60 2919 1364 FO
+  60   60 2925 1373 FO
+  60   60 2931 1376 FO
+  60   60 2937 1377 FO
+  60   60 2943 1393 FO
+  60   60 2949 1396 FO
+  60   60 2954 1402 FO
+  60   60 2960 1403 FO
+  60   60 2965 1409 FO
+  60   60 2971 1412 FO
+  60   60 2976 1415 FO
+  60   60 2981 1420 FO
+  60   60 2987 1420 FO
+  60   60 2992 1421 FO
+  60   60 2997 1422 FO
+  60   60 3002 1433 FO
+  60   60 3007 1435 FO
+  60   60 3012 1436 FO
+  60   60 3017 1436 FO
+  60   60 3022 1449 FO
+  60   60 3027 1449 FO
+  60   60 3032 1451 FO
+  60   60 3036 1451 FO
+  60   60 3041 1459 FO
+  60   60 3046 1460 FO
+  60   60 3050 1463 FO
+  60   60 3055 1464 FO
+  60   60 3059 1469 FO
+  60   60 3064 1473 FO
+  60   60 3068 1474 FO
+  60   60 3072 1474 FO
+  60   60 3077 1476 FO
+  60   60 3081 1478 FO
+  60   60 3085 1478 FO
+  60   60 3089 1478 FO
+  60   60 3094 1479 FO
+  60   60 3098 1482 FO
+  60   60 3102 1482 FO
+  60   60 3106 1482 FO
+  60   60 3110 1484 FO
+  60   60 3114 1485 FO
+  60   60 3118 1490 FO
+  60   60 3122 1495 FO
+  60   60 3126 1496 FO
+  60   60 3130 1500 FO
+  60   60 3133 1501 FO
+  60   60 3137 1503 FO
+  60   60 3141 1503 FO
+  60   60 3145 1504 FO
+  60   60 3148 1505 FO
+  60   60 3152 1508 FO
+  60   60 3156 1511 FO
+  60   60 3159 1514 FO
+  60   60 3163 1516 FO
+  60   60 3167 1518 FO
+  60   60 3170 1518 FO
+  60   60 3174 1518 FO
+  60   60 3177 1525 FO
+  60   60 3181 1525 FO
+  60   60 3184 1525 FO
+  60   60 3187 1529 FO
+  60   60 3191 1541 FO
+  60   60 3194 1547 FO
+  60   60 3197 1548 FO
+  60   60 3201 1549 FO
+  60   60 3204 1549 FO
+  60   60 3207 1549 FO
+  60   60 3211 1551 FO
+  60   60 3214 1557 FO
+  60   60 3217 1558 FO
+  60   60 3220 1563 FO
+  60   60 3223 1566 FO
+  60   60 3226 1566 FO
+  60   60 3230 1566 FO
+  60   60 3233 1569 FO
+  60   60 3236 1569 FO
+  60   60 3239 1569 FO
+  60   60 3242 1570 FO
+  60   60 3245 1571 FO
+  60   60 3248 1572 FO
+  60   60 3251 1576 FO
+  60   60 3254 1579 FO
+  60   60 3257 1581 FO
+  60   60 3260 1581 FO
+  60   60 3262 1582 FO
+  60   60 3265 1583 FO
+  60   60 3268 1586 FO
+  60   60 3271 1591 FO
+  60   60 3274 1596 FO
+  60   60 3277 1597 FO
+  60   60 3279 1598 FO
+  60   60 3282 1600 FO
+  60   60 3285 1602 FO
+  60   60 3288 1604 FO
+  60   60 3290 1604 FO
+  60   60 3293 1607 FO
+  60   60 3296 1609 FO
+  60   60 3299 1611 FO
+  60   60 3301 1611 FO
+  60   60 3304 1613 FO
+  60   60 3307 1613 FO
+  60   60 3309 1613 FO
+  60   60 3312 1614 FO
+  60   60 3314 1616 FO
+  60   60 3317 1617 FO
+  60   60 3319 1619 FO
+  60   60 3322 1621 FO
+  60   60 3325 1624 FO
+  60   60 3327 1624 FO
+  60   60 3330 1626 FO
+  60   60 3332 1627 FO
+  60   60 3335 1629 FO
+  60   60 3337 1629 FO
+  60   60 3340 1630 FO
+  60   60 3342 1631 FO
+  60   60 3344 1632 FO
+  60   60 3347 1632 FO
+  60   60 3349 1633 FO
+  60   60 3352 1634 FO
+  60   60 3354 1637 FO
+  60   60 3356 1639 FO
+  60   60 3359 1645 FO
+  60   60 3361 1646 FO
+  60   60 3363 1649 FO
+  60   60 3366 1653 FO
+  60   60 3368 1653 FO
+  60   60 3370 1658 FO
+  60   60 3373 1659 FO
+  60   60 3375 1659 FO
+  60   60 3377 1660 FO
+  60   60 3379 1660 FO
+  60   60 3382 1661 FO
+  60   60 3384 1663 FO
+  60   60 3386 1665 FO
+  60   60 3388 1665 FO
+  60   60 3390 1666 FO
+  60   60 3393 1669 FO
+  60   60 3395 1670 FO
+  60   60 3397 1670 FO
+  60   60 3399 1670 FO
+  60   60 3401 1670 FO
+  60   60 3403 1671 FO
+  60   60 3406 1673 FO
+  60   60 3408 1676 FO
+  60   60 3410 1676 FO
+  60   60 3412 1679 FO
+  60   60 3414 1679 FO
+  60   60 3416 1683 FO
+  60   60 3418 1683 FO
+  60   60 3420 1685 FO
+  60   60 3422 1685 FO
+  60   60 3424 1686 FO
+  60   60 3426 1686 FO
+  60   60 3428 1690 FO
+  60   60 3430 1692 FO
+  60   60 3432 1693 FO
+  60   60 3434 1694 FO
+  60   60 3436 1697 FO
+  60   60 3438 1698 FO
+  60   60 3440 1700 FO
+  60   60 3442 1702 FO
+  60   60 3444 1703 FO
+  60   60 3446 1703 FO
+  60   60 3448 1705 FO
+  60   60 3450 1706 FO
+  60   60 3452 1706 FO
+  60   60 3454 1707 FO
+  60   60 3456 1709 FO
+  60   60 3458 1710 FO
+  60   60 3460 1711 FO
+  60   60 3462 1713 FO
+  60   60 3463 1713 FO
+  60   60 3465 1714 FO
+  60   60 3467 1720 FO
+  60   60 3469 1720 FO
+  60   60 3471 1724 FO
+  60   60 3473 1725 FO
+  60   60 3475 1727 FO
+  60   60 3476 1728 FO
+  60   60 3478 1729 FO
+  60   60 3480 1737 FO
+  60   60 3482 1739 FO
+  60   60 3484 1744 FO
+  60   60 3485 1744 FO
+  60   60 3487 1745 FO
+  60   60 3489 1745 FO
+  60   60 3491 1746 FO
+  60   60 3493 1748 FO
+  60   60 3494 1751 FO
+  60   60 3496 1753 FO
+  60   60 3498 1753 FO
+  60   60 3500 1753 FO
+  60   60 3501 1754 FO
+  60   60 3503 1754 FO
+  60   60 3505 1754 FO
+  60   60 3506 1757 FO
+  60   60 3508 1757 FO
+  60   60 3510 1759 FO
+  60   60 3512 1759 FO
+  60   60 3513 1760 FO
+  60   60 3515 1760 FO
+  60   60 3517 1761 FO
+  60   60 3518 1761 FO
+  60   60 3520 1762 FO
+  60   60 3522 1762 FO
+  60   60 3523 1762 FO
+  60   60 3525 1763 FO
+  60   60 3526 1764 FO
+  60   60 3528 1765 FO
+  60   60 3530 1766 FO
+  60   60 3531 1766 FO
+  60   60 3533 1766 FO
+  60   60 3535 1767 FO
+  60   60 3536 1767 FO
+  60   60 3538 1769 FO
+  60   60 3539 1772 FO
+  60   60 3541 1772 FO
+  60   60 3543 1774 FO
+  60   60 3544 1775 FO
+  60   60 3546 1775 FO
+  60   60 3547 1775 FO
+  60   60 3549 1778 FO
+  60   60 3550 1778 FO
+  60   60 3552 1778 FO
+  60   60 3554 1780 FO
+  60   60 3555 1781 FO
+  60   60 3557 1782 FO
+  60   60 3558 1782 FO
+  60   60 3560 1783 FO
+  60   60 3561 1784 FO
+  60   60 3563 1784 FO
+  60   60 3564 1784 FO
+  60   60 3566 1788 FO
+  60   60 3567 1791 FO
+  60   60 3569 1792 FO
+  60   60 3570 1793 FO
+  60   60 3572 1794 FO
+  60   60 3573 1795 FO
+  60   60 3575 1795 FO
+  60   60 3576 1796 FO
+  60   60 3578 1796 FO
+  60   60 3579 1797 FO
+  60   60 3581 1797 FO
+  60   60 3582 1797 FO
+  60   60 3583 1798 FO
+  60   60 3585 1802 FO
+  60   60 3586 1802 FO
+  60   60 3588 1803 FO
+  60   60 3589 1805 FO
+  60   60 3591 1806 FO
+  60   60 3592 1806 FO
+  60   60 3594 1806 FO
+  60   60 3595 1807 FO
+  60   60 3596 1809 FO
+  60   60 3598 1811 FO
+  60   60 3599 1812 FO
+  60   60 3601 1814 FO
+  60   60 3602 1820 FO
+  60   60 3603 1820 FO
+  60   60 3605 1821 FO
+  60   60 3606 1822 FO
+  60   60 3607 1822 FO
+  60   60 3609 1823 FO
+  60   60 3610 1823 FO
+  60   60 3612 1824 FO
+  60   60 3613 1824 FO
+  60   60 3614 1826 FO
+  60   60 3616 1829 FO
+  60   60 3617 1829 FO
+  60   60 3618 1831 FO
+  60   60 3620 1832 FO
+  60   60 3621 1832 FO
+  60   60 3622 1833 FO
+  60   60 3624 1835 FO
+  60   60 3625 1838 FO
+  60   60 3626 1839 FO
+  60   60 3628 1839 FO
+  60   60 3629 1839 FO
+  60   60 3630 1839 FO
+  60   60 3632 1840 FO
+  60   60 3633 1840 FO
+  60   60 3634 1842 FO
+  60   60 3636 1843 FO
+  60   60 3637 1845 FO
+  60   60 3638 1845 FO
+  60   60 3639 1846 FO
+  60   60 3641 1848 FO
+  60   60 3642 1850 FO
+  60   60 3643 1852 FO
+  60   60 3645 1852 FO
+  60   60 3646 1854 FO
+  60   60 3647 1855 FO
+  60   60 3648 1855 FO
+  60   60 3650 1856 FO
+  60   60 3651 1856 FO
+  60   60 3652 1857 FO
+  60   60 3653 1857 FO
+  60   60 3655 1858 FO
+  60   60 3656 1859 FO
+  60   60 3657 1859 FO
+  60   60 3658 1859 FO
+  60   60 3660 1862 FO
+  60   60 3661 1863 FO
+  60   60 3662 1864 FO
+  60   60 3663 1865 FO
+  60   60 3664 1866 FO
+  60   60 3666 1867 FO
+  60   60 3667 1868 FO
+  60   60 3668 1868 FO
+  60   60 3669 1868 FO
+  60   60 3670 1871 FO
+  60   60 3672 1873 FO
+  60   60 3673 1874 FO
+  60   60 3674 1875 FO
+  60   60 3675 1875 FO
+  60   60 3676 1879 FO
+  60   60 3678 1884 FO
+  60   60 3679 1886 FO
+  60   60 3680 1886 FO
+  60   60 3681 1886 FO
+  60   60 3682 1888 FO
+  60   60 3683 1888 FO
+  60   60 3685 1889 FO
+  60   60 3686 1889 FO
+  60   60 3687 1890 FO
+  60   60 3688 1891 FO
+  60   60 3689 1891 FO
+  60   60 3690 1891 FO
+  60   60 3692 1892 FO
+  60   60 3693 1892 FO
+  60   60 3694 1893 FO
+  60   60 3695 1893 FO
+  60   60 3696 1894 FO
+  60   60 3697 1896 FO
+  60   60 3698 1898 FO
+  60   60 3700 1900 FO
+  60   60 3701 1901 FO
+  60   60 3702 1902 FO
+  60   60 3703 1903 FO
+  60   60 3704 1903 FO
+  60   60 3705 1904 FO
+  60   60 3706 1904 FO
+  60   60 3707 1904 FO
+  60   60 3709 1906 FO
+  60   60 3710 1906 FO
+  60   60 3711 1908 FO
+  60   60 3712 1909 FO
+  60   60 3713 1910 FO
+  60   60 3714 1910 FO
+  60   60 3715 1911 FO
+  60   60 3716 1915 FO
+  60   60 3717 1916 FO
+  60   60 3718 1916 FO
+  60   60 3719 1916 FO
+  60   60 3721 1916 FO
+  60   60 3722 1917 FO
+  60   60 3723 1917 FO
+  60   60 3724 1917 FO
+  60   60 3725 1918 FO
+  60   60 3726 1922 FO
+  60   60 3727 1923 FO
+  60   60 3728 1924 FO
+  60   60 3729 1924 FO
+  60   60 3730 1924 FO
+  60   60 3731 1926 FO
+  60   60 3732 1927 FO
+  60   60 3733 1927 FO
+  60   60 3734 1927 FO
+  60   60 3735 1927 FO
+  60   60 3736 1929 FO
+  60   60 3738 1929 FO
+  60   60 3739 1929 FO
+  60   60 3740 1931 FO
+  60   60 3741 1932 FO
+  60   60 3742 1933 FO
+  60   60 3743 1934 FO
+  60   60 3744 1936 FO
+  60   60 3745 1937 FO
+  60   60 3746 1938 FO
+  60   60 3747 1938 FO
+  60   60 3748 1939 FO
+  60   60 3749 1939 FO
+  60   60 3750 1941 FO
+  60   60 3751 1941 FO
+  60   60 3752 1941 FO
+  60   60 3753 1942 FO
+  60   60 3754 1942 FO
+  60   60 3755 1943 FO
+  60   60 3756 1943 FO
+  60   60 3757 1944 FO
+  60   60 3758 1945 FO
+  60   60 3759 1945 FO
+  60   60 3760 1946 FO
+  60   60 3761 1946 FO
+  60   60 3762 1947 FO
+  60   60 3763 1948 FO
+  60   60 3764 1948 FO
+  60   60 3765 1948 FO
+  60   60 3766 1948 FO
+  60   60 3767 1949 FO
+  60   60 3768 1949 FO
+  60   60 3769 1951 FO
+  60   60 3770 1951 FO
+  60   60 3771 1952 FO
+  60   60 3772 1953 FO
+  60   60 3773 1955 FO
+  60   60 3774 1957 FO
+  60   60 3775 1959 FO
+  60   60 3776 1959 FO
+  60   60 3777 1960 FO
+  60   60 3778 1960 FO
+  60   60 3779 1960 FO
+  60   60 3780 1961 FO
+  60   60 3781 1963 FO
+  60   60 3782 1964 FO
+  60   60 3783 1965 FO
+  60   60 3784 1966 FO
+  60   60 3785 1966 FO
+  60   60 3786 1968 FO
+  60   60 3787 1970 FO
+  60   60 3788 1970 FO
+  60   60 3789 1972 FO
+  60   60 3790 1972 FO
+  60   60 3791 1973 FO
+  60   60 3791 1974 FO
+  60   60 3792 1974 FO
+  60   60 3793 1975 FO
+  60   60 3794 1975 FO
+  60   60 3795 1975 FO
+  60   60 3796 1977 FO
+  60   60 3797 1979 FO
+  60   60 3798 1979 FO
+  60   60 3799 1980 FO
+  60   60 3800 1980 FO
+  60   60 3801 1980 FO
+  60   60 3802 1981 FO
+  60   60 3802 1982 FO
+  60   60 3803 1982 FO
+  60   60 3804 1983 FO
+  60   60 3805 1983 FO
+  60   60 3806 1983 FO
+  60   60 3807 1984 FO
+  60   60 3808 1985 FO
+  60   60 3809 1988 FO
+  60   60 3810 1988 FO
+  60   60 3811 1989 FO
+  60   60 3811 1991 FO
+  60   60 3812 1992 FO
+  60   60 3813 1994 FO
+  60   60 3814 1995 FO
+  60   60 3815 1998 FO
+  60   60 3816 1998 FO
+  60   60 3817 1999 FO
+  60   60 3818 1999 FO
+  60   60 3818 2001 FO
+  60   60 3819 2002 FO
+  60   60 3820 2003 FO
+  60   60 3821 2003 FO
+  60   60 3822 2004 FO
+  60   60 3823 2006 FO
+  60   60 3824 2006 FO
+  60   60 3825 2007 FO
+  60   60 3826 2009 FO
+  60   60 3827 2011 FO
+  60   60 3828 2013 FO
+  60   60 3829 2014 FO
+  60   60 3830 2014 FO
+  60   60 3831 2015 FO
+  60   60 3832 2015 FO
+  60   60 3833 2015 FO
+  60   60 3834 2016 FO
+  60   60 3835 2018 FO
+  60   60 3836 2018 FO
+  60   60 3837 2019 FO
+  60   60 3838 2019 FO
+  60   60 3839 2020 FO
+  60   60 3840 2020 FO
+  60   60 3841 2021 FO
+  60   60 3842 2021 FO
+  60   60 3843 2021 FO
+  60   60 3844 2021 FO
+  60   60 3845 2023 FO
+  60   60 3846 2024 FO
+  60   60 3847 2025 FO
+  60   60 3848 2025 FO
+  60   60 3849 2026 FO
+  60   60 3850 2027 FO
+  60   60 3851 2027 FO
+  60   60 3851 2030 FO
+  60   60 3852 2032 FO
+  60   60 3853 2033 FO
+  60   60 3854 2034 FO
+  60   60 3855 2034 FO
+  60   60 3855 2035 FO
+  60   60 3856 2035 FO
+  60   60 3857 2036 FO
+  60   60 3858 2037 FO
+  60   60 3859 2038 FO
+  60   60 3860 2039 FO
+  60   60 3861 2040 FO
+  60   60 3862 2040 FO
+  60   60 3863 2041 FO
+  60   60 3863 2043 FO
+  60   60 3864 2044 FO
+  60   60 3865 2044 FO
+  60   60 3866 2044 FO
+  60   60 3867 2045 FO
+  60   60 3867 2046 FO
+  60   60 3868 2046 FO
+  60   60 3869 2046 FO
+  60   60 3870 2047 FO
+  60   60 3871 2048 FO
+  60   60 3872 2049 FO
+  60   60 3873 2049 FO
+  60   60 3874 2049 FO
+  60   60 3874 2050 FO
+  60   60 3875 2050 FO
+  60   60 3876 2050 FO
+  60   60 3877 2050 FO
+  60   60 3878 2051 FO
+  60   60 3879 2052 FO
+  60   60 3880 2052 FO
+  60   60 3881 2052 FO
+  60   60 3881 2053 FO
+  60   60 3882 2054 FO
+  60   60 3883 2055 FO
+  60   60 3884 2056 FO
+  60   60 3885 2057 FO
+  60   60 3886 2058 FO
+  60   60 3887 2058 FO
+  60   60 3887 2061 FO
+  60   60 3888 2061 FO
+  60   60 3889 2061 FO
+  60   60 3890 2062 FO
+  60   60 3891 2063 FO
+  60   60 3892 2064 FO
+  60   60 3893 2064 FO
+  60   60 3893 2065 FO
+  60   60 3894 2065 FO
+  60   60 3895 2066 FO
+  60   60 3896 2067 FO
+  60   60 3897 2067 FO
+  60   60 3898 2068 FO
+  60   60 3899 2068 FO
+  60   60 3899 2069 FO
+  60   60 3900 2069 FO
+  60   60 3901 2069 FO
+  60   60 3902 2069 FO
+  60   60 3903 2070 FO
+  60   60 3904 2070 FO
+  60   60 3904 2071 FO
+  60   60 3905 2071 FO
+  60   60 3906 2071 FO
+  60   60 3907 2071 FO
+  60   60 3907 2072 FO
+  60   60 3908 2072 FO
+  60   60 3909 2072 FO
+  60   60 3910 2073 FO
+  60   60 3911 2073 FO
+  60   60 3912 2074 FO
+  60   60 3912 2075 FO
+  60   60 3913 2075 FO
+  60   60 3914 2076 FO
+  60   60 3915 2076 FO
+  60   60 3916 2076 FO
+  60   60 3917 2077 FO
+  60   60 3918 2077 FO
+  60   60 3919 2078 FO
+  60   60 3920 2079 FO
+  60   60 3921 2079 FO
+  60   60 3922 2079 FO
+  60   60 3922 2080 FO
+  60   60 3923 2080 FO
+  60   60 3924 2080 FO
+  60   60 3925 2081 FO
+  60   60 3926 2081 FO
+  60   60 3927 2082 FO
+  60   60 3928 2082 FO
+  60   60 3929 2082 FO
+  60   60 3929 2083 FO
+  60   60 3930 2083 FO
+  60   60 3931 2084 FO
+  60   60 3932 2084 FO
+  60   60 3933 2084 FO
+  60   60 3934 2085 FO
+  60   60 3935 2085 FO
+  60   60 3935 2086 FO
+  60   60 3936 2086 FO
+  60   60 3937 2086 FO
+  60   60 3937 2087 FO
+  60   60 3938 2088 FO
+  60   60 3939 2088 FO
+  60   60 3940 2088 FO
+  60   60 3941 2088 FO
+  60   60 3941 2089 FO
+  60   60 3942 2092 FO
+  60   60 3943 2093 FO
+  60   60 3944 2093 FO
+  60   60 3944 2094 FO
+  60   60 3945 2094 FO
+  60   60 3946 2094 FO
+  60   60 3947 2094 FO
+  60   60 3947 2096 FO
+  60   60 3948 2096 FO
+  60   60 3949 2096 FO
+  60   60 3949 2097 FO
+  60   60 3950 2097 FO
+  60   60 3951 2097 FO
+  60   60 3952 2098 FO
+  60   60 3953 2098 FO
+  60   60 3954 2098 FO
+  60   60 3955 2099 FO
+  60   60 3956 2100 FO
+  60   60 3957 2100 FO
+  60   60 3957 2101 FO
+  60   60 3958 2101 FO
+  60   60 3959 2102 FO
+  60   60 3960 2104 FO
+  60   60 3961 2105 FO
+  60   60 3962 2105 FO
+  60   60 3962 2106 FO
+  60   60 3963 2106 FO
+  60   60 3964 2106 FO
+  60   60 3964 2107 FO
+  60   60 3965 2108 FO
+  60   60 3966 2108 FO
+  60   60 3966 2109 FO
+  60   60 3967 2109 FO
+  60   60 3968 2110 FO
+  60   60 3969 2111 FO
+  60   60 3970 2112 FO
+  60   60 3971 2113 FO
+  60   60 3971 2114 FO
+  60   60 3972 2115 FO
+  60   60 3973 2116 FO
+  60   60 3974 2117 FO
+  60   60 3975 2117 FO
+  60   60 3976 2118 FO
+  60   60 3977 2118 FO
+  60   60 3978 2118 FO
+  60   60 3979 2119 FO
+  60   60 3980 2119 FO
+  60   60 3980 2121 FO
+  60   60 3981 2121 FO
+  60   60 3982 2122 FO
+  60   60 3983 2122 FO
+  60   60 3983 2123 FO
+  60   60 3984 2123 FO
+  60   60 3985 2123 FO
+  60   60 3986 2123 FO
+  60   60 3987 2123 FO
+  60   60 3987 2124 FO
+  60   60 3988 2124 FO
+  60   60 3989 2124 FO
+  60   60 3989 2125 FO
+  60   60 3990 2125 FO
+  60   60 3991 2125 FO
+  60   60 3992 2125 FO
+  60   60 3993 2126 FO
+  60   60 3994 2127 FO
+  60   60 3995 2127 FO
+  60   60 3996 2128 FO
+  60   60 3997 2128 FO
+  60   60 3997 2129 FO
+  60   60 3998 2129 FO
+  60   60 3999 2129 FO
+  60   60 3999 2130 FO
+  60   60 4000 2131 FO
+  60   60 4001 2131 FO
+  60   60 4002 2132 FO
+  60   60 4003 2132 FO
+  60   60 4004 2133 FO
+  60   60 4005 2134 FO
+  60   60 4006 2134 FO
+  60   60 4007 2134 FO
+  60   60 4008 2135 FO
+  60   60 4009 2135 FO
+  60   60 4010 2135 FO
+  60   60 4011 2135 FO
+  60   60 4011 2136 FO
+  60   60 4012 2137 FO
+  60   60 4013 2137 FO
+  60   60 4014 2138 FO
+  60   60 4015 2139 FO
+  60   60 4016 2140 FO
+  60   60 4016 2141 FO
+  60   60 4017 2141 FO
+  60   60 4018 2141 FO
+  60   60 4019 2142 FO
+  60   60 4019 2144 FO
+  60   60 4020 2144 FO
+  60   60 4021 2145 FO
+  60   60 4022 2145 FO
+  60   60 4023 2146 FO
+  60   60 4024 2146 FO
+  60   60 4025 2147 FO
+  60   60 4026 2147 FO
+  60   60 4027 2147 FO
+  60   60 4027 2148 FO
+  60   60 4028 2148 FO
+  60   60 4029 2148 FO
+  60   60 4029 2149 FO
+  60   60 4030 2149 FO
+  60   60 4031 2149 FO
+  60   60 4032 2149 FO
+  60   60 4033 2150 FO
+  60   60 4034 2150 FO
+  60   60 4035 2151 FO
+  60   60 4036 2152 FO
+  60   60 4037 2152 FO
+  60   60 4038 2153 FO
+  60   60 4039 2154 FO
+  60   60 4040 2154 FO
+  60   60 4040 2155 FO
+  60   60 4041 2155 FO
+  60   60 4042 2156 FO
+  60   60 4043 2157 FO
+  60   60 4044 2157 FO
+  60   60 4044 2158 FO
+  60   60 4045 2158 FO
+  60   60 4046 2158 FO
+  60   60 4047 2159 FO
+  60   60 4048 2159 FO
+  60   60 4049 2160 FO
+  60   60 4050 2160 FO
+  60   60 4051 2161 FO
+  60   60 4052 2162 FO
+  60   60 4052 2163 FO
+  60   60 4053 2163 FO
+  60   60 4054 2164 FO
+  60   60 4055 2164 FO
+  60   60 4056 2164 FO
+  60   60 4057 2164 FO
+  60   60 4058 2165 FO
+  60   60 4059 2165 FO
+  60   60 4060 2166 FO
+  60   60 4061 2166 FO
+  60   60 4062 2167 FO
+  60   60 4062 2168 FO
+  60   60 4063 2169 FO
+  60   60 4064 2169 FO
+  60   60 4064 2170 FO
+  60   60 4065 2171 FO
+  60   60 4066 2172 FO
+  60   60 4067 2172 FO
+  60   60 4068 2172 FO
+  60   60 4069 2174 FO
+  60   60 4070 2174 FO
+  60   60 4070 2175 FO
+  60   60 4071 2175 FO
+  60   60 4072 2175 FO
+  60   60 4072 2176 FO
+  60   60 4073 2177 FO
+  60   60 4074 2177 FO
+  60   60 4075 2178 FO
+  60   60 4076 2178 FO
+  60   60 4076 2179 FO
+  60   60 4077 2179 FO
+  60   60 4077 2180 FO
+  60   60 4078 2180 FO
+  60   60 4079 2180 FO
+  60   60 4080 2180 FO
+  60   60 4080 2181 FO
+  60   60 4081 2182 FO
+  60   60 4081 2183 FO
+  60   60 4082 2183 FO
+  60   60 4082 2184 FO
+  60   60 4083 2184 FO
+  60   60 4084 2184 FO
+  60   60 4084 2185 FO
+  60   60 4085 2185 FO
+  60   60 4085 2186 FO
+  60   60 4086 2186 FO
+  60   60 4087 2187 FO
+  60   60 4088 2187 FO
+  60   60 4088 2188 FO
+  60   60 4089 2188 FO
+  60   60 4089 2189 FO
+  60   60 4090 2189 FO
+  60   60 4090 2190 FO
+  60   60 4091 2191 FO
+  60   60 4092 2191 FO
+  60   60 4093 2192 FO
+  60   60 4094 2192 FO
+  60   60 4095 2192 FO
+  60   60 4095 2193 FO
+  60   60 4096 2194 FO
+  60   60 4097 2194 FO
+  60   60 4097 2195 FO
+  60   60 4098 2195 FO
+  60   60 4098 2196 FO
+  60   60 4099 2197 FO
+  60   60 4100 2197 FO
+  60   60 4100 2198 FO
+  60   60 4101 2199 FO
+  60   60 4102 2199 FO
+  60   60 4103 2199 FO
+  60   60 4103 2200 FO
+  60   60 4104 2200 FO
+  60   60 4105 2201 FO
+  60   60 4106 2201 FO
+  60   60 4107 2202 FO
+  60   60 4108 2202 FO
+  60   60 4109 2203 FO
+  60   60 4110 2204 FO
+  60   60 4111 2204 FO
+  60   60 4112 2204 FO
+  60   60 4112 2205 FO
+  60   60 4113 2206 FO
+  60   60 4114 2207 FO
+  60   60 4115 2207 FO
+  60   60 4115 2208 FO
+  60   60 4116 2208 FO
+  60   60 4116 2209 FO
+  60   60 4117 2209 FO
+  60   60 4117 2210 FO
+  60   60 4118 2210 FO
+  60   60 4118 2211 FO
+  60   60 4119 2211 FO
+  60   60 4120 2212 FO
+  60   60 4121 2212 FO
+  60   60 4122 2212 FO
+  60   60 4122 2213 FO
+  60   60 4123 2213 FO
+  60   60 4123 2214 FO
+  60   60 4124 2215 FO
+  60   60 4125 2216 FO
+  60   60 4126 2216 FO
+  60   60 4126 2217 FO
+  60   60 4127 2218 FO
+  60   60 4128 2218 FO
+  60   60 4128 2219 FO
+  60   60 4129 2221 FO
+  60   60 4129 2222 FO
+  60   60 4130 2222 FO
+  60   60 4130 2223 FO
+  60   60 4131 2223 FO
+  60   60 4131 2224 FO
+  60   60 4132 2224 FO
+  60   60 4133 2224 FO
+  60   60 4133 2225 FO
+  60   60 4134 2225 FO
+  60   60 4135 2226 FO
+  60   60 4135 2227 FO
+  60   60 4136 2227 FO
+  60   60 4136 2228 FO
+  60   60 4137 2228 FO
+  60   60 4137 2229 FO
+  60   60 4138 2229 FO
+  60   60 4139 2229 FO
+  60   60 4139 2230 FO
+  60   60 4140 2230 FO
+  60   60 4141 2230 FO
+  60   60 4141 2232 FO
+  60   60 4141 2233 FO
+  60   60 4142 2233 FO
+  60   60 4142 2234 FO
+  60   60 4143 2235 FO
+  60   60 4144 2235 FO
+  60   60 4145 2236 FO
+  60   60 4146 2236 FO
+  60   60 4146 2237 FO
+  60   60 4147 2238 FO
+  60   60 4148 2240 FO
+  60   60 4149 2241 FO
+  60   60 4150 2241 FO
+  60   60 4150 2242 FO
+  60   60 4151 2242 FO
+  60   60 4152 2243 FO
+  60   60 4152 2244 FO
+  60   60 4153 2244 FO
+  60   60 4153 2245 FO
+  60   60 4154 2245 FO
+  60   60 4154 2246 FO
+  60   60 4155 2246 FO
+  60   60 4156 2246 FO
+  60   60 4156 2247 FO
+  60   60 4156 2248 FO
+  60   60 4157 2248 FO
+  60   60 4157 2249 FO
+  60   60 4158 2249 FO
+  60   60 4159 2250 FO
+  60   60 4160 2250 FO
+  60   60 4160 2253 FO
+  60   60 4161 2253 FO
+  60   60 4162 2253 FO
+  60   60 4162 2254 FO
+  60   60 4163 2254 FO
+  60   60 4164 2254 FO
+  60   60 4165 2255 FO
+  60   60 4166 2256 FO
+  60   60 4166 2257 FO
+  60   60 4167 2257 FO
+  60   60 4168 2257 FO
+  60   60 4168 2258 FO
+  60   60 4169 2258 FO
+  60   60 4169 2259 FO
+  60   60 4169 2260 FO
+  60   60 4170 2260 FO
+  60   60 4171 2260 FO
+  60   60 4171 2261 FO
+  60   60 4172 2261 FO
+  60   60 4173 2262 FO
+  60   60 4174 2262 FO
+  60   60 4175 2263 FO
+  60   60 4176 2264 FO
+  60   60 4176 2265 FO
+  60   60 4177 2265 FO
+  60   60 4178 2266 FO
+  60   60 4178 2267 FO
+  60   60 4179 2267 FO
+  60   60 4180 2267 FO
+  60   60 4180 2268 FO
+  60   60 4181 2268 FO
+  60   60 4181 2269 FO
+  60   60 4182 2269 FO
+  60   60 4182 2270 FO
+  60   60 4183 2270 FO
+  60   60 4184 2271 FO
+  60   60 4185 2271 FO
+  60   60 4186 2272 FO
+  60   60 4186 2273 FO
+  60   60 4187 2273 FO
+  60   60 4188 2273 FO
+  60   60 4189 2274 FO
+  60   60 4189 2275 FO
+  60   60 4190 2275 FO
+  60   60 4191 2275 FO
+  60   60 4191 2276 FO
+  60   60 4192 2276 FO
+  60   60 4193 2276 FO
+  60   60 4193 2277 FO
+  60   60 4194 2277 FO
+  60   60 4195 2277 FO
+  60   60 4195 2278 FO
+  60   60 4196 2278 FO
+  60   60 4197 2279 FO
+  60   60 4198 2279 FO
+  60   60 4198 2280 FO
+  60   60 4199 2280 FO
+  60   60 4200 2281 FO
+  60   60 4201 2282 FO
+  60   60 4202 2282 FO
+  60   60 4203 2282 FO
+  60   60 4203 2283 FO
+  60   60 4204 2283 FO
+  60   60 4205 2284 FO
+  60   60 4205 2285 FO
+  60   60 4206 2285 FO
+  60   60 4206 2286 FO
+  60   60 4207 2286 FO
+  60   60 4208 2286 FO
+  60   60 4208 2287 FO
+  60   60 4209 2287 FO
+  60   60 4209 2288 FO
+  60   60 4210 2288 FO
+  60   60 4211 2288 FO
+  60   60 4211 2290 FO
+  60   60 4212 2290 FO
+  60   60 4213 2290 FO
+  60   60 4213 2291 FO
+  60   60 4214 2291 FO
+  60   60 4215 2292 FO
+  60   60 4216 2292 FO
+  60   60 4216 2293 FO
+  60   60 4217 2294 FO
+  60   60 4218 2294 FO
+  60   60 4218 2295 FO
+  60   60 4219 2295 FO
+  60   60 4220 2295 FO
+  60   60 4220 2296 FO
+  60   60 4221 2296 FO
+  60   60 4222 2296 FO
+  60   60 4223 2297 FO
+  60   60 4224 2297 FO
+  60   60 4224 2298 FO
+  60   60 4225 2299 FO
+  60   60 4226 2300 FO
+  60   60 4227 2300 FO
+  60   60 4227 2301 FO
+  60   60 4228 2301 FO
+  60   60 4229 2301 FO
+  60   60 4229 2302 FO
+  60   60 4230 2302 FO
+  60   60 4231 2303 FO
+  60   60 4231 2304 FO
+  60   60 4232 2304 FO
+  60   60 4233 2305 FO
+  60   60 4233 2306 FO
+  60   60 4234 2306 FO
+  60   60 4235 2306 FO
+  60   60 4235 2307 FO
+  60   60 4235 2308 FO
+  60   60 4236 2308 FO
+  60   60 4237 2309 FO
+  60   60 4237 2310 FO
+  60   60 4238 2310 FO
+  60   60 4239 2311 FO
+  60   60 4240 2312 FO
+  60   60 4241 2312 FO
+  60   60 4241 2313 FO
+  60   60 4242 2313 FO
+  60   60 4243 2314 FO
+  60   60 4244 2314 FO
+  60   60 4244 2315 FO
+  60   60 4245 2315 FO
+  60   60 4246 2316 FO
+  60   60 4247 2317 FO
+  60   60 4248 2317 FO
+  60   60 4248 2318 FO
+  60   60 4249 2318 FO
+  60   60 4249 2319 FO
+  60   60 4249 2320 FO
+  60   60 4250 2320 FO
+  60   60 4251 2320 FO
+  60   60 4252 2320 FO
+  60   60 4253 2320 FO
+  60   60 4253 2321 FO
+  60   60 4254 2321 FO
+  60   60 4255 2322 FO
+  60   60 4255 2323 FO
+  60   60 4256 2324 FO
+  60   60 4257 2324 FO
+  60   60 4258 2324 FO
+  60   60 4258 2325 FO
+  60   60 4258 2326 FO
+  60   60 4259 2326 FO
+  60   60 4259 2327 FO
+  60   60 4260 2327 FO
+  60   60 4260 2328 FO
+  60   60 4261 2328 FO
+  60   60 4262 2328 FO
+  60   60 4263 2328 FO
+  60   60 4263 2329 FO
+  60   60 4264 2329 FO
+  60   60 4264 2330 FO
+  60   60 4265 2330 FO
+  60   60 4266 2330 FO
+  60   60 4266 2331 FO
+  60   60 4267 2331 FO
+  60   60 4267 2332 FO
+  60   60 4268 2332 FO
+  60   60 4269 2332 FO
+  60   60 4269 2333 FO
+  60   60 4270 2333 FO
+  60   60 4271 2333 FO
+  60   60 4271 2334 FO
+  60   60 4272 2334 FO
+  60   60 4273 2334 FO
+  60   60 4273 2335 FO
+  60   60 4274 2335 FO
+  60   60 4275 2335 FO
+  60   60 4275 2336 FO
+  60   60 4276 2336 FO
+  60   60 4277 2336 FO
+  60   60 4277 2337 FO
+  60   60 4278 2337 FO
+  60   60 4278 2338 FO
+  60   60 4279 2338 FO
+  60   60 4280 2338 FO
+  60   60 4280 2339 FO
+  60   60 4281 2339 FO
+  60   60 4281 2340 FO
+  60   60 4282 2340 FO
+  60   60 4283 2341 FO
+  60   60 4284 2341 FO
+  60   60 4284 2342 FO
+  60   60 4285 2342 FO
+  60   60 4286 2342 FO
+  60   60 4286 2343 FO
+  60   60 4287 2343 FO
+  60   60 4288 2343 FO
+  60   60 4288 2344 FO
+  60   60 4289 2344 FO
+  60   60 4289 2345 FO
+  60   60 4290 2345 FO
+  60   60 4290 2346 FO
+  60   60 4291 2346 FO
+  60   60 4291 2347 FO
+  60   60 4292 2347 FO
+  60   60 4292 2348 FO
+  60   60 4293 2348 FO
+  60   60 4294 2348 FO
+  60   60 4294 2349 FO
+  60   60 4295 2349 FO
+  60   60 4295 2350 FO
+  60   60 4296 2350 FO
+  60   60 4297 2351 FO
+  60   60 4298 2351 FO
+  60   60 4298 2352 FO
+  60   60 4299 2352 FO
+  60   60 4299 2353 FO
+  60   60 4300 2353 FO
+  60   60 4301 2354 FO
+  60   60 4302 2354 FO
+  60   60 4303 2354 FO
+  60   60 4303 2355 FO
+  60   60 4304 2355 FO
+  60   60 4305 2356 FO
+  60   60 4306 2356 FO
+  60   60 4307 2356 FO
+  60   60 4307 2357 FO
+  60   60 4308 2357 FO
+  60   60 4309 2358 FO
+  60   60 4310 2359 FO
+  60   60 4311 2360 FO
+  60   60 4312 2360 FO
+  60   60 4313 2360 FO
+  60   60 4313 2361 FO
+  60   60 4314 2361 FO
+  60   60 4314 2362 FO
+  60   60 4315 2362 FO
+  60   60 4315 2363 FO
+  60   60 4316 2363 FO
+  60   60 4317 2363 FO
+  60   60 4317 2364 FO
+  60   60 4318 2364 FO
+  60   60 4319 2365 FO
+  60   60 4320 2366 FO
+  60   60 4321 2367 FO
+  60   60 4322 2368 FO
+  60   60 4322 2369 FO
+  60   60 4323 2369 FO
+  60   60 4324 2369 FO
+  60   60 4325 2369 FO
+  60   60 4326 2369 FO
+  60   60 4326 2370 FO
+  60   60 4327 2370 FO
+  60   60 4328 2371 FO
+  60   60 4328 2372 FO
+  60   60 4328 2373 FO
+  60   60 4329 2373 FO
+  60   60 4329 2374 FO
+  60   60 4330 2374 FO
+  60   60 4331 2375 FO
+  60   60 4332 2375 FO
+  60   60 4332 2376 FO
+  60   60 4333 2376 FO
+  60   60 4333 2377 FO
+  60   60 4334 2377 FO
+  60   60 4335 2377 FO
+  60   60 4335 2378 FO
+  60   60 4336 2378 FO
+  60   60 4336 2379 FO
+  60   60 4337 2379 FO
+  60   60 4338 2380 FO
+  60   60 4339 2380 FO
+  60   60 4339 2381 FO
+  60   60 4340 2381 FO
+  60   60 4341 2381 FO
+  60   60 4341 2382 FO
+  60   60 4342 2382 FO
+  60   60 4342 2383 FO
+  60   60 4343 2383 FO
+  60   60 4343 2384 FO
+  60   60 4344 2384 FO
+  60   60 4344 2385 FO
+  60   60 4345 2385 FO
+  60   60 4345 2386 FO
+  60   60 4346 2386 FO
+  60   60 4347 2387 FO
+  60   60 4348 2387 FO
+  60   60 4348 2388 FO
+  60   60 4349 2389 FO
+  60   60 4349 2390 FO
+  60   60 4350 2390 FO
+  60   60 4351 2390 FO
+  60   60 4351 2391 FO
+  60   60 4352 2391 FO
+  60   60 4352 2392 FO
+  60   60 4352 2393 FO
+  60   60 4353 2393 FO
+  60   60 4353 2394 FO
+  60   60 4354 2394 FO
+  60   60 4355 2395 FO
+  60   60 4356 2395 FO
+  60   60 4356 2396 FO
+  60   60 4357 2396 FO
+  60   60 4358 2396 FO
+  60   60 4358 2397 FO
+  60   60 4359 2397 FO
+  60   60 4360 2397 FO
+  60   60 4361 2397 FO
+  60   60 4361 2398 FO
+  60   60 4362 2398 FO
+  60   60 4362 2399 FO
+  60   60 4363 2399 FO
+  60   60 4363 2400 FO
+  60   60 4364 2400 FO
+  60   60 4365 2400 FO
+  60   60 4365 2401 FO
+  60   60 4366 2401 FO
+  60   60 4367 2401 FO
+  60   60 4367 2402 FO
+  60   60 4368 2403 FO
+  60   60 4368 2404 FO
+  60   60 4369 2404 FO
+  60   60 4370 2405 FO
+  60   60 4370 2406 FO
+  60   60 4371 2406 FO
+  60   60 4371 2407 FO
+  60   60 4372 2407 FO
+  60   60 4373 2408 FO
+  60   60 4374 2408 FO
+  60   60 4374 2409 FO
+  60   60 4375 2409 FO
+  60   60 4375 2410 FO
+  60   60 4376 2410 FO
+  60   60 4376 2411 FO
+  60   60 4377 2411 FO
+  60   60 4377 2412 FO
+  60   60 4378 2412 FO
+  60   60 4379 2412 FO
+  60   60 4379 2413 FO
+  60   60 4379 2414 FO
+  60   60 4380 2414 FO
+  60   60 4380 2415 FO
+  60   60 4381 2415 FO
+  60   60 4381 2416 FO
+  60   60 4382 2416 FO
+  60   60 4382 2417 FO
+  60   60 4383 2417 FO
+  60   60 4383 2418 FO
+  60   60 4384 2418 FO
+  60   60 4384 2419 FO
+  60   60 4385 2419 FO
+  60   60 4386 2419 FO
+  60   60 4386 2420 FO
+  60   60 4387 2420 FO
+  60   60 4387 2421 FO
+  60   60 4388 2421 FO
+  60   60 4388 2422 FO
+  60   60 4389 2422 FO
+  60   60 4389 2423 FO
+  60   60 4390 2423 FO
+  60   60 4390 2424 FO
+  60   60 4391 2424 FO
+  60   60 4391 2425 FO
+  60   60 4392 2425 FO
+  60   60 4393 2425 FO
+  60   60 4393 2426 FO
+  60   60 4394 2426 FO
+  60   60 4394 2427 FO
+  60   60 4395 2427 FO
+  60   60 4395 2428 FO
+  60   60 4396 2428 FO
+  60   60 4396 2429 FO
+  60   60 4397 2429 FO
+  60   60 4397 2430 FO
+  60   60 4398 2430 FO
+  60   60 4398 2431 FO
+  60   60 4399 2431 FO
+  60   60 4399 2432 FO
+  60   60 4400 2432 FO
+  60   60 4400 2433 FO
+  60   60 4401 2433 FO
+  60   60 4401 2434 FO
+  60   60 4402 2434 FO
+  60   60 4403 2435 FO
+  60   60 4404 2435 FO
+  60   60 4405 2436 FO
+  60   60 4406 2436 FO
+  60   60 4406 2437 FO
+  60   60 4407 2437 FO
+  60   60 4408 2437 FO
+  60   60 4408 2438 FO
+  60   60 4409 2438 FO
+  60   60 4409 2439 FO
+  60   60 4410 2439 FO
+  60   60 4410 2440 FO
+  60   60 4411 2440 FO
+  60   60 4412 2440 FO
+  60   60 4412 2441 FO
+  60   60 4413 2441 FO
+  60   60 4413 2442 FO
+  60   60 4414 2442 FO
+  60   60 4415 2442 FO
+  60   60 4415 2443 FO
+  60   60 4416 2443 FO
+  60   60 4417 2444 FO
+  60   60 4418 2444 FO
+  60   60 4418 2445 FO
+  60   60 4419 2445 FO
+  60   60 4419 2446 FO
+  60   60 4420 2446 FO
+  60   60 4421 2446 FO
+  60   60 4421 2447 FO
+  60   60 4422 2447 FO
+  60   60 4422 2448 FO
+  60   60 4423 2448 FO
+  60   60 4424 2448 FO
+  60   60 4424 2449 FO
+  60   60 4424 2450 FO
+  60   60 4425 2450 FO
+  60   60 4425 2451 FO
+  60   60 4426 2451 FO
+  60   60 4427 2451 FO
+  60   60 4427 2452 FO
+  60   60 4428 2452 FO
+  60   60 4429 2453 FO
+  60   60 4429 2454 FO
+  60   60 4430 2454 FO
+  60   60 4431 2454 FO
+  60   60 4431 2455 FO
+  60   60 4432 2455 FO
+  60   60 4433 2455 FO
+  60   60 4433 2456 FO
+  60   60 4434 2456 FO
+  60   60 4435 2456 FO
+  60   60 4435 2457 FO
+  60   60 4436 2457 FO
+  60   60 4436 2458 FO
+  60   60 4437 2458 FO
+  60   60 4438 2458 FO
+  60   60 4438 2459 FO
+  60   60 4439 2459 FO
+  60   60 4440 2459 FO
+  60   60 4440 2460 FO
+  60   60 4441 2460 FO
+  60   60 4442 2460 FO
+  60   60 4443 2461 FO
+  60   60 4444 2461 FO
+  60   60 4444 2462 FO
+  60   60 4445 2462 FO
+  60   60 4445 2463 FO
+  60   60 4446 2463 FO
+  60   60 4446 2464 FO
+  60   60 4447 2464 FO
+  60   60 4448 2464 FO
+  60   60 4448 2465 FO
+  60   60 4449 2465 FO
+  60   60 4449 2466 FO
+  60   60 4450 2466 FO
+  60   60 4451 2466 FO
+  60   60 4451 2467 FO
+  60   60 4452 2468 FO
+  60   60 4453 2468 FO
+  60   60 4453 2469 FO
+  60   60 4453 2470 FO
+  60   60 4454 2470 FO
+  60   60 4455 2470 FO
+  60   60 4455 2471 FO
+  60   60 4456 2471 FO
+  60   60 4457 2471 FO
+  60   60 4457 2472 FO
+  60   60 4458 2472 FO
+  60   60 4458 2473 FO
+  60   60 4459 2473 FO
+  60   60 4459 2474 FO
+  60   60 4460 2474 FO
+  60   60 4461 2474 FO
+  60   60 4461 2475 FO
+  60   60 4462 2475 FO
+  60   60 4462 2476 FO
+  60   60 4463 2476 FO
+  60   60 4464 2476 FO
+  60   60 4464 2477 FO
+  60   60 4465 2478 FO
+  60   60 4466 2478 FO
+  60   60 4466 2479 FO
+  60   60 4467 2479 FO
+  60   60 4467 2480 FO
+  60   60 4468 2480 FO
+  60   60 4468 2481 FO
+  60   60 4469 2481 FO
+  60   60 4469 2482 FO
+  60   60 4470 2482 FO
+  60   60 4470 2483 FO
+  60   60 4471 2483 FO
+  60   60 4472 2484 FO
+  60   60 4473 2484 FO
+  60   60 4474 2485 FO
+  60   60 4475 2485 FO
+  60   60 4475 2486 FO
+  60   60 4476 2487 FO
+  60   60 4477 2487 FO
+  60   60 4477 2488 FO
+  60   60 4478 2488 FO
+  60   60 4479 2488 FO
+  60   60 4480 2488 FO
+  60   60 4480 2489 FO
+  60   60 4481 2489 FO
+  60   60 4481 2490 FO
+  60   60 4482 2490 FO
+  60   60 4482 2491 FO
+  60   60 4483 2491 FO
+  60   60 4484 2491 FO
+  60   60 4484 2492 FO
+  60   60 4485 2492 FO
+  60   60 4485 2493 FO
+  60   60 4486 2494 FO
+  60   60 4487 2494 FO
+  60   60 4487 2495 FO
+  60   60 4488 2495 FO
+  60   60 4489 2495 FO
+  60   60 4489 2496 FO
+  60   60 4490 2496 FO
+  60   60 4491 2497 FO
+  60   60 4492 2497 FO
+  60   60 4493 2497 FO
+  60   60 4493 2498 FO
+  60   60 4494 2498 FO
+  60   60 4494 2499 FO
+  60   60 4495 2499 FO
+  60   60 4495 2500 FO
+  60   60 4496 2500 FO
+  60   60 4496 2501 FO
+  60   60 4497 2501 FO
+  60   60 4497 2502 FO
+  60   60 4498 2502 FO
+  60   60 4499 2502 FO
+  60   60 4499 2503 FO
+  60   60 4500 2503 FO
+  60   60 4501 2503 FO
+  60   60 4501 2504 FO
+  60   60 4502 2504 FO
+  60   60 4502 2505 FO
+  60   60 4503 2505 FO
+  60   60 4504 2505 FO
+  60   60 4504 2506 FO
+  60   60 4505 2506 FO
+  60   60 4506 2507 FO
+  60   60 4507 2507 FO
+  60   60 4507 2508 FO
+  60   60 4508 2509 FO
+  60   60 4509 2509 FO
+  60   60 4509 2510 FO
+  60   60 4510 2510 FO
+  60   60 4510 2511 FO
+  60   60 4511 2511 FO
+  60   60 4512 2511 FO
+  60   60 4512 2512 FO
+  60   60 4513 2512 FO
+  60   60 4513 2513 FO
+  60   60 4514 2513 FO
+  60   60 4515 2513 FO
+  60   60 4515 2514 FO
+  60   60 4516 2514 FO
+  60   60 4516 2515 FO
+  60   60 4517 2515 FO
+  60   60 4518 2515 FO
+  60   60 4518 2516 FO
+  60   60 4518 2517 FO
+  60   60 4519 2517 FO
+  60   60 4520 2517 FO
+  60   60 4520 2518 FO
+  60   60 4521 2518 FO
+  60   60 4522 2518 FO
+  60   60 4522 2519 FO
+  60   60 4523 2519 FO
+  60   60 4523 2520 FO
+  60   60 4524 2520 FO
+  60   60 4524 2521 FO
+  60   60 4525 2521 FO
+  60   60 4526 2521 FO
+  60   60 4526 2522 FO
+  60   60 4527 2522 FO
+  60   60 4528 2522 FO
+  60   60 4528 2523 FO
+  60   60 4529 2523 FO
+  60   60 4529 2524 FO
+  60   60 4530 2524 FO
+  60   60 4530 2525 FO
+  60   60 4531 2525 FO
+  60   60 4532 2526 FO
+  60   60 4532 2527 FO
+  60   60 4533 2527 FO
+  60   60 4533 2528 FO
+  60   60 4534 2528 FO
+  60   60 4534 2529 FO
+  60   60 4535 2529 FO
+  60   60 4535 2530 FO
+  60   60 4536 2530 FO
+  60   60 4536 2531 FO
+  60   60 4537 2531 FO
+  60   60 4537 2532 FO
+  60   60 4538 2532 FO
+  60   60 4538 2533 FO
+  60   60 4539 2533 FO
+  60   60 4539 2534 FO
+  60   60 4540 2534 FO
+  60   60 4541 2534 FO
+  60   60 4541 2535 FO
+  60   60 4542 2535 FO
+  60   60 4542 2536 FO
+  60   60 4542 2537 FO
+  60   60 4543 2537 FO
+  60   60 4544 2537 FO
+  60   60 4544 2538 FO
+  60   60 4545 2538 FO
+  60   60 4545 2539 FO
+  60   60 4546 2539 FO
+  60   60 4547 2539 FO
+  60   60 4547 2540 FO
+  60   60 4548 2540 FO
+  60   60 4549 2540 FO
+  60   60 4549 2541 FO
+  60   60 4550 2541 FO
+  60   60 4551 2541 FO
+  60   60 4552 2541 FO
+  60   60 4552 2542 FO
+  60   60 4553 2542 FO
+  60   60 4553 2543 FO
+  60   60 4554 2543 FO
+  60   60 4554 2544 FO
+  60   60 4555 2544 FO
+  60   60 4556 2544 FO
+  60   60 4556 2545 FO
+  60   60 4557 2545 FO
+  60   60 4557 2546 FO
+  60   60 4558 2546 FO
+  60   60 4559 2547 FO
+  60   60 4560 2547 FO
+  60   60 4560 2548 FO
+  60   60 4561 2548 FO
+  60   60 4562 2549 FO
+  60   60 4563 2549 FO
+  60   60 4563 2550 FO
+  60   60 4564 2550 FO
+  60   60 4564 2551 FO
+  60   60 4565 2551 FO
+  60   60 4565 2552 FO
+  60   60 4566 2552 FO
+  60   60 4566 2553 FO
+  60   60 4567 2553 FO
+  60   60 4567 2554 FO
+  60   60 4568 2554 FO
+  60   60 4569 2554 FO
+  60   60 4570 2554 FO
+  60   60 4570 2555 FO
+  60   60 4571 2555 FO
+  60   60 4572 2555 FO
+  60   60 4573 2555 FO
+  60   60 4573 2556 FO
+  60   60 4574 2556 FO
+  60   60 4574 2557 FO
+  60   60 4575 2557 FO
+  60   60 4576 2557 FO
+  60   60 4576 2558 FO
+  60   60 4577 2558 FO
+  60   60 4577 2559 FO
+  60   60 4578 2560 FO
+  60   60 4579 2560 FO
+  60   60 4579 2561 FO
+  60   60 4580 2561 FO
+  60   60 4581 2561 FO
+  60   60 4581 2562 FO
+  60   60 4582 2562 FO
+  60   60 4582 2563 FO
+  60   60 4583 2563 FO
+  60   60 4584 2564 FO
+  60   60 4585 2564 FO
+  60   60 4585 2565 FO
+  60   60 4586 2566 FO
+  60   60 4586 2567 FO
+  60   60 4587 2567 FO
+  60   60 4587 2568 FO
+  60   60 4588 2568 FO
+  60   60 4589 2568 FO
+  60   60 4589 2569 FO
+  60   60 4590 2569 FO
+  60   60 4590 2570 FO
+  60   60 4591 2570 FO
+  60   60 4591 2571 FO
+  60   60 4592 2571 FO
+  60   60 4592 2572 FO
+  60   60 4593 2572 FO
+  60   60 4594 2572 FO
+  60   60 4594 2573 FO
+  60   60 4595 2573 FO
+  60   60 4595 2574 FO
+  60   60 4596 2574 FO
+  60   60 4597 2574 FO
+  60   60 4598 2574 FO
+  60   60 4598 2575 FO
+  60   60 4599 2575 FO
+  60   60 4599 2576 FO
+  60   60 4600 2576 FO
+  60   60 4601 2576 FO
+  60   60 4601 2577 FO
+  60   60 4602 2577 FO
+  60   60 4603 2577 FO
+  60   60 4603 2578 FO
+  60   60 4604 2578 FO
+  60   60 4605 2578 FO
+  60   60 4605 2579 FO
+  60   60 4606 2579 FO
+  60   60 4606 2580 FO
+  60   60 4607 2580 FO
+  60   60 4607 2581 FO
+  60   60 4608 2581 FO
+  60   60 4609 2581 FO
+  60   60 4609 2582 FO
+  60   60 4610 2582 FO
+  60   60 4611 2582 FO
+  60   60 4611 2583 FO
+  60   60 4612 2583 FO
+  60   60 4612 2584 FO
+  60   60 4613 2584 FO
+  60   60 4613 2585 FO
+  60   60 4614 2585 FO
+  60   60 4615 2586 FO
+  60   60 4615 2587 FO
+  60   60 4616 2587 FO
+  60   60 4616 2588 FO
+  60   60 4617 2588 FO
+  60   60 4618 2589 FO
+  60   60 4619 2589 FO
+  60   60 4619 2590 FO
+  60   60 4620 2590 FO
+  60   60 4621 2590 FO
+  60   60 4621 2591 FO
+  60   60 4622 2591 FO
+  60   60 4622 2592 FO
+  60   60 4623 2592 FO
+  60   60 4624 2592 FO
+  60   60 4624 2593 FO
+  60   60 4625 2593 FO
+  60   60 4625 2594 FO
+  60   60 4626 2594 FO
+  60   60 4626 2595 FO
+  60   60 4627 2595 FO
+  60   60 4627 2596 FO
+  60   60 4628 2596 FO
+  60   60 4628 2597 FO
+  60   60 4629 2597 FO
+  60   60 4629 2598 FO
+  60   60 4630 2598 FO
+  60   60 4630 2599 FO
+  60   60 4631 2599 FO
+  60   60 4632 2599 FO
+  60   60 4632 2600 FO
+  60   60 4633 2600 FO
+  60   60 4633 2601 FO
+  60   60 4633 2602 FO
+  60   60 4634 2602 FO
+  60   60 4634 2603 FO
+  60   60 4635 2603 FO
+  60   60 4636 2603 FO
+  60   60 4636 2604 FO
+  60   60 4637 2604 FO
+  60   60 4638 2605 FO
+  60   60 4639 2605 FO
+  60   60 4639 2606 FO
+  60   60 4639 2607 FO
+  60   60 4640 2607 FO
+  60   60 4641 2607 FO
+  60   60 4641 2608 FO
+  60   60 4642 2608 FO
+  60   60 4642 2609 FO
+  60   60 4643 2609 FO
+  60   60 4643 2610 FO
+  60   60 4644 2610 FO
+  60   60 4644 2611 FO
+  60   60 4645 2611 FO
+  60   60 4645 2612 FO
+  60   60 4646 2612 FO
+  60   60 4646 2613 FO
+  60   60 4647 2613 FO
+  60   60 4648 2613 FO
+  60   60 4648 2614 FO
+  60   60 4649 2614 FO
+  60   60 4649 2615 FO
+  60   60 4650 2615 FO
+  60   60 4651 2616 FO
+  60   60 4652 2617 FO
+  60   60 4653 2618 FO
+  60   60 4654 2618 FO
+  60   60 4654 2619 FO
+  60   60 4655 2619 FO
+  60   60 4655 2620 FO
+  60   60 4656 2620 FO
+  60   60 4656 2621 FO
+  60   60 4657 2621 FO
+  60   60 4657 2622 FO
+  60   60 4658 2622 FO
+  60   60 4658 2623 FO
+  60   60 4659 2623 FO
+  60   60 4659 2624 FO
+  60   60 4660 2624 FO
+  60   60 4660 2625 FO
+  60   60 4661 2625 FO
+  60   60 4662 2625 FO
+  60   60 4662 2626 FO
+  60   60 4663 2626 FO
+  60   60 4663 2627 FO
+  60   60 4664 2627 FO
+  60   60 4664 2628 FO
+  60   60 4665 2628 FO
+  60   60 4665 2629 FO
+  60   60 4666 2629 FO
+  60   60 4666 2630 FO
+  60   60 4667 2630 FO
+  60   60 4668 2630 FO
+  60   60 4668 2631 FO
+  60   60 4669 2631 FO
+  60   60 4669 2632 FO
+  60   60 4670 2632 FO
+  60   60 4670 2633 FO
+  60   60 4671 2633 FO
+  60   60 4671 2634 FO
+  60   60 4672 2634 FO
+  60   60 4672 2635 FO
+  60   60 4673 2635 FO
+  60   60 4673 2636 FO
+  60   60 4674 2636 FO
+  60   60 4674 2637 FO
+  60   60 4675 2637 FO
+  60   60 4676 2638 FO
+  60   60 4676 2639 FO
+  60   60 4677 2639 FO
+  60   60 4678 2639 FO
+  60   60 4678 2640 FO
+  60   60 4678 2641 FO
+  60   60 4679 2641 FO
+  60   60 4679 2642 FO
+  60   60 4680 2642 FO
+  60   60 4681 2642 FO
+  60   60 4681 2643 FO
+  60   60 4682 2644 FO
+  60   60 4683 2644 FO
+  60   60 4684 2644 FO
+  60   60 4684 2645 FO
+  60   60 4685 2645 FO
+  60   60 4685 2646 FO
+  60   60 4686 2647 FO
+  60   60 4687 2647 FO
+  60   60 4687 2648 FO
+  60   60 4688 2648 FO
+  60   60 4689 2648 FO
+  60   60 4689 2649 FO
+  60   60 4690 2649 FO
+  60   60 4690 2650 FO
+  60   60 4691 2650 FO
+  60   60 4691 2651 FO
+  60   60 4692 2651 FO
+  60   60 4693 2652 FO
+  60   60 4694 2652 FO
+  60   60 4694 2653 FO
+  60   60 4695 2653 FO
+  60   60 4695 2654 FO
+  60   60 4696 2654 FO
+  60   60 4697 2654 FO
+  60   60 4697 2655 FO
+  60   60 4698 2655 FO
+  60   60 4699 2655 FO
+  60   60 4699 2656 FO
+  60   60 4700 2656 FO
+  60   60 4700 2657 FO
+  60   60 4701 2657 FO
+  60   60 4701 2658 FO
+  60   60 4702 2658 FO
+  60   60 4702 2659 FO
+  60   60 4703 2659 FO
+  60   60 4703 2660 FO
+  60   60 4704 2660 FO
+  60   60 4705 2661 FO
+  60   60 4706 2661 FO
+  60   60 4706 2662 FO
+  60   60 4707 2663 FO
+  60   60 4708 2663 FO
+  60   60 4708 2664 FO
+  60   60 4709 2664 FO
+  60   60 4709 2665 FO
+  60   60 4710 2665 FO
+  60   60 4710 2666 FO
+  60   60 4711 2666 FO
+  60   60 4711 2667 FO
+  60   60 4712 2667 FO
+  60   60 4713 2667 FO
+  60   60 4713 2668 FO
+  60   60 4714 2668 FO
+  60   60 4714 2669 FO
+  60   60 4715 2669 FO
+  60   60 4715 2670 FO
+  60   60 4716 2670 FO
+  60   60 4717 2671 FO
+  60   60 4718 2671 FO
+  60   60 4718 2672 FO
+  60   60 4719 2672 FO
+  60   60 4719 2673 FO
+  60   60 4720 2673 FO
+  60   60 4721 2673 FO
+  60   60 4721 2674 FO
+  60   60 4722 2674 FO
+  60   60 4723 2674 FO
+  60   60 4723 2675 FO
+  60   60 4724 2675 FO
+  60   60 4724 2676 FO
+  60   60 4725 2676 FO
+  60   60 4725 2677 FO
+  60   60 4726 2677 FO
+  60   60 4726 2678 FO
+  60   60 4727 2678 FO
+  60   60 4728 2679 FO
+  60   60 4729 2679 FO
+  60   60 4730 2679 FO
+  60   60 4730 2680 FO
+  60   60 4731 2680 FO
+  60   60 4731 2681 FO
+  60   60 4732 2681 FO
+  60   60 4733 2682 FO
+  60   60 4734 2682 FO
+  60   60 4734 2683 FO
+  60   60 4735 2683 FO
+  60   60 4735 2684 FO
+  60   60 4735 2685 FO
+  60   60 4736 2685 FO
+  60   60 4736 2686 FO
+  60   60 4737 2686 FO
+  60   60 4737 2687 FO
+  60   60 4738 2687 FO
+  60   60 4739 2688 FO
+  60   60 4740 2688 FO
+  60   60 4740 2689 FO
+  60   60 4741 2690 FO
+  60   60 4741 2691 FO
+  60   60 4742 2691 FO
+  60   60 4743 2691 FO
+  60   60 4743 2692 FO
+  60   60 4744 2692 FO
+  60   60 4744 2693 FO
+  60   60 4745 2693 FO
+  60   60 4745 2694 FO
+  60   60 4746 2694 FO
+  60   60 4746 2695 FO
+  60   60 4747 2695 FO
+  60   60 4748 2695 FO
+  60   60 4748 2696 FO
+  60   60 4749 2696 FO
+  60   60 4749 2697 FO
+  60   60 4750 2697 FO
+  60   60 4750 2698 FO
+  60   60 4751 2698 FO
+  60   60 4752 2698 FO
+  60   60 4752 2699 FO
+  60   60 4753 2699 FO
+  60   60 4753 2700 FO
+  60   60 4754 2700 FO
+  60   60 4754 2701 FO
+  60   60 4755 2701 FO
+  60   60 4755 2702 FO
+  60   60 4756 2702 FO
+  60   60 4756 2703 FO
+  60   60 4757 2703 FO
+  60   60 4757 2704 FO
+  60   60 4758 2704 FO
+  60   60 4758 2705 FO
+  60   60 4758 2706 FO
+  60   60 4759 2706 FO
+  60   60 4760 2706 FO
+  60   60 4760 2707 FO
+  60   60 4761 2707 FO
+  60   60 4762 2708 FO
+  60   60 4763 2708 FO
+  60   60 4763 2709 FO
+  60   60 4764 2709 FO
+  60   60 4764 2710 FO
+  60   60 4765 2710 FO
+  60   60 4765 2711 FO
+  60   60 4766 2711 FO
+  60   60 4766 2712 FO
+  60   60 4767 2712 FO
+  60   60 4767 2713 FO
+  60   60 4768 2713 FO
+  60   60 4769 2714 FO
+  60   60 4770 2714 FO
+  60   60 4770 2715 FO
+  60   60 4771 2715 FO
+  60   60 4771 2716 FO
+  60   60 4772 2716 FO
+  60   60 4773 2716 FO
+  60   60 4773 2717 FO
+  60   60 4774 2717 FO
+  60   60 4774 2718 FO
+  60   60 4775 2718 FO
+  60   60 4775 2719 FO
+  60   60 4776 2719 FO
+  60   60 4776 2720 FO
+  60   60 4777 2720 FO
+  60   60 4777 2721 FO
+  60   60 4778 2721 FO
+  60   60 4779 2721 FO
+  60   60 4779 2722 FO
+  60   60 4780 2722 FO
+  60   60 4780 2723 FO
+  60   60 4781 2723 FO
+  60   60 4782 2723 FO
+  60   60 4782 2724 FO
+  60   60 4782 2725 FO
+  60   60 4783 2725 FO
+  60   60 4784 2725 FO
+  60   60 4784 2726 FO
+  60   60 4785 2726 FO
+  60   60 4785 2727 FO
+  60   60 4786 2727 FO
+  60   60 4787 2727 FO
+  60   60 4787 2728 FO
+  60   60 4788 2728 FO
+  60   60 4788 2729 FO
+  60   60 4789 2729 FO
+  60   60 4790 2730 FO
+  60   60 4791 2730 FO
+  60   60 4791 2731 FO
+  60   60 4792 2731 FO
+  60   60 4793 2732 FO
+  60   60 4794 2732 FO
+  60   60 4794 2733 FO
+  60   60 4795 2733 FO
+  60   60 4795 2734 FO
+  60   60 4796 2734 FO
+  60   60 4796 2735 FO
+  60   60 4797 2735 FO
+  60   60 4798 2735 FO
+  60   60 4799 2736 FO
+  60   60 4800 2736 FO
+  60   60 4800 2737 FO
+  60   60 4801 2737 FO
+  60   60 4801 2738 FO
+  60   60 4802 2738 FO
+  60   60 4802 2739 FO
+  60   60 4803 2739 FO
+  60   60 4803 2740 FO
+  60   60 4804 2740 FO
+  60   60 4805 2740 FO
+  60   60 4805 2741 FO
+  60   60 4805 2742 FO
+  60   60 4806 2742 FO
+  60   60 4807 2742 FO
+  60   60 4807 2743 FO
+  60   60 4808 2743 FO
+  60   60 4808 2744 FO
+  60   60 4809 2744 FO
+  60   60 4809 2745 FO
+  60   60 4810 2745 FO
+  60   60 4811 2746 FO
+  60   60 4812 2746 FO
+  60   60 4812 2747 FO
+  60   60 4813 2747 FO
+  60   60 4813 2748 FO
+  60   60 4814 2748 FO
+  60   60 4814 2749 FO
+  60   60 4815 2749 FO
+  60   60 4815 2750 FO
+  60   60 4816 2750 FO
+  60   60 4816 2751 FO
+  60   60 4817 2751 FO
+  60   60 4817 2752 FO
+  60   60 4818 2752 FO
+  60   60 4819 2752 FO
+  60   60 4819 2753 FO
+  60   60 4820 2753 FO
+  60   60 4820 2754 FO
+  60   60 4821 2754 FO
+  60   60 4821 2755 FO
+  60   60 4822 2755 FO
+  60   60 4822 2756 FO
+  60   60 4823 2756 FO
+  60   60 4823 2757 FO
+  60   60 4824 2757 FO
+  60   60 4824 2758 FO
+  60   60 4825 2758 FO
+  60   60 4825 2759 FO
+  60   60 4826 2759 FO
+  60   60 4827 2759 FO
+  60   60 4827 2760 FO
+  60   60 4828 2760 FO
+  60   60 4828 2761 FO
+  60   60 4829 2761 FO
+  60   60 4829 2762 FO
+  60   60 4830 2762 FO
+  60   60 4830 2763 FO
+  60   60 4831 2763 FO
+  60   60 4831 2764 FO
+  60   60 4832 2764 FO
+  60   60 4832 2765 FO
+  60   60 4833 2765 FO
+  60   60 4833 2766 FO
+  60   60 4834 2766 FO
+  60   60 4834 2767 FO
+  60   60 4835 2767 FO
+  60   60 4836 2767 FO
+  60   60 4836 2768 FO
+  60   60 4836 2769 FO
+  60   60 4837 2769 FO
+  60   60 4837 2770 FO
+  60   60 4838 2770 FO
+  60   60 4839 2771 FO
+  60   60 4840 2771 FO
+  60   60 4840 2772 FO
+  60   60 4841 2772 FO
+  60   60 4842 2772 FO
+  60   60 4842 2773 FO
+  60   60 4843 2773 FO
+  60   60 4843 2774 FO
+  60   60 4844 2774 FO
+  60   60 4844 2775 FO
+  60   60 4845 2775 FO
+  60   60 4845 2776 FO
+  60   60 4845 2777 FO
+  60   60 4846 2777 FO
+  60   60 4847 2778 FO
+  60   60 4848 2778 FO
+  60   60 4848 2779 FO
+  60   60 4849 2779 FO
+  60   60 4849 2780 FO
+  60   60 4850 2780 FO
+  60   60 4850 2781 FO
+  60   60 4851 2781 FO
+  60   60 4851 2782 FO
+  60   60 4852 2782 FO
+  60   60 4853 2782 FO
+  60   60 4853 2783 FO
+  60   60 4853 2784 FO
+  60   60 4854 2784 FO
+  60   60 4854 2785 FO
+  60   60 4855 2785 FO
+  60   60 4855 2786 FO
+  60   60 4856 2786 FO
+  60   60 4856 2787 FO
+  60   60 4857 2787 FO
+  60   60 4857 2788 FO
+  60   60 4858 2788 FO
+  60   60 4858 2789 FO
+  60   60 4859 2789 FO
+  60   60 4860 2790 FO
+  60   60 4861 2790 FO
+  60   60 4861 2791 FO
+  60   60 4861 2792 FO
+  60   60 4862 2792 FO
+  60   60 4863 2792 FO
+  60   60 4863 2793 FO
+  60   60 4864 2793 FO
+  60   60 4865 2793 FO
+  60   60 4865 2794 FO
+  60   60 4865 2795 FO
+  60   60 4866 2795 FO
+  60   60 4866 2796 FO
+  60   60 4867 2796 FO
+  60   60 4867 2797 FO
+  60   60 4868 2797 FO
+  60   60 4869 2797 FO
+  60   60 4869 2798 FO
+  60   60 4870 2798 FO
+  60   60 4870 2799 FO
+  60   60 4871 2799 FO
+  60   60 4871 2800 FO
+  60   60 4872 2800 FO
+  60   60 4873 2800 FO
+  60   60 4873 2801 FO
+  60   60 4874 2801 FO
+  60   60 4874 2802 FO
+  60   60 4875 2802 FO
+  60   60 4875 2803 FO
+  60   60 4876 2803 FO
+  60   60 4877 2803 FO
+  60   60 4877 2804 FO
+  60   60 4878 2804 FO
+  60   60 4878 2805 FO
+  60   60 4879 2805 FO
+  60   60 4879 2806 FO
+  60   60 4880 2806 FO
+  60   60 4881 2806 FO
+  60   60 4881 2807 FO
+  60   60 4882 2807 FO
+  60   60 4882 2808 FO
+  60   60 4882 2809 FO
+  60   60 4883 2809 FO
+  60   60 4884 2809 FO
+  60   60 4884 2810 FO
+  60   60 4885 2810 FO
+  60   60 4885 2811 FO
+  60   60 4886 2811 FO
+  60   60 4886 2812 FO
+  60   60 4887 2812 FO
+  60   60 4887 2813 FO
+  60   60 4888 2813 FO
+  60   60 4888 2814 FO
+  60   60 4889 2814 FO
+  60   60 4889 2815 FO
+  60   60 4890 2815 FO
+  60   60 4890 2816 FO
+  60   60 4891 2816 FO
+  60   60 4892 2816 FO
+  60   60 4892 2817 FO
+  60   60 4893 2818 FO
+  60   60 4894 2818 FO
+  60   60 4894 2819 FO
+  60   60 4895 2819 FO
+  60   60 4895 2820 FO
+  60   60 4896 2820 FO
+  60   60 4896 2821 FO
+  60   60 4897 2821 FO
+  60   60 4897 2822 FO
+  60   60 4898 2822 FO
+  60   60 4898 2823 FO
+  60   60 4899 2823 FO
+  60   60 4899 2824 FO
+  60   60 4900 2824 FO
+  60   60 4901 2824 FO
+  60   60 4901 2825 FO
+  60   60 4902 2825 FO
+  60   60 4902 2826 FO
+  60   60 4903 2826 FO
+  60   60 4903 2827 FO
+  60   60 4904 2827 FO
+  60   60 4904 2828 FO
+  60   60 4905 2828 FO
+  60   60 4905 2829 FO
+  60   60 4906 2829 FO
+  60   60 4907 2829 FO
+  60   60 4907 2830 FO
+  60   60 4908 2830 FO
+  60   60 4908 2831 FO
+  60   60 4909 2831 FO
+  60   60 4909 2832 FO
+  60   60 4910 2832 FO
+  60   60 4911 2832 FO
+  60   60 4911 2833 FO
+  60   60 4912 2833 FO
+  60   60 4912 2834 FO
+  60   60 4913 2834 FO
+  60   60 4913 2835 FO
+  60   60 4914 2835 FO
+  60   60 4914 2836 FO
+  60   60 4915 2836 FO
+  60   60 4915 2837 FO
+  60   60 4916 2837 FO
+  60   60 4917 2837 FO
+  60   60 4917 2838 FO
+  60   60 4918 2838 FO
+  60   60 4918 2839 FO
+  60   60 4919 2839 FO
+  60   60 4919 2840 FO
+  60   60 4920 2840 FO
+  60   60 4920 2841 FO
+  60   60 4921 2841 FO
+  60   60 4922 2841 FO
+  60   60 4922 2842 FO
+  60   60 4923 2842 FO
+  60   60 4923 2843 FO
+  60   60 4924 2843 FO
+  60   60 4924 2844 FO
+  60   60 4925 2844 FO
+  60   60 4925 2845 FO
+  60   60 4926 2845 FO
+  60   60 4927 2845 FO
+  60   60 4927 2846 FO
+  60   60 4927 2847 FO
+  60   60 4928 2847 FO
+  60   60 4929 2847 FO
+  60   60 4929 2848 FO
+  60   60 4930 2848 FO
+  60   60 4930 2849 FO
+  60   60 4931 2849 FO
+  60   60 4931 2850 FO
+  60   60 4932 2850 FO
+  60   60 4933 2850 FO
+  60   60 4933 2851 FO
+  60   60 4934 2852 FO
+  60   60 4934 2853 FO
+  60   60 4935 2853 FO
+  60   60 4935 2854 FO
+  60   60 4936 2854 FO
+  60   60 4936 2855 FO
+  60   60 4937 2855 FO
+  60   60 4937 2856 FO
+  60   60 4938 2856 FO
+  60   60 4938 2857 FO
+  60   60 4939 2857 FO
+  60   60 4939 2858 FO
+  60   60 4940 2858 FO
+  60   60 4940 2859 FO
+  60   60 4941 2859 FO
+  60   60 4942 2859 FO
+  60   60 4942 2860 FO
+  60   60 4943 2860 FO
+  60   60 4943 2861 FO
+  60   60 4944 2861 FO
+  60   60 4944 2862 FO
+  60   60 4945 2862 FO
+  60   60 4946 2863 FO
+  60   60 4947 2863 FO
+  60   60 4947 2864 FO
+  60   60 4948 2864 FO
+  60   60 4948 2865 FO
+  60   60 4949 2865 FO
+  60   60 4949 2866 FO
+  60   60 4950 2866 FO
+  60   60 4950 2867 FO
+  60   60 4951 2867 FO
+  60   60 4952 2868 FO
+  60   60 4953 2868 FO
+  60   60 4953 2869 FO
+  60   60 4953 2870 FO
+  60   60 4954 2870 FO
+  60   60 4955 2870 FO
+  60   60 4955 2871 FO
+  60   60 4956 2871 FO
+  60   60 4956 2872 FO
+  60   60 4957 2872 FO
+  60   60 4957 2873 FO
+  60   60 4958 2873 FO
+  60   60 4959 2874 FO
+  60   60 4959 2875 FO
+  60   60 4960 2875 FO
+  60   60 4961 2875 FO
+  60   60 4961 2876 FO
+  60   60 4961 2877 FO
+  60   60 4962 2877 FO
+  60   60 4962 2878 FO
+  60   60 4963 2878 FO
+  60   60 4964 2878 FO
+  60   60 4964 2879 FO
+  60   60 4964 2880 FO
+  60   60 4965 2880 FO
+  60   60 4966 2880 FO
+  60   60 4966 2881 FO
+  60   60 4967 2881 FO
+  60   60 4967 2882 FO
+  60   60 4968 2882 FO
+  60   60 4968 2883 FO
+  60   60 4969 2883 FO
+  60   60 4969 2884 FO
+  60   60 4969 2885 FO
+  60   60 4970 2885 FO
+  60   60 4971 2886 FO
+  60   60 4971 2887 FO
+  60   60 4972 2887 FO
+  60   60 4972 2888 FO
+  60   60 4973 2888 FO
+  60   60 4974 2888 FO
+  60   60 4974 2889 FO
+  60   60 4975 2889 FO
+  60   60 4975 2890 FO
+  60   60 4976 2890 FO
+  60   60 4976 2891 FO
+  60   60 4977 2891 FO
+  60   60 4977 2892 FO
+  60   60 4978 2892 FO
+  60   60 4979 2892 FO
+  60   60 4979 2893 FO
+  60   60 4980 2893 FO
+  60   60 4980 2894 FO
+  60   60 4981 2894 FO
+  60   60 4981 2895 FO
+  60   60 4982 2895 FO
+  60   60 4982 2896 FO
+  60   60 4983 2896 FO
+  60   60 4983 2897 FO
+  60   60 4984 2897 FO
+  60   60 4984 2898 FO
+  60   60 4985 2898 FO
+  60   60 4985 2899 FO
+  60   60 4986 2899 FO
+  60   60 4986 2900 FO
+  60   60 4987 2900 FO
+  60   60 4987 2901 FO
+  60   60 4988 2901 FO
+  60   60 4988 2902 FO
+  60   60 4989 2902 FO
+  60   60 4990 2902 FO
+  60   60 4990 2903 FO
+  60   60 4991 2904 FO
+  60   60 4991 2905 FO
+  60   60 4992 2905 FO
+  60   60 4993 2905 FO
+  60   60 4993 2906 FO
+  60   60 4994 2906 FO
+  60   60 4994 2907 FO
+  60   60 4995 2907 FO
+  60   60 4995 2908 FO
+  60   60 4996 2908 FO
+  60   60 4996 2909 FO
+  60   60 4997 2909 FO
+  60   60 4998 2909 FO
+  60   60 4998 2910 FO
+  60   60 4999 2910 FO
+  60   60 4999 2911 FO
+  60   60 5000 2911 FO
+  60   60 5000 2912 FO
+  60   60 5001 2912 FO
+  60   60 5001 2913 FO
+  60   60 5002 2913 FO
+  60   60 5002 2914 FO
+  60   60 5003 2914 FO
+  60   60 5003 2915 FO
+  60   60 5003 2916 FO
+  60   60 5004 2916 FO
+  60   60 5004 2917 FO
+  60   60 5005 2917 FO
+  60   60 5006 2917 FO
+  60   60 5006 2918 FO
+  60   60 5006 2919 FO
+  60   60 5007 2919 FO
+  60   60 5007 2920 FO
+  60   60 5008 2920 FO
+  60   60 5008 2921 FO
+  60   60 5009 2921 FO
+  60   60 5010 2921 FO
+  60   60 5010 2922 FO
+  60   60 5011 2922 FO
+  60   60 5011 2923 FO
+  60   60 5012 2923 FO
+  60   60 5012 2924 FO
+  60   60 5013 2924 FO
+  60   60 5013 2925 FO
+  60   60 5014 2925 FO
+  60   60 5014 2926 FO
+  60   60 5015 2926 FO
+  60   60 5016 2927 FO
+  60   60 5017 2927 FO
+  60   60 5017 2928 FO
+  60   60 5018 2928 FO
+  60   60 5018 2929 FO
+  60   60 5019 2929 FO
+  60   60 5019 2930 FO
+  60   60 5020 2930 FO
+  60   60 5020 2931 FO
+  60   60 5021 2931 FO
+  60   60 5021 2932 FO
+  60   60 5021 2933 FO
+  60   60 5022 2933 FO
+  60   60 5022 2934 FO
+  60   60 5023 2934 FO
+  60   60 5023 2935 FO
+  60   60 5024 2935 FO
+  60   60 5024 2936 FO
+  60   60 5025 2936 FO
+  60   60 5025 2937 FO
+  60   60 5026 2937 FO
+  60   60 5026 2938 FO
+  60   60 5027 2938 FO
+  60   60 5027 2939 FO
+  60   60 5028 2939 FO
+  60   60 5028 2940 FO
+  60   60 5029 2940 FO
+  60   60 5029 2941 FO
+  60   60 5030 2941 FO
+  60   60 5030 2942 FO
+  60   60 5031 2942 FO
+  60   60 5032 2942 FO
+  60   60 5032 2943 FO
+  60   60 5033 2944 FO
+  60   60 5034 2944 FO
+  60   60 5034 2945 FO
+  60   60 5035 2945 FO
+  60   60 5035 2946 FO
+  60   60 5036 2947 FO
+  60   60 5036 2948 FO
+  60   60 5037 2948 FO
+  60   60 5037 2949 FO
+  60   60 5038 2949 FO
+  60   60 5038 2950 FO
+  60   60 5039 2950 FO
+  60   60 5039 2951 FO
+  60   60 5040 2951 FO
+  60   60 5041 2952 FO
+  60   60 5041 2953 FO
+  60   60 5042 2953 FO
+  60   60 5042 2954 FO
+  60   60 5043 2954 FO
+  60   60 5043 2955 FO
+  60   60 5044 2955 FO
+  60   60 5044 2956 FO
+  60   60 5045 2956 FO
+  60   60 5045 2957 FO
+  60   60 5046 2957 FO
+  60   60 5046 2958 FO
+  60   60 5046 2959 FO
+  60   60 5047 2959 FO
+  60   60 5048 2959 FO
+  60   60 5048 2960 FO
+  60   60 5049 2961 FO
+  60   60 5050 2961 FO
+  60   60 5050 2962 FO
+  60   60 5051 2963 FO
+  60   60 5052 2963 FO
+  60   60 5052 2964 FO
+  60   60 5053 2964 FO
+  60   60 5053 2965 FO
+  60   60 5054 2965 FO
+  60   60 5054 2966 FO
+  60   60 5055 2967 FO
+  60   60 5056 2968 FO
+  60   60 5057 2968 FO
+  60   60 5057 2969 FO
+  60   60 5058 2969 FO
+  60   60 5058 2970 FO
+  60   60 5058 2971 FO
+  60   60 5059 2971 FO
+  60   60 5059 2972 FO
+  60   60 5060 2972 FO
+  60   60 5060 2973 FO
+  60   60 5061 2973 FO
+  60   60 5061 2974 FO
+  60   60 5062 2974 FO
+  60   60 5063 2974 FO
+  60   60 5063 2975 FO
+  60   60 5063 2976 FO
+  60   60 5064 2976 FO
+  60   60 5064 2977 FO
+  60   60 5065 2977 FO
+  60   60 5065 2978 FO
+  60   60 5066 2978 FO
+  60   60 5066 2979 FO
+  60   60 5067 2979 FO
+  60   60 5067 2980 FO
+  60   60 5067 2981 FO
+  60   60 5068 2981 FO
+  60   60 5069 2981 FO
+  60   60 5069 2982 FO
+  60   60 5070 2982 FO
+  60   60 5070 2983 FO
+  60   60 5071 2983 FO
+  60   60 5071 2984 FO
+  60   60 5072 2984 FO
+  60   60 5072 2985 FO
+  60   60 5073 2986 FO
+  60   60 5073 2987 FO
+  60   60 5074 2987 FO
+  60   60 5074 2988 FO
+  60   60 5075 2988 FO
+  60   60 5075 2989 FO
+  60   60 5076 2989 FO
+  60   60 5076 2990 FO
+  60   60 5077 2990 FO
+  60   60 5077 2991 FO
+  60   60 5078 2991 FO
+  60   60 5078 2992 FO
+  60   60 5078 2993 FO
+  60   60 5079 2993 FO
+  60   60 5080 2993 FO
+  60   60 5080 2994 FO
+  60   60 5081 2994 FO
+  60   60 5081 2995 FO
+  60   60 5081 2996 FO
+  60   60 5082 2996 FO
+  60   60 5083 2997 FO
+  60   60 5083 2998 FO
+  60   60 5084 2998 FO
+  60   60 5085 2999 FO
+  60   60 5085 3000 FO
+  60   60 5086 3000 FO
+  60   60 5087 3000 FO
+  60   60 5087 3001 FO
+  60   60 5088 3001 FO
+  60   60 5088 3002 FO
+  60   60 5088 3003 FO
+  60   60 5089 3003 FO
+  60   60 5090 3003 FO
+  60   60 5090 3004 FO
+  60   60 5091 3005 FO
+  60   60 5092 3005 FO
+  60   60 5092 3006 FO
+  60   60 5093 3006 FO
+  60   60 5093 3007 FO
+  60   60 5094 3007 FO
+  60   60 5094 3008 FO
+  60   60 5095 3008 FO
+  60   60 5095 3009 FO
+  60   60 5096 3009 FO
+  60   60 5096 3010 FO
+  60   60 5096 3011 FO
+  60   60 5097 3011 FO
+  60   60 5098 3011 FO
+  60   60 5098 3012 FO
+  60   60 5098 3013 FO
+  60   60 5099 3013 FO
+  60   60 5099 3014 FO
+  60   60 5100 3014 FO
+  60   60 5100 3015 FO
+  60   60 5101 3015 FO
+  60   60 5101 3016 FO
+  60   60 5102 3016 FO
+  60   60 5102 3017 FO
+  60   60 5103 3017 FO
+  60   60 5103 3018 FO
+  60   60 5104 3018 FO
+  60   60 5104 3019 FO
+  60   60 5105 3019 FO
+  60   60 5106 3019 FO
+  60   60 5106 3020 FO
+  60   60 5107 3021 FO
+  60   60 5108 3021 FO
+  60   60 5108 3022 FO
+  60   60 5109 3022 FO
+  60   60 5109 3023 FO
+  60   60 5109 3024 FO
+  60   60 5110 3024 FO
+  60   60 5110 3025 FO
+  60   60 5111 3025 FO
+  60   60 5112 3025 FO
+  60   60 5112 3026 FO
+  60   60 5112 3027 FO
+  60   60 5113 3027 FO
+  60   60 5114 3027 FO
+  60   60 5114 3028 FO
+  60   60 5115 3028 FO
+  60   60 5115 3029 FO
+  60   60 5115 3030 FO
+  60   60 5116 3030 FO
+  60   60 5116 3031 FO
+  60   60 5117 3031 FO
+  60   60 5118 3031 FO
+  60   60 5118 3032 FO
+  60   60 5119 3032 FO
+  60   60 5119 3033 FO
+  60   60 5120 3033 FO
+  60   60 5120 3034 FO
+  60   60 5121 3034 FO
+  60   60 5121 3035 FO
+  60   60 5122 3035 FO
+  60   60 5123 3035 FO
+  60   60 5123 3036 FO
+  60   60 5124 3036 FO
+  60   60 5124 3037 FO
+  60   60 5124 3038 FO
+  60   60 5125 3038 FO
+  60   60 5125 3039 FO
+  60   60 5126 3039 FO
+  60   60 5126 3040 FO
+  60   60 5127 3040 FO
+  60   60 5127 3041 FO
+  60   60 5128 3041 FO
+  60   60 5128 3042 FO
+  60   60 5129 3042 FO
+  60   60 5129 3043 FO
+  60   60 5130 3043 FO
+  60   60 5130 3044 FO
+  60   60 5131 3044 FO
+  60   60 5131 3045 FO
+  60   60 5132 3045 FO
+  60   60 5132 3046 FO
+  60   60 5133 3046 FO
+  60   60 5133 3047 FO
+  60   60 5134 3047 FO
+  60   60 5134 3048 FO
+  60   60 5134 3049 FO
+  60   60 5135 3049 FO
+  60   60 5136 3050 FO
+  60   60 5136 3051 FO
+  60   60 5137 3051 FO
+  60   60 5137 3052 FO
+  60   60 5137 3053 FO
+  60   60 5138 3053 FO
+  60   60 5139 3053 FO
+  60   60 5139 3054 FO
+  60   60 5139 3055 FO
+  60   60 5140 3055 FO
+  60   60 5140 3056 FO
+  60   60 5141 3056 FO
+  60   60 5141 3057 FO
+  60   60 5142 3057 FO
+  60   60 5142 3058 FO
+  60   60 5142 3059 FO
+  60   60 5143 3059 FO
+  60   60 5143 3060 FO
+  60   60 5144 3060 FO
+  60   60 5144 3061 FO
+  60   60 5145 3061 FO
+  60   60 5145 3062 FO
+  60   60 5146 3062 FO
+  60   60 5146 3063 FO
+  60   60 5147 3063 FO
+  60   60 5148 3063 FO
+  60   60 5148 3064 FO
+  60   60 5148 3065 FO
+  60   60 5149 3065 FO
+  60   60 5149 3066 FO
+  60   60 5150 3066 FO
+  60   60 5150 3067 FO
+  60   60 5151 3067 FO
+  60   60 5151 3068 FO
+  60   60 5152 3068 FO
+  60   60 5152 3069 FO
+  60   60 5153 3069 FO
+  60   60 5153 3070 FO
+  60   60 5154 3070 FO
+  60   60 5154 3071 FO
+  60   60 5155 3071 FO
+  60   60 5155 3072 FO
+  60   60 5156 3072 FO
+  60   60 5156 3073 FO
+  60   60 5157 3073 FO
+  60   60 5157 3074 FO
+  60   60 5158 3074 FO
+  60   60 5158 3075 FO
+  60   60 5159 3075 FO
+  60   60 5159 3076 FO
+  60   60 5160 3076 FO
+  60   60 5160 3077 FO
+  60   60 5161 3078 FO
+  60   60 5161 3079 FO
+  60   60 5162 3079 FO
+  60   60 5162 3080 FO
+  60   60 5163 3080 FO
+  60   60 5163 3081 FO
+  60   60 5164 3081 FO
+  60   60 5164 3082 FO
+  60   60 5165 3082 FO
+  60   60 5165 3083 FO
+  60   60 5166 3083 FO
+  60   60 5166 3084 FO
+  60   60 5166 3085 FO
+  60   60 5167 3085 FO
+  60   60 5167 3086 FO
+  60   60 5168 3086 FO
+  60   60 5168 3087 FO
+  60   60 5169 3087 FO
+  60   60 5169 3088 FO
+  60   60 5170 3088 FO
+  60   60 5170 3089 FO
+  60   60 5170 3090 FO
+  60   60 5171 3090 FO
+  60   60 5171 3091 FO
+  60   60 5172 3091 FO
+  60   60 5172 3092 FO
+  60   60 5173 3092 FO
+  60   60 5173 3093 FO
+  60   60 5174 3093 FO
+  60   60 5174 3094 FO
+  60   60 5175 3094 FO
+  60   60 5175 3095 FO
+  60   60 5175 3096 FO
+  60   60 5176 3096 FO
+  60   60 5176 3097 FO
+  60   60 5177 3097 FO
+  60   60 5177 3098 FO
+  60   60 5178 3098 FO
+  60   60 5178 3099 FO
+  60   60 5179 3099 FO
+  60   60 5179 3100 FO
+  60   60 5180 3100 FO
+  60   60 5180 3101 FO
+  60   60 5181 3101 FO
+  60   60 5181 3102 FO
+  60   60 5182 3102 FO
+  60   60 5182 3103 FO
+  60   60 5183 3103 FO
+  60   60 5183 3104 FO
+  60   60 5184 3104 FO
+  60   60 5184 3105 FO
+  60   60 5185 3105 FO
+  60   60 5185 3106 FO
+  60   60 5185 3107 FO
+  60   60 5186 3107 FO
+  60   60 5186 3108 FO
+  60   60 5187 3108 FO
+  60   60 5188 3109 FO
+  60   60 5188 3110 FO
+  60   60 5189 3110 FO
+  60   60 5189 3111 FO
+  60   60 5190 3111 FO
+  60   60 5190 3112 FO
+  60   60 5191 3112 FO
+  60   60 5192 3112 FO
+  60   60 5192 3113 FO
+  60   60 5192 3114 FO
+  60   60 5193 3114 FO
+  60   60 5193 3115 FO
+  60   60 5194 3115 FO
+  60   60 5194 3116 FO
+  60   60 5195 3116 FO
+  60   60 5195 3117 FO
+  60   60 5196 3117 FO
+  60   60 5196 3118 FO
+  60   60 5197 3118 FO
+  60   60 5197 3119 FO
+  60   60 5198 3119 FO
+  60   60 5198 3120 FO
+  60   60 5199 3120 FO
+  60   60 5199 3121 FO
+  60   60 5200 3121 FO
+  60   60 5200 3122 FO
+  60   60 5201 3122 FO
+  60   60 5201 3123 FO
+  60   60 5202 3123 FO
+  60   60 5202 3124 FO
+  60   60 5203 3124 FO
+  60   60 5203 3125 FO
+  60   60 5204 3125 FO
+  60   60 5204 3126 FO
+  60   60 5205 3126 FO
+  60   60 5205 3127 FO
+  60   60 5205 3128 FO
+  60   60 5206 3128 FO
+  60   60 5206 3129 FO
+  60   60 5207 3129 FO
+  60   60 5207 3130 FO
+  60   60 5208 3130 FO
+  60   60 5208 3131 FO
+  60   60 5209 3131 FO
+  60   60 5209 3132 FO
+  60   60 5209 3133 FO
+  60   60 5210 3133 FO
+  60   60 5211 3133 FO
+  60   60 5211 3134 FO
+  60   60 5212 3134 FO
+  60   60 5212 3135 FO
+  60   60 5212 3136 FO
+  60   60 5213 3136 FO
+  60   60 5213 3137 FO
+  60   60 5213 3138 FO
+  60   60 5214 3138 FO
+  60   60 5214 3139 FO
+  60   60 5215 3139 FO
+  60   60 5215 3140 FO
+  60   60 5216 3140 FO
+  60   60 5216 3141 FO
+  60   60 5217 3141 FO
+  60   60 5217 3142 FO
+  60   60 5218 3142 FO
+  60   60 5218 3143 FO
+  60   60 5219 3143 FO
+  60   60 5219 3144 FO
+  60   60 5220 3144 FO
+  60   60 5220 3145 FO
+  60   60 5221 3146 FO
+  60   60 5222 3146 FO
+  60   60 5222 3147 FO
+  60   60 5222 3148 FO
+  60   60 5223 3148 FO
+  60   60 5223 3149 FO
+  60   60 5224 3149 FO
+  60   60 5224 3150 FO
+  60   60 5225 3150 FO
+  60   60 5225 3151 FO
+  60   60 5226 3151 FO
+  60   60 5226 3152 FO
+  60   60 5227 3152 FO
+  60   60 5227 3153 FO
+  60   60 5227 3154 FO
+  60   60 5228 3154 FO
+  60   60 5229 3154 FO
+  60   60 5229 3155 FO
+  60   60 5229 3156 FO
+  60   60 5230 3156 FO
+  60   60 5230 3157 FO
+  60   60 5231 3157 FO
+  60   60 5231 3158 FO
+  60   60 5232 3158 FO
+  60   60 5232 3159 FO
+  60   60 5232 3160 FO
+  60   60 5233 3160 FO
+  60   60 5233 3161 FO
+  60   60 5234 3161 FO
+  60   60 5234 3162 FO
+  60   60 5234 3163 FO
+  60   60 5235 3163 FO
+  60   60 5236 3164 FO
+  60   60 5236 3165 FO
+  60   60 5237 3165 FO
+  60   60 5237 3166 FO
+  60   60 5238 3166 FO
+  60   60 5238 3167 FO
+  60   60 5238 3168 FO
+  60   60 5239 3168 FO
+  60   60 5239 3169 FO
+  60   60 5240 3169 FO
+  60   60 5240 3170 FO
+  60   60 5241 3170 FO
+  60   60 5241 3171 FO
+  60   60 5242 3171 FO
+  60   60 5242 3172 FO
+  60   60 5242 3173 FO
+  60   60 5243 3173 FO
+  60   60 5243 3174 FO
+  60   60 5244 3174 FO
+  60   60 5244 3175 FO
+  60   60 5245 3175 FO
+  60   60 5245 3176 FO
+  60   60 5246 3176 FO
+  60   60 5246 3177 FO
+  60   60 5246 3178 FO
+  60   60 5247 3178 FO
+  60   60 5247 3179 FO
+  60   60 5248 3179 FO
+  60   60 5248 3180 FO
+  60   60 5249 3180 FO
+  60   60 5249 3181 FO
+  60   60 5250 3181 FO
+  60   60 5250 3182 FO
+  60   60 5251 3182 FO
+  60   60 5251 3183 FO
+  60   60 5252 3183 FO
+  60   60 5252 3184 FO
+  60   60 5253 3184 FO
+  60   60 5253 3185 FO
+  60   60 5254 3185 FO
+  60   60 5254 3186 FO
+  60   60 5255 3186 FO
+  60   60 5255 3187 FO
+  60   60 5255 3188 FO
+  60   60 5256 3188 FO
+  60   60 5256 3189 FO
+  60   60 5257 3189 FO
+  60   60 5257 3190 FO
+  60   60 5258 3190 FO
+  60   60 5258 3191 FO
+  60   60 5258 3192 FO
+  60   60 5259 3192 FO
+  60   60 5259 3193 FO
+  60   60 5260 3193 FO
+  60   60 5260 3194 FO
+  60   60 5260 3195 FO
+  60   60 5261 3195 FO
+  60   60 5262 3195 FO
+  60   60 5262 3196 FO
+  60   60 5262 3197 FO
+  60   60 5263 3197 FO
+  60   60 5263 3198 FO
+  60   60 5264 3198 FO
+  60   60 5264 3199 FO
+  60   60 5265 3199 FO
+  60   60 5265 3200 FO
+  60   60 5265 3201 FO
+  60   60 5266 3201 FO
+  60   60 5266 3202 FO
+  60   60 5267 3202 FO
+  60   60 5267 3203 FO
+  60   60 5268 3203 FO
+  60   60 5268 3204 FO
+  60   60 5269 3204 FO
+  60   60 5269 3205 FO
+  60   60 5270 3205 FO
+  60   60 5270 3206 FO
+  60   60 5271 3207 FO
+  60   60 5271 3208 FO
+  60   60 5272 3208 FO
+  60   60 5272 3209 FO
+  60   60 5273 3209 FO
+  60   60 5273 3210 FO
+  60   60 5273 3211 FO
+  60   60 5274 3211 FO
+  60   60 5274 3212 FO
+  60   60 5275 3212 FO
+  60   60 5275 3213 FO
+  60   60 5275 3214 FO
+  60   60 5276 3214 FO
+  60   60 5276 3215 FO
+  60   60 5277 3215 FO
+  60   60 5277 3216 FO
+  60   60 5278 3216 FO
+  60   60 5278 3217 FO
+  60   60 5279 3217 FO
+  60   60 5279 3218 FO
+  60   60 5279 3219 FO
+  60   60 5280 3219 FO
+  60   60 5280 3220 FO
+  60   60 5281 3220 FO
+  60   60 5281 3221 FO
+  60   60 5282 3221 FO
+  60   60 5282 3222 FO
+  60   60 5282 3223 FO
+  60   60 5283 3223 FO
+  60   60 5283 3224 FO
+  60   60 5284 3224 FO
+  60   60 5284 3225 FO
+  60   60 5285 3225 FO
+  60   60 5285 3226 FO
+  60   60 5285 3227 FO
+  60   60 5286 3227 FO
+  60   60 5286 3228 FO
+  60   60 5287 3228 FO
+  60   60 5287 3229 FO
+  60   60 5288 3229 FO
+  60   60 5288 3230 FO
+  60   60 5288 3231 FO
+  60   60 5289 3231 FO
+  60   60 5289 3232 FO
+  60   60 5290 3232 FO
+  60   60 5290 3233 FO
+  60   60 5291 3233 FO
+  60   60 5291 3234 FO
+  60   60 5291 3235 FO
+  60   60 5292 3235 FO
+  60   60 5292 3236 FO
+  60   60 5293 3236 FO
+  60   60 5293 3237 FO
+  60   60 5294 3237 FO
+  60   60 5294 3238 FO
+  60   60 5295 3238 FO
+  60   60 5295 3239 FO
+  60   60 5296 3239 FO
+  60   60 5296 3240 FO
+  60   60 5297 3240 FO
+  60   60 5297 3241 FO
+  60   60 5297 3242 FO
+  60   60 5298 3242 FO
+  60   60 5298 3243 FO
+  60   60 5299 3243 FO
+  60   60 5299 3244 FO
+  60   60 5300 3244 FO
+  60   60 5300 3245 FO
+  60   60 5300 3246 FO
+  60   60 5301 3246 FO
+  60   60 5301 3247 FO
+  60   60 5302 3247 FO
+  60   60 5302 3248 FO
+  60   60 5303 3248 FO
+  60   60 5303 3249 FO
+  60   60 5304 3249 FO
+  60   60 5304 3250 FO
+  60   60 5305 3250 FO
+  60   60 5305 3251 FO
+  60   60 5305 3252 FO
+  60   60 5306 3252 FO
+  60   60 5306 3253 FO
+  60   60 5307 3253 FO
+  60   60 5307 3254 FO
+  60   60 5307 3255 FO
+  60   60 5308 3255 FO
+  60   60 5308 3256 FO
+  60   60 5309 3256 FO
+  60   60 5309 3257 FO
+  60   60 5309 3258 FO
+  60   60 5310 3258 FO
+  60   60 5310 3259 FO
+  60   60 5311 3259 FO
+  60   60 5311 3260 FO
+  60   60 5311 3261 FO
+  60   60 5312 3261 FO
+  60   60 5312 3262 FO
+  60   60 5313 3262 FO
+  60   60 5313 3263 FO
+  60   60 5314 3263 FO
+  60   60 5314 3264 FO
+  60   60 5314 3265 FO
+  60   60 5315 3265 FO
+  60   60 5316 3265 FO
+  60   60 5316 3266 FO
+  60   60 5316 3267 FO
+  60   60 5317 3267 FO
+  60   60 5317 3268 FO
+  60   60 5317 3269 FO
+  60   60 5318 3269 FO
+  60   60 5318 3270 FO
+  60   60 5319 3270 FO
+  60   60 5319 3271 FO
+  60   60 5320 3271 FO
+  60   60 5320 3272 FO
+  60   60 5320 3273 FO
+  60   60 5321 3273 FO
+  60   60 5321 3274 FO
+  60   60 5321 3275 FO
+  60   60 5322 3275 FO
+  60   60 5322 3276 FO
+  60   60 5322 3277 FO
+  60   60 5323 3277 FO
+  60   60 5323 3278 FO
+  60   60 5324 3278 FO
+  60   60 5324 3279 FO
+  60   60 5325 3279 FO
+  60   60 5325 3280 FO
+  60   60 5325 3281 FO
+  60   60 5326 3281 FO
+  60   60 5326 3282 FO
+  60   60 5327 3282 FO
+  60   60 5327 3283 FO
+  60   60 5328 3283 FO
+  60   60 5328 3284 FO
+  60   60 5328 3285 FO
+  60   60 5329 3285 FO
+  60   60 5329 3286 FO
+  60   60 5330 3286 FO
+  60   60 5330 3287 FO
+  60   60 5330 3288 FO
+  60   60 5331 3288 FO
+  60   60 5331 3289 FO
+  60   60 5332 3289 FO
+  60   60 5332 3290 FO
+  60   60 5333 3290 FO
+  60   60 5333 3291 FO
+  60   60 5334 3291 FO
+  60   60 5334 3292 FO
+  60   60 5334 3293 FO
+  60   60 5335 3293 FO
+  60   60 5335 3294 FO
+  60   60 5335 3295 FO
+  60   60 5336 3295 FO
+  60   60 5336 3296 FO
+  60   60 5337 3296 FO
+  60   60 5337 3297 FO
+  60   60 5338 3298 FO
+  60   60 5339 3298 FO
+  60   60 5339 3299 FO
+  60   60 5339 3300 FO
+  60   60 5340 3300 FO
+  60   60 5340 3301 FO
+  60   60 5341 3301 FO
+  60   60 5341 3302 FO
+  60   60 5342 3302 FO
+  60   60 5342 3303 FO
+  60   60 5342 3304 FO
+  60   60 5343 3304 FO
+  60   60 5343 3305 FO
+  60   60 5344 3305 FO
+  60   60 5344 3306 FO
+  60   60 5344 3307 FO
+  60   60 5345 3307 FO
+  60   60 5345 3308 FO
+  60   60 5346 3308 FO
+  60   60 5346 3309 FO
+  60   60 5347 3309 FO
+  60   60 5347 3310 FO
+  60   60 5347 3311 FO
+  60   60 5348 3311 FO
+  60   60 5348 3312 FO
+  60   60 5349 3312 FO
+  60   60 5349 3313 FO
+  60   60 5349 3314 FO
+  60   60 5350 3314 FO
+  60   60 5350 3315 FO
+  60   60 5351 3315 FO
+  60   60 5351 3316 FO
+  60   60 5351 3317 FO
+  60   60 5352 3317 FO
+  60   60 5352 3318 FO
+  60   60 5353 3318 FO
+  60   60 5353 3319 FO
+  60   60 5354 3319 FO
+  60   60 5354 3320 FO
+  60   60 5355 3320 FO
+  60   60 5355 3321 FO
+  60   60 5355 3322 FO
+  60   60 5356 3322 FO
+  60   60 5356 3323 FO
+  60   60 5356 3324 FO
+  60   60 5357 3324 FO
+  60   60 5358 3324 FO
+  60   60 5358 3325 FO
+  60   60 5358 3326 FO
+  60   60 5359 3326 FO
+  60   60 5359 3327 FO
+  60   60 5359 3328 FO
+  60   60 5360 3328 FO
+  60   60 5360 3329 FO
+  60   60 5361 3329 FO
+  60   60 5361 3330 FO
+  60   60 5361 3331 FO
+  60   60 5362 3331 FO
+  60   60 5362 3332 FO
+  60   60 5362 3333 FO
+  60   60 5363 3333 FO
+  60   60 5363 3334 FO
+  60   60 5363 3335 FO
+  60   60 5364 3335 FO
+  60   60 5364 3336 FO
+  60   60 5365 3336 FO
+  60   60 5365 3337 FO
+  60   60 5365 3338 FO
+  60   60 5366 3338 FO
+  60   60 5366 3339 FO
+  60   60 5367 3339 FO
+  60   60 5367 3340 FO
+  60   60 5367 3341 FO
+  60   60 5368 3341 FO
+  60   60 5368 3342 FO
+  60   60 5369 3342 FO
+  60   60 5369 3343 FO
+  60   60 5370 3343 FO
+  60   60 5371 3343 FO
+  60   60 5371 3344 FO
+  60   60 5372 3344 FO
+  60   60 5373 3344 FO
+  60   60 5373 3345 FO
+  60   60 5374 3345 FO
+  60   60 5374 3346 FO
+  60   60 5374 3347 FO
+  60   60 5375 3347 FO
+  60   60 5375 3348 FO
+  60   60 5376 3348 FO
+  60   60 5376 3349 FO
+  60   60 5377 3349 FO
+  60   60 5377 3350 FO
+  60   60 5377 3351 FO
+  60   60 5378 3351 FO
+  60   60 5378 3352 FO
+  60   60 5379 3352 FO
+  60   60 5379 3353 FO
+  60   60 5380 3353 FO
+  60   60 5380 3354 FO
+  60   60 5381 3354 FO
+  60   60 5381 3355 FO
+  60   60 5382 3355 FO
+  60   60 5382 3356 FO
+  60   60 5383 3356 FO
+  60   60 5383 3357 FO
+  60   60 5383 3358 FO
+  60   60 5384 3358 FO
+  60   60 5384 3359 FO
+  60   60 5384 3360 FO
+  60   60 5385 3360 FO
+  60   60 5385 3361 FO
+  60   60 5386 3361 FO
+  60   60 5386 3362 FO
+  60   60 5386 3363 FO
+  60   60 5387 3363 FO
+  60   60 5387 3364 FO
+  60   60 5388 3364 FO
+  60   60 5388 3365 FO
+  60   60 5388 3366 FO
+  60   60 5389 3366 FO
+  60   60 5389 3367 FO
+  60   60 5390 3367 FO
+  60   60 5390 3368 FO
+  60   60 5390 3369 FO
+  60   60 5391 3369 FO
+  60   60 5391 3370 FO
+  60   60 5392 3370 FO
+  60   60 5392 3371 FO
+  60   60 5392 3372 FO
+  60   60 5393 3372 FO
+  60   60 5393 3373 FO
+  60   60 5394 3374 FO
+  60   60 5394 3375 FO
+  60   60 5395 3375 FO
+  60   60 5395 3376 FO
+  60   60 5395 3377 FO
+  60   60 5396 3377 FO
+  60   60 5396 3379 FO
+  60   60 5397 3379 FO
+  60   60 5397 3380 FO
+  60   60 5398 3380 FO
+  60   60 5398 3381 FO
+  60   60 5398 3382 FO
+  60   60 5399 3382 FO
+  60   60 5399 3383 FO
+  60   60 5399 3384 FO
+  60   60 5400 3384 FO
+  60   60 5400 3385 FO
+  60   60 5401 3385 FO
+  60   60 5401 3386 FO
+  60   60 5402 3386 FO
+  60   60 5402 3387 FO
+  60   60 5403 3387 FO
+  60   60 5403 3388 FO
+  60   60 5404 3389 FO
+  60   60 5404 3390 FO
+  60   60 5405 3390 FO
+  60   60 5405 3391 FO
+  60   60 5406 3391 FO
+  60   60 5406 3393 FO
+  60   60 5406 3394 FO
+  60   60 5407 3394 FO
+  60   60 5407 3395 FO
+  60   60 5408 3395 FO
+  60   60 5408 3396 FO
+  60   60 5409 3396 FO
+  60   60 5409 3397 FO
+  60   60 5409 3398 FO
+  60   60 5410 3398 FO
+  60   60 5410 3399 FO
+  60   60 5411 3399 FO
+  60   60 5411 3401 FO
+  60   60 5412 3401 FO
+  60   60 5412 3402 FO
+  60   60 5412 3403 FO
+  60   60 5413 3403 FO
+  60   60 5413 3404 FO
+  60   60 5414 3404 FO
+  60   60 5414 3405 FO
+  60   60 5415 3405 FO
+  60   60 5415 3406 FO
+  60   60 5415 3408 FO
+  60   60 5416 3408 FO
+  60   60 5416 3409 FO
+  60   60 5417 3409 FO
+  60   60 5417 3410 FO
+  60   60 5418 3410 FO
+  60   60 5418 3411 FO
+  60   60 5418 3412 FO
+  60   60 5419 3412 FO
+  60   60 5419 3414 FO
+  60   60 5420 3414 FO
+  60   60 5420 3415 FO
+  60   60 5421 3415 FO
+  60   60 5421 3416 FO
+  60   60 5421 3417 FO
+  60   60 5422 3417 FO
+  60   60 5422 3419 FO
+  60   60 5423 3419 FO
+  60   60 5423 3420 FO
+  60   60 5424 3420 FO
+  60   60 5424 3421 FO
+  60   60 5425 3422 FO
+  60   60 5425 3424 FO
+  60   60 5426 3424 FO
+  60   60 5426 3425 FO
+  60   60 5427 3425 FO
+  60   60 5427 3426 FO
+  60   60 5428 3428 FO
+  60   60 5428 3429 FO
+  60   60 5429 3429 FO
+  60   60 5429 3430 FO
+  60   60 5430 3430 FO
+  60   60 5430 3432 FO
+  60   60 5431 3432 FO
+  60   60 5431 3433 FO
+  60   60 5431 3434 FO
+  60   60 5432 3434 FO
+  60   60 5432 3436 FO
+  60   60 5433 3436 FO
+  60   60 5433 3437 FO
+  60   60 5434 3437 FO
+  60   60 5434 3438 FO
+  60   60 5434 3440 FO
+  60   60 5435 3440 FO
+  60   60 5435 3441 FO
+  60   60 5436 3441 FO
+  60   60 5436 3442 FO
+  60   60 5437 3444 FO
+  60   60 5437 3445 FO
+  60   60 5438 3445 FO
+  60   60 5438 3447 FO
+  60   60 5439 3447 FO
+  60   60 5439 3448 FO
+  60   60 5440 3448 FO
+  60   60 5440 3449 FO
+  60   60 5441 3449 FO
+  60   60 5441 3451 FO
+  60   60 5442 3451 FO
+  60   60 5442 3452 FO
+  60   60 5443 3452 FO
+  60   60 5443 3454 FO
+  60   60 5443 3455 FO
+  60   60 5444 3455 FO
+  60   60 5444 3457 FO
+  60   60 5445 3457 FO
+  60   60 5445 3458 FO
+  60   60 5446 3458 FO
+  60   60 5446 3460 FO
+  60   60 5447 3460 FO
+  60   60 5447 3461 FO
+  60   60 5448 3461 FO
+  60   60 5448 3463 FO
+  60   60 5449 3463 FO
+  60   60 5449 3464 FO
+  60   60 5450 3464 FO
+  60   60 5450 3466 FO
+  60   60 5451 3466 FO
+  60   60 5451 3467 FO
+  60   60 5452 3467 FO
+  60   60 5452 3469 FO
+  60   60 5453 3469 FO
+  60   60 5453 3470 FO
+  60   60 5454 3470 FO
+  60   60 5454 3472 FO
+  60   60 5454 3474 FO
+  60   60 5455 3474 FO
+  60   60 5455 3475 FO
+  60   60 5456 3475 FO
+  60   60 5456 3477 FO
+  60   60 5457 3477 FO
+  60   60 5457 3478 FO
+  60   60 5458 3478 FO
+  60   60 5458 3480 FO
+  60   60 5459 3480 FO
+  60   60 5459 3482 FO
+  60   60 5460 3482 FO
+  60   60 5460 3483 FO
+  60   60 5461 3483 FO
+  60   60 5461 3485 FO
+  60   60 5462 3485 FO
+  60   60 5462 3487 FO
+  60   60 5463 3487 FO
+  60   60 5463 3488 FO
+  60   60 5464 3488 FO
+  60   60 5464 3490 FO
+  60   60 5465 3490 FO
+  60   60 5465 3492 FO
+  60   60 5466 3492 FO
+  60   60 5466 3494 FO
+  60   60 5467 3494 FO
+  60   60 5467 3495 FO
+  60   60 5468 3495 FO
+  60   60 5468 3497 FO
+  60   60 5469 3497 FO
+  60   60 5470 3497 FO
+  60   60 5470 3499 FO
+  60   60 5471 3499 FO
+  60   60 5471 3501 FO
+  60   60 5472 3501 FO
+  60   60 5472 3502 FO
+  60   60 5473 3502 FO
+  60   60 5473 3504 FO
+  60   60 5474 3504 FO
+  60   60 5474 3506 FO
+  60   60 5475 3506 FO
+  60   60 5475 3508 FO
+  60   60 5476 3508 FO
+  60   60 5477 3508 FO
+  60   60 5477 3510 FO
+  60   60 5478 3510 FO
+  60   60 5478 3512 FO
+  60   60 5479 3512 FO
+  60   60 5479 3514 FO
+  60   60 5480 3514 FO
+  60   60 5480 3515 FO
+  60   60 5481 3515 FO
+  60   60 5481 3517 FO
+  60   60 5482 3517 FO
+  60   60 5482 3519 FO
+  60   60 5483 3519 FO
+  60   60 5484 3521 FO
+  60   60 5485 3521 FO
+  60   60 5485 3523 FO
+  60   60 5486 3523 FO
+  60   60 5486 3525 FO
+  60   60 5487 3525 FO
+  60   60 5487 3527 FO
+  60   60 5488 3527 FO
+  60   60 5488 3529 FO
+  60   60 5489 3529 FO
+  60   60 5489 3531 FO
+  60   60 5490 3531 FO
+  60   60 5490 3533 FO
+  60   60 5491 3533 FO
+  60   60 5492 3533 FO
+  60   60 5492 3535 FO
+  60   60 5493 3535 FO
+  60   60 5493 3537 FO
+  60   60 5494 3537 FO
+  60   60 5494 3540 FO
+  60   60 5495 3540 FO
+  60   60 5496 3540 FO
+  60   60 5496 3542 FO
+  60   60 5497 3542 FO
+  60   60 5497 3544 FO
+  60   60 5498 3544 FO
+  60   60 5499 3544 FO
+  60   60 5499 3546 FO
+  60   60 5500 3546 FO
+  60   60 5500 3548 FO
+  60   60 5501 3548 FO
+  60   60 5501 3550 FO
+  60   60 5502 3550 FO
+  60   60 5502 3553 FO
+  60   60 5503 3553 FO
+  60   60 5503 3555 FO
+  60   60 5504 3555 FO
+  60   60 5504 3557 FO
+  60   60 5505 3557 FO
+  60   60 5506 3557 FO
+  60   60 5506 3560 FO
+  60   60 5507 3562 FO
+  60   60 5508 3562 FO
+  60   60 5508 3564 FO
+  60   60 5509 3564 FO
+  60   60 5510 3564 FO
+  60   60 5510 3567 FO
+  60   60 5511 3567 FO
+  60   60 5511 3569 FO
+  60   60 5512 3569 FO
+  60   60 5512 3571 FO
+  60   60 5513 3571 FO
+  60   60 5514 3571 FO
+  60   60 5514 3574 FO
+  60   60 5515 3574 FO
+  60   60 5515 3576 FO
+  60   60 5516 3576 FO
+  60   60 5517 3579 FO
+  60   60 5518 3579 FO
+  60   60 5518 3581 FO
+  60   60 5519 3581 FO
+  60   60 5519 3584 FO
+  60   60 5520 3584 FO
+  60   60 5521 3584 FO
+  60   60 5521 3587 FO
+  60   60 5522 3587 FO
+  60   60 5522 3589 FO
+  60   60 5523 3589 FO
+  60   60 5524 3589 FO
+  60   60 5524 3592 FO
+  60   60 5525 3592 FO
+  60   60 5525 3595 FO
+  60   60 5526 3595 FO
+  60   60 5526 3597 FO
+  60   60 5527 3597 FO
+  60   60 5528 3597 FO
+  60   60 5528 3600 FO
+  60   60 5529 3600 FO
+  60   60 5529 3603 FO
+  60   60 5530 3603 FO
+  60   60 5531 3603 FO
+  60   60 5531 3606 FO
+  60   60 5532 3606 FO
+  60   60 5533 3606 FO
+  60   60 5533 3608 FO
+  60   60 5534 3608 FO
+  60   60 5534 3611 FO
+  60   60 5535 3611 FO
+  60   60 5536 3611 FO
+  60   60 5536 3614 FO
+  60   60 5537 3614 FO
+  60   60 5537 3617 FO
+  60   60 5538 3617 FO
+  60   60 5539 3617 FO
+  60   60 5539 3620 FO
+  60   60 5540 3620 FO
+  60   60 5541 3620 FO
+  60   60 5541 3623 FO
+  60   60 5542 3623 FO
+  60   60 5543 3623 FO
+  60   60 5543 3626 FO
+  60   60 5544 3626 FO
+  60   60 5545 3626 FO
+  60   60 5545 3629 FO
+  60   60 5546 3629 FO
+  60   60 5546 3633 FO
+  60   60 5547 3633 FO
+  60   60 5548 3633 FO
+  60   60 5548 3636 FO
+  60   60 5549 3636 FO
+  60   60 5550 3636 FO
+  60   60 5550 3639 FO
+  60   60 5551 3639 FO
+  60   60 5551 3642 FO
+  60   60 5552 3642 FO
+  60   60 5553 3642 FO
+  60   60 5553 3646 FO
+  60   60 5554 3646 FO
+  60   60 5555 3646 FO
+  60   60 5555 3649 FO
+  60   60 5556 3649 FO
+  60   60 5557 3649 FO
+  60   60 5557 3653 FO
+  60   60 5558 3653 FO
+  60   60 5558 3656 FO
+  60   60 5559 3656 FO
+  60   60 5560 3656 FO
+  60   60 5560 3660 FO
+  60   60 5561 3660 FO
+  60   60 5562 3660 FO
+  60   60 5562 3663 FO
+  60   60 5563 3663 FO
+  60   60 5564 3663 FO
+  60   60 5564 3667 FO
+  60   60 5565 3667 FO
+  60   60 5566 3667 FO
+  60   60 5566 3671 FO
+  60   60 5567 3671 FO
+  60   60 5568 3671 FO
+  60   60 5568 3674 FO
+  60   60 5569 3674 FO
+  60   60 5570 3674 FO
+  60   60 5570 3678 FO
+  60   60 5571 3678 FO
+  60   60 5572 3678 FO
+  60   60 5572 3682 FO
+  60   60 5573 3682 FO
+  60   60 5574 3682 FO
+  60   60 5574 3686 FO
+  60   60 5575 3686 FO
+  60   60 5576 3686 FO
+  60   60 5576 3690 FO
+  60   60 5577 3690 FO
+  60   60 5578 3690 FO
+  60   60 5579 3690 FO
+  60   60 5579 3694 FO
+  60   60 5580 3694 FO
+  60   60 5581 3694 FO
+  60   60 5581 3699 FO
+  60   60 5582 3699 FO
+  60   60 5583 3699 FO
+  60   60 5583 3703 FO
+  60   60 5584 3703 FO
+  60   60 5585 3703 FO
+  60   60 5585 3707 FO
+  60   60 5586 3707 FO
+  60   60 5587 3707 FO
+  60   60 5588 3707 FO
+  60   60 5588 3712 FO
+  60   60 5589 3712 FO
+  60   60 5590 3712 FO
+  60   60 5590 3716 FO
+  60   60 5591 3716 FO
+  60   60 5592 3716 FO
+  60   60 5593 3716 FO
+  60   60 5593 3721 FO
+  60   60 5594 3721 FO
+  60   60 5595 3721 FO
+  60   60 5596 3721 FO
+  60   60 5596 3726 FO
+  60   60 5597 3726 FO
+  60   60 5598 3726 FO
+  60   60 5598 3730 FO
+  60   60 5599 3730 FO
+  60   60 5600 3730 FO
+  60   60 5601 3730 FO
+  60   60 5601 3735 FO
+  60   60 5602 3735 FO
+  60   60 5603 3735 FO
+  60   60 5604 3735 FO
+  60   60 5604 3740 FO
+  60   60 5605 3740 FO
+  60   60 5606 3740 FO
+  60   60 5606 3746 FO
+  60   60 5607 3746 FO
+  60   60 5608 3746 FO
+  60   60 5608 3751 FO
+  60   60 5609 3751 FO
+  60   60 5610 3751 FO
+  60   60 5611 3751 FO
+  60   60 5611 3756 FO
+  60   60 5612 3756 FO
+  60   60 5613 3756 FO
+  60   60 5613 3762 FO
+  60   60 5614 3762 FO
+  60   60 5615 3762 FO
+  60   60 5616 3762 FO
+  60   60 5616 3767 FO
+  60   60 5617 3767 FO
+  60   60 5618 3767 FO
+  60   60 5619 3767 FO
+  60   60 5619 3773 FO
+  60   60 5620 3773 FO
+  60   60 5621 3773 FO
+  60   60 5622 3773 FO
+  60   60 5622 3779 FO
+  60   60 5623 3779 FO
+  60   60 5624 3779 FO
+  60   60 5625 3779 FO
+  60   60 5625 3785 FO
+  60   60 5626 3785 FO
+  60   60 5627 3785 FO
+  60   60 5628 3785 FO
+  60   60 5628 3792 FO
+  60   60 5629 3792 FO
+  60   60 5630 3792 FO
+  60   60 5631 3792 FO
+  60   60 5631 3798 FO
+  60   60 5632 3798 FO
+  60   60 5633 3798 FO
+  60   60 5634 3798 FO
+  60   60 5634 3805 FO
+  60   60 5635 3805 FO
+  60   60 5636 3805 FO
+  60   60 5637 3805 FO
+  60   60 5637 3812 FO
+  60   60 5638 3812 FO
+  60   60 5639 3812 FO
+  60   60 5640 3812 FO
+  60   60 5641 3812 FO
+  60   60 5641 3819 FO
+  60   60 5642 3819 FO
+  60   60 5643 3819 FO
+  60   60 5644 3819 FO
+  60   60 5644 3826 FO
+  60   60 5645 3826 FO
+  60   60 5646 3826 FO
+  60   60 5647 3826 FO
+  60   60 5648 3826 FO
+  60   60 5648 3833 FO
+  60   60 5649 3833 FO
+  60   60 5650 3833 FO
+  60   60 5651 3833 FO
+  60   60 5651 3841 FO
+  60   60 5652 3841 FO
+  60   60 5653 3841 FO
+  60   60 5654 3841 FO
+  60   60 5655 3841 FO
+  60   60 5655 3849 FO
+  60   60 5656 3849 FO
+  60   60 5657 3849 FO
+  60   60 5658 3849 FO
+  60   60 5659 3849 FO
+  60   60 5659 3858 FO
+  60   60 5660 3858 FO
+  60   60 5661 3858 FO
+  60   60 5662 3858 FO
+  60   60 5663 3858 FO
+  60   60 5663 3866 FO
+  60   60 5664 3866 FO
+  60   60 5665 3866 FO
+  60   60 5666 3866 FO
+  60   60 5667 3866 FO
+  60   60 5667 3875 FO
+  60   60 5668 3875 FO
+  60   60 5669 3875 FO
+  60   60 5670 3875 FO
+  60   60 5671 3875 FO
+  60   60 5671 3885 FO
+  60   60 5672 3885 FO
+  60   60 5673 3885 FO
+  60   60 5674 3885 FO
+  60   60 5675 3885 FO
+  60   60 5676 3885 FO
+  60   60 5676 3894 FO
+  60   60 5677 3894 FO
+  60   60 5678 3894 FO
+  60   60 5679 3894 FO
+  60   60 5680 3894 FO
+  60   60 5681 3894 FO
+  60   60 5681 3905 FO
+  60   60 5682 3905 FO
+  60   60 5683 3905 FO
+  60   60 5684 3905 FO
+  60   60 5685 3905 FO
+  60   60 5685 3915 FO
+  60   60 5686 3915 FO
+  60   60 5687 3915 FO
+  60   60 5688 3915 FO
+  60   60 5689 3915 FO
+  60   60 5690 3915 FO
+  60   60 5690 3926 FO
+  60   60 5691 3926 FO
+  60   60 5692 3926 FO
+  60   60 5693 3926 FO
+  60   60 5694 3926 FO
+  60   60 5695 3926 FO
+  60   60 5696 3926 FO
+  60   60 5696 3938 FO
+  60   60 5697 3938 FO
+  60   60 5698 3938 FO
+  60   60 5699 3938 FO
+  60   60 5700 3938 FO
+  60   60 5701 3938 FO
+  60   60 5701 3951 FO
+  60   60 5702 3951 FO
+  60   60 5703 3951 FO
+  60   60 5704 3951 FO
+  60   60 5705 3951 FO
+  60   60 5706 3951 FO
+  60   60 5707 3951 FO
+  60   60 5707 3964 FO
+  60   60 5708 3964 FO
+  60   60 5709 3964 FO
+  60   60 5710 3964 FO
+  60   60 5711 3964 FO
+  60   60 5712 3964 FO
+  60   60 5713 3964 FO
+  60   60 5713 3978 FO
+  60   60 5714 3978 FO
+  60   60 5715 3978 FO
+  60   60 5716 3978 FO
+  60   60 5717 3978 FO
+  60   60 5718 3978 FO
+  60   60 5719 3978 FO
+  60   60 5719 3992 FO
+  60   60 5720 3992 FO
+  60   60 5721 3992 FO
+  60   60 5722 3992 FO
+  60   60 5723 3992 FO
+  60   60 5724 3992 FO
+  60   60 5725 3992 FO
+  60   60 5726 3992 FO
+  60   60 5726 4008 FO
+  60   60 5727 4008 FO
+  60   60 5728 4008 FO
+  60   60 5729 4008 FO
+  60   60 5730 4008 FO
+  60   60 5731 4008 FO
+  60   60 5732 4008 FO
+  60   60 5733 4008 FO
+  60   60 5733 4025 FO
+  60   60 5734 4025 FO
+  60   60 5735 4025 FO
+  60   60 5736 4025 FO
+  60   60 5737 4025 FO
+  60   60 5738 4025 FO
+  60   60 5739 4025 FO
+  60   60 5740 4025 FO
+  60   60 5740 4044 FO
+  60   60 5741 4044 FO
+  60   60 5742 4044 FO
+  60   60 5743 4044 FO
+  60   60 5744 4044 FO
+  60   60 5745 4044 FO
+  60   60 5746 4044 FO
+  60   60 5747 4044 FO
+  60   60 5748 4044 FO
+  60   60 5748 4064 FO
+  60   60 5749 4064 FO
+  60   60 5750 4064 FO
+  60   60 5751 4064 FO
+  60   60 5752 4064 FO
+  60   60 5753 4064 FO
+  60   60 5754 4064 FO
+  60   60 5755 4064 FO
+  60   60 5756 4064 FO
+  60   60 5756 4085 FO
+  60   60 5757 4085 FO
+  60   60 5758 4085 FO
+  60   60 5759 4085 FO
+  60   60 5760 4085 FO
+  60   60 5761 4085 FO
+  60   60 5762 4085 FO
+  60   60 5763 4085 FO
+  60   60 5764 4085 FO
+  60   60 5765 4085 FO
+  60   60 5765 4110 FO
+  60   60 5766 4110 FO
+  60   60 5767 4110 FO
+  60   60 5768 4110 FO
+  60   60 5769 4110 FO
+  60   60 5770 4110 FO
+  60   60 5771 4110 FO
+  60   60 5772 4110 FO
+  60   60 5773 4110 FO
+  60   60 5774 4110 FO
+  60   60 5774 4137 FO
+  60   60 5775 4137 FO
+  60   60 5776 4137 FO
+  60   60 5777 4137 FO
+  60   60 5778 4137 FO
+  60   60 5779 4137 FO
+  60   60 5780 4137 FO
+  60   60 5781 4137 FO
+  60   60 5782 4137 FO
+  60   60 5783 4137 FO
+  60   60 5784 4137 FO
+  60   60 5784 4167 FO
+  60   60 5785 4167 FO
+  60   60 5786 4167 FO
+  60   60 5787 4167 FO
+  60   60 5788 4167 FO
+  60   60 5789 4167 FO
+  60   60 5790 4167 FO
+  60   60 5791 4167 FO
+  60   60 5792 4167 FO
+  60   60 5793 4167 FO
+  60   60 5794 4167 FO
+  60   60 5794 4203 FO
+  60   60 5795 4203 FO
+  60   60 5796 4203 FO
+  60   60 5797 4203 FO
+  60   60 5798 4203 FO
+  60   60 5799 4203 FO
+  60   60 5800 4203 FO
+  60   60 5801 4203 FO
+  60   60 5802 4203 FO
+  60   60 5803 4203 FO
+  60   60 5804 4203 FO
+  60   60 5804 4244 FO
+  60   60 5805 4244 FO
+  60   60 5806 4244 FO
+  60   60 5807 4244 FO
+  60   60 5808 4244 FO
+  60   60 5809 4244 FO
+  60   60 5810 4244 FO
+  60   60 5811 4244 FO
+  60   60 5812 4244 FO
+  60   60 5813 4244 FO
+  60   60 5814 4244 FO
+  60   60 5814 4296 FO
+  60   60 5815 4296 FO
+  60   60 5816 4296 FO
+  60   60 5817 4296 FO
+  60   60 5818 4296 FO
+  60   60 5819 4296 FO
+  60   60 5820 4296 FO
+  60   60 5821 4296 FO
+  60   60 5822 4296 FO
+  60   60 5823 4296 FO
+  60   60 5823 4362 FO
+  60   60 5824 4362 FO
+  60   60 5825 4362 FO
+  60   60 5826 4362 FO
+  60   60 5827 4362 FO
+  60   60 5828 4362 FO
+  60   60 5829 4362 FO
+  60   60 5830 4362 FO
+  60   60 5831 4362 FO
+  60   60 5831 4455 FO
+  60   60 5832 4455 FO
+  60   60 5833 4455 FO
+  60   60 5834 4455 FO
+  60   60 5835 4455 FO
+  60   60 5836 4455 FO
+  60   60 5837 4455 FO
+  60   60 5838 4455 FO
+  60   60 5838 4614 FO
+  60   60 5839 4614 FO
+  60   60 5840 4614 FO
+  60   60 5841 4614 FO
+  60   60 5842 4614 FO
+  60   60 5843 4614 FO
+  60   60 5844 4614 FO
+  60   60 5845 4614 FO
+  60   60 5846 4614 FO
+  60   60 5847 4614 FO
+  60   60 5848 4614 FO
+  60   60 5849 4614 FO
+  60   60 5850 4614 FO
+  60   60 5851 4614 FO
+  60   60 5852 4614 FO
+gr
+
+gs 899 389 5357 4226 MR c np
+24 w
+/c8 { 1.000000 0.000000 0.000000 sr} bdef
+c8
+2678 1980 3041 917 2 MP stroke
+gr
+
+24 w
+c8
+0 sg
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 216 FMSR
+
+3301 5130 mt 
+(rank r) s
+ 441 3957 mt  -90 rotate
+(number of active IP addresses) s
+90 rotate
+6 w
+c8
+4380 1505 mt 
+(~r) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 168 FMSR
+
+4578 1397 mt 
+(-1.5) s
+
+end %%Color Dict
+
+eplot
+%%EndObject
+
+epage
+end
+
+showpage
+
+%%Trailer
+%%EOF
