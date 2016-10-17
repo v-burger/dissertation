@@ -1,8 +1,8 @@
 \chapter{Characterization of the Content Delivery Networks on Autonomous System Level}\label{chap:aslevel}
 
 %intro and problem
-The performance evaluation of mechanisms that optimization content delivery requires a thorough knowledge of the nature of current content delivery networks.
-Such knowledge is required to reflect the characteristics of real-world overlay networks and to define models, parameters and relevant scenarios for performance evaluation.
+The performance evaluation of mechanisms that optimize content delivery requires a thorough knowledge of the nature of current content delivery networks.
+Such knowledge is required to reflect the characteristics of real-world networks and to define models, parameters and relevant scenarios for performance evaluation.
 This ensures that the results derived from performance analysis give meaningful insights for real-world scenarios.
 
 %Dependent on the route the content takes The delivery of content produces costs
@@ -10,23 +10,30 @@ This ensures that the results derived from performance analysis give meaningful 
 %The scalability of the Internet is achieved by topological addressing.
 
 %ISPs acquire transit providers to be connected to remote parts of the Internet or agree on peering relationships to exchange data without money flow.
-In 2015 61\% of all Internet video was carried by content delivery networks (CDNs) according to \cite{cisco2016}.
-The vast amount of traffic causes high costs for ISPs, who need to provide appropriate transport infrastructure and pay transit fees incurred.
-In order to develop traffic management mechanisms, aiming to reduce transit traffic and optimize content delivery, it is crucial to understand the current situation of content delivery networks and the number and distribution of available resources.
-The performance of content delivery highly depends on the available resources and the number of consumers.
+While in the past a large fraction of the total Internet traffic was carried by peer-to-peer (P2P) networks \cite{Cisc09}, the largest fraction of Internet traffic is now carried by content delivery networks (CDNs).
+In 2015 61\% of all Internet video was carried by CDNs according to \cite{cisco2016}.
+%The vast amount of traffic causes high costs for ISPs, who need to provide appropriate transport infrastructure and pay transit fees incurred.
+The traffic from CDNs is highly asymmetric and produces a large amount of costly inter-domain traffic \cite{labovitz2010internet}. Especially Internet Service Providers~(ISPs) providing access to many end users have problems to deal with the huge amount of traffic originating from CDNs.
+In order to develop traffic management mechanisms, aiming to reduce transit traffic and to optimize content delivery, it is crucial to understand the current situation of CDNs and the number and distribution of available resources.
+%The performance of CDNs highly depends on the available resources and the number of consumers.
 
 %The interaction of such applications with the network and other players, e.g. cloud providers, are usually not considered by the application developers.
 %In peer-to-peer networks
 
 % overview
 % in this chapter, ...
-In this chapter, we characterize the number of resources available in autonomous systems for the two content delivery concepts, peer-to-peer networks and content delivery networks and characterize the topology of autonomous systems.
+An autonomous system (AS) is an individual part of the Internet, which is operated by an ISP.
+In this chapter, we characterize the number of resources available
+in ASs
+for the two content delivery concepts, P2P network and CDN.
+%and characterize the topology of autonomous systems.
+
 %In peer-to-peer networks peers serve and request chunks of content at the same time, hence peers are also the resources for content delivery.
 %In content delivery networks the resources are content caches that run in data centers. To get content even closer to users caches can also be installed at the last mile or on customer premise equipment in home networks.
 
 % details, figure
-In order to characterize peer-to-peer networks on autonomous system level,
-we analyze a measurement study and identify the number of peers per swarm available in each autonomous system and investigate the performance of different peer selection strategies.
+In order to characterize P2P networks on AS level,
+we analyze a measurement study and identify the number of peers per swarm available in each AS and investigate the performance of different peer selection strategies.
 % we consider + metrics
 As key performance indicators we determine
 \begin{enumerate*}
@@ -35,8 +42,8 @@ As key performance indicators we determine
 \end{enumerate*}
 of Internet service providers.
 
-Due to the location based server assignment for content delivery a distributed measurement architecture is necessary to identify the server resources.
-While peers can easily be identified by probing trackers, the cache resources of content delivery networks can only be determined by probing the content delivery network from different locations.
+Due to the location based server assignment in CDNs, a distributed measurement architecture is necessary to identify the server resources.
+While peers can easily be identified by probing trackers, the cache resources of CDNs can only be determined by probing the CDN from different locations.
 Typically distributed measurement platforms such as PlanetLab are used for that purpose.
 The problem is that these measurement platforms may not reflect the perspective as consumer, since they are hosted in National Research and Education Networks (NRENs) and not in ISP networks.
 We compare the capabilities of a crowdsourcing platform and a PlanetLab testbed for distributed active measurements.
@@ -44,23 +51,22 @@ We compare the capabilities of a crowdsourcing platform and a PlanetLab testbed 
 
 Recent approaches \cite{valancius2009greening} suggest to use resources on customer premise equipment such as home gateways or network attached storage to support content delivery while saving energy.
 The potential of such peer assisted content delivery approaches, depends on the number of subscribers in the ISPs network.
-To get a global view on the number of resources available in each autonomous system we evaluate the Internet Census Dataset, which contains a complete scan of the IP address range.
+To get a global view on the number of resources available in each AS we evaluate the Internet Census Dataset, which contains a complete scan of the IP address range.
 
 %We compare a measurement study
+% contribution
+The contribution of this chapter is the following:
+\begin{enumerate}
+\item We determine the distribution of peers on ASs.
+\item We develop and evaluate optimization strategies for peer selection.
+\item We determine the distribution of content servers in a global CDN.
+\item We evaluate the Internet Census Dataset and model the distribution of IP-addresses on ASs.
+\end{enumerate}
 
-The measurement results of the content delivery network YouTube and the characterizations serve as input for the performance evaluation of hierarchical content delivery networks under real world conditions.
-Therefore, we use them in \refchap{hierarchical} to investigate the potential of content delivery networks in realistic parameter studies.
+The models derived from the measurement results of the CDN YouTube and P2P networks can be used for performance analysis and optimization of content delivery mechanisms.
+In particular the models serve as input for the optimization strategies for peer selection and the performance evaluation of hierarchical CDNs in realistic parameter studies in \refchap{chap:hierarchical}.
 %In addition our results show that the size of ISP in terms of subscriber is highly heterogeneous, showing that more than 85\% of the IPs are active in only 1\% of the autonomous systems and that the 10 largest autonomous systems already contain 30\% of the active IPs.
 %100 largest ISPs have 2/3 of active IPs
-
-% contribution
-%The contribution of this chapter are the following:
-%\begin{enumerate}
-%\item We determine the potential for locality in peer-to-peer networks.
-%\item We develop and evaluate optimization strategies for peer selection.
-%\item We determine the distribution of content servers in a global CDN.
-%\item We provide a model for the distribution of IP-addresses on autonomous system.
-%\end{enumerate}
 
 The content from this chapter has been published in \cite{burger2012profit,burger2014vantage,burger2016hierarchical}.
 \refsec{sec:aslevel:background} describes the background and presents related work.

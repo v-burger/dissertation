@@ -1,18 +1,18 @@
 \subsection{Method for Modeling BitTorrent Traffic Flow and Revenue of ISPs}\label{sec:p2p:methodology}
 
-In this section we describe the methodology to estimate transit costs of ASes. First, we show where we obtain the AS affiliation of peers. Second, we explain how AS paths are inferred from AS relations and how to classify the ASes. Further on we describe different BitTorrent peer selection strategies determining the connection among peers in the Internet. Finally we introduce our transit cost model.
+In this section we describe the methodology to estimate transit costs of ASs. First, we show where we obtain the AS affiliation of peers. Second, we explain how AS paths are inferred from AS relations and how to classify the ASs. Further on we describe different BitTorrent peer selection strategies determining the connection among peers in the Internet. Finally we introduce our transit cost model.
 %\add{The methodology applied in this paper is illustrated in Fig.xyz.}
 
 \subsubsection{AS Affiliation of Peers}
 
-In order to know where peers are located and where BitTorrent swarms generate costs for ISPs, we need to know how the swarms are distributed over the Internet and in which ASes the peers are located. For that purpose, we use the dataset of BitTorrent movie torrents ``\texttt{Mov.}'' provided by the authors of \cite{Hossfeld2011}. A snapshot of all available movie torrents on Mininova.org was taken. The swarm sizes and peer distributions were recorded by distributed measurements. The data set consists of files with AS number and number of peers pairs for each BitTorrent swarm. Hence, they provide information for each swarm on how many peers are located in which AS.   The measurement took part in April 2009 and recorded \np{126050} swarms. Peers of \np{8492} ASes are present in the swarms.
+In order to know where peers are located and where BitTorrent swarms generate costs for ISPs, we need to know how the swarms are distributed over the Internet and in which ASs the peers are located. For that purpose, we use the dataset of BitTorrent movie torrents ``\texttt{Mov.}'' provided by the authors of \cite{Hossfeld2011}. A snapshot of all available movie torrents on Mininova.org was taken. The swarm sizes and peer distributions were recorded by distributed measurements. The data set consists of files with AS number and number of peers pairs for each BitTorrent swarm. Hence, they provide information for each swarm on how many peers are located in which AS. The measurement took part in April 2009 and recorded \np{126050} swarms. Peers of \np{8492} ASs are present in the swarms.
 
 
 % \caption{BitTorrent swarms.} \label{tab:swarms}
 % \vspace{-0.6cm}
 % \begin{center}
 % \begin{tabular}{|l|l|l|l|l|} \hline
-% \textbf{dataset} & \textbf{type of content} & \textbf{\#torrents} & \textbf{\#ASes} & \textbf{meas. date} \\ \hline
+% \textbf{dataset} & \textbf{type of content} & \textbf{\#torrents} & \textbf{\#ASs} & \textbf{meas. date} \\ \hline
 % \textbf{mov} & movies & 126050 & 8492 & Apr. 2009 \\ \hline
 % \end{tabular}
 % \end{center}
@@ -22,7 +22,7 @@ In order to know where peers are located and where BitTorrent swarms generate co
 % \vspace{-0.6cm}
 % \begin{center}
 % \begin{tabular}{|l|l|l|l|l|} \hline
-% \textbf{dataset} & \textbf{type of content} & \textbf{\#torrents} & \textbf{\#ASes} & \textbf{meas. date} \\ \hline
+% \textbf{dataset} & \textbf{type of content} & \textbf{\#torrents} & \textbf{\#ASs} & \textbf{meas. date} \\ \hline
 % \textbf{mov} & movies & 126050 & 8492 & Apr. 2009 \\ \hline
 % \end{tabular}
 % \end{center}
@@ -34,7 +34,7 @@ In order to know where peers are located and where BitTorrent swarms generate co
 % \begin{center}
 % {\footnotesize
 % 	\begin{tabular}{|l|l|l|} \hline
-% 		\textbf{Type} & \textbf{Classification} & \textbf{\#ASes} \\ \hline
+% 		\textbf{Type} & \textbf{Classification} & \textbf{\#ASs} \\ \hline
 % 		\textbf{\Tier} & AS has no providers & 11 \\ \hline
 % 		\textbf{Large ISP} & AS customer tree $\geq50$ & 337 \\ \hline
 % 		\textbf{Small ISP} & AS customer tree $<50$ and $\geq5$ & 1770 \\ \hline
@@ -47,9 +47,18 @@ In order to know where peers are located and where BitTorrent swarms generate co
 \subsubsection{AS Relations, Paths and Classification}
 
 To be able to estimate the transit costs produced by peers exchanging data in BitTorrent swarms, we need to know the AS paths that connect the peers. Datasets with complete AS paths would be very large and are not available to our knowledge. Hence, we infer AS paths from AS relationships.
-We use the AS relationship dataset from Caida.org \cite{caidaas}. The dataset contains AS links annotated with AS relations. Each file contains a full AS graph derived from RouteViews BGP table snapshots. For our estimations we use the dataset from January 2011. The dataset consists of customer-to-provider and peer-to-peer relations. However, sibling-to-sibling is only considered by Caida and does not occur in the dataset.
+We use the AS relationship dataset from Caida.org \cite{caidaas}. The dataset contains AS links annotated with AS relations. Each file contains a full AS graph derived from RouteViews BGP table snapshots. For our estimations we use the dataset from January 2011. The dataset consists of transit and peering relations.
+% However, sibling-to-sibling is only considered by Caida and does not occur in the dataset.
+% The approach that is most widely used to infer AS relationships is analyzing BGP routing tables. The data set used in this work is also produced by inferring BGP tables as described in \cite{dimitropoulos2007relationships}.
+% Therefore, AS links are extracted from RouteViews BGP tables.
+% RouteViews is a project that obtains information about the global routing system from the perspectives of several different backbones and locations around the Internet.
+%First sibling-to-sibling links are identified by looking up organizations that own multiple AS numbers.
+%Customer-to-provider relationships are inferred by a heuristic that is based on the idea of relaxing the requirement for a maximal number of valid paths and using the AS degree information to detect paths that are invalid.
+%Most challenging is the inference of peer-to-peer links since paths remain valid if peer-to-peer links are replaced by a customer-to-provider or provider-to-customer link.
+% The authors of \cite{dimitropoulos2007relationships} develop a heuristic which combines the strengths of previous approaches by \cite{gao2001} and \cite{di2003computing}. The inferred relationships were validated by surveys, showing that \unit[96.5]{\%} transit links and \unit[82.8]{\%} peering links of the inferred relationships are correct.
 
-We implemented the algorithm described in \cite{yang2009efficient} in Java to infer the AS paths between any two peers based on the AS relationship dataset. The authors developed a breadth first search algorithm which infers shortest paths conforming to the AS path constraints. The algorithm has runtime $O(N\cdot M)$ for finding all pair valid shortest AS paths of the graph, where $N$ is the number of AS relations and $M$ is the number of ASes.
+
+We implement the algorithm described in \cite{yang2009efficient} in Java to infer the AS paths between any two peers based on the AS relationship dataset. The authors developed a breadth first search algorithm which infers shortest paths conforming to the AS path constraints. The algorithm has runtime $O(N\cdot M)$ for finding all pair valid shortest AS paths of the graph, where $N$ is the number of AS relations and $M$ is the number of ASs.
 The algorithm's input parameter is the source AS $\alpha$. For every destination AS $\beta$ the algorithm returns a set of paths $\mathbb{P}(\alpha,\beta)$, which connect $\alpha$ and $\beta$.
 
 \begin{table}[tb]
@@ -57,7 +66,7 @@ The algorithm's input parameter is the source AS $\alpha$. For every destination
 \begin{center}
 {\footnotesize
 	\begin{tabular}{|l|l|l|} \hline
-		\textbf{Type} & \textbf{Classification} & \textbf{\#ASes} \\ \hline
+		\textbf{Type} & \textbf{Classification} & \textbf{\#ASs} \\ \hline
 		\textbf{\Tier} & AS has no providers & 11 \\ \hline
 		\textbf{Large ISP} & AS customer tree $\geq50$ & 337 \\ \hline
 		\textbf{Small ISP} & AS customer tree $<50$ and $\geq5$ & 1770 \\ \hline
@@ -67,8 +76,8 @@ The algorithm's input parameter is the source AS $\alpha$. For every destination
 \end{center}
 \end{table}
 
-Further on, we want to obtain results dependent on the AS size and type of business. Therefore we classify the ASes into \textit{stub}, \textit{small ISP}, \textit{large ISP} and \textit{tier--1}. For that purpose, we use a dataset from \cite{irlas}, which provides information about the number of customers and providers for each AS number. This dataset is from November 2011 and is used to classify the ASes according to the size of their customer tree.
-\reftab{tab:ASclass} lists the different AS types and their classification. \Tier ASes are the largest ASes building the core of the Internet. \Tier ASes do not have providers. In their dataset 11 \tier ASes are identified. If an AS has a customer tree that contains at least 50 nodes, it is classified as a large ISP. An AS is classified as small ISP if its customer tree has less than 50 but at least 5 nodes. Most ASes are stub ASes, which have a customer tree that is smaller than 5.
+Further on, we want to obtain results dependent on the AS size and type of business. Therefore we classify the ASs into \textit{stub}, \textit{small ISP}, \textit{large ISP} and \textit{tier--1}. For that purpose, we use a dataset from \cite{irlas}, which provides information about the number of customers and providers for each AS number. This dataset is from November 2011 and is used to classify the ASs according to the size of their customer tree.
+\reftab{tab:ASclass} lists the different AS types and their classification. \Tier ASs are the largest ASs building the core of the Internet. \Tier ASs do not have providers. In their dataset 11 \tier ASs are identified. If an AS has a customer tree that contains at least 50 nodes, it is classified as a large ISP. An AS is classified as small ISP if its customer tree has less than 50 but at least 5 nodes. Most ASs are stub ASs, which have a customer tree that is smaller than 5.
 
 \subsubsection{BitTorrent Neighbor Set Creation}
 
@@ -84,7 +93,7 @@ In the random selection strategy we add random $N$ peers of the swarm to the nei
 In the locality algorithm we sort the AS paths connecting two peers by the number of AS hops. Then we add the peers according to the sorted set of increasing AS paths until $N$ peers are in the neighbor set. Note, that first the peers located in the same AS, i.e., zero AS hops, are added. This selection algorithm is used to optimize the swarm by minimizing AS hops between peers and thereby potentially reducing latencies. Hence, the motivation for this algorithm is to optimize the swarm from the overlay's point of view.
 In practice, such a selection could be realized e.g. with an \emph{iTracker} \cite{Xie2008}, a database which maps IP-addresses to autonomous system numbers, or other ALTO mechanisms.
 \paragraph{selfish-ISP}
-The selfish-ISP selection algorithm tries to select as many peers from customer ASes as possible. Until the neighbor set contains $N$ peers it first adds peers from paths starting with provider-to-customer links, then peers of the same AS, then paths starting with peering links and finally customer-to-provider links.
+The selfish-ISP selection algorithm tries to select as many peers from customer ASs as possible. Until the neighbor set contains $N$ peers it first adds peers from paths starting with provider-to-customer links, then peers of the same AS, then paths starting with peering links and finally customer-to-provider links.
 This selection algorithm is used to maximize the revenue of ISPs. This is achieved by the selfish-ISP strategy by selecting preferentially peers that are connected by customers and avoiding peers at providers. In practice an ISP must be able to control the neighbor set. Hence, ALTO mechanisms for selfish-ISP selection must be controllable by the ISP. One approach is that the ISP provides an information service to guide the peer selection, such as an oracle \cite{Aggarwal2007} or an information service \cite{hossfia}.
 
 \begin{figure}[bt]
@@ -149,7 +158,7 @@ This selection algorithm is used to maximize the revenue of ISPs. This is achiev
 
 \subsubsection{Cost Model}
 
-To be able to estimate the costs for ASes arising from transit services, we need to know how much traffic is generated and how much providers charge customers for forwarding the traffic.
+To be able to estimate the costs for ASs arising from transit services, we need to know how much traffic is generated and how much providers charge customers for forwarding the traffic.
 We consider a snapshot and assume instantaneous traffic rates, i.e., the file-size of the download can be neglected.
 For simplicity we make assumptions on how much traffic is generated in each swarm, depending on the the number and location of peers.
 \newtheorem{assa}{Assumption}\begin{assa}\label{npeers}
@@ -159,7 +168,7 @@ The traffic generated by a peer is equally shared among its neighbors.
 All peers generate traffic at the same rate.
 \end{assb}
 \newtheorem{assc}[assa]{Assumption}\begin{assc}\label{npaths}
-The traffic between ASes is equally shared among the paths that connect them.
+The traffic between ASs is equally shared among the paths that connect them.
 \end{assc}
 In practice, traffic rates are allocated by BitTorrent's choke algorithm, which takes into account the upload and download speed of the other peers. Further on, traffic is generally not shared among different AS paths. But, since we consider the aggregated traffic of a large number of swarms, we argue that these assumptions are reasonable and the results do not change significantly.
 %and differ for every peer according to its upload bandwidth. Further on,
@@ -188,7 +197,7 @@ Assumption~\ref{npaths} implies that the traffic between $\alpha$ and $\beta$ an
 T(P)=\frac 1 {|\mathbb P(\alpha,\beta)|} \cdot T(\alpha,\beta),\;\;\; P\in\mathbb P(\alpha,\beta) \, .
 \end{equation}
 
-Next we can calculate the link load $L(\alpha,\beta)$ on the link between two directly connected ASes $\alpha$ and $\beta$. We use $\alpha\leftrightarrow \beta \in P$ as notation for a direct link between $\alpha$ and $\beta$ on the path $P$. The link load is the sum of the load on all paths sharing the link $\alpha\leftrightarrow\beta$.
+Next we can calculate the link load $L(\alpha,\beta)$ on the link between two directly connected ASs $\alpha$ and $\beta$. We use $\alpha\leftrightarrow \beta \in P$ as notation for a direct link between $\alpha$ and $\beta$ on the path $P$. The link load is the sum of the load on all paths sharing the link $\alpha\leftrightarrow\beta$.
 
 \begin{equation}\label{equ:linkload}
 L(\alpha,\beta)=\sum_{P|\alpha\leftrightarrow \beta \in P} T(P) \, .
@@ -201,7 +210,7 @@ in(\alpha) = out(\alpha) = \sum_{\beta| \exists P, \alpha\leftrightarrow \beta \
 \end{equation}
 
 In the following we estimate the transit costs. The transit costs are weighted by the link loads defined in this section.
-% Hence, we estimate the outgoing traffic $\zeta(p)$ of ASes on paths $p \in \Gamma_{src,dst},$ for $n_{src}$ peers in $src$, and $\hat n_{dst}$ out of $N$ neighbors in $dst$ by
+% Hence, we estimate the outgoing traffic $\zeta(p)$ of ASs on paths $p \in \Gamma_{src,dst},$ for $n_{src}$ peers in $src$, and $\hat n_{dst}$ out of $N$ neighbors in $dst$ by
 
 % \begin{equation}
 % \zeta(p) = \frac {n_{src} \cdot \hat n_{dst}} {N\cdot |\Gamma_{src,dst}|} .
@@ -211,11 +220,11 @@ In the following we estimate the transit costs. The transit costs are weighted b
 % \begin{equation}
 % \sum_{src \in \Lambda} \sum_{dst \in \Lambda \backslash \{src\}} \left(\frac {n_{src} \cdot n_{dst}} {N\cdot |\Gamma_{src,dst}|} + \frac {n_{src} \cdot (n_{src}-1)} {N}\right)
 % \end{equation}
-% is produced. With the set of ASes $\Lambda$.
+% is produced. With the set of ASs $\Lambda$.
 
 \subsubsection{Transit Costs}
 
-The business relationships between ISPs define the exact transit costs, but they are part of the private contracts between the ISPs. Hence, we develop a simple model for the arising transit costs. It is common that peering ASes exchange their traffic and the traffic of their customers without charging. Hence, we assume no costs for peering links. The amount a customer pays a provider for transit for a specific volume of traffic is unclear, so we set it to one cost unit, i.e., $1$. That is not the case in practice, but as we have a large number of ASes and swarms, we get a qualitatively good estimation.\\
+The business relationships between ISPs define the exact transit costs, but they are part of the private contracts between the ISPs. Hence, we develop a simple model for the arising transit costs. It is common that peering ASs exchange their traffic and the traffic of their customers without charging. Hence, we assume no costs for peering links. The amount a customer pays a provider for transit for a specific volume of traffic is unclear, so we set it to one cost unit, i.e., $1$. That is not the case in practice, but as we have a large number of ASs and swarms, we get a qualitatively good estimation.\\
 %For given $\alpha$ and $\beta$ and the set of AS paths $\Gamma_{src,dst}$ we estimate costs, revenues and the balance for every AS occurring on the AS paths connection $src$ and $dst$.
 The \textit{costs} of an AS $\alpha$ are increased, if it acts as customer of an AS $\beta$. The costs are increased by one unit weighted by the amount of traffic on the link connecting $\alpha$ and $\beta$, i.e., $L(\alpha, \beta)$ from \refequ{equ:linkload}. Let $\mathcal P(\alpha)$ be the set of providers of $\alpha$, and let $\mathcal C(\alpha)$ be the set of customers of $\alpha$. Then we can calculate the costs of AS $\alpha$ emerging in all swarms as follows.
 \begin{equation}\label{equ:costs}
