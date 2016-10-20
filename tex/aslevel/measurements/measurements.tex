@@ -1,0 +1,88 @@
+\section{Measurements and Models of Content Delivery Networks}
+
+The most popular peer-to-peer overlay network today is BitTorrent.
+BitTorrent is still responsible for a large portion of Internet traffic \cite{cisco2016,wamser2010}. In particular, BitTorrent networks generate a lot of inter-ISP traffic, which is often costly for the ISPs. One approach to optimize the traffic flows, which received a lot of attention is Application Layer Traffic Optimization (ALTO), to increase the efficiency of BitTorrent and to reduce the amount of inter-ISP traffic and costs. Evaluations of such approaches have been conducted mostly in controlled, artificial scenarios. Examples for such scenarios are simulations with homogeneous peer distributions across ISPs, the evaluation of simple topologies, like the star topology with a tier--1 ISP in the center. However, in today's Internet the inter-ISP traffic routing is based on a complex topology defined by inter-ISP relationships, e.g., peering or transit, and ISP classifications such as \tier, large and small ISPs, and stub ISPs. Hence, these economic relations play an important role in the actual Internet traffic flow. However, this topology of the Internet is not taken into account by most evaluations of P2P guidance approaches, which limits the practical relevance of the results. Furthermore, it is an open question how much BitTorrent traffic is located in which region of the Internet. However, this is a prerequisite in order to estimate the potential of ALTO mechanisms.
+We give an overview on measurement studies of live BitTorrent networks and show different approaches to reduce costly traffic discussed in the ALTO working group of the IETF.
+We summarize related work in the field of distributed active measurements of CDNs and give a short introduction in the principles of crowdsourcing.
+
+\subsection{Measurements and Models of Live BitTorrent Networks}
+
+BitTorrent is a P2P file-sharing protocol, which is based on multi-source downloads between the users. All the users, i.e., \textit{peers}, sharing the same file belong to a \textit{swarm}, c.f., \reffig{fig:aslevel:p2p}. To join the swarm, a peer requests addresses of other peers at an index server called \textit{tracker}. In the standard BitTorrent algorithm the tracker uses random peer selection to select a subset of peers that are in the swarm. Then, the joining peer tries to establish a neighbor relation to the peers it got from the tracker and collects all peers which accepted the request in his \textit{neighbor} set. The peer signals interest to all neighbors which have parts of the file it still needs to download. To which neighbor a peer is willing to upload data is decided by the choking algorithm, which is explained in \cite{cohen:bt}.
+
+As basis of our methodology for modeling inter-ISP BitTorrent traffic, the results in \cite{Hossfeld2011} are revisited. In \cite{Hossfeld2011} the authors provide measurements of a large number of live BitTorrent swarms taken from popular index servers such as \emph{The Pirate Bay}, \emph{Mininova}, and \emph{Demonoid}. Using the IP addresses of the peers, the authors associate every peer with its AS and estimate the potential of ALTO mechanisms based on the differentiation between local peers (peers in the same AS) and remote peers located in other ASs. In contrast, we consider the actual Internet topology in this work, i.e., the inter-ISP relations, the ISP classification in the Internet hierarchy, and the AS paths between the peers in order to estimate the optimization potential of ALTO mechanisms.
+
+The authors of \cite{Kryczka2011} use the peer exchange protocol (PEX) in order to measure the neighbor set of all peers participating in a number of live BitTorrent swarms. Based on this information, they model the graph topology of the swarms and compare the structure to random graphs. They also investigate clustering of peers within ASs and countries, but do not focus on inter-AS relations and AS paths between peers as we do in this chapter.
+
+In addition, there are measurement studies that examine and model distinct features of BitTorrent networks. In \cite{Izal2004}, a single swarm was measured for five months with a focus on the download times of the peers. Additional parameters such as the peer inter-arrival times in the swarm, their upload capacity and their online time are considered in \cite{Pouwelse2005}. The authors of \cite{Guo2005} investigate these parameters also in multi-swarm scenarios. Finally, \cite{Zhang2010} measures \unit[4.6]{million} torrents to provide an overview of the entire BitTorrent ecosystem with its different communities and index servers.
+While the distribution of peers in the Internet is also studied in this chapter, none of these works focuses on the location of the peers in the Internet and the AS paths between the peers, which is a major aspect of this chapter.
+
+% \subsection{ALTO Mechanisms and Their Performance Evaluation}
+%
+% Various mechanisms to reduce the inter-ISP traffic generated by BitTorrent and other P2P applications are currently being investigated. Besides caching of BitTorrent traffic \cite{Lehrieder2010a,Lehrieder2012,Pacifici2012}, which might involve legal issues, changing standard BitTorrent algorithms is a promising approach. The authors of \cite{Aggarwal2007} propose to use an oracle service provided by the ISP guiding the peers in their peer selection process. The evaluation uses a Gnutella network and shows that intra-AS traffic is increased significantly without a negative impact on the overlay graph. Similar approaches are proposed for BitTorrent. Bindal et al. \cite{Bindal2006} reduce the inter-ISP traffic by modifying the neighbor set of the BitTorrent peers, which can be done at the tracker or enforced by the ISPs using deep packet inspection. Their simulations use a uniform peer distribution over ASs and show a high optimization potential of this approach. The authors of \cite{Xie2008} propose to use \emph{iTrackers} to guide the peers and formulates an optimization problem to find the best neighbor sets. Finally, Oechsner et al. \cite{Oechsner2009} propose to change the choke algorithm of BitTorrent to further reduce inter-ISP traffic and evaluate it via simulations in homogeneous scenarios. The BitTorrent plugin \emph{Ono} \cite{Choffnes2008} uses the servers of content distribution networks (CDN) as landmarks and estimates the proximity of two peers by the similarity of the CDN re-direction behavior.
+%
+% The authors of \cite{gkantsidis2006planet} investigate analytically the capabilities of a P2P-based content distribution network and the impact of locality. In contrast to our work, they use traffic characteristics which arise from software updates and do not consider AS relationships.
+% A set of evaluations of ALTO mechanisms uses scenarios inspired by measurements of live BitTorrent swarms \cite{Cuevas2011,Blond2011,Lehrieder2011}. The studied scenarios consider heterogeneous peer distributions where some ASs contain more peers of a specific swarm than others. Nevertheless, they do not take into account inter-AS relations and the AS paths between two peers. This is different in our study. Using the AS affiliation of peers and the data obtained from Caida.org, we infer the actual paths of the BitTorrent connections in the Internet. In addition, we focus on the inter-ISP relations and investigate to which degree selfish ISPs profit from recommending their peers to preferentially use connections to peers located in lower tier ASs.
+
+\subsection{Structure of the YouTube Content Delivery Network}
+
+\subsection{Measurements of Content Delivery Networks}
+There already exist a number of publications which study the structure of the YouTube CDN and its selection of video servers.
+A distributed active measurement platform is necessary for these evaluations, because the CDN mechanisms consider the client locations, both geographical as well as in terms of the connected access network.
+Recently, the physical server distribution of NetFlix's CDN was mapped in \cite{bottger2016open}, using a DNS crawler and exploiting the naming scheme of the cache servers.
+%It is differed between ISP and IXP deployment of the servers and find that a region-specific deployment of the servers is required dependent on the different markets.
+%Deploying within ISPs takes time, so IXP deployment reflects the phase in the ongoing process of deploying within ISPs.
+In \cite{torres2011dissecting}, two university campus networks and three ISP networks were used to investigate the YouTube CDN from vantage points in three different countries.
+%The results show that locality in terms of latency is not the only factor for video server selection.
+
+While the view of five different ISPs on a global CDN is still narrow, the authors of \cite{adhikari2011you} used PlanetLab to investigate the YouTube server selection strategies and load-balancing.
+They find that YouTube massively deploys caches in many different locations worldwide, placing them at the edge of the Google autonomous system or even at ISP networks.
+The work is enhanced in \cite{adhikari2012vivisecting}, where they uncover a detailed architecture of the YouTube CDN, showing a 3-tier physical video server hierarchy.
+Furthermore, they identify a layered logical structure in the video server namespace, allowing YouTube to leverage the existing DNS system and the HTTP protocol.
+
+However, to assess the expansion of the whole YouTube CDN and its cache locations in access networks, the PlanetLab platform, which is located solely in NRENs, is not suitable, since it does not reflect the perspective of end users in ISP access networks.
+Therefore, a different distributed measurement platform is used in \cite{rafetseder2011exploring} which runs on end user equipment and thus implies a higher diversity of nodes and reflects the perspective of end user in access networks.
+However, the number of nodes that was available for the measurement is too small to obtain a global coverage of vantage points
+
+To achieve both, the view of access networks and a high global coverage with a large number of measurement points, the participation of a large number of end users in the measurement is necessary.
+Bischof et al. \cite{bischof2011crowdsourcing} implemented an approach to gather data from P2P networks to globally characterize the service quality of ISPs using volunteers.
+
+In contrast to this we propose using a commercial crowdsourcing platform to recruit users running a specially designed measurement software, and therewith, act as measurement probes.
+Crowdsourcing is an emerging service in the Internet that enables outsourcing jobs to a large, anonymous crowd of users~\cite{articles2013-113}.
+So called \emph{Crowdsourcing platforms} act as mediator between the users submitting the tasks, the \emph{employers}, and the users willing to complete these tasks, the \emph{workers}.
+All interactions between workers and employers are usually managed through these platforms and no direct communication exists, resulting in a very loose worker-employer relationship.
+The complexity of crowdsourcing tasks varies between simple transcriptions of single words~\cite{vonAhn2008} and even research and development tasks~\cite{innocentive}.
+Usually, the task descriptions are much more fine granular than in comparable forms in traditional work organizations~\cite{conf2011-417}.
+This small task granularity holds in particular for \emph{micro-tasks}, which can be completed within a few seconds to a few minutes.
+These tasks are usually highly repetitive, e.g., adding textual descriptions to pictures, and are grouped in larger units, so called \emph{campaigns}.
+In comparison to other approaches using volunteers, this approach offers better scalability and controllability, because the number and origin of the participants can be adjusted using the recruiting mechanism of the crowdsourcing platform.
+% This is confirmed by Table~\ref{tab:CvsS} which compares a crowdsourcing study with a social network study quantitatively. The crowdsourcing study  is described in \cite{bookchapter2013-18}. The study is designed to assess the subjective QoE for multimedia applications, like video streaming.
+% The same study was conducted additionally in a social network environment for recruiting test users.
+% Table~\ref{tab:CvsS} shows that acquiring people in crowdsourcing platforms takes very short time compared to asking volunteers in a social network, which allows adding participants easily.
+% Furthermore, the completion time of the campaign of 31 hours is much shorter compared to the 26 days for the social network campaign.
+% Finally, in the crowdsourcing campaign workers can be selected according to their country, which allows distributing the campaign on many different countries. In the social network the coverage of countries depends on the network of user groups, which spread the campaign.
+% Hence, it is easy to control the number and origin of subjects participating in a crowdsourcing campaign and the completion time is considerably fast, which makes the campaign scalable and controllable. The price you pay is the reward for the workers that summed up to a total of 16 Euro for that campaign.
+%
+% \begin{table}[tb]
+% \caption{Quantitative Comparison: Crowdsourcing / Social Network Study.} \label{tab:CvsS}
+% \begin{center}
+% {\footnotesize
+% 	\begin{tabular}{|p{.29\textwidth}|p{.29\textwidth}|p{.29\textwidth}|} \hline
+% 		\textbf{} & \textbf{Crowdsourcing (C)} & \textbf{Social network (S)} \\ \hline
+% 		\textbf{Implementation time} & about 2 weeks; test implemented via dynamic web pages, application monitoring & same as for (C) \\ \hline
+% 		\textbf{Time for acquiring people} & 5 minutes & 2 hours, as users (groups) were asked individually \\ \hline
+% 		\textbf{Campaign submission cost} & 16 Euro & 0 Euro \\ \hline
+% 		\textbf{Subject’s reward} & 0.15 Euro & 0 Euro \\ \hline
+% 		\textbf{Number of test conditions} & 3 & 3 \\ \hline
+% 		\textbf{Advertised  people} & 100 & 350 \\ \hline
+% 		\textbf{Campaign completion time} & 31 hours & 26 days; strongly depends on advertised user groups however \\ \hline
+% 		\textbf{Participating users} & 100 & 95 \\ \hline
+% 		\textbf{Reliable users (very strict filtering of users)} & 30 & 58 \\ \hline
+% 		\textbf{Number of different countries of subjects} & 30 & 3; strongly depends on users groups however \\ \hline
+% 		\end{tabular}
+% }
+% \end{center}
+% \end{table}
+
+
+%To the best of our knowledge, this is the first work which evaluates a gl
+%To the best of our knowledge this is the first work which uses crowdsourcing for a distributed active measurement platform.
