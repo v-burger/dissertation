@@ -1,47 +1,58 @@
-\section{Background and Related Work}\label{sec:aslevel:background}
+\section{Evolution and Structure of Content Delivery Networks}\label{sec:aslevel:background}
 
 This section describes the background of this chapter and presents related work.
-We start with providing the basic ideas of content delivery network structures and their evolution.
-We give an overview on measurement studies of live BitTorrent networks and show different approaches to reduce costly traffic discussed in the ALTO working group of the IETF.
+We start with an introduction in ISP relations and charging models.
+We provide the basic ideas of content delivery network structures and their evolution.
 %Finally, we introduce studies that infer the inter-AS relations based on BGP routing information.
-We briefly describe the structure of the YouTube video CDN and give a short introduction in the principles of crowdsourcing.
-Further, we summarize related work in the field of distributed active measurements of CDNs.
+We briefly describe the structure of the YouTube video CDN.
+Finally we evaluate the Internet Census Dataset to assess the potential of peer assisted CDNs.
 
-\subsection{Evolution and Structure of Content Delivery Networks}
+\subsection{ISP Relations and Charging Models}
 
 %Autonomous systems are individual parts of the Internet, which are operated by ISPs.
 On a technical level, the traffic exchange between ASs is controlled by the Border Gateway Protocol (BGP)~\cite{trangia2009}. Commercial relations between ISPs determine the routing policies configured via BGP.
 %The traffic exchanged between autonomous systems is inter-domain traffic. It is differentiated from intra-domain traffic, which is the traffic in the autonomous system.
-An ISP must buy transit services to access parts of the Internet it neither owns nor can access by its customers.
-Hence, to route traffic between autonomous systems, ISPs engage in business relationships.
-These business relationships are usually not open for public but they can be abstracted into two common types \cite{gao2001}.
-The relationship between two ASs can be transit or peering.
-\reffig{fig:aslevel:p2pcdn} shows AS topologies with ASs interconnected with inter-AS links.
-Inter-AS links are either peering links or transit links.
-A transit link is present if the customer AS pays the provider AS for transit service, i.e., the provider forwards the traffic of the customer and its customers. In peering relation the ASs have an agreement that they exchange each others traffic and the traffic of their customers, without paying each other. %Sibling-to-sibling are links between ASs of the same organization. These relations are defined in business agreements and kept secret, but they can be inferred by analyzing the routing between autonomous systems.
 
-The two most popular content delivery concepts are P2P networks and CDNs.
+An ISP must buy transit services to access parts of the Internet it neither owns nor can access by its customers.
+Hence, to route traffic between ASs, ISPs engage in business relationships.
+These business relationships are usually not open for public but they can be abstracted into three common types \cite{gao2001}.
+The relationship between two ASs can be transit, peering or sibling.
+A transit link is present if the customer AS pays the provider AS for transit service, i.e., the provider forwards the traffic of the customer and its customers.
+In peering relations the ASs have an agreement that they exchange each others traffic and the traffic of their customers, without paying each other.
+Sibling links between ASs of the same organization. These relations are defined in business agreements and kept secret, but they can be inferred by analyzing the routing between autonomous systems.
+
+As peering links and sibling links are the same in terms of money flow, we consider sibling links as peering links in this manuscript. For the same reason most datasets available do not contain sibling links.
+Hence, we only consider transit and peering inter-domain links from now on.
+%\reffig{fig:aslevel:p2pcdn} shows AS topologies with ASs interconnected with inter-domain links.
+%Inter-AS links are either peering links or transit links.
+
+\subsection{Evolution of Content Delivery Networks}
+The drawback of client-server architectures for content distribution is their limited scalability.
+-> P2P, legal issues, coordination
+
+The two most popular solutions to this problem are content delivery concepts that work according to the P2P or CDN principle.
 To deliver content, it has to be transported from storage resources to clients that consume the content.
-\reffig{fig:aslevel:p2pcdn} shows the autonomous systems topology for a P2P network, and a CDN.
+\reffig{fig:aslevel:p2pcdn} shows the AS topology for a P2P network, and a CDN.
 In case of P2P networks, c.f., \reffig{fig:aslevel:p2p}, peers contribute storage resources by serving chunks of data.
 To enable exchange of data, a tracker keeps track of the peers sharing chunks of a file.
-In the past P2P networks where responsible for the most part of traffic.
-Due to its
-The largest amount of traffic is now transported by CDNs.
-In CDNs, c.f., \reffig{fig:aslevel:cdn}, the storage resources are managed data centers or caches.
+In the past P2P networks were responsible for a large fraction of Internet traffic.
+If the exchange of data among peers is uncoordinated, ignoring inter-AS links, P2P networks can produce high costs for ISPs.
+
+While the amount of traffic transported over P2P networks remained about the same, the traffic transported by CDNs has increased exponentially \cite{cisco2016}.
+The number of users watching videos on demand has massively increased and the bandwidth to access videos is much higher.
+Furthermore, the increased bandwidth enables web services to be interactive by using dynamic server- or client-side scripts.
+The appearance of dynamic services and the increasing quality of multimedia content raises user expectations and the demand on the servers.
+To bring content in high quality to end-users with low latency and to deal with increasing demand, content providers have to replicate and distribute the content on caches to get it close to end-users.
+Hence, in CDNs, c.f., \reffig{fig:aslevel:cdn}, the storage resources are managed data centers or caches.
+%Thus, content delivery infrastructures such as the Google CDN evolved.
+%The largest amount of traffic is now transported by CDNs.
 
 % \begin{table}
 % 	\caption{P2PvsCDN}
 % \end{table}
 
 %To understand why distributed measurements are necessary and to provide the basic ideas of content delivery network structures, we briefly describe the evolution of content delivery networks and the functionality of the YouTube CDN.
-Since the launch of the YouTube service, content delivery has drastically changed.
-While the amount of traffic transported over peer-to-peer networks remained about the same, the traffic transported by CDNs has increased exponentially \cite{cisco2016}.
-The number of users watching videos on demand has massively increased and the bandwidth to access videos is much higher.
-Furthermore, the increased bandwidth enables web services to be interactive by using dynamic server- or client-side scripts.
-The appearance of dynamic services and the increasing quality of multimedia content raised user expectations and the demand on the servers.
-To bring content in high quality to end-users with low latency and to deal with increasing demand, content providers have to replicate and distribute the content to get it close to end-users.
-Thus, content delivery infrastructures such as the Google CDN evolved.
+%Since the launch of the YouTube service, content delivery has drastically changed.
 
 \begin{figure}[bt]
 	\centering
@@ -68,7 +79,7 @@ The global expansion of the CDNs also changes the structure of the Internet.
 Google has set up a global backbone which interconnects Google's data centers to important edge points of presence.
 Since these points of presence are distributed across the globe, Google can offer direct peering links to access networks with many end users, c.f. \reffig{fig:aslevel:cdn}.
 Such, access network providers save transit costs, while Google is able to offer services with low latency.
-To bring content even closer to users, ISPs can deploy Google servers inside their own network to serve popular content, including YouTube videos~\cite{gcc}.
+To bring content even closer to users, ISPs can deploy Google cache servers inside their own network to serve popular content, including YouTube videos~\cite{gcc}.
 
 To select the closest server for a content request and to implement load balancing, CDNs use the Domain Name System (DNS).
 Typically a user watches a YouTube video by visiting a YouTube video URL with a web browser.
@@ -78,85 +89,101 @@ These URLs are again resolved by DNS servers to physical video servers, which st
 The last DNS resolution can happen repeatedly until a server with enough capacity is found to serve the request.
 Thus, load balancing between the servers is achieved~\cite{adhikari2012vivisecting}.
 
-\subsection{Measurements and Models of Live BitTorrent Networks}
+Current developments try to bring content even closer to users by using resources in home networks or mobile networks cells for caching.
+A recent approach \cite{valancius2009greening} proposes to augment spare capacities on customer premise equipment (CPE) such as home gateways or nano data-centers (NaDas) to assist content delivery, showing that there is a high potential to save energy, although the capacity of home gateways is small and the uplink is limited.
+The content is transported locally in a P2P manner keeping the traffic within the AS.
+Another example are femto caching architectures \cite{golrezaei2013femtocaching}, where content is cached on femto-basestations with small capacity but with considerable storage space.
+The potential of these approaches highly depends on the number of caches available and their capacity for content delivery.
 
-BitTorrent is a peer-to-peer file-sharing protocol, which is based on multi-source downloads between the users. All the users, i.e., \textit{peers}, sharing the same file belong to a \textit{swarm}, c.f., \reffig{fig:aslevel:p2p}. To join the swarm, a peer requests addresses of other peers at an index server called \textit{tracker}. In the standard BitTorrent algorithm the tracker uses random peer selection to select a subset of peers that are in the swarm. Then, the joining peer tries to establish a neighbor relation to the peers it got from the tracker and collects all peers which accepted the request in his \textit{neighbor} set. The peer signals interest to all neighbors which have parts of the file it still needs to download. To which neighbor a peer is willing to upload data is decided by the choking algorithm, which is explained in \cite{cohen:bt}.
+\subsection{Characterization of Internet Subscriptions on AS Level}\label{sec:aslevel:census}
 
-As basis of our methodology for modeling inter-ISP BitTorrent traffic, the results in \cite{Hossfeld2011} are revisited. In \cite{Hossfeld2011} the authors provide measurements of a large number of live BitTorrent swarms taken from popular index servers such as \emph{The Pirate Bay}, \emph{Mininova}, and \emph{Demonoid}. Using the IP addresses of the peers, the authors associate every peer with its AS and estimate the potential of ALTO mechanisms based on the differentiation between local peers (peers in the same AS) and remote peers located in other ASs. In contrast, we consider the actual Internet topology in this work, i.e., the inter-ISP relations, the ISP classification in the Internet hierarchy, and the AS paths between the peers in order to estimate the optimization potential of ALTO mechanisms.
+The performance of systems using CPE or resources provided by end-users depend on the capacity and number of devices available.
+To assess the potential of a hierarchical cache system in an ISPs network, the number of active subscribers in an AS has to be known.
+Assuming that the number of active IP-addresses is correlated to the number of subscribers in an AS, we use the Internet Census Dataset to determine the distribution of active IP-addresses on ASs.
 
-The authors of \cite{Kryczka2011} use the peer exchange protocol (PEX) in order to measure the neighbor set of all peers participating in a number of live BitTorrent swarms. Based on this information, they model the graph topology of the swarms and compare the structure to random graphs. They also investigate clustering of peers within ASs and countries, but do not focus on inter-AS relations and AS paths between peers as we do in this chapter.
+We use the Internet Census Dataset \cite{carna2013} to determine the number of active IP-addresses for each AS in the Internet.
+The Internet Census Dataset provides a scan on the active IP-addresses in the Internet based on a full probing of the entire IPv4 Internet.
+%The Internet Census Dataset\cite{carna2013} was conducted from June to October 2012.
+The scan was conducted from June to October 2012 by infecting several hundred thousand unprotected devices on the Internet to form the so called \emph{carna} botnet.
+The botnet functioned as distributed port scanner that transfered the results to a central server.
 
-In addition, there are measurement studies that examine and model distinct features of BitTorrent networks. In \cite{Izal2004}, a single swarm was measured for five months with a focus on the download times of the peers. Additional parameters such as the peer inter-arrival times in the swarm, their upload capacity and their online time are considered in \cite{Pouwelse2005}. The authors of \cite{Guo2005} investigate these parameters also in multi-swarm scenarios. Finally, \cite{Zhang2010} measures \unit[4.6]{million} torrents to provide an overview of the entire BitTorrent ecosystem with its different communities and index servers.
-While the distribution of peers in the Internet is also studied in this chapter, none of these works focuses on the location of the peers in the Internet and the AS paths between the peers, which is a major aspect of this chapter.
-
-% \subsection{ALTO Mechanisms and Their Performance Evaluation}
-%
-% Various mechanisms to reduce the inter-ISP traffic generated by BitTorrent and other P2P applications are currently being investigated. Besides caching of BitTorrent traffic \cite{Lehrieder2010a,Lehrieder2012,Pacifici2012}, which might involve legal issues, changing standard BitTorrent algorithms is a promising approach. The authors of \cite{Aggarwal2007} propose to use an oracle service provided by the ISP guiding the peers in their peer selection process. The evaluation uses a Gnutella network and shows that intra-AS traffic is increased significantly without a negative impact on the overlay graph. Similar approaches are proposed for BitTorrent. Bindal et al. \cite{Bindal2006} reduce the inter-ISP traffic by modifying the neighbor set of the BitTorrent peers, which can be done at the tracker or enforced by the ISPs using deep packet inspection. Their simulations use a uniform peer distribution over ASs and show a high optimization potential of this approach. The authors of \cite{Xie2008} propose to use \emph{iTrackers} to guide the peers and formulates an optimization problem to find the best neighbor sets. Finally, Oechsner et al. \cite{Oechsner2009} propose to change the choke algorithm of BitTorrent to further reduce inter-ISP traffic and evaluate it via simulations in homogeneous scenarios. The BitTorrent plugin \emph{Ono} \cite{Choffnes2008} uses the servers of content distribution networks (CDN) as landmarks and estimates the proximity of two peers by the similarity of the CDN re-direction behavior.
-%
-% The authors of \cite{gkantsidis2006planet} investigate analytically the capabilities of a P2P-based content distribution network and the impact of locality. In contrast to our work, they use traffic characteristics which arise from software updates and do not consider AS relationships.
-% A set of evaluations of ALTO mechanisms uses scenarios inspired by measurements of live BitTorrent swarms \cite{Cuevas2011,Blond2011,Lehrieder2011}. The studied scenarios consider heterogeneous peer distributions where some ASs contain more peers of a specific swarm than others. Nevertheless, they do not take into account inter-AS relations and the AS paths between two peers. This is different in our study. Using the AS affiliation of peers and the data obtained from Caida.org, we infer the actual paths of the BitTorrent connections in the Internet. In addition, we focus on the inter-ISP relations and investigate to which degree selfish ISPs profit from recommending their peers to preferentially use connections to peers located in lower tier ASs.
-
-\subsection{Distributed Measurements of Content Delivery Networks}
-There already exist a number of publications which study the structure of the YouTube CDN and its selection of video servers.
-A distributed active measurement platform is necessary for these evaluations, because the CDN mechanisms consider the client locations, both geographical as well as in terms of the connected access network.
-Recently, the physical server distribution of NetFlix's CDN was mapped in \cite{bottger2016open} using a DNS crawler and exploiting the naming scheme of the cache servers.
-%It is differed between ISP and IXP deployment of the servers and find that a region-specific deployment of the servers is required dependent on the different markets.
-%Deploying within ISPs takes time, so IXP deployment reflects the phase in the ongoing process of deploying within ISPs.
-In \cite{torres2011dissecting}, two university campus networks and three ISP networks were used to investigate the YouTube CDN from vantage points in three different countries.
-%The results show that locality in terms of latency is not the only factor for video server selection.
-
-While the view of five different ISPs on a global CDN is still narrow, the authors of \cite{adhikari2011you} used PlanetLab to investigate the YouTube server selection strategies and load-balancing.
-They find that YouTube massively deploys caches in many different locations worldwide, placing them at the edge of the Google autonomous system or even at ISP networks.
-The work is enhanced in \cite{adhikari2012vivisecting}, where they uncover a detailed architecture of the YouTube CDN, showing a 3-tier physical video server hierarchy.
-Furthermore, they identify a layered logical structure in the video server namespace, allowing YouTube to leverage the existing DNS system and the HTTP protocol.
-
-However, to assess the expansion of the whole YouTube CDN and its cache locations in access networks, the PlanetLab platform, which is located solely in NRENs, is not suitable, since it does not reflect the perspective of end users in ISP access networks.
-Therefore, a different distributed measurement platform is used in \cite{rafetseder2011exploring} which runs on end user equipment and thus implies a higher diversity of nodes and reflects the perspective of end user in access networks.
-However, the number of nodes that was available for the measurement is too small to obtain a global coverage of vantage points
-
-To achieve both, the view of access networks and a high global coverage with a large number of measurement points, the participation of a large number of end users in the measurement is necessary.
-Bischof et al. \cite{bischof2011crowdsourcing} implemented an approach to gather data from P2P networks to globally characterize the service quality of ISPs using volunteers.
-
-In contrast to this we propose using a commercial crowdsourcing platform to recruit users running a specially designed measurement software and therewith act as measurement probes.
-Crowdsourcing is an emerging service in the Internet that enables outsourcing jobs to a large, anonymous crowd of users~\cite{articles2013-113}.
-So called \emph{Crowdsourcing platforms} act as mediator between the users submitting the tasks, the \emph{employers}, and the users willing to complete these tasks, the \emph{workers}.
-All interactions between workers and employers are usually managed through these platforms and no direct communication exits, resulting in a very loose worker-employer relationship.
-The complexity of Crowdsourcing tasks varies between simple transcriptions of single words~\cite{vonAhn2008} and even research and development tasks~\cite{innocentive}.
-Usually, the task description are much more fine granular than in comparable forms in traditional work organization~\cite{conf2011-417}.
-This small task granularity hold in particular for \emph{micro-tasks}, which can be completed within a few seconds to a few minutes.
-These tasks are usually highly repetitive, e.g., adding textual descriptions to pictures, and are grouped in larger units, so called \emph{campaigns}.
-In comparison to other approaches using volunteers, this approach offers better scalability and controllability, because the number and origin of the participants can be adjusted using the recruiting mechanism of the crowdsourcing platform.
-% This is confirmed by Table~\ref{tab:CvsS} which compares a crowdsourcing study with a social network study quantitatively. The crowdsourcing study  is described in \cite{bookchapter2013-18}. The study is designed to assess the subjective QoE for multimedia applications, like video streaming.
-% The same study was conducted additionally in a social network environment for recruiting test users.
-% Table~\ref{tab:CvsS} shows that acquiring people in crowdsourcing platforms takes very short time compared to asking volunteers in a social network, which allows adding participants easily.
-% Furthermore, the completion time of the campaign of 31 hours is much shorter compared to the 26 days for the social network campaign.
-% Finally, in the crowdsourcing campaign workers can be selected according to their country, which allows distributing the campaign on many different countries. In the social network the coverage of countries depends on the network of user groups, which spread the campaign.
-% Hence, it is easy to control the number and origin of subjects participating in a crowdsourcing campaign and the completion time is considerably fast, which makes the campaign scalable and controllable. The price you pay is the reward for the workers that summed up to a total of 16 Euro for that campaign.
-%
-% \begin{table}[tb]
-% \caption{Quantitative Comparison: Crowdsourcing / Social Network Study.} \label{tab:CvsS}
-% \begin{center}
-% {\footnotesize
-% 	\begin{tabular}{|p{.29\textwidth}|p{.29\textwidth}|p{.29\textwidth}|} \hline
-% 		\textbf{} & \textbf{Crowdsourcing (C)} & \textbf{Social network (S)} \\ \hline
-% 		\textbf{Implementation time} & about 2 weeks; test implemented via dynamic web pages, application monitoring & same as for (C) \\ \hline
-% 		\textbf{Time for acquiring people} & 5 minutes & 2 hours, as users (groups) were asked individually \\ \hline
-% 		\textbf{Campaign submission cost} & 16 Euro & 0 Euro \\ \hline
-% 		\textbf{Subject’s reward} & 0.15 Euro & 0 Euro \\ \hline
-% 		\textbf{Number of test conditions} & 3 & 3 \\ \hline
-% 		\textbf{Advertised  people} & 100 & 350 \\ \hline
-% 		\textbf{Campaign completion time} & 31 hours & 26 days; strongly depends on advertised user groups however \\ \hline
-% 		\textbf{Participating users} & 100 & 95 \\ \hline
-% 		\textbf{Reliable users (very strict filtering of users)} & 30 & 58 \\ \hline
-% 		\textbf{Number of different countries of subjects} & 30 & 3; strongly depends on users groups however \\ \hline
-% 		\end{tabular}
-% }
-% \end{center}
-% \end{table}
-
-We use the Internet Census Dataset to determine the number of active IP-addresses for each autonomous system in the Internet.
-The Internet Census Dataset was validated forensically in \cite{dainotticaida}.
+%The complete IPv4-address room was scanned using a bot-net consisting of 4,200,000 nodes.
+In the ICMP ping scan more than 420 million replied to requests more than once.
+The service probe data reveal open ports on devices which is used to infer the type of device.
+The Internet Census Dataset was validated forensically in \cite{dainotticaida} by aligning the probes of the botnet with the traffic captured at the UCSD Network Telescope\footnote{\url{https://www.caida.org/projects/network_telescope/}}, which is a large darknet, i.e., IP addresses that are inactive, thus not accepting connections.
+The raw logs of the carna botnet erroneously reported that a large number of IPs in the darknet were active, likely due to the presence of HTTP proxies.
+However, according to \cite{dainotticaida}, only about 3\% of the host probe and port scan logs are potentially affected by this problem.
+Unaffected by this issue are the logs based on ICMP pings and actual responses from the target hosts, which are used in our study.
 In \cite{krenc2014internet} the scope of the dataset is taken into perspective and show that, although there are some qualitative problems, the measurement data seems to be authentic.
+%We use the Internet Census Dataset to determine the number of active IP-addresses for each autonomous system in the Internet.
 
-%To the best of our knowledge, this is the first work which evaluates a gl
-%To the best of our knowledge this is the first work which uses crowdsourcing for a distributed active measurement platform.
+We use an IP to ASN mapping to derive the autonomous system number for each IP-address. There are different services, that provide an IP to ASN mapping.
+The whois-service can be used to get the current ASN for an IP-address.
+To enable an efficient evaluation we used the MAXMIND GeoLite ASN database \cite{geo_ip}, which is updated every month and can be downloaded and used as a local database.
+The results of the MAXMIND GeoLite ASN database were cross checked with results obtained from whois, which showed no differences.
+
+The ICMP ping scan discovered a total of 598,180,914 IP-addresses.
+The service probe scan discovered 244,000 IP-addresses that listen to port 9100 and are identified as print servers, and 70.84 million IP-addresses of web-servers that listen to port 80.
+Assuming that most network functions do not reply to ICMP ping requests and neglecting different network functions, this results in 88.1\% of IP-addresses assigned to end-user devices.
+Since the Internet Census the number of Internet users increased, which also has to be considered.
+According to \cite{itu2015facts} there is a 7\% annual increase in fixed-broadband subscriptions in the past three years.
+%From 2012 to 2014 the number of Internet users increased by almost 500,000,000 according to \cite{•}.
+
+% \begin{figure}[tb]
+% \centering
+% \includegraphics[width=0.49\textwidth]{aslevel/census/figs/shareactiveIPs}
+% \caption{Cumulative share of active IP-addresses in autonmous systems ranked in descending order.}
+% \label{fig:shareactiveIPs}
+% \end{figure}
+%
+% \begin{figure}[tb]
+% \centering
+% \includegraphics[width=0.49\textwidth]{aslevel/census/figs/activeIPs}
+% \caption{Rank of Internet providers with number of active IP-addresses per AS.}
+% \label{fig:asrank}
+% \end{figure}
+
+\begin{figure*}[bt]
+\begin{minipage}[b]{0.49\textwidth}
+  \centering
+  \includegraphics[width=1\textwidth]{aslevel/census/figs/shareactiveIPs}
+  \caption{Cumulative share of active IPs in autonmous systems ranked in descending order.}
+  \label{fig:shareactiveIPs}
+\end{minipage}
+\hspace{0.01\textwidth}
+\begin{minipage}[b]{0.49\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{aslevel/census/figs/activeIPs}
+  \caption{Rank of Internet providers with number of active IPs per AS.}
+  \label{fig:asrank}
+\end{minipage}
+\end{figure*}
+
+\reffig{fig:shareactiveIPs} shows the cumulative share of active IP-addresses in the autonomous systems ranked in descending order.
+The 100 largest autonomous systems make up 2/3 of active IPs and more than 85\% of the IPs are active in only 1\% of the autonomous systems. The 10 largest autonomous systems already contain 30\% of the active IPs.
+
+\reffig{fig:asrank} shows the number of active IP-addresses per AS ranked in descending order.
+The top 5 ASs are shown in table~\ref{tab:asrank}.
+The AS with most active IP-addresses is ChinaTelecom with almost 60 million active IPs, followed by another Chinese provider.
+The largest AS in the US is Comcast on rank three.
+The largest Korean and German providers are ranked 4 and 5 with more than 18 million active IPs.
+The number of active IP addresses can be approximated with a power law with slope 1.5 that drops a little for low ranks.
+This shows that the distribution of active IP addresses on ASs is highly heterogeneous.
+That means the potential of approaches leveraging spare resources on home gateways depends on the AS.
+
+\begin{table}[tb]
+\centering
+\caption{Rank of top 5 provider with most active IP-addresses.}
+\label{tab:asrank}
+\begin{tabular}{|c|c|c|c|}
+\hline
+rank r & ASN & provider & \# active IPs  \\
+\hline
+1 & 4134 & ChinaTelecom & 59,824,824 \\
+2 & 4837 & China-Network-Communication-Group & 27,776,643 \\
+3 & 7922 & Comcast & 20,227,918 \\
+4 & 4766 & KoreaTelecom & 18,502,963 \\
+5 & 3320 & DeutscheTelekomAG & 18,476,519 \\
+\hline
+\end{tabular}
+\end{table}

@@ -1,14 +1,22 @@
-\section{Distribution of IP Addresses on Autonomous Systems}\label{sec:aslevel:census}
+\section{Statistical Characterization of the Distribution of IP Addresses on Autonomous Systems}\label{sec:aslevel:census}
 
 The performance of systems using CPE or resources provided by end-users depend on the capacity and number of devices available.
 To assess the potential of a hierarchical cache system in an ISPs network, the number of active subscribers in an autonomous systems has to be known.
 Assuming that the number of active IP-addresses is correlated to the number of subscribers in an autonomous system, we use the Internet Census Dataset to determine the distribution of active IP-addresses on autonomous systems.
 
-The Internet Census Dataset\cite{carna2013} was conducted from June to October 2012.
-The complete IPv4-address room was scanned using a bot-net consisting of 4,200,000 nodes.
+We use the Internet Census Dataset \cite{carna2013} to determine the number of active IP-addresses for each AS in the Internet.
+The Internet Census Dataset provides a scan on the active IP addresses in the Internet based on a full probing of the entire IPv4 Internet.
+%The Internet Census Dataset\cite{carna2013} was conducted from June to October 2012.
+The scan was conducted from June to October 2012 by infecting several hundred thousand unprotected devices on the Internet to form the so called \emph{carna} botnet.
+The botnet functioned as distributed port scanner that transfered the results to a central server.
+
+%The complete IPv4-address room was scanned using a bot-net consisting of 4,200,000 nodes.
 In the ICMP ping scan more than 420 million replied to requests more than once.
 The service probe data reveal open ports on devices which is used to infer the type of device.
-The Internet Census Dataset was validated forensically in \cite{dainotticaida}.
+The Internet Census Dataset was validated forensically in \cite{dainotticaida} by aligning the probes of the botnet with the traffic captured at the UCSD Network Telescope \cite{ucsdtelescope}, which is a large darknet, i.e., IP addresses that are inactive, thus not accepting connections.
+The raw logs of the carna botnet erroneously reported that a large number of IPs in the darknet were active, likely due to the presence of HTTP proxies.
+However, according to \cite{dainotticaida}, only about 3\% of the host probe and port scan logs are potentially affected by this problem.
+Unaffected by this issue are the logs based on ICMP pings and actual responses from the target hosts, which are used in our study.
 In \cite{krenc2014internet} the scope of the dataset is taken into perspective and show that, although there are some qualitative problems, the measurement data seems to be authentic.
 %We use the Internet Census Dataset to determine the number of active IP-addresses for each autonomous system in the Internet.
 
