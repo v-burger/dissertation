@@ -1,32 +1,46 @@
-\chapter{Bandwidth Aggregation Systems}\label{chap:network}
+\chapter{Bandwidth Aggregation Systems}\label{chap:aggregation}
 
-This chapter considers
+In 2015, mobile networks carried more than 40 exabytes of traffic, which is expected to increase 8-fold towards 2020 \cite{cisco2016mobile}.
+To handle the growth and to reduce the load on mobile networks, offloading to WiFi has come to the center of industry thinking \cite{wba2011wifi}.
+%Mobile offload exceeded cellular traffic for the first time in 2015.
+%Accoring to \cite{cisco2016mobile}, 51\% of total mobile data traffic was offloaded onto the fixed network through WiFi or femtocell.
 
-% \begin{figure}
-%   \centering
-%   \includegraphics{network/figures/stakeholders}
-%   \caption{Stakeholders investigated in the network scenarios.}
-%   \label{fig:network:stakeholders}
-% \end{figure}
+In contrast to strict offloading, in which the Internet access link is switched completely, e.g., from cellular to WiFi, current concepts such as BeWifi\footnote{\url{http://www.bewifi.es/}} also consider multiple connections to the Internet, thereby sharing and aggregating available backhaul access link capacities. The question is which sharing policy to apply for which system characteristics. In the case of BeWifi, which considers access link sharing among neighboring users, each user should only share its access link when having spare capacity in order to avoid negatively affecting his own Internet connections. Therefore, two thresholds were introduced, i) a support threshold until which utilization a user will offer bandwidth to other users, and ii) an offloading threshold indicating from which utilization a user can offload to supporting neighbors.
+It is hard and non-intuitive to determine the threshold settings for fair and effective operation of a bandwidth sharing system.
+In this work a partial bandwidth sharing environment with offloading policy is investigated using an analytic model.
+A direct application of the model is the aggregation of backhaul bandwidth by connecting neighboring access links.
+%Further applications are the aggregation of bandwidth of multihomed connections or upstreaming of mobile data via.
+%Increasing the capacity of mobile access links helps managing the increasing amount of mobile data traffic.
 
-Thus, a tradeoff between
+We develop a Markov model to analyze the bandwidth aggregation potential of neighboring access links.
+The Markov model is limited to two access links only, which limits its applicability.
+In urban environments there are far more than two access links available.
+As shown in \cite{sapiezynski2015tracking}, an average of 25 WiFi access points are visible in every scan in densely-populated areas.
+We extend the Markov model to be applicable for two and more links using a fixed point approximation.
+This allows us to reduce the n-dimensional Markov chain to evaluate the steady state probabilities efficiently.
 
-Current best practices result in
+%A highly loaded link can benefit from offloading to cooperating systems, receiving considerably more bandwidth than its own capacity.
+%We provide analytic and simulative results for the received bandwidth and the bandwidth gain for each access link.
+%As reference system we consider partitioned access links.
 
-The contribution of this chapter is threefold:
-\begin{enumerate}
-\item We provide an algorithm to infer metrics for the
-\item We develop an analytical model in order to
-\item We study the impact of
-\end{enumerate}
+The contribution of this chapter is three-fold.
+First, the approximation using fixed point iteration can be used to seamlessly evaluate the performance of systems between partitioning and complete sharing dependent on the threshold settings.
+Second, by considering an outer and an inner composite system we are able to apply the method to the case of heterogeneous load, which is crucial to assess the full potential of the approach.
+Bandwidth sharing systems are designed to increase the throughput of systems that are currently overloaded by using spare bandwidth of underutilized links.
+In such situations the load on the links is highly heterogeneous.
+Our results show that an overloaded system can highly benefit, by receiving multiples of its own capacity, from spare bandwidth of underutilized cooperating systems.
+Third, we evaluate the robustness of the mechanism against free riders by prioritizing links and find that altruistic users may only lose slightly more bandwidth than in normal operation.
+This is important, since a bandwidth sharing system that is running an inefficient offloading policy may be exploited by free riders that claim spare bandwidth by offloading traffic, but do not share any of their own bandwidth.
+%We find that with the considered considered threshold settings the received bandwidth can be up to 2\% lower than the baseline in partitioned operation.
+%This is compensated by the fact that an overloaded system can highly benefit, by receiving multiples of its own capacity, from spare bandwidth of underutilized cooperating systems, especially if the number of cooperating systems is high.
 
-The content of this chapter is taken from~\cite{info3-article-2016-3}.
+The content of this chapter is mainly taken from~\cite{burger2016phycom,burger2017im}.
 Its remainder is structured as follows.
-First, ...
-Then, ...
-Finally, we conclude this chapter with lessons learned in \refsec{sec:network:lessons_learned}.
+\refsec{sec:aggregation:background} summarizes offloading and bandwidth sharing systems and technologies.
+In \refsec{sec:aggregation:model}, the model of a bandwidth aggregation system is described in detail and results of the performance evaluation are reported. In \refsec{sec:aggregation:imbalanced} the model is extended to consider imbalanced systems loads, while this chapter is concluded with lessons learned in \refsec{sec:aggregation:lessonslearned}.
 
 \input{aggregation/background/background}
 % \input{network/network_traces/network_traces}
 \input{aggregation/performance_model/performance_model}
+\input{aggregation/imbalanced/imbalanced}
 \input{aggregation/lessons_learned/lessons_learned}

@@ -1,4 +1,4 @@
-\section{Lessons Learned}\label{sec:network:lessons_learned}
+\section{Lessons Learned}\label{sec:aggregation:lessonslearned}
 In this chapter we studied
 
 This chapter provides a two-pronged approach to analysing the impact of changes by individual stakeholders on the overall network.
@@ -9,12 +9,12 @@ Based on this algorithm we analyse
 Second, we propose
 Our results show
 
-Concluding from this chapter, we see that in mobile networks many different players, metrics, and tradeoffs exist.
-We highlighted one example of such a tradeoff, i.e. signalling load vs. power drain and discussed the influence of the current optimisation parameters, the network timers, on another.
-However, many additional tradeoffs exist.
-For example, the mobile operator has to balance the use of radio resources with the number of generated signalling frequencies.
-Furthermore, application providers seek to improve the user experience which usually result in a higher frequency of network polls, creating additional signalling traffic.
-The high number of tradeoffs and involved actors in this optimisation problem indicate that the current optimisation technique used by operators is no longer sufficient.
+Concluding from this chapter, to reduce the load on cellular networks and to cope with the increasing demand of traffic carried by mobile networks, traffic is offloaded to WiFi networks.
+To even increase the available bandwidth, recent concepts consider aggregating backhaul access link capacities.
+In this work an approximation of a partial sharing scheme is presented, which is used to analyze the performance of a system with multiple access links that share their bandwidth. A joint fixed point iteration of an outer and an inner composite system is used to derive the state probabilities in heterogeneous load conditions.
+In parameter studies we investigate the potential of the mechanism depending on the number of cooperating systems.
+Our results show that the bandwidth of an overloaded system can exceed its capacity multiple times if the cooperating systems are underutilized, especially if the number of cooperating systems is high.
+By prioritizing systems, we can show that the mechanism is robust against free riders and thus provides incentives to contribute to increase the overall system capacity.
 
 Approaches like \emph{Economic Traffic Management}~\cite{spirou2009} or \emph{Design for Tussle}~\cite{trilogy2008} could be applied to find
 an acceptable tradeoff for all parties.

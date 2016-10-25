@@ -27,8 +27,8 @@ Hence, we only consider transit and peering inter-domain links from now on.
 %Inter-AS links are either peering links or transit links.
 
 \subsection{Evolution of Content Delivery Networks}
-The drawback of client-server architectures for content distribution is their limited scalability.
--> P2P, legal issues, coordination
+% The drawback of client-server architectures for content distribution is their limited scalability.
+% -> P2P, legal issues, coordination
 
 The two most popular solutions to this problem are content delivery concepts that work according to the P2P or CDN principle.
 To deliver content, it has to be transported from storage resources to clients that consume the content.
@@ -37,6 +37,9 @@ In case of P2P networks, c.f., \reffig{fig:aslevel:p2p}, peers contribute storag
 To enable exchange of data, a tracker keeps track of the peers sharing chunks of a file.
 In the past P2P networks were responsible for a large fraction of Internet traffic.
 If the exchange of data among peers is uncoordinated, ignoring inter-AS links, P2P networks can produce high costs for ISPs.
+
+Most P2P traffic today is transported using the BitTorrent P2P file-sharing protocol.
+BitTorrent is based on multi-source downloads between the users. All the users, i.e., \textit{peers}, sharing the same file belong to a \textit{swarm}, c.f., \reffig{fig:aslevel:p2p}. To join the swarm, a peer requests addresses of other peers at an index server called \textit{tracker}. In the standard BitTorrent algorithm the tracker uses random peer selection to select a subset of peers that are in the swarm. Then, the joining peer tries to establish a neighbor relation to the peers it got from the tracker and collects all peers which accepted the request in his \textit{neighbor} set. The peer signals interest to all neighbors which have parts of the file it still needs to download. To which neighbor a peer is willing to upload data is decided by the choking algorithm, which is explained in \cite{cohen:bt}.
 
 While the amount of traffic transported over P2P networks remained about the same, the traffic transported by CDNs has increased exponentially \cite{cisco2016}.
 The number of users watching videos on demand has massively increased and the bandwidth to access videos is much higher.
@@ -94,6 +97,11 @@ A recent approach \cite{valancius2009greening} proposes to augment spare capacit
 The content is transported locally in a P2P manner keeping the traffic within the AS.
 Another example are femto caching architectures \cite{golrezaei2013femtocaching}, where content is cached on femto-basestations with small capacity but with considerable storage space.
 The potential of these approaches highly depends on the number of caches available and their capacity for content delivery.
+
+% \subsection{Structure of Global Content Delivery Network}
+%
+% CDNs aim to to deliver services with high performance, high reliability, and low latency for users.
+% The network infrastructure of global CDNs has three distinct elements, the core data centers, edge points of presence (PoPs) and edge caches to exchange traffic efficiently and cost-effectively.
 
 \subsection{Characterization of Internet Subscriptions on AS Level}\label{sec:aslevel:census}
 
