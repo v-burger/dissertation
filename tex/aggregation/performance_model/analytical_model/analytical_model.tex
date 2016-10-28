@@ -29,11 +29,32 @@ i.e., the probability that $i$ bandwidth fractions are occupied in system 1 and 
   	\label{fig:statetransitions}
 \end{figure*}
 
-The blocking probability is calculated by
+Having the state probabilities, we calculate the blocking probability $p_{b_i}$ of each system $i$ and the total blocking probability $p_b$, which is the sum of blocking probabilities of each system weighted by the probability that a request arrives at each respective system.
 
 \begin{equation}
-  p_b =
+p_{b_1} = \sum_{k=\lfloor\alpha_2\cdot n_2\rfloor}^{n_2} x(n_1,k),\quad p_{b_2} = \sum_{k=\lfloor\alpha_1\cdot n_1\rfloor}^{n_1} x(k,n_2)
 \end{equation}
+\begin{equation}
+ p_{b} = \frac{\lambda_1}{\lambda_1+\lambda_2}\cdot p_{b_1}+\frac{\lambda_2}{\lambda_1+\lambda_2}\cdot p_{b_2}
+\end{equation}
+
+Since requests can be offloaded from system 1 to system 2 in states $(n_1, k)$ for $k<\lfloor\alpha_2\cdot n_2\rfloor$, the requests are not blocked and the state probabilites are not added to the blocking probability $p_{b_1}$. The same holds for states $(k, n_2)$ with $k<\lfloor\alpha_1\cdot n_1\rfloor$ and $p_{b_2}$.
+
+% The blocking probabilities for each link $p_{b_1}$ and $p_{b_2}$ are calculated by
+%
+% \begin{equation}
+%   p_{b_1} = \sum_{j=\lfloor\alpha_2 n_2\rfloor}^{n_2}x(n_1,j)
+% \end{equation}
+% and
+% \begin{equation}
+%   p_{b_2} = \sum_{i=\lfloor\alpha_1 n_1\rfloor}^{n_1}x(i,n_2) \, ,
+% \end{equation}
+%
+% and the total blocking probability $p_b$ is calculated by considering the probability of an arrival at each of the links:
+%
+% \begin{equation}
+%   p_{b} = \frac{\lambda_1}{\lambda_1+\lambda_2} p_{b_1} + \frac{\lambda_2}{\lambda_1+\lambda_2} p_{b_2} \, .
+% \end{equation}
 
 \subsection{The Case of Multiple Systems}\label{sec:aggregation:performance_model:analytical_model:m_systems}
 

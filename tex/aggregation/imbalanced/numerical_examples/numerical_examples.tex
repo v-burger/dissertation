@@ -90,17 +90,28 @@ This provides incentives for systems to contribute.
 %However, losing only up to about 3\% bandwidth in the case, where $m-1=7$ egoistic systems with high load ($\rho'=1.1$) are trying to exploit an altruistic system, shows that the mechanism is quite robust against free riders.
 %The gain of the egoistic system decreases with the load of the cooperating system.
 %Hence, prioritizing is only viable if the cooperating system is highly loaded.
-%
-%\subsection{Simulation with General Service Times}\label{sec:simgeneral}
-%
-%To assess the system performance in more general cases we run simulations with different service time distributions.
-%The mean values with 95\% confidence intervals of 8 simulation runs are plotted for the service time distributions Deterministic and Hyper-exponential. In case of the Hyper-exponential distribution the service times are highly variant.
-%
-%\begin{figure}[tb]
-%	\centering
-% 	\includegraphics[width=0.5\textwidth]{figures/bw_n20_rho2_sim}
-%  	\caption{Blocking probability dependent on the load of observed and cooperating system. Simulation with different service time distributions.}
-%  	\label{fig:bw_n20_rho2_sim}
-%\end{figure}
-%
-%In Figure~\ref{fig:bw_n20_rho2_sim}, which shows the available bandwidth of the observed system dependent on the load, simulation results are plotted for Deterministic distributed and highly variant Hyper-exponential distributed service times. For deterministic service times the analytic model fits the simulation results. If the service times are highly variant the observed system receives only slightly more bandwidth than in the model if it is overloaded. Hence, considering the available bandwidth the analytic model can be used to assess the system performance with general service time distributions.
+
+\subsection{Simulation with General Service Times}\label{sec:simgeneral}
+
+To assess the system performance in more general cases we run simulations with different service time distributions.
+Figure~\ref{fig:m2_n20_rho2_sim} shows the blocking probability of the reference system dependent on the load of the systems. The mean values with 95\% confidence intervals of 8 simulation runs are plotted for the service time distributions Deterministic and Hyper-exponential.
+The service times in the Deterministic process are constant.
+In the Hyper-exponential process we use two branches with probabilities 10\% and 90\%.
+For constant service times the blocking probability does not differ from the analytic model for high system loads. The blocking probability differs slightly from the analytic model for Deterministic service times in low system loads, showing higher blocking probabilities if the load on the cooperating system is high. The reason for this has to be investigated and is part of future work. In case of the Hyper-exponential distribution the service times are highly variant. Here the system which is highly loaded benefits from lower blocking probabilities compared to the analytic model.
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.5\textwidth]{aggregation/performance_model/figures/m2_n20_rho2_sim}
+ 	\caption{Blocking probability dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
+ 	\label{fig:m2_n20_rho2_sim}
+\end{figure}
+
+In Figure~\ref{fig:bw_n20_rho2_sim}, which shows the available bandwidth of the reference system dependent on the load, simulation results are plotted for Deterministic distributed and highly variant Hyper-exponential distributed service times.
+For Deterministic service times the analytic model fits the simulation results. If the service times are highly variant the reference system receives only slightly more bandwidth than in the model if it is overloaded. Hence, considering the available bandwidth the analytic model can be used to assess the system performance with general service time distributions.
+
+% \begin{figure}[tb]
+% 	\centering
+% 	\includegraphics[width=0.5\textwidth]{aggregation/performance_model/figures/m2_n20_q1}
+%  	\caption{Blocking probability of two queues dependent on load.}
+%  	\label{fig:m2_rho2_q1}
+% \end{figure}

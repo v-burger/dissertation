@@ -10,6 +10,48 @@ The opposite concept to Wifi offloading, i.e., WiFi onloading, is presented in \
 %Bewifi
 An access link sharing concept, which goes beyond pure offloading, is BeWifi, which was developed by Telefonica \cite{goma2013patent} and builds on previous works about backhaul capacity aggregation \cite{kandula2008fatvap,giustiniano2010fair}. BeWifi uses modified access points, which act as normal access points until their clients saturate more than 80\% of the backhaul capacity. Then, the access point will scan for close access points, which will provide additional bandwidth if their utilization is below 70\%. Backhaul capacity and utilization are announced by each access point via beacon frames. Instead of introducing a secondary WiFi radio, BeWifi uses time-division multiple access (TDMA) and the 802.11 network allocation vector (NAV) to connect to neighboring access points for bandwidth aggregation in a round robin fashion with a weighted proportional fairness schedule.
 
+\reffig{fig:aggregation:background:aggr} shows a client based and an access point solution for the bandwidth aggregation proposed in \cite{goma2013patent}.
+backhaul bandwidth aggregation solutions require driver modifications on the wireless clients to enable such scheme
+Each wireless client needs to feature a virtualized wireless card.
+This implies that for a commercial deployment one would need to modify the operating system and wireless driver of every possible WiFi client, including smartphones, tablets, laptops, etc. As one may realize, the cost of such an approach is absolutely prohibitive.
+The problem of the diversity of devices that need to be modified can be solved
+by deploying the aggregation scheme in a much smaller set of devices such as the
+APs, which are usually provided by ISPs. However, current methods to perform aggregation with single-radio devices are not meant to be used in APs.
+Introducing a secondary WiFi radio in the APs could provide a technical solution, but it increases the cost of a device that is subsidized by the ISP, making the solution impracticable.
+
+These state of the art client-based aggregation schemes also propose the use
+of TDMA to enable a single-radio client to connect to all the neighboring APs, as in \reffig{fig:aggregation:background:aggrclient} regardless of their frequency of operation. Over cycles of 100 ms the wireless client sequentially connects to all selected APs within range in a round robin fashion. Using the standard 802.11 power saving feature, a client is able to notify its absence to the APs it is connected to so that they buffer packets directed to it. This way, a client performing aggregation appears to be sleeping in all APs but the one that is currently scheduled in the round robin cycle.
+%No concurrent data transmission via different frequencies is taking place.
+%The system utilizes inband signalling and requires less than 1.5 ms for switching.
+
+single-radio AP that acts as an AP to its clients, and as a client to neighboring APs, and show that the problem can be mapped to the client-based solutions allowing the same optimization objectives
+
+acts as an AP and as a client of a neighboring AP
+the APs transmit on different channels
+The client-based solution is able to fully aggregate the available capacity of the
+backhaul links for a wider range of wireless channel capacities.
+their need for client modifications makes their deployment cost prohibitive.
+%To unleash the potential of those solutions, the present invention provides and implements a system that can approach the benefits of client-based solutions requiring modifications only on the APs
+
+\begin{figure*}[tb]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=.8\textwidth]{aggregation/background/figures/aggr_client_sw}
+        \caption{Client based}
+				\label{fig:aggregation:background:aggrclient}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=.8\textwidth]{aggregation/background/figures/aggr_ap_sw}
+        \caption{Access point based}
+				\label{fig:aggregation:background:aggrap}
+    \end{subfigure}
+    \caption{Client based and access point based solution for bandwidth aggregation.}
+		\label{fig:aggregation:background:aggr}
+\end{figure*}
+
 From a technical perspective, bandwidth sharing and offloading are enabled by implementing handovers and/or multipath connections, which are well covered in research. \cite{gonzalez2013radio,paasch2012exploring,chen2013energy} show the feasibility of multipath TCP for handovers between mobile and WiFi networks in the current Internet and \cite{khadraoui2014survey} describes available features for mobile traffic offloading. Futhermore, \cite{gladisch2014survey} gives an overview on approaches that enable mobility and multihoming.
 %In \cite{shifrin2010c3} a collaborative token bucket algorithm, which implements an effective distribution of the transmission rates is analyzed to evaluate the performance of wireless ad-hoc and mesh networks.
 
@@ -20,6 +62,7 @@ Generally load sharing systems can be classified in partitioning, partial sharin
 Partitioning systems work completely independent from each other.
 Each system has its own queue and buffer space and processes only requests arriving at its queue.
 Complete sharing systems have a shared queue and buffer space. When processed, a request in the shared queue is assigned to the system which is currently least loaded.
+
 Partial sharing systems have their own queues, but may offload requests to other systems if they are overloaded, or process requests from other overloaded systems.
 Different partial sharing or complete sharing models have been investigated in literature.
 In \cite{trangia1993trunk} the bandwidth usage by different services in a broadband system in complete sharing and partial sharing mode with trunk reservation is investigated.
@@ -27,30 +70,16 @@ Multidimensional Markov chains are used in \cite{chen2002performance,zhang2006dy
 The blocking probability of a complete sharing system has been approximated in \cite{kaufman1992blocking}.
 This approximation is used in \cite{fodor2007bounding} to evaluate the performance of mobile networks with code division multiplexing supporting elastic services.
 However, none of the models can be used to seamlessly evaluate the performance of systems between partitioning and complete sharing.
-Thus, in \cite{burger2016phycom}, a model was developed based on a two dimensional Markov chain with thresholds to study the transition of blocking probabilities of partitioned, partial sharing, and complete sharing systems.
-As shown above, the Markov model is limited to two access links only. This limits its applicability, since the number of average WiFi access points visible to clients is much higher in densely-populated areas.
-Therefore, we extend the model to be applicable to multiple access links by utilizing a fixed point approach.
-The fixed point approximation is used to reduce the n-dimensional Markov chain to one dimension similar to \cite{trangia1992polling, staehle2002approximation} where the approach is used for analytic models for polling systems and the interference distribution in UMTS networks, respectively.
+
+Thus, we develop a model based on a two dimensional Markov chain with thresholds to study the transition of blocking probabilities of partitioned, partial sharing, and complete sharing systems.
+%The Markov model is limited to two access links only.
+This limits its applicability, since the number of average WiFi access points visible to clients is much higher in densely-populated areas.
+In densely-populated areas bandwidth of a high number of WiFi access points is aggregated. In this case an assessment with the Markov model  is not possible, since it is limited to two access links. An extension of the Markov model to $m$ dimensions would require solving an equation system with $n^m$ equations, which is computationally too complex.
+Therefore, we extend the model to be applicable to multiple access links by utilizing a fixed point approximation.
+
+The fixed point approximation is used to reduce the m-dimensional Markov chain to one dimension similar to \cite{trangia1992polling, staehle2002approximation}, where the approach is used for analytic models for polling systems and the interference distribution in UMTS networks, respectively.
 The underlying Markov chain highly differs from existing fix-point approaches, since it considers support and offloading thresholds.
 To the best of our knowledge this is also the first work that considers an inner and an outer composite system to apply the fixed point analysis in heterogeneous load conditions.
-
-
-
-\begin{figure*}[tb]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=.8\textwidth]{aggregation/background/figures/aggr_client_sw}
-        \caption{Client based}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=.8\textwidth]{aggregation/background/figures/aggr_ap_sw}
-        \caption{Access point based}
-    \end{subfigure}
-    \caption{Client based and access point based solution for bandwidth aggregation.}
-\end{figure*}
 
 %multipath transmissions
 %Multipath transmissions?
@@ -151,7 +180,7 @@ By applying the offloading policies, different Internet access links will collab
 
 Two bandwidth aggregation systems, i.e., systems offloading between $m$ access links, will be analyzed. First, we consider a bandwidth aggregation system with equal load on each access link. Moreover, a system in which one access link has a different load than the other $m-1$ links is modeled. As reference system we considered partitioned systems without offloading.% and a complete sharing system.
 
-\subsection{Reference Systems}
+\subsection{Analysis of Reference Systems}
 
 We compare the bandwidth aggregation gain of multiple collaborating Internet access links to a partitioned system without offloading. %, although it has to be noted that in many practical cases complete sharing is physically not possible.
 The received bandwidth of each access link $E[X_i]$ and the blocking probability $p_{b_i}$ of each system $i$ are evaluated. The blocking probability gives the probability that the link is fully utilized and a bandwidth request of an application cannot be entirely satisfied. In practice, if TCP is used on the access link, the Internet connections throttle themselves and share the link equally. Depending on the used application and its characteristics, the application performance can then suffer, which can result in user dissatisfaction.
@@ -171,18 +200,7 @@ p_{b_i} = \frac{\frac{(\frac{\lambda_i}{\mu})^{n_i}}{n_i!}}{\sum_{k=0}^{n_i}\fra
 
 The performance $E_s[X]$ of a complete sharing system, i.e., a single M/M/n loss system with $n=\sum_{i=1}^m n_i$ servers and an arrival rate of $\lambda=\sum{i=1}^m \lambda_i$, can be computed by the same formulae.
 
-\subsubsection{Modeled Bandwidth Aggregation System}
-
-For a modeled bandwidth aggregation system with two Internet access links, we consider the blocking probability $p_{b_i}$ of each system $i$ and the total blocking probability $p_b$, which is calculated by the sum of blocking probabilities of each system weighted by the probability that a request arrives at each respective system.
-
-\begin{equation}
-p_{b_1} = \sum_{k=\lfloor\alpha_2\cdot n_2\rfloor}^{n_2} x(n_1,k),\quad p_{b_2} = \sum_{k=\lfloor\alpha_1\cdot n_1\rfloor}^{n_1} x(k,n_2)
-\end{equation}
-\begin{equation}
- p_{b} = \frac{\lambda_1}{\lambda_1+\lambda_2}\cdot p_{b_1}+\frac{\lambda_2}{\lambda_1+\lambda_2}\cdot p_{b_2}
-\end{equation}
-
-Since requests can be offloaded from system 1 to system 2 in states $(n_1, k)$ for $k<\lfloor\alpha_2\cdot n_2\rfloor$, the requests are not blocked and the state probabilites are not added to the blocking probability $p_{b_1}$. The same holds for states $(k, n_2)$ with $k<\lfloor\alpha_1\cdot n_1\rfloor$ and $p_{b_2}$.
+\subsubsection{Approximations and Performance Metrics}
 
 An approximation $\tilde{p}_b$ of the blocking probability $p_b$ can be calculated by the joint probability of a single system being fully occupied, while a separate single system is above the support threshold $\alpha$, i.e. could not help. If $X_1$ and $X_2$ are random variables for the number of jobs in system 1 and system 2, the joint probability is
 

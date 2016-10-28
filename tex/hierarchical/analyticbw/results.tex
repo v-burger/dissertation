@@ -14,46 +14,62 @@ We evaluate the performance of tiered caching systems with bandwidth constraints
 %\end{itemize}
 
 \begin{figure*}[bt]
-\begin{minipage}[b]{0.32\textwidth}
+\begin{minipage}[t]{0.49\textwidth}
   \centering
-  \includegraphics[width=1.06\textwidth]{hierarchical/analyticbw/figures/hwc_CISP0}
+  \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_CISP0}
   \caption{Comparison of cache hit rate for optimal placement with LRU policy.}
   \label{fig:hwc_CISP0}
 \end{minipage}
 \hspace{0.01\textwidth}
-\begin{minipage}[b]{0.32\textwidth}
+\begin{minipage}[t]{0.49\textwidth}
   \centering
-  \includegraphics[width=1.05\textwidth]{hierarchical/analyticbw/figures/hwc_l1C8_C2}
+  \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_l1C8_C2}
   \caption{Cache hit rate dependent on the number of tier-1 caches for different tier-2 cache capacities.}
   \label{fig:hwc_l1C8_C2}
 \end{minipage}
-\hspace{0.01\textwidth}
-\begin{minipage}[b]{0.32\textwidth}
-  \centering
-  \includegraphics[width=1\textwidth]{hierarchical/analyticbw/figures/hwc_C8C1e3_l0}
-  \caption{Cache hit rate dependent on the number of tier-1 caches for varying request rates $\lambda$.}
-  \label{fig:hwc_C8C1e3_l}
-\end{minipage}
+% \hspace{0.01\textwidth}
+% \begin{minipage}[b]{0.32\textwidth}
+%   \centering
+%   \includegraphics[width=1\textwidth]{hierarchical/analyticbw/figures/hwc_C8C1e3_l0}
+%   \caption{Cache hit rate dependent on the number of tier-1 caches for varying request rates $\lambda$.}
+%   \label{fig:hwc_C8C1e3_l}
+% \end{minipage}
 \end{figure*}
 
 % \begin{figure}[tb]
 % \centering
-% \includegraphics[width=75mm]{figures/hwc_CISP0}
+% \includegraphics[width=75mm]{hierarchical/analyticbw/figures/hwc_CISP0}
 % \caption{Cache hit rate dependent on number of tier-1 caches. Comparison of optimal placement with LRU policy.}
 % \label{fig:hwc_CISP0}
 % \end{figure}
 % \begin{figure}[tb]
 % \centering
-% \includegraphics[width=75mm]{figures/hwc_l1C8_C2}
+% \includegraphics[width=75mm]{hierarchical/analyticbw/figures/hwc_l1C8_C2}
 % \caption{Cache hit rate dependent on the number of tier-1 caches for different tier-2 cache capacities.}
 % \label{fig:hwc_l1C8_C2}
 % \end{figure}
 % \begin{figure}[tb]
 % \centering
-% \includegraphics[width=75mm]{figures/hwc_C8C1e3_l0}
+% \includegraphics[width=75mm]{hierarchical/analyticbw/figures/hwc_C8C1e3_l0}
 % \caption{Cache hit rate dependent on the number of tier-1 caches for varying request rates $\lambda$.}
 % \label{fig:hwc_C8C1e3_l}
 % \end{figure}
+
+\begin{figure*}[bt]
+\begin{minipage}[t]{0.49\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_C8C1e3_l0}
+  \caption{Cache hit rate dependent on the number of tier-1 caches for varying request rates $\lambda$.}
+  \label{fig:hwc_C8C1e3_l}
+\end{minipage}
+\hspace{0.01\textwidth}
+\begin{minipage}[t]{0.49\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_C8l100_gain}
+  \caption{Impact of the upload bandwidth $\rho_1$ on the cache hit rate gain $\omega$.}
+  \label{fig:hwc_C8l100_gain}
+  \end{minipage}
+\end{figure*}
 
 We first consider a scenario without tier-2 cache.
 In this case the caching architecture only consists of tier-1 caches.
@@ -71,14 +87,12 @@ In the optimal placement, the items that are most frequently requested are place
 % \label{fig:hwc_C8C1e3_l}
 % \end{figure}
 
-\begin{figure}[tb]
-  \vspace{-0.25cm}
-\centering
-\includegraphics[width=70mm]{hierarchical/analyticbw/figures/hwc_C8l100_gain}
-\caption{Impact of the upload bandwidth $\rho_1$ on the cache hit rate gain $\omega$.}
-\label{fig:hwc_C8l100_gain}
-
-\end{figure}
+% \begin{figure}[tb]
+% \centering
+% \includegraphics[width=70mm]{hierarchical/analyticbw/figures/hwc_C8l100_gain}
+% \caption{Impact of the upload bandwidth $\rho_1$ on the cache hit rate gain $\omega$.}
+% \label{fig:hwc_C8l100_gain}
+% \end{figure}
 
 To investigate the influence of the tier-2 cache on the cache hit rate, we vary the tier-2 cache capacity $C_2$.
 Figure~\ref{fig:hwc_l1C8_C2} depicts the hit rate of the tiered caching architecture dependent on the number of tier-1 caches for different tier-2 cache capacities.

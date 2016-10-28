@@ -1,12 +1,11 @@
 %\section{A Performance Model for \glsentryshort{3G} \glsentryshort{RRC} States}\label{sec:aggregation:model}
 \section{Potential of Backhaul Bandwidth Aggregation}\label{sec:aggregation:model}
 
-The algorithm introduced in \refsec{sec:network:network_traces} can be used to infer the signalling frequency, power drain, and \gls{QoE} of existing or prototyped applications.
-However, in order to study the general impact of traffic in a comprehensive way, methods to derive said metrics from analytical traffic distributions are of interest.
+In order to investigate the system dynamics of bandwidth aggregation systems with offloading policy, we develop analytical models.
 
-In \refsec{sec:network:performance_model:analytical_model} we introduce a model allowing us to
-analyse both theoretical and empirical traffic models.
-Then, in \refsec{sec:network:performance_model:numerical_examples} we use this model to study the impact of traffic characteristic on metrics, i.e. signalling intensity and power drain.
+In \refsec{sec:network:performance_model:analytical_model} we introduce a Markov model for two links. The Markov model is extended to be applicable for two and more links using a fixed point approximation, allowing us to reduce the n-dimensional Markov chain to evaluate the steady state probabilities efficiently.
+
+The models are used in \refsec{sec:network:performance_model:analytical_model} to study the characteristics of bandwidth aggregation systems and to determine optimal threshold settings for the offloading policy.
 
 \input{aggregation/performance_model/analytical_model/analytical_model}
 \input{aggregation/performance_model/numerical_examples/numerical_examples}

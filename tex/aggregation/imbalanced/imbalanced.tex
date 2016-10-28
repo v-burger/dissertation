@@ -1,10 +1,7 @@
-\section{Backhaul Bandwidth Aggregation in Imbalanced Load}\label{sec:aggregation:performance_model}
-The algorithm introduced in \refsec{sec:network:network_traces} can be used to infer the signalling frequency, power drain, and \gls{QoE} of existing or prototyped applications.
-However, in order to study the general impact of traffic in a comprehensive way, methods to derive said metrics from analytical traffic distributions are of interest.
+\section{Backhaul Bandwidth Aggregation in Imbalanced Load}\label{sec:aggregation:imbalanced}
 
-In \refsec{sec:network:performance_model:analytical_model} we introduce a model allowing us to
-analyse both theoretical and empirical traffic models.
-Then, in \refsec{sec:network:performance_model:numerical_examples} we use this model to study the impact of traffic characteristic on metrics, i.e. signalling intensity and power drain.
+To assess the full potential of the approach, we consider an inner and an outer composite system. Thus, we are able to apply the method to the case of heterogeneous load in \refsec{sec:aggregation:imbalanced:analytical_model}, which allows evaluating the gain in situations where an overloaded system can use spare bandwidth of underutilized links \refsec{sec:aggregation:imbalanced:numerical_examples}.
+This further allows us to evaluate the fairness of the system and its robustness against free riders that try to exploit the system by receiving available bandwidth without contributing spare bandwidth to neighboring systems.
 
 \input{aggregation/imbalanced/analytical_model/analytical_model}
 \input{aggregation/imbalanced/numerical_examples/numerical_examples}
