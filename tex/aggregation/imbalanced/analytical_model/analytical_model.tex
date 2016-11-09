@@ -6,11 +6,11 @@
 
 Now, we consider the case of $m$ systems, in which one link is different from the other $m-1$ links. Thus, we have the observed system with $n_1$ servers, arrival rate $\lambda_1$, and thresholds $\alpha_1, \beta_1$, and a composite system of $m-1$ homogeneous links with $n'=n_i, \lambda'=\lambda_i, \alpha'=\alpha_i, \beta'=\beta_i, \forall i\in\{2,\ldots,m\}$. This gives two different macro state probabilities $p_1, p_2, p_3$ for the observed system and $p'_1, p'_2, p'_3$ for the systems in the composite system, respectively, which can be computed analogously to Equation~\ref{eq:macro}. The corresponding support rate $\lambda_{1s}$ and offloading rate $\lambda_{1o}$ of the observed system can then be computed as follows:
 
-\small
+%\small
 \begin{equation}
 \lambda_{1_s} = \sum_{j=1}^{m-1}\sum_{k=0}^{m-1-j} \binom{m-1}{j}\binom{m-j-1}{k}p'^j_3 p'^k_1 p'^{m-j-k-1}_2\frac{j\lambda'}{k+1}
 \end{equation}
-\normalsize
+%\normalsize
 
 \begin{equation}
 \lambda_{1_o} = (1-(1-p'_1)^{m-1})\lambda_1
@@ -18,7 +18,7 @@ Now, we consider the case of $m$ systems, in which one link is different from th
 
 These rates of supported and offloaded traffic cannot be easily integrated into the fixed point iteration of Equation~\ref{eq:iteration} as they depend on the state probabilities $x'(i)$ of links in the composite system, which are in this case different from the state probabilities $x(i)$ of the observed system.
 To obtain the $x'(i)$ values, we introduce an inner model.
-This means, we again distinguish one of the $m-1$ links of the outer composite system, and merge the remaining $m-2$ links to an inner composite system. Although this inner model resembles the case described above in Section~\refsec{sec:aggregation:equal}, the equations for the inner observed system cannot be easily transferred, as the impact of the outer observed system cannot be neglected. Therefore, depending on the macro state of the outer observed system, the following support rate $\lambda'_s$ and offloading rate $\lambda'_o$ can be derived for the inner observed system:
+This means, we again distinguish one of the $m-1$ links of the outer composite system, and merge the remaining $m-2$ links to an inner composite system. Although this inner model resembles the case described above in \refsec{sec:aggregation:performance_model:analytical_model:m_systems}, the equations for the inner observed system cannot be easily transferred, as the impact of the outer observed system cannot be neglected. Therefore, depending on the macro state of the outer observed system, the following support rate $\lambda'_s$ and offloading rate $\lambda'_o$ can be derived for the inner observed system:
 
 \begin{figure}[tb]
 	\centering
@@ -39,7 +39,7 @@ This means, we again distinguish one of the $m-1$ links of the outer composite s
 %p'_3 &= \sum x'(i), &\lfloor\beta'\cdot n\rfloor \leq i \leq n'
 %\end{align}
 
-\small
+%\small
 \begin{equation}
 \begin{split}
 &\lambda'_{s} =\\
@@ -49,8 +49,7 @@ This means, we again distinguish one of the $m-1$ links of the outer composite s
 \end{split}
 \label{eq:supportinner}
 \end{equation}
-\normalsize
-
+%\normalsize
 
 \begin{equation}
 \lambda'_{o} = (1-(1-p_1)(1-p'_1)^{m-2})\lambda'

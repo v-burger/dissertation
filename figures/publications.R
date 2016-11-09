@@ -7,20 +7,20 @@ data <- left_join(mutate(citekeys, key=factor(key, levels=combined)),
                          mutate(references, key=factor(key, levels=combined)),
                          by = 'key')
 
-breaks.area <- c('Cloud', 'Network', 'Application')
+breaks.area <- c('AS-Topology', 'Caching', 'Aggregation')
 
 p <- ggplot(data, aes(x = area,
                       y = methodology,
                       color = chapter,
                       group = reference)) +
-  geom_text(aes(label=as.character(sprintf("[%d]", reference))), size = 2, show_guide = F, family=font.family) +
+  geom_text(aes(label=as.character(sprintf("[%d]", reference))), size = 2, show.legend = F, family=font.family, fontface="bold") +
   geom_point(y = -0.2, size = 0) +
   scale_x_continuous(breaks = c(0.5, 1.5, 2.5),
                      minor_breaks = c(1, 2),
                      labels = breaks.area) +
   scale_y_continuous(breaks = c(0.5, 1.5, 2.5),
                      minor_breaks = c(1, 2),
-                     labels = c('Practical', 'Measurement', 'Theoretical')) +
+                     labels = c('Measurement', 'Simulation', 'Analysis')) +
   scale_colour_manual(values = c(color.palette[[2]], color.palette[[3]], color.palette[[4]], color.palette[[1]]), 
                       guide=guide_legend(override.aes=list(size=4), 
                                          ncol = 3, 

@@ -14,8 +14,11 @@ A direct application of the model is the aggregation of backhaul bandwidth by co
 
 We develop a Markov model to analyze the bandwidth aggregation potential of neighboring access links.
 The Markov model is limited to two access links only, which limits its applicability.
+It was shown in pilot studies that the technology's only limitation is the actual WiFi bandwidth available.
 In urban environments there are far more than two access links available.
 As shown in \cite{sapiezynski2015tracking}, an average of 25 WiFi access points are visible in every scan in densely-populated areas.
+In this case an assessment with the model previously proposed by the authors is not possible, since it is limited to two access links.
+An extension of the Markov model to m dimensions would require solving an equation system with $n^m$ equations, which is computationally too complex.
 We extend the Markov model to be applicable for two and more links using a fixed point approximation.
 This allows us to reduce the n-dimensional Markov chain to evaluate the steady state probabilities efficiently.
 

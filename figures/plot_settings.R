@@ -26,99 +26,21 @@ label.methodology <- 'Methodology'
 label.appears <- 'Appears'
 
 # 2.2 done
-label.tdch <- expression(paste('DCH timeout ', T[DCH], ' ', (s)))
-label.ea <- expression(paste('Mean inter-packet time E[A] (s)'))
-label.power.drain <- 'Power drain PD'
-label.signalling.intensity <- 'Signalling intensity SI'
-label.signalling.frequency <- 'Signalling frequency SF'
-label.application <- 'Application'
-label.evaluation.type <- 'Model'
-label.cA <- expression(paste('Coefficient of variation ', c[A]))
-label.interarrival.time <- expression(paste('Packet inter-arrival time ', A, ' (s)'))
-label.interarrival.time.cdf <- expression(P(A <= a))
-label.lag <- 'Lag length'
-label.interarrival.sample.autocorrelation <- 'Sample autocorrelation\n of inter-arrival times'
-label.page.load.time <- 'Page load time t (s)'
-label.qoe <- 'Mean Opinion Score MOS'
+# label.tdch <- expression(paste('DCH timeout ', T[DCH], ' ', (s)))
+# label.ea <- expression(paste('Mean inter-packet time E[A] (s)'))
+# label.power.drain <- 'Power drain PD'
+# label.signalling.intensity <- 'Signalling intensity SI'
+# label.signalling.frequency <- 'Signalling frequency SF'
+# label.application <- 'Application'
+# label.evaluation.type <- 'Model'
+# label.cA <- expression(paste('Coefficient of variation ', c[A]))
+# label.interarrival.time <- expression(paste('Packet inter-arrival time ', A, ' (s)'))
+# label.interarrival.time.cdf <- expression(P(A <= a))
+# label.lag <- 'Lag length'
+# label.interarrival.sample.autocorrelation <- 'Sample autocorrelation\n of inter-arrival times'
+# label.page.load.time <- 'Page load time t (s)'
+# label.qoe <- 'Mean Opinion Score MOS'
 
-label.bandwidth <- expression(paste('Bandwidth b ', (Mbit^-1)))
-label.bandwidth.at.time.t <- expression(paste("Bandwidth ", b[d(t)], " (", Mbit^-1, ")"))
-label.cdf.bandwidth <- expression(P(B <= b))
-label.direction <- 'Bandwidth'
-label.type <- 'Type'
-label.server.preparation.time <- 'Time t (s)'
-label.cdf.server.preparation.time <- expression(P(T <= t))
-label.image.size <- 'Size s (MiB)'
-label.cdf.image.size <- expression(P(S <= s))
-label.waiting.time <- expression(paste("Mean waiting time ", Sigma, " (s)"))
-label.size.threshold <- expression(paste("Size threshold ", T[s], " (MB)"))
-label.intervall.time <- expression(paste("Interval length ", T[i], " (s)"))
-label.connection.count <- expression(paste("Mean connection count ", Kappa))
-label.disconnection.time <- expression(paste("Mean relative disconnected time ", Delta, " (%)"))
-label.mean.queue.length <- "Mean queue length"
-label.mechanism <- "Mechanism"
-label.normalized.threshold <- expression(paste("Normalized synchronization threshold ", T[n],  " (s)"))
-label.number.of.stalling.events <- 'Number of stalling events'
-label.qoe.model <- 'QoE Model'
-label.stalling.duration <- 'Stalling duration per event (s)'
-label.time <- 'Time t (s)'
-label.buffer <- 'Buffer size S'
-label.unplayed.buffer <- expression(paste("Buffer ", t[u](t), " (s)"))
-label.bitrate <- expression(paste('Video bit rate ', b[r], ' ', (Mbit^-1)))
-label.energy <- 'Energy consumption E (kJ)'
-label.wasted.traffic <- 'Wasted traffic W (Mbit)'
-label.user.model <- 'User model'
-label.connections <- 'Connection count C'
-label.buffer.lower <- expression(paste("Stop threshold ", theta))
-label.buffer.size <- expression(paste("Buffer size ", Theta))
-label.abort.time <- 'Abort time t (s)'
-label.pdf.abort.time <- 'PDF A(t)'
-
-#
-label.user.model <- 'User model'
-label.playback.status <- 'Playback status'
-label.finite <- 'Video browsing'
-label.infinite <- 'Steady state'
-label.offered.load <- 'Offered load'
-label.alpha <- expression(paste("Duration Parameter ", alpha)) 
-label.beta <- expression(paste("Interruption Parameter ", beta)) 
-label.prebuffering.sensitivity <- expression(paste("Pre-buffering Parameter ", gamma))
-label.normalized.video.buffer <- expression(paste('Normalized Video Buffer ', d^'*', ' (s)'))
-label.stalling <- 'Stalling'
-label.playing <- 'Playing'
-
-# 4.2, done
-label.power <- 'Power drain E (kW)'
-label.pareto <- 'Pareto-optimal'
-label.number.servers <- 'Number of available servers n+m'
-label.parameter <- 'Parameter'
-label.waiting.time.ms <- "Mean waiting Time E[W] (ms)"
-
-# 4.3
-label.tunnel.iat <- 'Tunnel inter-arrival time t (s)'
-label.cdf.iat <- expression(P(T <= t))
-label.distribution <- 'Distribution'
-label.tunnel.duration <- 'Tunnel duration d (s)'
-label.cdf.duration <- expression(P(D <= d))
-label.number.instances <- 'Active instances I'
-label.cdf.number.instances <- expression(P(I <= i))
-label.max.instances <- expression(paste('Maximum number of active instances ', S[max]))
-label.max.tunnels <- expression(paste('Maximum number of tunnels ', n))
-label.blocking.probability <- expression(paste('Blocking probability ', p[B]))
-label.mean.resource.utilization <- expression(paste('Mean number of active tunnels ', n[a])) 
-label.startstop.duration <- expression(paste('Start-up and shut-down time d ', (s)))
-
-# 4.4, done
-label.campaign.interarrival <- expression('Campaign inter-arrival time A'[c]*' (h)')
-label.cdf.campaign.interarrival <- expression(P(A[c] <= t))
-label.campaign.size <- expression(paste('Campaign size ', Theta))
-label.cdf.campaign.size <- expression(P(T <= Theta))
-label.number.of.workers <- 'Number of workers c'
-label.worker.utilization <- expression(paste('Utilisation ', rho))
-label.mean.task.length <- 'Mean task length E[B] (s)'
-label.mean.task.delay <- 'Task pre-processing Delay E[D] (s)'
-label.campaign.arrival.distribution <- 'Campaign arrival'
-label.campaign.rate <- expression(paste('Rate ', beta))
 
 unit.labeller <- function(unit) {
   passed.unit <- substitute(unit)

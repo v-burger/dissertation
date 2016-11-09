@@ -10,27 +10,31 @@ The opposite concept to Wifi offloading, i.e., WiFi onloading, is presented in \
 %Bewifi
 An access link sharing concept, which goes beyond pure offloading, is BeWifi, which was developed by Telefonica \cite{goma2013patent} and builds on previous works about backhaul capacity aggregation \cite{kandula2008fatvap,giustiniano2010fair}. BeWifi uses modified access points, which act as normal access points until their clients saturate more than 80\% of the backhaul capacity. Then, the access point will scan for close access points, which will provide additional bandwidth if their utilization is below 70\%. Backhaul capacity and utilization are announced by each access point via beacon frames. Instead of introducing a secondary WiFi radio, BeWifi uses time-division multiple access (TDMA) and the 802.11 network allocation vector (NAV) to connect to neighboring access points for bandwidth aggregation in a round robin fashion with a weighted proportional fairness schedule.
 
+% The client based solution requires driver modifications on the wireless clients.
+% Each wireless client needs to feature a virtualized wireless card.
+% This implies that for a commercial deployment the operating system and wireless driver of every WiFi client needs to be modified, which would produce a high amount of costs.
+% %As one may realize, the cost of such an approach is absolutely prohibitive.
+% The problem of the diversity of devices that need to be modified can be solved
+% by deploying the aggregation scheme in the access points, which are usually provided by ISPs.
+% However, current methods to perform aggregation with single-radio devices are not meant to be used in APs.
+% Introducing a secondary WiFi radio in the APs could provide a technical solution, but it increases the cost of a device that is subsidized by the ISP, making the solution impracticable.
+
 \reffig{fig:aggregation:background:aggr} shows a client based and an access point solution for the bandwidth aggregation proposed in \cite{goma2013patent}.
-backhaul bandwidth aggregation solutions require driver modifications on the wireless clients to enable such scheme
-Each wireless client needs to feature a virtualized wireless card.
-This implies that for a commercial deployment one would need to modify the operating system and wireless driver of every possible WiFi client, including smartphones, tablets, laptops, etc. As one may realize, the cost of such an approach is absolutely prohibitive.
-The problem of the diversity of devices that need to be modified can be solved
-by deploying the aggregation scheme in a much smaller set of devices such as the
-APs, which are usually provided by ISPs. However, current methods to perform aggregation with single-radio devices are not meant to be used in APs.
-Introducing a secondary WiFi radio in the APs could provide a technical solution, but it increases the cost of a device that is subsidized by the ISP, making the solution impracticable.
-
-These state of the art client-based aggregation schemes also propose the use
-of TDMA to enable a single-radio client to connect to all the neighboring APs, as in \reffig{fig:aggregation:background:aggrclient} regardless of their frequency of operation. Over cycles of 100 ms the wireless client sequentially connects to all selected APs within range in a round robin fashion. Using the standard 802.11 power saving feature, a client is able to notify its absence to the APs it is connected to so that they buffer packets directed to it. This way, a client performing aggregation appears to be sleeping in all APs but the one that is currently scheduled in the round robin cycle.
-%No concurrent data transmission via different frequencies is taking place.
+The state of the art client-based system proposes to use a TDMA based access strategy for accessing selected access points in range in a round robin fashion, i.e., no concurrent data transmission via different frequencies is taking place.
+The system utilizes inband signalling, a switching frequency of 100ms and requires less than 1.5ms for switching.
+%The state of the art client-based aggregation schemes propose the use of TDMA to enable a single-radio client to connect to all the neighboring access points, as in \reffig{fig:aggregation:background:aggrclient} regardless of their frequency of operation. Over cycles of 100 ms the wireless client sequentially connects to all selected access points within range in a round robin fashion.
 %The system utilizes inband signalling and requires less than 1.5 ms for switching.
+Using the standard 802.11 power saving feature, a client is able to notify its absence to the access points it is connected to, so that they buffer packets directed to it.
+A client performing aggregation appears to be sleeping in all access points but the one that is currently scheduled in the round robin cycle.
+%No concurrent data transmission via different frequencies is taking place.
+The access point based solution can be mapped to the client based solution, if an access point acts as access point to its clients, and as a client to neighboring access points.
+%single-radio AP that acts as an AP to its clients, and as a client to neighboring APs, and show that the problem can be mapped to the client-based solutions allowing the same optimization objectives
 
-single-radio AP that acts as an AP to its clients, and as a client to neighboring APs, and show that the problem can be mapped to the client-based solutions allowing the same optimization objectives
-
-acts as an AP and as a client of a neighboring AP
-the APs transmit on different channels
-The client-based solution is able to fully aggregate the available capacity of the
-backhaul links for a wider range of wireless channel capacities.
-their need for client modifications makes their deployment cost prohibitive.
+%acts as an AP and as a client of a neighboring AP
+%the APs transmit on different channels
+%The client-based solution is able to fully aggregate the available capacity of the
+%backhaul links for a wider range of wireless channel capacities.
+%their need for client modifications makes their deployment cost prohibitive.
 %To unleash the potential of those solutions, the present invention provides and implements a system that can approach the benefits of client-based solutions requiring modifications only on the APs
 
 \begin{figure*}[tb]
@@ -152,13 +156,13 @@ To account for a bad channel quality in our model, the link capacity can be redu
 %The messages exchanged produce a signaling overhead which can limit the performance of the system.
 
 %To use Markov chain model analysis, we assume in the following that the processes
-We follow up the methodology for two access links described in \cite{burger2016phycom}, and model the load on $m\geq 2$ access links as depicted in Figure~\ref{fig:sysmodel}. The throughput of each Internet connection is limited by a bottleneck (either on application side, on server side, or in the core Internet), such that single connections will utilize a certain share of the access link bandwidth. Therefore, the available capacity of a link $c$ is divided into a number $n$ of small atomic bandwidth fractions of equal size. This means, $c = n\cdot \xi$ with a global constant $\xi$ denoting the granularity of bandwidth allocation. Thus, different capacities $c_i$ are modeled by assigning different $n_i$ to the links.
+We model the load on $m\geq 2$ access links as depicted in Figure~\ref{fig:aggr:sysmodel}. The throughput of each Internet connection is limited by a bottleneck (either on application side, on server side, or in the core Internet), such that single connections will utilize a certain share of the access link bandwidth. Therefore, the available capacity of a link $c$ is divided into a number $n$ of small atomic bandwidth fractions of equal size. This means, $c = n\cdot \xi$ with a global constant $\xi$ denoting the granularity of bandwidth allocation. Thus, different capacities $c_i$ are modeled by assigning different $n_i$ to the links.
 
 \begin{figure}[tb]
 	\centering
- 	\includegraphics[width=0.5\textwidth]{aggregation/performance_model/figures/model_m}
+ 	\includegraphics[width=0.8\textwidth]{aggregation/performance_model/figures/model_m}
   	\caption{System model.}
-  	\label{fig:sysmodel}
+  	\label{fig:aggr:sysmodel}
 \end{figure}
 
 %In our scenario, we look at loaded access links on a short time scale. The throughput of each Internet connection is limited by a bottleneck (either on application side, on server side, or in the core Internet), such that the capacity of an access link cannot be fully utilized by a single connection. This means, each Internet connection will utilize a certain share of the access link bandwidth. The available capacity of a link $c$ is divided into a number $n$ of small atomic bandwidth fractions of equal size. This means, $c = n\cdot \xi$ with $\xi$ resembling the granularity of bandwidth allocation. For example, a $c=10\ \text{Mbps}$ link can be modeled as $n=20$ bandwidth fractions of $\xi=500\ \text{kbps}$ each, or also as $n=100$ bandwidth fractions of $\xi=100\ \text{kbps}$ each. For the remainder of this paper, we will consider $\xi$ as a global constant in the given scenario and model different capacities $c_i$ by assigning different $n_i$ to the links.
@@ -168,7 +172,7 @@ We consider the system in a short time frame, where the system load can be consi
 Each access link is modeled as a multi-server blocking system, in which each server represents an available bandwidth fraction of the link.
 Its utilization variations are modeled as a stationary process of singular and independent arrivals of traffic bursts, i.e., bandwidth fraction requests. This allows modeling an access link as M/M/n loss system \cite{kleinrock1975queuing}. We define $X$ as the random variable of the number of occupied bandwidth fractions on each backhaul link. It is modeled by a birth-death-process, in which bandwidth fractions are requested with Poisson arrivals at rate $\lambda$ and occupied for an negative-exponentially distributed service time with globally normalized rate $\mu=1$. Consequently, the load on each link is given by $\rho=\frac{\lambda}{n\cdot \mu}=\frac{\lambda}{n}$. The probability that $k$ bandwidth fractions are occupied in the considered M/M/n queue is $x(k)=P(X=k)$.
 
-In the BeWifi approach (cf.\ Section~\ref{sec:background}), two thresholds are used, which define the bandwidth aggregation/offloading policy. The support threshold $\alpha$ indicates up to which percentage of utilization (i.e., number of own occupied bandwidth fractions) the system will offer bandwidth fractions to other systems. Furthermore, the offloading threshold $\beta$ with $\alpha\leq\beta$ sets the percentage of utilization above which the system will try to use bandwidth of other systems. According to these thresholds, a system can be in one of the following three macro states:
+In the BeWifi approach (cf.~\refsec{sec:aggregation:background:aggr}), two thresholds are used, which define the bandwidth aggregation/offloading policy. The support threshold $\alpha$ indicates up to which percentage of utilization (i.e., number of own occupied bandwidth fractions) the system will offer bandwidth fractions to other systems. Furthermore, the offloading threshold $\beta$ with $\alpha\leq\beta$ sets the percentage of utilization above which the system will try to use bandwidth of other systems. According to these thresholds, a system can be in one of the following three macro states:
 
 \begin{enumerate}
 	\item \textit{support} ($0 \leq X < \lfloor\alpha\cdot n\rfloor$):\\ low utilization and offering bandwidth
