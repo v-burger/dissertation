@@ -1,7 +1,7 @@
 \chapter{Analysis and Optimization of Hierarchical Caching Systems}\label{chap:hierarchical}
 
-The vast majority of Internet traffic is carried by content delivery networks (CDN).
-Major CDNs comprise of inter-connected data-centers at various points of presence around the world.
+%The vast majority of Internet traffic is carried by content delivery networks (CDN).
+%Major CDNs comprise of inter-connected data-centers at various points of presence around the world.
 CDNs do not only carry a lot of traffic among the data-centers but also put huge loads on Internet Service Provider (ISP) networks that provide access to a high number of end-users consuming the content.
 Reducing the traffic carried by CDNs and the load put on ISP networks has high potential to reduce energy consumption and cost for content delivery.
 A common approach is to cache frequently requested content in or close to access networks to serve the content with low latency and few hops to save resources on the path.
@@ -16,10 +16,14 @@ Caches have a limited capacity to store content, which means that content items 
 %Key indicator on the performance of caching strategies is the request process.
 %Request processes in web services such as Video-on-Demand exhibit a power-law \cite{} as well as temporal \cite{} and spatial dynamics \cite{}.
 A recent approach \cite{valancius2009greening} proposes to augment spare capacities on customer premise equipment (CPE) such as home gateways or nano data-centers (NaDas) to assist content delivery, showing that there is a high potential to save energy, although the capacity of home gateways is small and the uplink is limited.
-The content is transported in a peer-to-peer manner keeping the traffic within the autonomous system (AS).
+The content is transported in a peer-to-peer manner keeping the traffic within the AS.
+Requests are first directed to the overlay of home gateways or NaDas, and is only forwarded to a cache of the content delivery network, if the target object is not found in the overlay.
+In this way a hierarchy of caching systems is formed, in which the requests that cannot be served in one tier, i.e. the miss stream, is forwarded to the next tier in the hierarchy.
 Another example for a hierarchical caching system with bandwidth constraints are femto caching architectures \cite{golrezaei2013femtocaching}, where content is cached on femto-basestations with small capacity but with considerable storage space.
 The potential of these approaches highly depends on the number of caches available and their capacity for content delivery.
-Our goal is to assess the potential of content delivery networks using a high number of caches with limited capacity.
+Our goal is to evaluate the performance of hierarchical content delivery networks using a high number of caches with limited capacity and to assess their potential to reduce inter-domain traffic.
+
+sharing probability
 
 %Leonardi infocom 2015 dynamic model
 
@@ -31,9 +35,12 @@ In \cite{tan2013optimal} the system is analyzed under large system asymptotic wh
 We use a different approach by approximating the arrival rate of requests at the caches.
 This allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss network.
 Even for traffic with highly heterogeneous request rates the approximation reflects the system performance.
+To determine the number home gateways available to assist content delivery we rely on the insights gained from the characterization of Internet subscriptions on AS level in \refchap{chap:aslevel}.
+ In order to assess the potential of hierarchical caching systems to reduce inter-domain traffic, we use the model for transit traffic described in \refchap{chap:aslevel}.
 
 Our contribution is three-fold.
-First,
+First, we provide a versatile simulation framework for evaluating hierarchical caching systems allowing to consider different features including the home router sharing probability, bandwidth constraints and the AS topology.
+Second, we use the inferred AS paths to calculate the real AS paths and assess the transit cost savings by hierarchical caching systems.
 Finally, we develop a method to accurately assess the system performance of tiered caching architectures with bandwidth constraints.
 
 % \begin{figure}
@@ -45,11 +52,12 @@ Finally, we develop a method to accurately assess the system performance of tier
 
 
 The content of this chapter is published in~\cite{info3-inproceedings-2015-518,info3-inproceedings-2015-530,info3-inproceedings-2015-514,burger2016hierarchical}.
-In \refsec{sec:hierarchical:related_work} we provide an overview of related work relevant to this chapter.
-Then, in
-We focus on  in
- are considered in .
-Finally, we provide lessons learned from our studies in \refsec{sec:cloud:lessons_learned}.
+\refsec{sec:hierarchical:related_work} gives an overview on related work on the performance evaluation of caching systems and describes traffic models and analytic methods, which are relevant for the evaluation of hierarchical caching systems.
+We describe the simulation model in \refsec{sec:hierarchical:simulative:simulative} and discuss the results derived to assess the potential to save inter-domain traffic in \refsec{sec:hierarchical:simulative:evaluation}.
+In \refsec{sec:hierarchical:analyticbw:model} we describe our method to evaluate the performance of hierarchical systems with bandwidth constraints and give analytic results.
+Numerical examples derived by analysis and simulation are given in \refsec{sec:hierarchical:analyticbw:results}.
+%The simulation framework for a tiered caching architecture is described in Section~\ref{sec:simulation}.
+Finally, \refsec{sec:cloud:lessons_learned} summarizes this chapter and presents the lessons learned.
 
 \input{hierarchical/background/background}
 \input{hierarchical/simulative/simulative}

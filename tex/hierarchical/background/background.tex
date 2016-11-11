@@ -17,7 +17,7 @@ To model the content delivery network, we consider a set of caches $\Gamma$ that
 Consider that the method can also be applied to content with varying file size, if the content items are organized in equally sized chunks, or if the sums are weighted accordingly.
 Tier-1 caches have capacity $C_1$ and tier-2 caches have capacity $C_2$.
 Here we assume, that the cache capacity of all tier-1 caches is equal.
-This is for example the case if the caches are deployed by a provider on home gateways.
+This is for example the case if the caches are deployed by a provider on home routers.
 If the caches are set up by end-users the cache capacities may vary.
 Each tier-1 cache $i$ has a specific average upload throughput $\rho_1(i)$.
 Content items are requested from a catalog with size $N$.
@@ -33,7 +33,7 @@ The arrival rate of requests for an item can then also be expressed with the pro
 \lambda_m = p_m \lambda \, , \text{where} \, \sum_{m=1}^N p_m = 1 \, .
 \end{equation}
 
-%We consider a sharing probabilty $p_{share}$ which specifies the share of home gateways in the AS that supports the caching functionality and serves as tier-1 cache.
+%We consider a sharing probabilty $p_{share}$ which specifies the share of home routers in the AS that supports the caching functionality and serves as tier-1 cache.
 
 %\begin{itemize}
 %	\item Number IP-Adresses -> Number of Routers
@@ -79,23 +79,26 @@ The object popularity does not vary over time, i.e., the probability $p_m$ that 
 The probability $p_m$ that an item is requested, is independent of all past requests, generating an i.i.d request process.
 \end{irmc}
 
-ignores  all  temporal  correlations  in  the  sequence  of  requests
-temporal locality
-given content become denser over short periods of time
-impact on caching
+The IRM ignores temporal correlations in the request process.
+In practice the popularity of content changes over time, such that the request rate increases if an object grows in popularity and decreases when the demand of the item drops. This effect is referred to as \textit{temporal locality}, i.e., when the request rate of an object increases in a short period of time.
+This effect can have a strong positive impact on the efficiency of caching.
 
-The request
-process for each content is stationary (typically it is assu
-med to be
-either a renewal process or a semi-Markov-modulated Poisso
-n process) On-Off
+To account for temporal locality the request process can be modeled as renewal process \cite{martina2014unified} or as Markov modulated Poisson Process \cite{garetto2014dynamic}.
+In these case the request process for each content is stationary.
 
-explain renewal
+In the renewal traffic model the request process for every content $m$ is described by an independent process with assigned inter-request time distribution.
+The Markov modulated Poisson process models describes an ON-OFF process for a given content $m$.
+The ON and OFF periods are exponentially distributed.
+During ON period the request rate for an item $\lambda_m$ is constant.
+Analysis with the model is simple if the OFF period is set much larger than the cache eviction time, which makes the probability negligible that the cache still contains an item $m$ at the end of the OFF period.
 
-explain Markov modulated Poisson process
 
-alternative SNM
+alternative SNM \cite{traverso2013temporal}
 represent the overall request process as the superposition of a potentially infinite population of independent inhomogeneous Poisson processes (shots)
+
+an ON
+period  plays  exactly  the  same  role  as  a  (rectangular) shot  in
+the SNM proposed in
 
 however, the definition of analytical models for the evaluation of cache performance under the SNM
 under the SNM traffic model can predicted with high accuracy by adopting a fixed-size content catalogue, and modeling the arrival process of each content by a renewal process with a specific inter-request time distribution
@@ -192,7 +195,7 @@ Traverso et al. \cite{traverso2013temporal} & LRU & Single Cache & Dynamic - SNM
 \subsubsection{Analytic Model for LRU Caches}
 
 In the following we give a brief overview of analytic models for the evaluation of mechanisms in CDN and CCN architectures.
-In \cite{fricker2012impact} a two tiered caching architecture is investigated, where the first tier consists of home gateways in access networks.
+In \cite{fricker2012impact} a two tiered caching architecture is investigated, where the first tier consists of home routers in access networks.
 The second tier consists of data centers in the core network.
 Requests that cannot be served in the first tier are forwarded to the second tier.
 The popularity of objects follows a power-law and is modeled by the Zipf-law, which is observed for different types of content distributed in the Internet, including video \cite{gill2007youtube,cha2009analyzing}.
