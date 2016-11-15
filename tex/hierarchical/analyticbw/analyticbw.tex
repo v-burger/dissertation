@@ -1,7 +1,7 @@
 \section{Analysis of Caching Systems with Bandwidth Constraints}\label{sec:hierarchical:analyticbw:model}
 
 In order to evaluate content delivery networks based on the number of available home routers and their limited capacity, we define a system model for a tiered caching architecture.
-Tier-1 caches are on leaf nodes such as NaDas, caches of the content delivery network are in tier-2 and ultimately tier-3 is the content provider.
+Tier-1 caches are on leaf nodes such as home routers, caches of the content delivery network are in tier-2 and ultimately tier-3 is the content provider.
 We use analytic models to calculate the efficiency of the tiered caching architecture.
 
 
@@ -34,6 +34,9 @@ We use existing models for systems without bandwidth constraints in order to det
 We then show our approach to determine the hit rate of hierarchical cache networks with bandwidth constraints.
 
 \subsubsection{The Che Approximation}
+
+We first consider the Che approximation for the simple case of a single cache with LRU policy. Let $C$ be the capacity of the single cache.
+$T_C(m)$ is the cache eviction time of object $m$, i.e., the time needed before C objects, not including $m$, are requested at the cache.
 
 \subsubsection{No bandwidth constraints}
 
@@ -283,4 +286,3 @@ In order to assess the benefit of the tiered architecture compared to a single I
 
 %effective capacity of hot warm cold overlay -> che approximation two tiered LCD.
 %Metric efficiency gain hit rate / hitrateLRU(C1)
-\subsection{Model Validation}

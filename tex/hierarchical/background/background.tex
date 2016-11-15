@@ -1,10 +1,10 @@
 \section{Background and System Description}\label{sec:hierarchical:related_work}
-This section provides related work relevant to this chapter.
-First, we discuss ... in \refsec{sec:cloud:data_centers},.
-Then, we focus on ..., to be used in \refsec{sec:cloud:virtualized_network_functions}.
-Finally, we focus on ... \refsec{sec:cloud:crowdsourcing}.
 
-\subsection{System Model for Hierarchical Caching Systems}
+In this section we describe content popularity and traffic models used to evaluate the performance of contents delivery networks.
+We describe the systems model for hierarchical caching systems.
+We present a representative set of cache eviction policies and provide an overview of recent efforts in modeling the performance of isolated and interconnected caches.
+
+\subsection{System Model for Hierarchical Caching Systems}\label{sec:hierarchical:system_model}
 
 \begin{figure}[tb]
 \centering
@@ -14,12 +14,17 @@ Finally, we focus on ... \refsec{sec:cloud:crowdsourcing}.
 \end{figure}
 
 To model the content delivery network, we consider a set of caches $\Gamma$ that is organized in a tiered caching architecture as depicted in figure~\ref{fig:hcmodel}. Each cache in $\Gamma$ has a certain cache capacity $C$, which specifies the number of content items it can store.
-Consider that the method can also be applied to content with varying file size, if the content items are organized in equally sized chunks, or if the sums are weighted accordingly.
-Tier-1 caches have capacity $C_1$ and tier-2 caches have capacity $C_2$.
-Here we assume, that the cache capacity of all tier-1 caches is equal.
-This is for example the case if the caches are deployed by a provider on home routers.
+%TODO rephrase
+%bin-packing problems can arise and therefore size has been considered as an important factor in studies which assume complete files as transport unit.
+However, content delivery networks and peer-to-peer systems and coding schemes for video streams are segmenting data into small chunks in the kB range.
+Therefore, we simply assume objects of fixed size corresponding to data chunks.
+Consider that the method can also be applied to content with varying file size, if the sums are weighted accordingly.
+Tier-1 caches have capacity $C_{1_i}, i\in\{1,...,n_1\}$ and tier-2 caches have capacity $C_{2_i}, i\in\{1,...,n_2\}$.
+%We use the convention $C_1=C_{1_i}, \forall i$ if we assume the same cache size for all tier-1 caches.
+Here we assume, that the cache capacity of all tier-1 caches is equal and use the convention $C_1=C_{1_i}, \forall i$.
+This is for example the case if the caches are deployed by a provider on customer premise equipment.
 If the caches are set up by end-users the cache capacities may vary.
-Each tier-1 cache $i$ has a specific average upload throughput $\rho_1(i)$.
+Each tier-1 cache $i$ has a specific average upload throughput $\rho_{1_i}$.
 Content items are requested from a catalog with size $N$.
 Each item $m\in \{1,2,\dots,N\}$ is requested with rate $\lambda_m$.
 The total arrival rate of requests is $\lambda=\sum_{m=1}^N \lambda_m$.
@@ -69,6 +74,8 @@ $d_m$ & duration of object $m$& \\
 
 \subsection{Content Popularity and Traffic Model}
 The standard approach to characterize the pattern of object requests arriving at a cache is the Independent Reference Model (IRM) \cite{coffman1973operating}.
+The IRM makes the following assumptions.
+
 \newtheorem{irma}{Assumption}\begin{irma}\label{catalouge}
 Users request objects from a catalogue with fixed size $N$.
 \end{irma}
@@ -89,9 +96,9 @@ In these case the request process for each content is stationary.
 In the renewal traffic model the request process for every content $m$ is described by an independent process with assigned inter-request time distribution.
 The Markov modulated Poisson process models describes an ON-OFF process for a given content $m$.
 The ON and OFF periods are exponentially distributed.
-During ON period the request rate for an item $\lambda_m$ is constant.
-Analysis with the model is simple if the OFF period is set much larger than the cache eviction time, which makes the probability negligible that the cache still contains an item $m$ at the end of the OFF period.
-
+During an ON period the request rate for an item $\lambda_m$ is constant.
+The model allows simple analysis if the OFF period is set much larger than the cache eviction time.
+This makes the makes the probability negligible that an item $m$ is still in the cache at the end of its OFF period.
 
 alternative SNM \cite{traverso2013temporal}
 represent the overall request process as the superposition of a potentially infinite population of independent inhomogeneous Poisson processes (shots)
@@ -103,25 +110,38 @@ the SNM proposed in
 however, the definition of analytical models for the evaluation of cache performance under the SNM
 under the SNM traffic model can predicted with high accuracy by adopting a fixed-size content catalogue, and modeling the arrival process of each content by a renewal process with a specific inter-request time distribution
 
-
 Zipf-Law
 
-\subsection{Cache Eviction Policies}
-\begin{itemize}
-  \item RANDOM
-  \item LFU
-  \item LRU
-  \item q-LRU
-  \item k-LRU
-  \item SG-LRU
-  \item LRL
-  \item LBW
-\end{itemize}
+\subsection{Caching Strategies}
+
+In the following we give a representative set of caching strategies.
+The caching strategy decides which object in the cache is evicted if a newly requested item has to be stored in the cache.
 
 \begin{itemize}
-  \item LCE
-  \item LCD
-  \item LCP
+  \itemsep0em
+  \item RANDOM: The simplest way to choose an item to make room for a new object is by random.
+  \item LFU: The Least Frequently Used policy evicts the least frequently used item.
+  It stores the most popular items in the cache.
+  LFU performs optimal under IRM traffic.
+  \item LRU: If a newly requested item is not in the cache, it is stored in the cache. The Least Recently Used item is evicted if the cache is full.
+  A well known problem of LRU caches is cache pollution, which occurs if objects are replaced by less frequently requested items or items that are requested only once.
+  \item q-LRU: If a newly requested item is not in the cache, it is stored in the cache with probability $q$. The Least Recently Used item is evicted if the cache is full.
+  The probability ob being stored in the caches is higher for frequently requested objects, which prevents cache pollution. \cite{martina2014unified}
+  \item k-LRU: In the k-LRU policy $k-1$ virtual caches storing only object hashes precede the actual cache $k$. An object is only stored in cache $i$, if it is found its preceding cache $i-1$. The eviction policy of the caches is LRU.
+  The virtual caches function as filters to prevent cache pollution. \cite{martina2014unified}
+  \item SG-LRU: Score Gated LRU caching strategies attributes a store to each object. A newly requested object is only stored in the cache if it has a higher score that the bottom object. The score functions can be based on statistics of past requests approaching the LFU policy if the memory is large. \cite{hasslinger2014caching}
+  \item LRL: If the capacity of caches is limited to serve requests due to bandwidth or processing constraints, requests for an item are blocked although the item is stored in the cache. The Least Recently Lost strategy evicts the object for which a request was least recently or never blocked. \cite{leconte2014adaptive}
+  %\item LBW: \cite{zhou2015unifying}
+\end{itemize}
+
+In a system of interconnected caches, such as the hierarchical caching system described in \refsec{sec:hierarchical:system_model}, requests that are cannot be served at one cache or in one tier produce a miss and are forwarded to the next tier.
+In this way the requests traverse a route towards the repository which stores all objects, until they finally hit the target.
+The following replication strategies for cache networks decide how the object is replicated on the route traversed by the request \cite{rossini2014coupling,martina2014unified}:
+
+\begin{itemize}
+  \item LCE (leave-copy-everywhere): the object is sent to all caches on the backward path.
+  \item LCD (leave-copy-down): the object is sent only to the cache preceding the one in which the object is found.
+  \item LCP (leave-copy-probabilistically): the object is sent with probability $q$ to each cache on the backward path.
 \end{itemize}
 
 \subsection{Performance Evaluation of Hierarchical Caching Systems}

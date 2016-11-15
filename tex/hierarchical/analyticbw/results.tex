@@ -1,11 +1,21 @@
+%\subsection{Model Validation}
 \subsection{Numerical Examples}\label{sec:hierarchical:analyticbw:results}
 
-We evaluate the performance of tiered caching systems with bandwidth constraints in parameter studies. We compare the results derived from our analytical models with results derived by event-based simulation. The simulation framework used is implemented in Matlab and described in detail in \cite{info3-inproceedings-2015-530}. The results presented show the mean values of 8 runs with 95\% confidence intervals, each run simulating $10^5$ requests in the stationary phase.
+We evaluate the performance of tiered caching systems with bandwidth constraints in parameter studies.
+We validate the model via simulations, which allows us to verify the accuracy of the analytical model and the validity of our conclusions based on the model for a wide range of system parameters.
+Before presenting numerical examples, we briefly describe the event-based simulation.
+%We compare the results derived from our analytical models with results derived by event-based simulation.
+The simulation framework used is implemented in Matlab and described in detail in \cite{info3-inproceedings-2015-530}. The results presented show the mean values of 8 runs with 95\% confidence intervals, each run simulating $10^5$ requests in the stationary phase.
+
+If not stated otherwise, in the remainder of this study, the catalogue size is $N=1e6$.
+The number of tier-1 caches is $n_1=1e4$, each having a capacity of $C_1=8$.
+There is one tier-2 cache with default capacity $C_2=1e4$.
+The tier-1 cache upload bandwidth is limited to $0.8Mbps$, whereas the tier-2 cache has unlimited upload bandwidth.
 
 %\begin{itemize}
 %	\item Methodology
 %	\item Performance metrics \\
-%    - cache capacity of ISP cache necessary to replace home gateways
+%    - cache capacity of ISP cache necessary to replace home routers
 %	\item Results
 %  \item upper bound wrt uploadrate optimal case, always hit in tier 2
 %  \item Optimal strat dependent on AS size and HG capacity
