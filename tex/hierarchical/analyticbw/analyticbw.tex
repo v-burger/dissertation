@@ -5,6 +5,7 @@ Tier-1 caches are on leaf nodes such as home routers, caches of the content deli
 We use analytic models to calculate the efficiency of the tiered caching architecture.
 
 
+
 %\subsection{Performance Metrics}
 
 %\begin{itemize}
@@ -35,13 +36,56 @@ We then show our approach to determine the hit rate of hierarchical cache networ
 
 \subsubsection{The Che Approximation}
 
-We first consider the Che approximation for the simple case of a single cache with LRU policy. Let $C$ be the capacity of the single cache.
-$T_C(m)$ is the cache eviction time of object $m$, i.e., the time needed before C objects, not including $m$, are requested at the cache.
+We first consider the Che approximation \cite{che2002hierarchical} for the simple case of a single cache with LRU policy.
+Let $C$ be the capacity of the single cache.
+$T_C(m)$ is the cache eviction time of object $m$, i.e., the time needed before $C$ objects, not including $m$, are requested at the cache.
+Object $m$ is in the cache if the last request for object $m$ is less than $T_C$ in the past.
+For Poisson arrivals, the probability that an object $m$ is in the cache equals the probability that the inter-request time for object $m$ is smaller than $T_C$.
+Let $A_m$ be a random variable for the inter-arrival time for requests of object $m$.
+The probability that $A_m$ is smaller than $T_C$ is given by the cumulative distribution function, which is exponentially distributed:
+
+\begin{equation}
+	p_\text{hit}(m) = p_\text{in}(m) = P(A_m \leq T_C) = 1-e^{-\lambda_m T_C}
+\end{equation}
+
+Due to the memoryless property of the Poisson process the hit probability equals the stationary probability that an item $m$ is in the cache.
+
+We define the indicator function $\chi_m$ to determine if item $m$ is in the cache.
+
+\begin{equation}
+\chi_m =
+	\begin{cases}
+		1, & m \, \text{in cache} \\
+      		0, & \text{otherwise}
+	\end{cases}
+\end{equation}
+
+Following \cite{martina2014unified}, we obtain for the cache capacity $C$:
+
+\begin{equation}
+	C=\sum_m{\chi_m} \, ,
+\end{equation}
+
+and
+
+\begin{equation}
+	C=\mathbb{E}\left[\sum_m{\chi_m}\right]=\sum_m{\mathbb{E}\left[\chi_m\right]}=\sum_m{p_\text{in}(m)}
+\end{equation}
+
+after averaging both sides.
+
+$T_C$ is the only unknown in the above equation and can be determined by a fixed point iteration.
+Thus, the interaction among the contents is summarized by the cache eviction time $T_C$, which allows decoupling the dynamics of the different contents.
+
+The overall hit probability is calculated by considering the probability $p_m$ of requesting item $m$.
+
+\begin{equation}
+p_\text{hit}=\sum_m p_m p_\text{hit}(m)
+\end{equation}
 
 \subsubsection{No bandwidth constraints}
 
-The baseline is given by the cache hit rate of the tier-2 cache without tier-1 cache support $p'_\text{hit}(2)$ using the Che approximation for the LRU cache hit rate. The characteristic time $T_{C_2}$ depends on the capacity of the tier-2 cache $C_2$ and is determined by a fixed point approximation according to \cite{che2002hierarchical}.
-Due to the memoryless property of the Markov process the hit probability equals the stationary probability that an item $m$ is in the cache.
+We use the Che approximation for the LRU cache hit rate to calculate the baseline given by the cache hit rate of the tier-2 cache without tier-1 cache support $p'_\text{hit}(2)$. The characteristic time $T_{C_2}$ depends on the capacity of the tier-2 cache $C_2$ and is determined by a fixed point approximation.
 
 \begin{equation}
 p_\text{hit}(2,m)=p_\text{in}(2,m)=1-e^{-\lambda_{m}T_{C_2}}
