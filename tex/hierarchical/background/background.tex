@@ -13,12 +13,13 @@ We present a representative set of cache eviction policies and provide an overvi
 \label{fig:hcmodel}
 \end{figure}
 
-To model the content delivery network, we consider a set of caches $\Gamma$ that is organized in a tiered caching architecture as depicted in figure~\ref{fig:hcmodel}. Each cache in $\Gamma$ has a certain cache capacity $C$, which specifies the number of content items it can store.
+To model the content delivery network, we consider a set of caches $\Gamma$ that is organized in a tiered caching architecture as depicted in \reffig{fig:hcmodel}. Each cache in $\Gamma$ has a certain cache capacity $C$, which specifies the number of content items it can store.
 %TODO rephrase
 %bin-packing problems can arise and therefore size has been considered as an important factor in studies which assume complete files as transport unit.
-However, content delivery networks and peer-to-peer systems and coding schemes for video streams are segmenting data into small chunks in the kB range.
+If complete files are considered as transport unit, file size can have an impact due to bin-backing problems.
+However, content delivery networks and coding schemes for video streams are segmenting data into small chunks in the kB range.
 Therefore, we simply assume objects of fixed size corresponding to data chunks.
-Consider that the method can also be applied to content with varying file size, if the sums are weighted accordingly.
+Consider that the methods can also be applied to content with varying file size, if the sums are weighted accordingly.
 Tier-1 caches have capacity $C_{1_i}, i\in\{1,...,n_1\}$ and tier-2 caches have capacity $C_{2_i}, i\in\{1,...,n_2\}$.
 %We use the convention $C_1=C_{1_i}, \forall i$ if we assume the same cache size for all tier-1 caches.
 Here we assume, that the cache capacity of all tier-1 caches is equal and use the convention $C_1=C_{1_i}, \forall i$.
@@ -153,64 +154,59 @@ Since the tree like structure of the routers spreads on the way to the end user,
 Simulative evaluation of tree like content delivery networks is provided in \cite{lareida2015augmenting} considering overlays and inter-domain traffic cost according to AS relationships.
 In \cite{applegate2010optimal} hierarchical content delivery networks with bandwidth constraints are evaluated by simulation. The impact of using edge resources with limited capacity for content delivery on QoE is evaluated by means of simulation in \cite{info3-inproceedings-2015-530}.
 
+% \begin{sidewaystable}
+%   \centering
+%   \caption{Overview on literature on performance evaluation of caching systems TODO update policies / Methods / ....}
+%   \label{tab:litoverview}
+%   \resizebox{\textwidth}{!}{%
+%   \begin{tabular}{|l|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|} \hline
+%     \textbf{Study} & \textbf{Policies} & \textbf{Topology} & \textbf{Traffic Model} & \textbf{Constraints} & \textbf{Placement} & \textbf{Method} \\ \hline \hline
+%     Che et al. \cite{che2002hierarchical} & LRU & Hierarchical & Static - IRM & Cache capacity & No & Analysis \\ \hline
+%     Applegate et al. \cite{applegate2010optimal} & LRU & Hierarchical & Static - IRM & Cache capacity, bandwidth & No & Simulation \\ \hline
+%     Rosensweig et al. \cite{rosensweig2010approximate} & LRU & General cache networks & Static - IRM & Cache capacity & No & Analysis \\ \hline
+%     Fricker et al. \cite{fricker2012impact,fricker2012versatile} & LRU & Hierarchical & Static - IRM, Zipf, general & Cache capacity & No & Analysis \\ \hline
+%     Hasslinger et al. \cite{hasslinger2014caching} & LRU, SG-LRU, SLWND & Single cache & Static - IRM, Zipf & Cache capacity & No & Analysis \\ \hline
+%     Martina et al. \cite{martina2014unified} & LRU, q-LRU, k-LRU & General cache networks & Static - IRM, renewal & Cache capacity & No & Analysis \\ \hline
+%     Valancius et al. \cite{valancius2009greening} & LRU, HWC & Hierarchical & Trace & Cache capacity, bandwidth & HWC & Trace driven simulation \\ \hline
+%     Tan et al. \cite{tan2013optimal} & LRU, HWC & Hierarchical & Static - Zipf & Cache capacity, bandwidth & HWC & Optimization \\ \hline
+%     Leconte et al. \cite{leconte2014adaptive} & LRL & Hierarchical & Dynamic - Zipf & Cache capacity, bandwidth & LRL & TODO \\ \hline
+%     Zhou et al. \cite{zhou2015unifying} & LBW & Hierarchical & Dynamic - Zipf & Cache capacity, bandwidth & LBW & TODO \\ \hline
+%     Garetto et al. \cite{garetto2014dynamic} & LRU & Hierarchical & Dynamic - OnOff & Cache capacity & No & Analysis \\ \hline
+% Traverso et al. \cite{traverso2013temporal} & LRU & Single Cache & Dynamic - SNM & Cache capacity & No & Analysis \\ \hline
+%     Leconte et al. \cite{leconte2016dynamic} & LRU & Hierarchical & Dynamic - SNM & Cache capacity & No & Analysis \\ \hline
+%   \end{tabular}}
+% \end{sidewaystable}
+
+\definecolor{myGray}{RGB}{221,223,255}
 \begin{sidewaystable}
   \centering
-  \caption{Overview on literature on performance evaluation of caching systems TODO update policies / Methods / ....}
-  \label{tab:litoverview}
-  \resizebox{\textwidth}{!}{%
-  \begin{tabular}{|l|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|} \hline
-    \textbf{Study} & \textbf{Policies} & \textbf{Topology} & \textbf{Traffic Model} & \textbf{Constraints} & \textbf{Placement} & \textbf{Method} \\ \hline \hline
-    Che et al. \cite{che2002hierarchical} & LRU & Hierarchical & Static - IRM & Cache capacity & No & Analysis \\ \hline
-    Applegate et al. \cite{applegate2010optimal} & LRU & Hierarchical & Static - IRM & Cache capacity, bandwidth & No & Simulation \\ \hline
-    Rosensweig et al. \cite{rosensweig2010approximate} & LRU & General cache networks & Static - IRM & Cache capacity & No & Analysis \\ \hline
-    Fricker et al. \cite{fricker2012impact,fricker2012versatile} & LRU & Hierarchical & Static - IRM, Zipf, general & Cache capacity & No & Analysis \\ \hline
-    Hasslinger et al. \cite{hasslinger2014caching} & LRU, SG-LRU, SLWND & Single cache & Static - IRM, Zipf & Cache capacity & No & Analysis \\ \hline
-    Martina et al. \cite{martina2014unified} & LRU, q-LRU, k-LRU & General cache networks & Static - IRM, renewal & Cache capacity & No & Analysis \\ \hline
-    Valancius et al. \cite{valancius2009greening} & LRU, HWC & Hierarchical & Trace & Cache capacity, bandwidth & HWC & Trace driven simulation \\ \hline
-    Tan et al. \cite{tan2013optimal} & LRU, HWC & Hierarchical & Static - Zipf & Cache capacity, bandwidth & HWC & Optimization \\ \hline
-    Leconte et al. \cite{leconte2014adaptive} & LRL & Hierarchical & Dynamic - Zipf & Cache capacity, bandwidth & LRL & TODO \\ \hline
-    Zhou et al. \cite{zhou2015unifying} & LBW & Hierarchical & Dynamic - Zipf & Cache capacity, bandwidth & LBW & TODO \\ \hline
-    Garetto et al. \cite{garetto2014dynamic} & LRU & Hierarchical & Dynamic - OnOff & Cache capacity & No & Analysis \\ \hline
-Traverso et al. \cite{traverso2013temporal} & LRU & Single Cache & Dynamic - SNM & Cache capacity & No & Analysis \\ \hline
-    Leconte et al. \cite{leconte2016dynamic} & LRU & Hierarchical & Dynamic - SNM & Cache capacity & No & Analysis \\ \hline
-  \end{tabular}}
-\end{sidewaystable}
+  \caption{Overview on literature on performance evaluation of caching systems.}
+  \vspace{0.3cm}
+	 \label{tab:litoverview}
 
-% \definecolor{myGray}{RGB}{221,223,255}
-% \begin{minipage}{\textwidth}
-%     \centering
-%     \captionsetup{type=table}
-% 	\begin{tabularx}{\textwidth}{X|cc|cc|cc|cc|ccc|cc|cccc|}
-% 		& \rotatebox{90}{on-the-spot offloading} & \rotatebox{90}{delayed offloading} & \rotatebox{90}{constant density (metropolitan area)} & \rotatebox{90}{\textcolor{red}{\textbf{variable}} density (countryside)} & \rotatebox{90}{vehicles} & \rotatebox{90}{human walk} & \rotatebox{90}{real movement traces} & \rotatebox{90}{mobility models} & \rotatebox{90}{real AP traces} & \rotatebox{90}{AP models} &\rotatebox{90}{considered private APs}& \rotatebox{90}{realistic request workload} & \rotatebox{90}{synthetic request workload} & \rotatebox{90}{uses prediction} & \rotatebox{90}{opportunistic communication} & \rotatebox{90}{measures energy consumption} & \rotatebox{90}{provides incentive mechanism}\\
-% 		\hline
-% 		Lee et al. \cite{howMuchCanWifiDeliver} & $\bullet$ & $\bullet$ & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- & -- & -- & -- \\
-% 		Balasubramanian et al. \cite{augmentingMobile3G} & -- & $\bullet$ & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- & $\bullet$ & -- \\
-% 		Mota et al. \cite{APAvailabilityParis} & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & --& -- & -- \\
-% 		Bulut et al. \cite{wifiHotspotPlacement2} & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & -- & $\bullet$ & -- & --& -- & -- \\
-% 		Zhang et al. \cite{optimalHandingBackPoint} & -- & $\bullet$ & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & -- & -- & -- \\
-% 		Wiethölter et al. \cite{ChooseTrafficStreamOffloading} & $\bullet$ & -- & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & -- & -- & -- \\
-% 		Mehmeti et al. \cite{OnTheSpotOffloadingQueuingModel} & $\bullet$ & -- & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & -- & -- & -- \\
-% 		Lee et al. \cite{offloadingWithUserMobilityHistory} & -- & $\bullet$ & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & -- & -- & -- \\
-% 		Guo et al. \cite{optimalScanningPeriod} & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & -- & $\bullet$ & -- \\
-% 		Yoon et al. \cite{keepSessionSeamless} & $\bullet$ & -- & -- & -- & -- & -- & -- & ($\bullet$) & -- & ($\bullet$) & -- & -- & $\bullet$ & -- & -- & $\bullet$ & -- \\
-% 		Go et al. \cite{disruptionTolerantProtocol} & $\bullet$ & -- & ($\bullet$) & -- & ($\bullet$) & ($\bullet$) & -- & ($\bullet$) & -- & ($\bullet$) & -- & -- & $\bullet$ & -- & -- & $\bullet$ & -- \\
-% 		Dimatteo et al. \cite{DTNWithPocketSwitched} & -- & $\bullet$ & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & -- & ($\bullet$) & -- & $\bullet$ & -- & -- \\
-% 		Han et al. \cite{opportunisticCaseStudy} & -- & $\bullet$ & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & ($\bullet$) & ($\bullet$) \\
-% 		Barbera et al. \cite{VIPDelegation} & -- & $\bullet$ & $\bullet$ & -- & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & -- & -- & -- & -- & -- & ($\bullet$) & $\bullet$ & -- & -- \\
-% 		Han et al. \cite{greenContentBroker} & $\bullet$ & ($\bullet$) & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & $\bullet$ & $\bullet$ & -- \\
-% 		Efstathiou et al. \cite{AnreizsystemeWifiCities} & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & $\bullet$ & -- & $\bullet$ & $\bullet$ & -- & $\bullet$ & -- & -- & -- & $\bullet$ \\
-% 		Gao et al. \cite{IncentiveMobileDataOffloading} & $\bullet$ & -- & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & -- & -- & $\bullet$ \\
-% 		Zhuo et al. \cite{AnIncentiveFrameworkfor3G} & -- & $\bullet$ & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & -- & -- & -- & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- & $\bullet$ \\
-% 		Lee et al. \cite{economicsOfWiFiOffloading} & $\bullet$ & $\bullet$ & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & -- & -- & -- & $\bullet$ \\
-% 		Asheralieva et al. \cite{fonPerformance} & -- & -- & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & $\bullet$ & -- & $\bullet$ & -- & -- & -- & ($\bullet$) \\
-% 		Mazloumian et al. \cite{optimalPricingStrategy} & -- & -- & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & ($\bullet$) & -- & -- & -- & $\bullet$ \\
-% 		Iosifidis et al. \cite{EnablingCrowdSourcedMobileInternetAccess} & $\bullet$ & -- & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & $\bullet$ & $\bullet$ & $\bullet$ \\
+    %\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|l|ccccc|cc|cc|cc|cccc|} \hline
+		& \rotatebox{90}{LRU policy} & \rotatebox{90}{q-LRU / k-LRU policy} & \rotatebox{90}{score based policy (SG-LRU)} & \rotatebox{90}{loss / bw based policy (LRL)} & \rotatebox{90}{optimal placement (HWC)} & \rotatebox{90}{cache hierarchy} & \rotatebox{90}{general cache network} & \rotatebox{90}{temporal locality} & \rotatebox{90}{popularity dynamics} & \rotatebox{90}{bandwidth constraints} & \rotatebox{90}{inter-domain traffic} & \rotatebox{90}{trace driven simulation} & \rotatebox{90}{synthetic traffic simulation} &\rotatebox{90}{analysis}& \rotatebox{90}{optimization} \\
+		\hline
+		Che et al. \cite{che2002hierarchical} & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- \\
+    Applegate et al. \cite{applegate2010optimal} & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & -- & -- & $\bullet$ & -- & -- & $\bullet$ & -- & $\bullet$ \\
+    Rosensweig et al. \cite{rosensweig2010approximate} & $\bullet$ & -- & -- & -- & -- & $\bullet$ & $\bullet$ & -- & -- & -- & -- & -- & -- & $\bullet$ & -- \\
+    Fricker et al. \cite{fricker2012impact,fricker2012versatile} & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- \\
+    Hasslinger et al. \cite{hasslinger2014caching} & $\bullet$ & -- & $\bullet$ & -- & -- & -- & -- & -- & -- & -- & -- & -- & $\bullet$ & -- & -- \\
+    Martina et al. \cite{martina2014unified} & $\bullet$ & $\bullet$ & -- & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- & -- & -- & -- & $\bullet$ & $\bullet$ & -- \\
+    Valancius et al. \cite{valancius2009greening} & $\bullet$ & -- & -- & -- & $\bullet$ & $\bullet$ & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ \\
+    Tan et al. \cite{tan2013optimal} & $\bullet$ & -- & -- & -- & $\bullet$ & $\bullet$ & -- & -- & -- & $\bullet$ & -- & -- & -- & $\bullet$ & $\bullet$ \\
+    Leconte et al. \cite{leconte2014adaptive} & -- & -- & -- & $\bullet$ & -- & -- & -- & -- & -- & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ \\
+    Zhou et al. \cite{zhou2015unifying} & -- & -- & -- & $\bullet$ & -- & -- & -- & -- & -- & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ \\
+    Traverso et al. \cite{traverso2013temporal} & $\bullet$ & -- & -- & -- & -- & -- & -- & $\bullet$ & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- \\
+    Garetto et al. \cite{garetto2014dynamic} & $\bullet$ & $\bullet$ & -- & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- \\
+    Leconte et al. \cite{leconte2016dynamic} & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- \\ \hline
+    Lareida et al. \cite{lareida2015augmenting} & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & -- & -- & -- & $\bullet$ & $\bullet$ & $\bullet$ & -- & -- \\
+    Burger et al. \cite{burger2016hierarchical} & $\bullet$ & -- & -- & -- & $\bullet$ & $\bullet$ & -- & -- & -- & $\bullet$ & -- & -- & $\bullet$ & $\bullet$ & -- \\
 % 		\rowcolor{myGray} Our approach with varying user den\-si\-ties & $\bullet$ & -- & $\bullet$ & \large\textcolor{red}{$\bullet$} & $\bullet$ & -- & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & \textcolor{red}{$\bullet$} & -- & $\bullet$ & -- & -- & -- & \textcolor{red}{$\bullet$} \\
-% 		\hline
-% 	\end{tabularx}
-% 	\captionof{table}{Overview of related publications for offloading}
-% 	\label{relatedWorkOverview}
-% \end{minipage}
+		\hline
+	\end{tabular}%}
+\end{sidewaystable}
 
 \subsubsection{Analytic Model for LRU Caches}
 
@@ -232,30 +228,40 @@ Further caching strategies with limited memory, like W-LFU and Geometrical Fadin
 The Sliding Window strategy applies the LFU approach to the frequency of requests in a limited time frame.
 Geometrical Fading scores recent requests with a factor that decreases according to a geometric sequences with the number of intermediate request.
 
+\subsubsection{Evaluation of Caching Systems with Dynamic Content Popularity}
+
+The static content popularity is a very strong assumption in the IRM.
+In practice the popularity of contents to be cached can be extremely dynamic over time.
+In modern content delivery networks, such as YouTube, a high number of new contents is uploaded every single day.
+While some contents are active only a few days after publishing, e.g. news, other contents, such as songs, remain popular over a long period of time.
+Hence, the content popularity is highly dynamic and can have a high impact on the efficiency of caching, since the variation of the request rates happens on time scales which are comparable or even smaller than the churn time of caches.
+
+Only few studies have investigated the effects of dynamic content popularity.
+The renewal traffic model, which generalizes the IRM, allows capturing temporal locality in the traffic \cite{martina2014unified}.
+However, the request process generated by the renewal traffic model is still stationary.
+
+To cover non-stationary macroscopic effects related to dynamic content popularity, a Shot Noise Model (SNM) is proposed in \cite{traverso2013temporal}. For LRU caches analytic models based on the Che approximation can be developed under SNM traffic.
+To allow analysis of non-LRU policies the ON-OFF model is proposed in \cite{garetto2014dynamic} using an on-off-modulated Poisson process.
+In \cite{leconte2016dynamic} the analysis for SNM is further extended for caches with small population, such as local caches considered in this study that are placed on home routers or set-top boxes.
+%\cite{hasslinger2016itc} wikipedia trace
+
 \subsubsection{Evaluation of Caching Systems with Limited Capacity}
 
-The analytic models do not consider the service time of requests, which is limited by the bandwidth of the uplink of the cache.
+The analytic models described above do not consider the service time of requests, which is limited by the bandwidth of the uplink of the cache.
 In this work we consider a tiered caching architecture, where the upload bandwidth of the caches is highly limited.
 %A limited bandwidth or service time of the caches is not considered in any of the above analytic models.
 The paper closest to this works is \cite{valancius2009greening} which proposes the NaDa approach and develops an optimal content placement on NaDas.
 The performance of the approach is evaluated with traces only.
+%\cite{applegate2010optimal}
 To determine the performance analytically the system with bandwidth constraints is modeled as loss network consisting of a server for each of the caches. The exact stationary distribution of the loss network is too complex to evaluate.
-In \cite{tan2013optimal} the system is analyzed under large system asymptotics where simplifications occur.
-Wieso large system asymptotics ungeeignet
+In \cite{tan2013optimal} the system is analyzed under large system asymptotics where the number of NaDas goes to infinity where simplifications occur.
 
-We use a different approach by approximating the arrival of rate requests.
+In order to evaluate the system for finite number of NaDas, we use a different approach by approximating the arrival of rate requests.
 This allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss network.
 %We combine the
 
 To optimize the content placement adaptively \cite{leconte2014adaptive} propose Least-Recently-Lost (LRL) replacement, which tries to optimize the loss rate in the first tier.
 A different approach is proposed by \cite{zhou2015unifying} which allocates bandwidth resources instead of content copies proportionally to the content popularity.
 
-\subsubsection{Evaluation of Caching Systems with Dynamic Content Popularity}
-
-renewal hyper-exponential \cite{martina2014unified}
-exhibit dynamics in content popularity \cite{garetto2014dynamic} using an on-off-modulated process.
-In \cite{leconte2016dynamic} the analysis is further extended for caches with small population, such as local caches considered in this study that are placed on home routers or set-top boxes.
-
-\subsubsection{Content Placement}
-hot warm cold
-"Optimal content placement for a large-scale VoD system"
+%hot warm cold
+%"Optimal content placement for a large-scale VoD system"
