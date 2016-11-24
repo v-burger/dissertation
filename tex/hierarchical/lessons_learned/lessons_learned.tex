@@ -1,24 +1,23 @@
 \section{Lessons Learned}\label{sec:cloud:lessons_learned}
-In this chapter we examined tradeoffs between stakeholders in cloud environments.
-As in the previously considered scenarios, various stakeholders exist, each with different and partially conflicting interests.
-First, we considered
+To support content delivery networks, cache capacities on small data-centers with limited upload capacities, such as home routers, can be used to reduce the overall energy consumption and operation cost of the system.
+%Such content delivery networks are crucial to meet the data challenge in mobile networks base stations
+%get content even closer to users, utilize spare capacities on home routers and a the edge of the networks
+In this chapter we evaluate the performance of hierarchical content delivery networks that have a high number of caches with limited capacity in the lowest tier.
 
-Second, we consider
-Finally, we consider
+To this end, we first provide a comprehensive overview of literature on performance evaluation of caching systems and show the state of the art of current research.
+We describe the most relevant traffic models and caching strategies and introduce the Che approximation, which is a highly versatile method to determine the efficiency of caching systems.
 
-We draw three major conclusions from this chapter:
+We develop a simulation framework for hierarchical content delivery networks to evaluate the system characteristics that are not covered by the analytic models.
+This allows us to evaluated the approach in terms of caching efficiency and inter-domain traffic.
+The results show that an overlay is imperative for the success of such an approach, especially for a high number of small caches.
+Moreover, by investigating the share of locally served content requests, the impact for the network operator is quantified.
+The results indicate that such a mechanism significantly reduces the inter-domain traffic and the contribution of an operator-owned cache.
+The ISP owned cache can be discontinued if at least every thousandth user shares its home router for caching in large ISPs.
+The system was prototyped in \cite{rbhorst-demo} showing the practicability of the approach.
 
-First,
-
-Second,
-
-Finally,
-
-In the scenarios considered in this section, the platform operator is in control over parameters influencing the \glspl{KPI} for the participating stakeholders.
-However, in all cases the \glspl{KPI} of the other stakeholders, by means of \gls{SLA} design, availability goals, or income, are also a \gls{KPI} for the platform operator.
-This is due to the fact that not only one platform operator exists but multiple platform operators compete for customers.
-Research on such multi-operator scenarios can be performed using the models introduced in this chapter.
-
-Either push to NaDa, or provide interfaces to obtain popularity profiles.
-Thus, we suggest to either provide interfaces tradeoffs, within reason, to the user.
-The 
+We develop an analytical model based on the Erlang formula for loss networks to evaluate the performance of hierarchical cache systems with small capacities and limited upload bandwidth.
+The results show that the efficiency of the overlay can be even further increased by more than 10\% if an optimal content placement used.
+If the bandwidth is limited to 1.6Mbps the cache hit is reduced by about 30\%, which shows the importance of considering bandwidth constraints in the analysis.
+There is a high potential to increase the efficiency of the content delivery network if only a small or no ISP cache is available.
+If a larger ISP cache is available the benefit of the approach highly depends on the number of caches available and their upload bandwidth.
+In the considered case at least 1000 tier-1 caches with more than 1.6Mbps upload bandwidth need to be available in a system with a large ISP cache so that the hit rate gain is more than 10\%.

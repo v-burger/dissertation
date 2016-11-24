@@ -6,6 +6,12 @@ We present a representative set of cache eviction policies and provide an overvi
 
 \subsection{System Model for Hierarchical Caching Systems}\label{sec:hierarchical:system_model}
 
+The vast expansion of streaming services and content delivery networks (CDNs) suggests addressing content by content centric networking (CCN), to enable effective traffic management.
+Addressing content instead of physical servers allows utilizing local resources.
+To enable addressing, content is identified with unique names.
+Available storage in routers is used to cache content in these approaches.
+Since the tree like structure of the routers spreads on the way to the end user, the content replication scales with the content demand.
+
 \begin{figure}[tb]
 \centering
 \includegraphics[width=75mm]{hierarchical/analyticbw/figures/hcmodeln1}
@@ -13,7 +19,7 @@ We present a representative set of cache eviction policies and provide an overvi
 \label{fig:hcmodel}
 \end{figure}
 
-To model the content delivery network, we consider a set of caches $\Gamma$ that is organized in a tiered caching architecture as depicted in \reffig{fig:hcmodel}. Each cache in $\Gamma$ has a certain cache capacity $C$, which specifies the number of content items it can store.
+To model tree like content delivery networks, we consider a set of caches $\Gamma$ that is organized in a tiered caching architecture as depicted in \reffig{fig:hcmodel}. Each cache in $\Gamma$ has a certain cache capacity $C$, which specifies the number of content items it can store.
 %TODO rephrase
 %bin-packing problems can arise and therefore size has been considered as an important factor in studies which assume complete files as transport unit.
 If complete files are considered as transport unit, file size can have an impact due to bin-backing problems.
@@ -73,7 +79,7 @@ $d_m$ & duration of object $m$& \\
 \end{tabular}
 \end{table}
 
-\subsection{Content Popularity and Traffic Model}
+\subsection{Content Popularity and Traffic Model}\label{sec:hierarchical:background:traffic}
 The standard approach to characterize the pattern of object requests arriving at a cache is the Independent Reference Model (IRM) \cite{coffman1973operating}.
 The IRM makes the following assumptions.
 
@@ -88,32 +94,41 @@ The probability $p_m$ that an item is requested, is independent of all past requ
 \end{irmc}
 
 The IRM ignores temporal correlations in the request process.
-In practice the popularity of content changes over time, such that the request rate increases if an object grows in popularity and decreases when the demand of the item drops. This effect is referred to as \textit{temporal locality}, i.e., when the request rate of an object increases in a short period of time.
-This effect can have a strong positive impact on the efficiency of caching.
+In practice the request rate of an object increases in a short period of time.
+This effect is referred to as \textit{temporal locality} and can have a strong positive impact on the efficiency of caching.
 
-To account for temporal locality the request process can be modeled as renewal process \cite{martina2014unified} or as Markov modulated Poisson Process \cite{garetto2014dynamic}.
-In these case the request process for each content is stationary.
-
+To account for temporal locality the request process can be modeled as renewal process \cite{martina2014unified}.
 In the renewal traffic model the request process for every content $m$ is described by an independent process with assigned inter-request time distribution.
-The Markov modulated Poisson process models describes an ON-OFF process for a given content $m$.
+In this case the request process for each content is stationary.
+
+The static content popularity is a very strong assumption.
+In practice the popularity of contents to be cached can be extremely dynamic over time.
+In modern content delivery networks, such as YouTube, a high number of new contents is uploaded every single day.
+While some contents are active only a few days after publishing, e.g. news, other contents, such as songs, remain popular over a long period of time.
+Hence, the content popularity is highly dynamic and can have a high impact on the efficiency of caching, since the variation of the request rates happens on time scales which are comparable or even smaller than the churn time of caches.
+
+To cover non-stationary macroscopic effects related to dynamic content popularity the Shot Noise Model (SNM) is proposed in \cite{traverso2013temporal}.
+It represents the overall request process as the superposition of a potentially infinite population of independent inhomogeneous Poisson processes, which are referred to as shots.
+Analytic models for LRU caches under SNM traffic can be developed using the Che approximation.
+
+The analysis of non-LRU caches is very difficult under SNM traffic.
+In order to allow analyze the impact of dynamic content popularity on non-LRU cache, \cite{garetto2014dynamic} propose a traffic model based on a Markov modulated Poisson Process.
+The Markov modulated Poisson process describes an ON-OFF process for a given content $m$.
 The ON and OFF periods are exponentially distributed.
 During an ON period the request rate for an item $\lambda_m$ is constant.
 The model allows simple analysis if the OFF period is set much larger than the cache eviction time.
-This makes the makes the probability negligible that an item $m$ is still in the cache at the end of its OFF period.
+This makes the probability negligible that an item $m$ is still in the cache at the end of its OFF period.
+An ON period in the ON-OFF traffic model plays exactly the same role as a (rectangular) shot in the SNM traffic model.
+The authors show in \cite{garetto2014dynamic} that the cache efficiency under the SNM traffic model can predicted with high accuracy by adopting a fixed-size content catalogue, and modeling the arrival process of each content by a renewal process with a specific inter-request time distribution.
 
-alternative SNM \cite{traverso2013temporal}
-represent the overall request process as the superposition of a potentially infinite population of independent inhomogeneous Poisson processes (shots)
+The popularity of objects is modeled by a Zipf-like law, which is frequently observed for different types of content distributed in the Internet, including video \cite{gill2007youtube,cha2009analyzing}.
+The Zipf law states that the probability to request the object with rank $r$, i.e., the $r$-th most popular object, is proportional to $r^{-\alpha}$.
+% \begin{equation}
+%   p(m)\sim r(m)^{-\alpha}
+% \end{equation}
+The exponent $\alpha$ has a high impact on the cache performance and ranges between 0.65 and 1 depending on the system and the type of object \cite{fricker2012impact}.
 
-an ON
-period  plays  exactly  the  same  role  as  a  (rectangular) shot  in
-the SNM proposed in
-
-however, the definition of analytical models for the evaluation of cache performance under the SNM
-under the SNM traffic model can predicted with high accuracy by adopting a fixed-size content catalogue, and modeling the arrival process of each content by a renewal process with a specific inter-request time distribution
-
-Zipf-Law
-
-\subsection{Caching Strategies}
+\subsection{Caching Strategies}\label{sec:hierarchical:background:strategies}
 
 In the following we give a representative set of caching strategies.
 The caching strategy decides which object in the cache is evicted if a newly requested item has to be stored in the cache.
@@ -145,14 +160,12 @@ The following replication strategies for cache networks decide how the object is
   \item LCP (leave-copy-probabilistically): the object is sent with probability $q$ to each cache on the backward path.
 \end{itemize}
 
-\subsection{Performance Evaluation of Hierarchical Caching Systems}
-The vast expansion of streaming services and content delivery networks (CDNs) suggests addressing content by content centric networking (CCN), to enable effective traffic management.
-Addressing content instead of physical servers allows utilizing local resources.
-To enable addressing, content is identified with unique names.
-Available storage in routers is used to cache content in these approaches.
-Since the tree like structure of the routers spreads on the way to the end user, the content replication scales with the content demand.
-Simulative evaluation of tree like content delivery networks is provided in \cite{lareida2015augmenting} considering overlays and inter-domain traffic cost according to AS relationships.
-In \cite{applegate2010optimal} hierarchical content delivery networks with bandwidth constraints are evaluated by simulation. The impact of using edge resources with limited capacity for content delivery on QoE is evaluated by means of simulation in \cite{info3-inproceedings-2015-530}.
+\subsection{Performance Models for Hierarchical Caching Systems}\label{sec:hierarchical:background:models}
+
+A vast amount of studies on performance models for hierarchical caching systems have been conducted recently.
+\reftab{tab:litoverview} gives an overview on the literature on performance evaluation of caching systems.
+The table shows different categories, considering the caching strategy, the cache topology, the request processes, caching constraints and the methods used for performance evaluation and optimization.
+In the following we describe the performance models into more detail.
 
 % \begin{sidewaystable}
 %   \centering
@@ -186,7 +199,7 @@ In \cite{applegate2010optimal} hierarchical content delivery networks with bandw
 
     %\resizebox{\textwidth}{!}{%
 	\begin{tabular}{|l|ccccc|cc|cc|cc|cccc|} \hline
-		& \rotatebox{90}{LRU policy} & \rotatebox{90}{q-LRU / k-LRU policy} & \rotatebox{90}{score based policy (SG-LRU)} & \rotatebox{90}{loss / bw based policy (LRL)} & \rotatebox{90}{optimal placement (HWC)} & \rotatebox{90}{cache hierarchy} & \rotatebox{90}{general cache network} & \rotatebox{90}{temporal locality} & \rotatebox{90}{popularity dynamics} & \rotatebox{90}{bandwidth constraints} & \rotatebox{90}{inter-domain traffic} & \rotatebox{90}{trace driven simulation} & \rotatebox{90}{synthetic traffic simulation} &\rotatebox{90}{analysis}& \rotatebox{90}{optimization} \\
+		& \rotatebox{90}{LRU policy} & \rotatebox{90}{q-LRU / k-LRU policy} & \rotatebox{90}{score based policy (SG-LRU)} & \rotatebox{90}{loss / bw based policy (LRL)} & \rotatebox{90}{optimal placement (HWC)} & \rotatebox{90}{cache hierarchy} & \rotatebox{90}{general cache network} & \rotatebox{90}{temporal locality} & \rotatebox{90}{popularity dynamics} & \rotatebox{90}{bandwidth constraints} & \rotatebox{90}{inter-domain traffic} & \rotatebox{90}{trace driven simulation} & \rotatebox{90}{simulation (synthetic traffic)} &\rotatebox{90}{analysis}& \rotatebox{90}{optimization} \\
 		\hline
 		Che et al. \cite{che2002hierarchical} & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & -- & -- & -- & -- & $\bullet$ & -- & $\bullet$ & -- \\
     Applegate et al. \cite{applegate2010optimal} & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & -- & -- & $\bullet$ & -- & -- & $\bullet$ & -- & $\bullet$ \\
@@ -208,17 +221,14 @@ In \cite{applegate2010optimal} hierarchical content delivery networks with bandw
 	\end{tabular}%}
 \end{sidewaystable}
 
-\subsubsection{Analytic Model for LRU Caches}
+\subsubsection{Analytic Performance Models for Caching Systems}
 
-In the following we give a brief overview of analytic models for the evaluation of mechanisms in CDN and CCN architectures.
-In \cite{fricker2012impact} a two tiered caching architecture is investigated, where the first tier consists of home routers in access networks.
-The second tier consists of data centers in the core network.
-Requests that cannot be served in the first tier are forwarded to the second tier.
-The popularity of objects follows a power-law and is modeled by the Zipf-law, which is observed for different types of content distributed in the Internet, including video \cite{gill2007youtube,cha2009analyzing}.
-As cache replacement strategy Least-Recently-Used is assumed.
-To analyse the performance of LRU caches, models exist that assume negative exponentially distributed inter-arrival times of object requests at the cache \cite{che2002hierarchical}.
-The requests are generated according to the independent reference model (IRM), which assumes identically and independently distributed requests of a set of objects.
-It is shown in \cite{fricker2012versatile} that the model also applies in more general conditions.
+%In the following we give a brief overview of analytic models for the evaluation of mechanisms in CDN and CCN architectures.
+%Requests that cannot be served in the first tier are forwarded to the second tier.
+To analyze the performance of isolated and interconnected caches, many works leverage the Che approximation \cite{che2002hierarchical}, which provides a decoupling technique for LRU caches.
+The requests are generated according to the IRM, which assumes identically and independently distributed requests of a set of objects.
+%In \cite{fricker2012impact} a two tiered caching architecture is investigated, where the first tier consists of home routers in access networks. The second tier consists of data centers in the core network.
+It is shown in \cite{fricker2012versatile, fricker2012impact} that the model also applies in more general conditions.
 The model also provides accurate results for a high number of objects with varying file sizes.
 In \cite{martina2014unified} the model is extended, to analyze advanced caching strategies like {$k$-LRU}, where objects have to pass a certain number of $k-1$ virtual caches to be stored in the actual cache.
 The virtual caches replace objects according to LRU and store only meta information.
@@ -230,17 +240,11 @@ Geometrical Fading scores recent requests with a factor that decreases according
 
 \subsubsection{Evaluation of Caching Systems with Dynamic Content Popularity}
 
-The static content popularity is a very strong assumption in the IRM.
-In practice the popularity of contents to be cached can be extremely dynamic over time.
-In modern content delivery networks, such as YouTube, a high number of new contents is uploaded every single day.
-While some contents are active only a few days after publishing, e.g. news, other contents, such as songs, remain popular over a long period of time.
-Hence, the content popularity is highly dynamic and can have a high impact on the efficiency of caching, since the variation of the request rates happens on time scales which are comparable or even smaller than the churn time of caches.
-
 Only few studies have investigated the effects of dynamic content popularity.
 The renewal traffic model, which generalizes the IRM, allows capturing temporal locality in the traffic \cite{martina2014unified}.
 However, the request process generated by the renewal traffic model is still stationary.
 
-To cover non-stationary macroscopic effects related to dynamic content popularity, a Shot Noise Model (SNM) is proposed in \cite{traverso2013temporal}. For LRU caches analytic models based on the Che approximation can be developed under SNM traffic.
+To cover non-stationary macroscopic effects related to dynamic content popularity, a Shot Noise Model (SNM) is proposed in \cite{traverso2013temporal}. As already mentioned, for LRU caches analytic models based on the Che approximation can be developed under SNM traffic.
 To allow analysis of non-LRU policies the ON-OFF model is proposed in \cite{garetto2014dynamic} using an on-off-modulated Poisson process.
 In \cite{leconte2016dynamic} the analysis for SNM is further extended for caches with small population, such as local caches considered in this study that are placed on home routers or set-top boxes.
 %\cite{hasslinger2016itc} wikipedia trace
@@ -262,6 +266,3 @@ This allows us to effectively assess the loss probability by using a simple form
 
 To optimize the content placement adaptively \cite{leconte2014adaptive} propose Least-Recently-Lost (LRL) replacement, which tries to optimize the loss rate in the first tier.
 A different approach is proposed by \cite{zhou2015unifying} which allocates bandwidth resources instead of content copies proportionally to the content popularity.
-
-%hot warm cold
-%"Optimal content placement for a large-scale VoD system"

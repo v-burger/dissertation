@@ -1,5 +1,18 @@
 \subsection{Numerical Examples and Impact on Transit Costs}\label{sec:hierarchical:simulative:evaluation}
 
+To evaluate the performance of a CDN supported by home routers, two scenarios are simulated. The first scenario simulates requests to a CDN with caches organized in a tree structure and compares isolated caches to cooperating caches to assess the benefit of the overlay.
+The second scenario adds an AS topology with peering and transit links to evaluate the inter-domain traffic saving potential.
+As described in \refchap{chap:aslevel} a transit link exists between a customer ISP and its transit provider, if the customer ISP pays the transit provider to forward its traffic destined to parts of the Internet that the customer ISP does not own or cannot reach.
+
+%\subsection{Caching}
+% To assess the impact of the number of shared home routers and the size of the ISP, a tiered caching architecture with resource locations at three different tiers, including the main data center of the content provider, CDN caches, and end-user equipment is evaluated.
+% The number of different content items to be downloaded or streamed from the resources is specified by the catalog size $N$. Tier-3 resource is the data center of the content provider, where all $N$ content items are stored. Tier-2 resources are edge caches and ISP caches, typically organized in a CDN, which are located close to Internet exchange points or within ISP networks. Requests served by ISPs or edge caches produce less or no inter-domain costs. Thus, these caches are referred as ISP caches in the following. The capacity of ISP caches is given as a fraction of $N$ and is specified by $C_{ISP}$. The caching strategy of ISP caches is LRU.
+%Each autonomous system hosts an ISP cache.
+Within tier-1, the caches are placed on shared home routers. These caches are referred to in the following as home routers (HRs). The cache capacity of HRs is specified by $C_{HR}$ and their caching strategy is LRU. In this study $C_{HR}$ is set to four (4) content items.
+We evaluate the performance dependent on the autonomous system size $n_\text{user}$, in terms of the number of end-users in the autonomous system. The probability that an end-user enables the HR to shares contents is given by $p_\text{share}$. The probability that a user requests certain content items depends on the content's popularity distribution, which is specified by the Zipf exponent $\alpha$.
+
+\subsubsection{Benefits of an Overlay}
+
 To evaluate the performance of the overlay, two cases are considered (a) the tree case and (b) the overlay case. In the tree case (a), each user is assigned to one shared HR in its AS. If a user shares its HR, it is assigned only to its HR. A requested item is looked up in the assigned HR initially, i.e. in the tier-3 cache. If the requested item is not found, the request is forwarded to the next tier. The hierarchic caching strategy is leave-copy-everywhere, which means that the video is cached in each cache on the look up path. In the overlay case (b), a requested item is looked up in the HR of the user, if it is not found, it is looked up in shared HRs in the same autonomous system using the overlay. If no tier-3 cache in the AS contains the item it is looked up in tier-2 caches and finally in the data center of the content provider. The hierarchic caching strategy is leave-copy-everywhere, too, with the constraint, that the item is cached in the tier-3 cache only, which was looked up first.
 
 \begin{figure*}[tb]
@@ -57,7 +70,7 @@ For large ASes with a high number of end-users the ISP cache contribution approa
 
 Figure~\ref{fig:overlay_interdomain} shows the inter-domain traffic dependent on the sharing probability for an AS with $n_{user}=10^6$ end-users. If no overlay is present the sharing probability has close to no impact on the amount of requests served locally. In this case the inter-domain traffic can only be reduced by increasing the ISP cache capacity. In the overlay case the number of requests served locally increases with the sharing probability, which decreases the inter-domain traffic. Dependent on the ISP cache capacity a higher fraction of shared HRs is necessary to reduce inter-domain traffic.
 
-%\subsection{Inter-Domain Traffic}
+\subsubsection{Inter-Domain Traffic}
 
 The overlay is not only used to access content from HRs in the same AS, but also from HRs in neighboring ASes. If the neighboring AS is a peering or customer ISP, no transit costs are incurred.
 To assess the inter-domain traffic saved, an AS topology is added to the simulation. The AS relationship dataset provided by caida.org\cite{caida2015} of January 2015 is used and it specifies peering and customer-to-provider links of each AS. The data set consists of 46,172 ASes and 177,000 links.
@@ -101,7 +114,7 @@ If an item is not found on enabled HRs in the same AS, it is requested from othe
 A policy designed to prioritize ISP caches to remote HRs did not have a significant impact on traffic savings.
 %The capacity of ISP caches $C_{ISP}=\{0.001,0.01\}$ is relative to the catalogue size.
 The threshold $\theta$ specifies the minimum number of users an AS must have to host an ISP cache. If $\theta=\infty$ no AS hosts an ISP cache and content delivery is solely supported by HRs.
-To investigate the performance of our approach, the impact of the HR sharing probability $p_{share}$ on the inter-domain traffic and on the ISP cache contribution is studied. The share of traffic within the local AS, peering and customer-to-provider links is evaluated.
+To investigate the performance of our approach, the impact of the HR sharing probability $p_\text{share}$ on the inter-domain traffic and on the ISP cache contribution is studied. The share of traffic within the local AS, peering and customer-to-provider links is evaluated.
 For the generation of content item requests a Zipf popularity distribution with slope $\alpha=0.99$ was applied.
 
 %\begin{figure}[tb]
