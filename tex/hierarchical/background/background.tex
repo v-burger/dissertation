@@ -6,11 +6,12 @@ We present a representative set of cache eviction policies and provide an overvi
 
 \subsection{System Model for Hierarchical Caching Systems}\label{sec:hierarchical:system_model}
 
-The vast expansion of streaming services and content delivery networks (CDNs) suggests addressing content by content centric networking (CCN), to enable effective traffic management.
-Addressing content instead of physical servers allows utilizing local resources.
-To enable addressing, content is identified with unique names.
-Available storage in routers is used to cache content in these approaches.
-Since the tree like structure of the routers spreads on the way to the end user, the content replication scales with the content demand.
+%The vast expansion of streaming services and content delivery networks (CDNs) suggests addressing content by content centric networking (CCN), to enable effective traffic management.
+%Addressing content instead of physical servers allows utilizing local resources.
+%To enable addressing, content is identified with unique names.
+%Available storage in routers is used to cache content in these approaches.
+Modern content delivery networks use a tree like structure of content caches to delivery content efficiently.
+Since the tree like structure of caches spreads on the way to the end user, the content replication scales with the content demand.
 
 \begin{figure}[tb]
 \centering
@@ -22,10 +23,12 @@ Since the tree like structure of the routers spreads on the way to the end user,
 To model tree like content delivery networks, we consider a set of caches $\Gamma$ that is organized in a tiered caching architecture as depicted in \reffig{fig:hcmodel}. Each cache in $\Gamma$ has a certain cache capacity $C$, which specifies the number of content items it can store.
 %TODO rephrase
 %bin-packing problems can arise and therefore size has been considered as an important factor in studies which assume complete files as transport unit.
+
 If complete files are considered as transport unit, file size can have an impact due to bin-backing problems.
 However, content delivery networks and coding schemes for video streams are segmenting data into small chunks in the kB range.
 Therefore, we simply assume objects of fixed size corresponding to data chunks.
 Consider that the methods can also be applied to content with varying file size, if the sums are weighted accordingly.
+
 Tier-1 caches have capacity $C_{1_i}, i\in\{1,...,n_1\}$ and tier-2 caches have capacity $C_{2_i}, i\in\{1,...,n_2\}$.
 %We use the convention $C_1=C_{1_i}, \forall i$ if we assume the same cache size for all tier-1 caches.
 Here we assume, that the cache capacity of all tier-1 caches is equal and use the convention $C_1=C_{1_i}, \forall i$.
@@ -80,8 +83,10 @@ $d_m$ & duration of object $m$& \\
 \end{table}
 
 \subsection{Content Popularity and Traffic Model}\label{sec:hierarchical:background:traffic}
+
+In order to evaluate the performance of content delivery networks, the arrival process of objects needs to be specified.
 The standard approach to characterize the pattern of object requests arriving at a cache is the Independent Reference Model (IRM) \cite{coffman1973operating}.
-The IRM makes the following assumptions.
+The IRM makes the following assumptions:
 
 \newtheorem{irma}{Assumption}\begin{irma}\label{catalouge}
 Users request objects from a catalogue with fixed size $N$.
@@ -101,7 +106,7 @@ To account for temporal locality the request process can be modeled as renewal p
 In the renewal traffic model the request process for every content $m$ is described by an independent process with assigned inter-request time distribution.
 In this case the request process for each content is stationary.
 
-The static content popularity is a very strong assumption.
+Stationary request processes also mean a static content popularity, which is a very strong assumption.
 In practice the popularity of contents to be cached can be extremely dynamic over time.
 In modern content delivery networks, such as YouTube, a high number of new contents is uploaded every single day.
 While some contents are active only a few days after publishing, e.g. news, other contents, such as songs, remain popular over a long period of time.
@@ -112,14 +117,14 @@ It represents the overall request process as the superposition of a potentially 
 Analytic models for LRU caches under SNM traffic can be developed using the Che approximation.
 
 The analysis of non-LRU caches is very difficult under SNM traffic.
-In order to allow analyze the impact of dynamic content popularity on non-LRU cache, \cite{garetto2014dynamic} propose a traffic model based on a Markov modulated Poisson Process.
+In order to analyze the impact of dynamic content popularity on non-LRU cache, \cite{garetto2014dynamic} propose a traffic model based on a Markov modulated Poisson Process.
 The Markov modulated Poisson process describes an ON-OFF process for a given content $m$.
 The ON and OFF periods are exponentially distributed.
 During an ON period the request rate for an item $\lambda_m$ is constant.
 The model allows simple analysis if the OFF period is set much larger than the cache eviction time.
 This makes the probability negligible that an item $m$ is still in the cache at the end of its OFF period.
 An ON period in the ON-OFF traffic model plays exactly the same role as a (rectangular) shot in the SNM traffic model.
-The authors show in \cite{garetto2014dynamic} that the cache efficiency under the SNM traffic model can predicted with high accuracy by adopting a fixed-size content catalogue, and modeling the arrival process of each content by a renewal process with a specific inter-request time distribution.
+The authors show in \cite{garetto2014dynamic} that the cache efficiency under the SNM traffic model can be predicted with high accuracy by adopting a fixed-size content catalogue, and modeling the arrival process of each content by a renewal process with a specific inter-request time distribution.
 
 The popularity of objects is modeled by a Zipf-like law, which is frequently observed for different types of content distributed in the Internet, including video \cite{gill2007youtube,cha2009analyzing}.
 The Zipf law states that the probability to request the object with rank $r$, i.e., the $r$-th most popular object, is proportional to $r^{-\alpha}$.
@@ -150,7 +155,7 @@ The caching strategy decides which object in the cache is evicted if a newly req
   %\item LBW: \cite{zhou2015unifying}
 \end{itemize}
 
-In a system of interconnected caches, such as the hierarchical caching system described in \refsec{sec:hierarchical:system_model}, requests that are cannot be served at one cache or in one tier produce a miss and are forwarded to the next tier.
+In a system of interconnected caches, such as the hierarchical caching system described in \refsec{sec:hierarchical:system_model}, requests that cannot be served at one cache or in one tier produce a miss and are forwarded to the next tier.
 In this way the requests traverse a route towards the repository which stores all objects, until they finally hit the target.
 The following replication strategies for cache networks decide how the object is replicated on the route traversed by the request \cite{rossini2014coupling,martina2014unified}:
 
@@ -246,21 +251,22 @@ However, the request process generated by the renewal traffic model is still sta
 
 To cover non-stationary macroscopic effects related to dynamic content popularity, a Shot Noise Model (SNM) is proposed in \cite{traverso2013temporal}. As already mentioned, for LRU caches analytic models based on the Che approximation can be developed under SNM traffic.
 To allow analysis of non-LRU policies the ON-OFF model is proposed in \cite{garetto2014dynamic} using an on-off-modulated Poisson process.
-In \cite{leconte2016dynamic} the analysis for SNM is further extended for caches with small population, such as local caches considered in this study that are placed on home routers or set-top boxes.
+In \cite{leconte2016dynamic} the analysis under SNM traffic is further extended for caches with small population, such as base-stations, home routers or set-top boxes.
 %\cite{hasslinger2016itc} wikipedia trace
 
 \subsubsection{Evaluation of Caching Systems with Limited Capacity}
 
 The analytic models described above do not consider the service time of requests, which is limited by the bandwidth of the uplink of the cache.
-In this work we consider a tiered caching architecture, where the upload bandwidth of the caches is highly limited.
+In this monograph we consider a tiered caching architecture, where the upload bandwidth of the caches is highly limited.
 %A limited bandwidth or service time of the caches is not considered in any of the above analytic models.
-The paper closest to this works is \cite{valancius2009greening} which proposes the NaDa approach and develops an optimal content placement on NaDas.
+The paper closest to this works is \cite{valancius2009greening}, which proposes the NaDa approach and develops an optimal content placement on NaDas.
 The performance of the approach is evaluated with traces only.
 %\cite{applegate2010optimal}
-To determine the performance analytically the system with bandwidth constraints is modeled as loss network consisting of a server for each of the caches. The exact stationary distribution of the loss network is too complex to evaluate.
-In \cite{tan2013optimal} the system is analyzed under large system asymptotics where the number of NaDas goes to infinity where simplifications occur.
+To evaluate the performance analytically considering bandwidth constraints the system can be modeled as loss network consisting of a server for each of the caches.
+The exact stationary distribution of the loss network is too complex to evaluate due to the high number of feasible content placements.
+In \cite{tan2013optimal} the system is analyzed under large system asymptotics where the number of NaDas goes to infinity and simplifications occur.
 
-In order to evaluate the system for finite number of NaDas, we use a different approach by approximating the arrival of rate requests.
+In order to evaluate the system for a finite number of NaDas, we use a different approach by approximating the arrival rate of requests.
 This allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss network.
 %We combine the
 

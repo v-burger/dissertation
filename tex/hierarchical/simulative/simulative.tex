@@ -2,10 +2,10 @@
 
 We develop an event-based simulation framework to evaluate the performance of content delivery networks.
 The results derived from the simulative evaluation are used to validate the analytic models.
-The simulation framework further allows to consider complex system characteristics in the performance evaluation that are not covered by the analytic models, such as the transit costs charged on inter-domain links.
+The simulation framework further allows considering complex system characteristics in the performance evaluation that are not covered by the analytic models, such as the transit costs charged on inter-domain links.
 
-A hierarchical content delivery network with bandwidth constraints has been evaluated by simulation in \cite{applegate2010optimal}.
-The impact of using edge resources with limited capacity for content delivery on QoE is evaluated by means of simulation in \cite{info3-inproceedings-2015-530}.
+%A hierarchical content delivery network with bandwidth constraints has been evaluated by simulation in \cite{applegate2010optimal}.
+%The impact of using edge resources with limited capacity for content delivery on QoE is evaluated by means of simulation in \cite{info3-inproceedings-2015-530}.
 In the following we describe the simulation model and investigate the benefit of overlays networks in hierarchical caching systems.
 We use the model for transit traffic, c.f. \refsec{sec:p2p:methodology}, to assess the potential to save costs produced by inter-domain traffic.
 
@@ -41,24 +41,25 @@ For each video streaming source the AS-location and its capacity is specified.
 The capacity is given by the number of items that can be cached.
 The size of the item catalogue is also specified in this parameter set.
 
-The cache resource can have bandwidth constraints specified by the mean and the standard deviation of the upload bandwidth.
+The cache resources can have bandwidth constraints specified by the mean and the standard deviation of the upload bandwidth.
 If the upload bandwidth of a cache is limited, the service time of an object is calculated according to the available bandwidth and the object size.
 The service times of the objects served by a cache are updated if the upload bandwidth changes or if an object request arrives or is completed.
-A cache can block requests if the available bandwidth is below a certain threshold, or if the cache is busy serving a request.
+Requests are blocked by a cache if the available bandwidth is below a certain threshold, or if the cache is busy serving a request.
 
 \subsubsection{Caching and Content Placement Strategy}
 The caching and content placement strategy determines in which video streaming source which video item is placed and when.
 The content placement strategy is defined by the caching strategies of the individual caches.
-In a distributed approach each cache decides based on the information it has which items to cache.
-If global knowledge of the item demand is assumed, optimized content placement strategies such as hot warm cold.
+In a distributed approach each cache decides based on the information it has, which items to cache.
 Thus, the availability of items in ASs might for example be increased.
+If global knowledge of the item demand is assumed, optimized content placement strategies such as hot warm cold can be used.
 Each caching strategy is further defined by its specific parameters according to \refsec{sec:hierarchical:background:strategies}.
 
 \subsubsection{Resource Selection Strategy}
 The resource selection strategy determines from which cache instance an item is streamed when requested.
 The simplest resource selection just selects a random resource.
-By default, resources in tier-1 are selected first in hierarchical content delivery networks.
-Other resource selection strategies that try to optimize different metrics were implemented, such as local resource selection, which tries to save inter-domain traffic by prioritizing caches in the order: home router / NaDa in the same AS, ISP managed cache in the same AS, edge cache of content provider, data center of content provider.
+In hierarchical content delivery networks, resources in tier-1 are selected first, by default.
+Other resource selection strategies that try to optimize different metrics were implemented.
+E.g., local resource selection tries to save inter-domain traffic by prioritizing caches in the order: home router / NaDa in the same AS, ISP managed cache in the same AS, edge cache of content provider, data center of content provider.
 %Further resource selection strategies that are not yet implemented could for example consider load balancing of the request based on the capacity of the caches.
 
 \subsubsection{Social Network of Users}
@@ -75,7 +76,7 @@ Categories are defined by specifying the probability that a user is interested i
 
 \subsubsection{Traffic and Popularity Model}
 The content demand determines the request rates of the video items.
-Different demand models are implemented in the simulation, that reach from basic models that only consider the popularity distribution of the items to detailed models that consider temporal, spatial and social dynamics, c.f. \refsec{sec:hierarchical:background:traffic}.
+Different demand models are implemented in the simulation, that reach from basic models that only consider the popularity distribution of the items, to detailed models that consider temporal, spatial and social dynamics, c.f. \refsec{sec:hierarchical:background:traffic}.
 
 The arrival process of video requests is specified by the inter-arrival time of video requests.
 The request rate depends on the time of day and is generally lower at night.
@@ -88,7 +89,7 @@ The probability of sharing a watched video is given by the sharing probability.
 In order to estimate the amount of inter-domain traffic and transit costs produced, and AS topology with AS paths can be specified.
 The AS paths connect the caches and data centers providing the content with the users consuming the content.
 For that purpose the AS paths are inferred from AS relationships as in \refsec{sec:p2p:methodology}.
-Assuming that the number of users is proportional to the number of IP addresses in an AS, we use the results of the Internet Census Dataset evaluation in \refsec{sec:aslevel:census}, to determine the distribution of users on ASs, which has to be specified.
+Assuming that the number of users is proportional to the number of IP addresses in an AS, we use the results of the Internet Census Dataset evaluation in \refsec{sec:aslevel:census}, to determine the distribution of users on ASs.
 
 Finally, Simulation parameters are specified that define the random number seed, the simulation time and the parameter study.
 
@@ -100,7 +101,7 @@ To assess the performance of content delivery networks several metrics are consi
 \item Cache hit rate: The ratio of requests to a cache that find the object in the cache (cache hit).
 \item Cache serve rate: The ratio of requests to a cache that find the object in the cache and that are not blocked due to bandwidth constraints.
 \item Cache contribution: The share of all requests that is served by a cache.
-\item Inter-domain traffic: The share of requests by users in an AS that can not be served by a cache in the same AS.
+\item Inter-domain traffic: The share of requests by users in an AS that cannot be served by a cache in the same AS.
 \end{enumerate}
 
 \begin{figure}[bt]
@@ -112,17 +113,17 @@ To assess the performance of content delivery networks several metrics are consi
 
 The content delivery simulation framework is implemented in MatLab.
 The simulation is event-based including two major events.
-First there is the WATCH event, which is processed when a user watches or consumes a video item.
-Second there is a SHARE event, which simulates a sharing action of a user, where the video is posted on the news feeds in the social network.
+First, the WATCH event, which is processed when a user watches or consumes a video item.
+Second, the SHARE event, which simulates a sharing action of a user, where the video is posted on the news feeds in the social network.
 \reffig{fig:WATCH} shows the process diagram of a WATCH event.
-The process of a WATCH event starts by selecting a video dependent on the demand model specified in the parameters.
-A video with video identifier $v_\text{id}$ is returned.
-In the next step a cache or data center is selected that holds the item with $v_\text{id}$.
-The download of the item from this resource is recorded in the statistics.
+The process of a WATCH event starts by selecting a video according to the specified demand model.
+A video identifier $v_\text{id}$ is returned.
+In the next step a cache or data center is selected according to the resource selection strategy that holds the item with $v_\text{id}$.
+The download of the item from the selected resource is recorded in the statistics.
 The cache identifier $c_\text{id}$ is returned and the cached items are updated according to the caching strategy specified in the parameters.
 The user then decides to share $v_\text{id}$ with probability $p_\text{share}$.
-In this case a SHARE event is added.
-Finally, the next WATCH event is added according to the traffic and popularity model.
+In this case a SHARE event is queued.
+Finally, the next WATCH event is queued according to the traffic and popularity model.
 
 A SHARE event puts a given $v_\text{id}$, or a random video according to the user's interest on top of the news feed of the user's friends.
 The user's friends are determined by the social graph.
