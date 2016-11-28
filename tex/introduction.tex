@@ -1,27 +1,31 @@
 \chapter{Introduction}\label{chap:introduction}
 http://www.laneas.com/sites/default/files/publications/1/PachosEtAl2016Misconceptions.pdf
-In
-the 90s, the traffic in the web exploded, leading its inventor Sir Tim Berners-Lee to declare the
-network congestion as one of the main challenges for the Internet of the future. The congestion
-was caused by the
-dotcom boom
-and specifically due to the client-server model of connectivity,
-whereby a webpage was downloaded from the same network server by every Internet user in the
-world.  The  challenge  was  ultimately  resolved  by  the  invention  of  Content  Delivery  Networks
-(CDNs),  and  the  exploitation  of  web  caching.  The  latter  replicates  popular  content  in  many
-geographical areas and saves bandwidth by avoiding unnecessary multihop retransmissions. As
-a byproduct, it also decreases access time (latency) by decreasing the distance between the two
-communicating entities.
-Today's Internet
+network congestion client server
+client->server Content Delivery Networks (CDNs) caching
+
+Replicate popular contents in many geographical areas
+save bandwidth on the network path by avoiding unncesessary multiphop retranmissions.
+REPHRASE. As a byproduct, it also decreases access time (latency) by decreasing the distance between the two communicating entities.
+
+Today eport of Cisco [1] predicts a massive increase of Internet devices connected through the wireless
+access
+steep increase in mobile traffic which is expected to reach by 2018
+oughly 60\% of total network traffic, the majority of which will be video.
+
+5G wireless networks with higher access rates
+with increased densification of network infrastructure on the other.
+
+he explosion of access rates
+and number of base stations, the backhaul of wireless networks will also become congested motivates further the use of caching: store popular reusable information at the base
+stations to reduce the load at the backhaul
+
+The research community suggests to
+n the network of the future, memory units can be installed in gateway routers between
+the wireless network and the Internet (e.g. in 4G this is called S-GW), in base stations of different
+sizes (small or regular size cells), and in end-user devices
 
 fog computing
 
-One example of such a scenario are
-This results in a clash of interests which negatively impacts the network performance for all participants.
-
-The goal of this monograph is
-To this end, we study
-If such an optimisation is not possible or attempts at it might lead to adverse effects, we discuss the reasons.
 
 In the remainder of this chapter we provide an overview over the scientific contributions of this monograph in \refsec{sec:introduction:scientific_contribution} and provides an outline of this monograph in \refsec{sec:introduction:outline}.
 
@@ -29,7 +33,6 @@ In the remainder of this chapter we provide an overview over the scientific cont
 
 
 \section{Scientific Contribution}\label{sec:introduction:scientific_contribution}
-This monograph studies the interactions between different stakeholders in three, partially overlapping, scenarios in order to provide an overview of today's interlocking network and application ecosystem.
 
 \begin{figure}
 \centering
@@ -53,6 +56,7 @@ As a second contribution, we provide models for
 We show that the streaming mechanism allows
 However, further study shows that in fact
 Furthermore, we provide
+TODO REPHRASE: During off-peak operation of the network, the users can cheaply populate their caches with parts of popular contents.
 
 As a third contribution, we discuss the
 To this end, we study the performance of
