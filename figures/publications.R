@@ -7,7 +7,7 @@ data <- left_join(mutate(citekeys, key=factor(key, levels=combined)),
                          mutate(references, key=factor(key, levels=combined)),
                          by = 'key')
 
-breaks.area <- c('AS-Topology', 'Caching', 'Aggregation')
+breaks.area <- c('AS-Level', 'Caching', 'Aggregation')
 
 p <- ggplot(data, aes(x = area,
                       y = methodology,

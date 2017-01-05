@@ -22,7 +22,7 @@ linetypes.for <- function(values) {
 }
 
 label.area <- 'Area'
-label.methodology <- 'Methodology'
+label.methodology <- 'Method'
 label.appears <- 'Appears'
 
 # 2.2 done
