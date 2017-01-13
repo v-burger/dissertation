@@ -12,10 +12,10 @@ To understand and monitor the impact of YouTube traffic on ISPs and the topology
 %Recent work \cite{adhikari2012vivisecting,adhikari2011you} has performed such measurements in PlanetLab~\cite{planetlab}, a global test bed that provides measurement nodes at universities and research institutes.
 The problem is that probes disseminated from PlanetLab nodes origin solely from National Research and Education Networks~(NRENs). This may not reflect the perspective of access ISPs which have a different connection to the YouTube CDN with different peering or transit agreements.
 % our methodology
-To achieve a better view on the YouTube CDN from the perspective of end users in access networks we use a commercial crowdsourcing platform to recruit regular Internet users as measurement probes.
+To achieve a better view on the YouTube CDN from the perspective of end users in access networks, we use a commercial crowdsourcing platform to recruit regular Internet users as measurement probes.
 This complementary view can help to gain a better understanding of the characteristics of Video CDNs.
 %Thus, we increase the coverage of vantage points for the distributed measurement of the YouTube CDN.
-To evaluate the impact of the measurement platform and the coverage of their vantage point,  we perform the same measurements using PlanetLab nodes and crowdsourcing users and compare the obtained results.
+To evaluate the impact of the measurement platform and the coverage of their vantage point, we perform the same measurements using PlanetLab nodes and crowdsourcing users and compare the obtained results.
 
 % our contribution
 %Our measurements show that distributed measurements in PlanetLab are not capable to capture a globally distributed network, since the PlanetLab nodes are located in NRENs where the view on the Internet is limited. We demonstrate that recruiting users via crowdsourcing platforms as measurement probes can offer a complementary view on the Internet, since they provide access to real end users devices located out side of these dedicated research networks.
@@ -33,7 +33,7 @@ In Section~\ref{sec:crowd:results} we provide details on the measurement results
 \label{sec:crowd:method}
 
 To assess the capability of crowdsourcing for distributed active measurements we conduct measurements with both  PlanetLab and the commercial Crowdsourcing platform Microworkers~\cite{microworkers}.
-We measure the global expansion of the YouTube CDN by resolving physical server IP-addresses for clients in different locations.
+We measure the global expansion of the YouTube CDN by resolving physical server IP addresses for clients in different locations.
 
 \subsubsection{Description of the PlanetLab Measurement}
 
@@ -58,7 +58,7 @@ The IP addresses of video servers and of the workers client were sent to a serve
 In a first measurement run, in December 2011, 60 different users of Microworkers participated in the measurements.
 Previous evaluation have shown, that the majority of the platform users is located in Asia~\cite{conf2011-410}, and accordingly most of the participants of there first campaign were from Bangladesh.
 In order to obtain wide measurement coverage the number of Asian workers participating in a second measurement campaign, conducted in March 2012, was restricted.
-In total, 247 workers from 32 different countries, finished the measurements successfully identifying 1592 unique physical YouTube server IP addresses.
+In total, 247 workers from 32 different countries finished the measurements successfully identifying 1592 unique physical YouTube server IP addresses.
 
 \subsection{Measurement Results and Their Implications}
 \label{sec:crowd:results}
@@ -73,9 +73,9 @@ To investigate the coverage of measurement points we study the distribution of t
 Figure~\ref{fig:PLSrc} shows the distribution of PlanetLab nodes on countries over the world.
 The pie chart is denoted with the country codes and the percentage of PlanetLab nodes in the respective country.
 Most of the 220 clients are located in the US with 15\% of all clients.
-However, more than 50\% of the clients are located in West-Europe.
+However, more than 50\% of the clients are located in West Europe.
 Only few clients are located in different parts of the world.
-The tailored distribution towards Western countries is caused by the fact, that the majority of the PlanetLab nodes are located in the US or in western Europe.
+The tailored distribution towards western countries is caused by the fact, that the majority of the PlanetLab nodes are located in the US or in West Europe.
 
 \begin{figure}[bt]
     \centering
@@ -102,8 +102,8 @@ The tailored distribution towards Western countries is caused by the fact, that 
 
 Figure~\ref{fig:MWSrc} shows the geo-location of workers on the crowdsourcing platform.
 In contrast to PlanetLab, most of the 247 measurement points are located in Asia-Pacific and East-Europe.
-The majority of the participating workers 20\% are from Bangladesh followed by Romania and the US with 10\%.
-This bias is caused by the overall worker distribution on the platform~\cite{conf2011-410}. However, this can be influences to a certain extend by limiting the access to the tasks to certain geographical regions.
+The majority of the participating workers 20\% are from Bangladesh (BD) followed by Romania (RO) and the US with 10\%.
+This bias is caused by the overall worker distribution on the platform~\cite{conf2011-410}. However, this can be influenced to a certain extend by limiting the access to the tasks to certain geographical regions.
 %The payment for crowdsourcing tasks is equal for all countries.
 %Hence, the reward is higher for people living in developing countries with less value of money.
 %This makes crowdsourcing platforms interesting for people in these countries and leads to a tailored distribution of clients towards different parts of the world.

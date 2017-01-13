@@ -1,7 +1,17 @@
 \chapter{Characterization of Content Delivery Networks on Autonomous System Level}\label{chap:aslevel}
 
-Two main content delivery concepts are present in the Internet: peer-to-peer (P2P) networks and content delivery networks (CDNs).
-P2P networks
+To deliver content, it has to be transported from storage resources to clients that consume the content.
+The two most important content delivery concepts in the Internet are peer-to-peer (P2P) networks and content delivery networks (CDNs).
+%\reffig{fig:aslevel:p2pcdn} shows the AS topology for a P2P network, and a CDN.
+In case of P2P networks, c.f., \reffig{fig:aslevel:p2p}, peers contribute storage resources by serving chunks of data.
+To enable exchange of data, a tracker keeps track of the peers sharing chunks of a file.
+For every file which is exchanged within the network, P2P networks form a separate, mesh-based overlay.
+P2P networks are still responsible for a large fraction of Internet traffic.
+If the exchange of data among peers is uncoordinated, ignoring inter-domain links, P2P networks can cause a high amount of inter-domain traffic, which produces transit costs for ISPs.
+Inter-domain traffic is routed among different autonomous systems (ASs) that are individual parts of the Internet operated by an Internet Service Provider~(ISP).
+
+Most P2P traffic today is transported using the BitTorrent P2P file-sharing protocol.
+BitTorrent is based on multi-source downloads between the users. All the users, i.e., \textit{peers}, sharing the same file belong to a \textit{swarm}, c.f., \reffig{fig:aslevel:p2p}. To join the swarm, a peer requests addresses of other peers at an index server called \textit{tracker}. In the standard BitTorrent algorithm the tracker uses random peer selection to select a subset of peers that are in the swarm. Then, the joining peer tries to establish a neighbor relation to the peers it got from the tracker and collects all peers which accepted the request in his \textit{neighbor} set. The peer signals interest to all neighbors which have parts of the file it still needs to download. To which neighbor a peer is willing to upload data is decided by the choking algorithm, which is explained in \cite{cohen:bt}.
 %intro and problem
 % The performance evaluation of mechanisms that optimize content delivery requires a thorough knowledge of the nature of current content delivery networks.
 % Such knowledge is required to reflect the characteristics of real-world networks and to define models, parameters and relevant scenarios for performance evaluation.
@@ -12,12 +22,12 @@ P2P networks
 %The scalability of the Internet is achieved by topological addressing.
 
 %ISPs acquire transit providers to be connected to remote parts of the Internet or agree on peering relationships to exchange data without money flow.
-While in the past a large fraction of the total Internet traffic was carried by peer-to-peer (P2P) networks \cite{Cisc09}, the largest fraction of Internet traffic is now carried by content delivery networks (CDNs).
-In 2015 61\% of all Internet video was carried by CDNs \cite{cisco2016}.
+While in the past a large fraction of the total Internet traffic was carried by peer-to-peer (P2P) networks \cite{Cisc09}, the largest fraction of Internet traffic is now carried by content delivery networks \cite{cisco2016}.
+In 2015, 61\% of all Internet video was carried by CDNs \cite{cisco2016}.
+In CDNs the content provided by a content provider is replicated to caches in many different geographic locations.
 %The vast amount of traffic causes high costs for ISPs, who need to provide appropriate transport infrastructure and pay transit fees incurred.
 The traffic from CDNs is highly asymmetric and produces a large amount of costly inter-domain traffic \cite{labovitz2010internet}.
-Inter-domain traffic is routed among different autonomous systems (ASs) that are individual parts of the Internet operated by an Internet Service Providers~(ISP).
-Especially ISPs providing access to many end users have problems to deal with the huge amount of traffic originating from CDNs.
+%Especially ISPs providing access to many end users have problems to deal with the huge amount of traffic originating from CDNs.
 Reducing the traffic carried by CDNs and the load put on ISP networks has high potential to reduce energy consumption and cost for content delivery.
 In order to develop traffic management mechanisms, aiming to reduce inter-domain traffic and to optimize content delivery, it is crucial to understand the current situation of CDNs and the number and distribution of available resources.
 %The performance of CDNs highly depends on the available resources and the number of consumers.
@@ -29,7 +39,7 @@ In order to develop traffic management mechanisms, aiming to reduce inter-domain
 % in this chapter, ...
 
 In this chapter, we show the principles and recent developments of content delivery networks and characterize their resources on AS level by performing and evaluating distributed measurements.
-The models derived are used to characterize the traffic in P2P networks and to develop optimization strategies to reduce inter-domain traffic and transit costs.
+The models derived are used for traffic characterization and to develop optimization strategies to reduce inter-domain traffic and transit costs.
 %and characterize the topology of autonomous systems.
 
 %In peer-to-peer networks peers serve and request chunks of content at the same time, hence peers are also the resources for content delivery.
@@ -42,11 +52,11 @@ we analyze a measurement study and identify the number of peers per swarm availa
 % we consider + metrics
 As key performance indicators we determine the traffic volume and the traffic costs of ISPs.
 
-Due to the location based server assignment in CDNs, a distributed measurement architecture is necessary to identify the server resources.
+To characterize CDNs on AS level, a distributed measurement architecture is necessary to identify the server resources, due to the location based server assignment of CDNs.
 %While peers in P2P networks can easily be identified by probing trackers, the cache resources of CDNs can only be determined by probing the CDN from different locations.
 Typically distributed measurement platforms such as PlanetLab are used for that purpose.
 The problem is that these measurement platforms may not reflect the perspective as consumer, since they are hosted in National Research and Education Networks (NRENs) and not in ISP networks.
-We compare the capabilities of a crowdsourcing platform and a PlanetLab testbed for distributed active measurements.
+We compare the capabilities of a crowdsourcing platform and a PlanetLab testbed for distributed active measurements of CDNs.
 %In order to characterize the distribution of resources in content delivery networks, simple tracking is not possible, since no publicly available registers exist.
 
 Recent approaches \cite{valancius2009greening} suggest to use resources on customer premise equipment (CPE) such as home routers or network attached storage to support content delivery while saving energy.
@@ -62,7 +72,7 @@ To get a global view on the number of resources available in each AS we evaluate
 % \item We evaluate the Internet Census Dataset and model the distribution of IP-addresses on ASs.
 % \end{enumerate}
 
-The models derived from the measurement results of the CDN YouTube and P2P networks can be used for performance analysis and optimization of content delivery mechanisms.
+The models derived from the measurement results are used for performance analysis and optimization of content delivery mechanisms.
 In particular the models serve as input for the optimization strategies for peer selection and the performance evaluation of hierarchical CDNs in realistic parameter studies in \refchap{chap:hierarchical}.
 %In addition our results show that the size of ISP in terms of subscriber is highly heterogeneous, showing that more than 85\% of the IPs are active in only 1\% of the autonomous systems and that the 10 largest autonomous systems already contain 30\% of the active IPs.
 %100 largest ISPs have 2/3 of active IPs

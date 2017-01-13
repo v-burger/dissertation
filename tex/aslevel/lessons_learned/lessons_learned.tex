@@ -1,14 +1,15 @@
 \section{Lessons Learned}\label{sec:aslevel:lessons_learned}
 In this chapter we characterized content delivery networks on autonomous systems level. %by evaluating measurements of the most common content delivery principles P2P and CDN.
-For that purpose we used measurements conducted on the distributed platform PlanetLab and a crowdsourcing platform.
+For that purpose we summarized related work and used measurements conducted on the distributed platform PlanetLab and a crowdsourcing platform.
 To assess the potential of peer assisted content delivery approaches, we determined the number of active IP-addresses from the Internet Census dataset.
 
 %P2P -> CDN
 %to accurately model content delivery networks ... is described.
 %While ... we find three major outcomes.
-First, we have investigated where in the Internet BitTorrent traffic is located and which ISPs benefit from its optimization. To this end, we used measurements of live BitTorrent swarms to derive the location of BitTorrent peers and data provided by Caida.org in order to calculate the actual AS path between any two peers.
-Our results show that the traffic optimization potential depends heavily on the type of ISP. Different ISPs will pursue different strategies to increase revenues.
-Our results confirm that selecting peers based on their locality has a high potential to shorten AS paths between peers and to optimize the overlay network. In the observed BitTorrent swarms twice as much traffic can be kept intra-AS using locality peer selection. Thus, the inter-AS traffic is almost reduced by \unit[50]{\%} in \tier and in large ISPs.
+First, we analyzed the Internet Census Dataset to derive the distribution of IP-addresses on autonomous systems.
+To this end, we used a mapping of IP-addresses to autonomous system numbers.
+we find that the distribution of IP-addresses is highly heterogeneous showing that 30\% of the active IPs belong to the 10 largest autonomous systems.
+This means that the potential of approaches that use resources of home routers highly depend on the ISP network.
 
 Second, we proposed the usage of crowdsourcing platforms for distributed network measurements to increase the coverage of vantage points.
 We evaluated the capability to discover global networks by comparing the coverage of video server detected using a crowdsourcing platform as opposed to using the PlanetLab platform.
@@ -20,10 +21,9 @@ Our results confirm that the coverage of vantage points is increased by crowdsou
 Using the crowdsourcing platform we obtain a diverse set of vantage points that reveals more than twice as many autonomous systems deploying video servers than the widely used PlanetLab platform.
 %Part of future work is to determine if the coverage of vantage points can be even further increased by targeting workers from specific locations to get representative measurement points for all parts of the world.
 
-Finally, we analyzed the Internet Census Dataset to derive the distribution of IP-addresses on autonomous systems.
-To this end, we used a mapping of IP-addresses to autonomous system numbers.
-we find that the distribution of IP-addresses is highly heterogeneous showing that 30\% of the active IPs belong to the 10 largest autonomous systems.
-This means that the potential of approaches that use resources of home routers highly depend on the ISP network.
+Finally, we have investigated where in the Internet BitTorrent traffic is located and which ISPs benefit from its optimization. To this end, we used measurements of live BitTorrent swarms to derive the location of BitTorrent peers and data provided by Caida.org in order to calculate the actual AS path between any two peers.
+Our results show that the traffic optimization potential depends heavily on the type of ISP. Different ISPs will pursue different strategies to increase revenues.
+Our results confirm that selecting peers based on their locality has a high potential to shorten AS paths between peers and to optimize the overlay network. In the observed BitTorrent swarms twice as much traffic can be kept intra-AS using locality peer selection. Thus, the inter-AS traffic is almost reduced by \unit[50]{\%} in \tier and in large ISPs.
 %If ...
 %This would for example allow ..
 
