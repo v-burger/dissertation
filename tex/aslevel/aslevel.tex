@@ -1,34 +1,45 @@
 \chapter{Characterization of Content Delivery Networks on Autonomous System Level}\label{chap:aslevel}
 
-To deliver content, it has to be transported from storage resources to clients that consume the content.
-The two most important content delivery concepts in the Internet are peer-to-peer (P2P) networks and content delivery networks (CDNs).
+In the last decade content delivery has shifted from the host-centric to the information-centric network (ICN) paradigm.
+To enable efficient traffic management ICN suggests the addressing of content.
+Addressing content instead of physical hosts allows utilizing local resources.
+The enable addressing, ICN implements naming of information (or content) with unique identifiers.
+This allows caching content in the network on available storage on routers.
+Since the tree-like structure of the routers unfolds on the path to the end users, the replication of the content scales with its demand.
+
+%To deliver content, it has to be transported from storage resources to clients that consume the content.
+%The two most important content delivery concepts in the Internet are peer-to-peer (P2P) networks and content delivery networks (CDNs).
+While in the past a large fraction of the total Internet traffic was carried by peer-to-peer (P2P) networks \cite{Cisc09}, the largest fraction of Internet traffic is now carried by content delivery networks (CDNs) \cite{cisco2016}, which realize the ICN paradigm.
+%In 2015, 61\% of all Internet video was carried by CDNs \cite{cisco2016}.
+
 %\reffig{fig:aslevel:p2pcdn} shows the AS topology for a P2P network, and a CDN.
-In case of P2P networks, c.f., \reffig{fig:aslevel:p2p}, peers contribute storage resources by serving chunks of data.
+%While P2P networks work according to the host-to-host paradigm, CDNs
+In case of P2P networks, peers contribute to the delivery of content by serving chunks of data.
 To enable exchange of data, a tracker keeps track of the peers sharing chunks of a file.
 For every file which is exchanged within the network, P2P networks form a separate, mesh-based overlay.
 P2P networks are still responsible for a large fraction of Internet traffic.
-If the exchange of data among peers is uncoordinated, ignoring inter-domain links, P2P networks can cause a high amount of inter-domain traffic, which produces transit costs for ISPs.
-Inter-domain traffic is routed among different autonomous systems (ASs) that are individual parts of the Internet operated by an Internet Service Provider~(ISP).
-
-Most P2P traffic today is transported using the BitTorrent P2P file-sharing protocol.
-BitTorrent is based on multi-source downloads between the users. All the users, i.e., \textit{peers}, sharing the same file belong to a \textit{swarm}, c.f., \reffig{fig:aslevel:p2p}. To join the swarm, a peer requests addresses of other peers at an index server called \textit{tracker}. In the standard BitTorrent algorithm the tracker uses random peer selection to select a subset of peers that are in the swarm. Then, the joining peer tries to establish a neighbor relation to the peers it got from the tracker and collects all peers which accepted the request in his \textit{neighbor} set. The peer signals interest to all neighbors which have parts of the file it still needs to download. To which neighbor a peer is willing to upload data is decided by the choking algorithm, which is explained in \cite{cohen:bt}.
+%produces transit costs for ISPs
 %intro and problem
 % The performance evaluation of mechanisms that optimize content delivery requires a thorough knowledge of the nature of current content delivery networks.
 % Such knowledge is required to reflect the characteristics of real-world networks and to define models, parameters and relevant scenarios for performance evaluation.
 % This ensures that the results derived from performance analysis give meaningful insights for real-world scenarios.
-
 %Dependent on the route the content takes The delivery of content produces costs
 %The Internet is a network of autonomous systems.
 %The scalability of the Internet is achieved by topological addressing.
-
 %ISPs acquire transit providers to be connected to remote parts of the Internet or agree on peering relationships to exchange data without money flow.
-While in the past a large fraction of the total Internet traffic was carried by peer-to-peer (P2P) networks \cite{Cisc09}, the largest fraction of Internet traffic is now carried by content delivery networks \cite{cisco2016}.
-In 2015, 61\% of all Internet video was carried by CDNs \cite{cisco2016}.
-In CDNs the content provided by a content provider is replicated to caches in many different geographic locations.
+In CDNs the content provided by a content provider is replicated to caches deployed in data-centers in many different geographic locations.
+Content requests are redirected to the closest cache location that can serve the content.
 %The vast amount of traffic causes high costs for ISPs, who need to provide appropriate transport infrastructure and pay transit fees incurred.
-The traffic from CDNs is highly asymmetric and produces a large amount of costly inter-domain traffic \cite{labovitz2010internet}.
+
+Autonomous systems (ASs) are individual parts of the Internet controlled of one or more network operators on behalf of a single administrative entity.
+To be connected to remote ASs in the Internet, ISPs acquire transit providers or agree on peering relationships.
+Transit provider charge transit fees for inter-domain traffic, which is traffic routed to different ASs.
+The problem is that a high amount of costly inter-domain traffic can be caused be both content delivery concepts, P2P and CDN.
+
+The inter-domain traffic caused by P2P networks is especially high, if the exchange of data among peers is uncoordinated.
+The traffic originating from CDNs is highly asymmetric and thus also produces a large amount of inter-domain traffic \cite{labovitz2010internet}.
 %Especially ISPs providing access to many end users have problems to deal with the huge amount of traffic originating from CDNs.
-Reducing the traffic carried by CDNs and the load put on ISP networks has high potential to reduce energy consumption and cost for content delivery.
+Reducing the traffic carried by CDNs and the load put on ISP networks has high potential to reduce energy consumption and cost for content delivery and transit.
 In order to develop traffic management mechanisms, aiming to reduce inter-domain traffic and to optimize content delivery, it is crucial to understand the current situation of CDNs and the number and distribution of available resources.
 %The performance of CDNs highly depends on the available resources and the number of consumers.
 

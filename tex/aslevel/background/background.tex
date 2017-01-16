@@ -18,22 +18,37 @@ Hence, to route traffic between ASs, ISPs engage in business relationships.
 These business relationships are usually not open for public but they can be abstracted into three common types \cite{gao2001}.
 The relationship between two ASs can be transit, peering or sibling.
 A transit link is present if the customer AS pays the provider AS for transit service, i.e., the provider forwards the traffic of the customer and its customers.
-In peering relations the ASs have an agreement that they exchange each others traffic and the traffic of their customers, without paying each other.
-Sibling links between ASs of the same organization. These relations are defined in business agreements and kept secret, but they can be inferred by analyzing the routing between autonomous systems.
+\reffig{fig:aslevel:p2pcdn} shows AS topologies with ASs interconnected with inter-domain links.
+AS 1 is a transit provider for AS 2 and AS 3, which are connected to AS 1 by transit links.
+If a client in AS 1 exchanges data with a client in AS 3, both AS 1 and AS 3 are charged by AS 1 for forwarding the data.
+If a peering link is present the ASs have an agreement that they exchange each others traffic and the traffic of their customers, without paying each other.
+In \reffig{fig:aslevel:cdn} a content provider (AS 7) has a peering agreement with AS 1 and AS 3, such that AS 1 and AS 3 are not charged for the content delivered by the content provider.
+Sibling links are between ASs of the same organization. These relations are defined in business agreements and kept secret, but they can be inferred by analyzing the routing between autonomous systems.
 
 As peering links and sibling links are the same in terms of money flow, we consider sibling links as peering links in this manuscript. For the same reason most datasets available do not contain sibling links.
 Hence, we only consider transit and peering inter-domain links from now on.
-\reffig{fig:aslevel:p2pcdn} shows AS topologies with ASs interconnected with inter-domain links.
+
 %Inter-AS links are either peering links or transit links.
 
 \subsection{Evolution of Content Delivery Networks}
+
+The drawback of simple client-server architectures for content distribution is their limited scalability.
+P2P networks scale, since clients do not only use resources but also provide resources.
 % The drawback of client-server architectures for content distribution is their limited scalability.
+%The two most popular solutions to this problem are content delivery concepts that work according to the P2P or CDN principle.
+Most P2P traffic today is transported using the BitTorrent P2P file-sharing protocol.
+BitTorrent is based on multi-source downloads between the users. All the users, i.e., peers, sharing the same file belong to a swarm, c.f., \reffig{fig:aslevel:p2p}.
+
+To join the swarm, a peer requests addresses of other peers at an index server called tracker.
+In the standard BitTorrent algorithm the tracker uses random peer selection to select a subset of peers that are in the swarm.
+Then, the joining peer tries to establish a neighbor relation to the peers it got from the tracker and collects all peers which accepted the request in his neighbor set.
+The peer signals interest to all neighbors which have parts of the file it still needs to download.
+To which neighbor a peer is willing to upload data is decided by the choking
+algorithm, which is explained in \cite{cohen:bt}.
+
 % -> P2P, legal issues, coordination
 
-%The two most popular solutions to this problem are content delivery concepts that work according to the P2P or CDN principle.
-
-Host-to-host
-ALTO
+why p2p->cdn?
 
 Host-to-content Information Centric Networking (ICN)
 
@@ -41,10 +56,14 @@ While the amount of traffic transported over P2P networks remained about the sam
 The number of users watching videos on demand has massively increased and the bandwidth to access videos is much higher.
 Furthermore, the increased bandwidth enables web services to be interactive by using dynamic server- or client-side scripts.
 The appearance of dynamic services and the increasing quality of multimedia content raises user expectations and the demand on the servers.
-To bring content in high quality to end-users with low latency and to deal with increasing demand, content providers have to replicate and distribute the content on caches to get it close to end-users.
+To bring content in high quality to end-users with low latency and to deal with increasing demand, content providers have to replicate and distribute the content on caches, deployed in geographically distributed data centers, to get it close to end-users.
 Hence, in CDNs, c.f., \reffig{fig:aslevel:cdn}, the storage resources are managed data centers or caches.
 %Thus, content delivery infrastructures such as the Google CDN evolved.
 %The largest amount of traffic is now transported by CDNs.
+
+Commercial CDN providers such as Akamai, Amazon Cloudfront, Cloudflare and Limelight
+
+
 
 % \begin{table}
 % 	\caption{P2PvsCDN}
@@ -77,7 +96,7 @@ Hence, in CDNs, c.f., \reffig{fig:aslevel:cdn}, the storage resources are manage
 The global expansion of the CDNs also changes the structure of the Internet.
 Google has set up a global backbone which interconnects Google's data centers to important edge points of presence.
 Since these points of presence are distributed across the globe, Google can offer direct peering links to access networks with many end users, c.f. AS 3 and AS 7 in \reffig{fig:aslevel:cdn}.
-Such, access network providers save transit costs, while Google is able to offer services with low latency.
+Thus, access ISPs save transit costs, while Google is able to offer services with low latency.
 To bring content even closer to users, ISPs can deploy Google cache servers inside their own network to serve popular content, including YouTube videos~\cite{gcc}.
 
 To select the closest server for a content request and to implement load balancing, CDNs use the Domain Name System (DNS).
