@@ -1,7 +1,9 @@
 \section{Traffic Characterization of Peer-to-Peer Networks}\label{sec:aslevel:p2p}
 
 %Problem statement:
-
+In order to evaluate the transit costs produced by overlay networks we characterize the traffic of the largest P2P network BitTorrent on AS-Level.
+This helps us to estimate the potential to reduce inter-domain traffic produced by overlay networks and to develop traffic optimization mechanisms.
+These mechanisms can also be applied to the overlay networks used in hierarchical CDNs.
 %Our methodology:
 To model the BitTorrent traffic flow across ISPs in the Internet, we use measurements of live BitTorrent swarms and the actual AS topology of the Internet provided by Caida.org. Thus, we estimate BitTorrent traffic characteristics and the emerging transit costs.
 % The measurements of live BitTorrent swarms contain the location of peers in the Internet, i.e., AS numbers, for a very large set of swarms \cite{Hossfeld2011}.
@@ -9,6 +11,7 @@ To model the BitTorrent traffic flow across ISPs in the Internet, we use measure
 %Thus, we get the real Internet AS topology.
 % We use the inferred AS paths to calculate the real AS paths between peers in BitTorrent swarms.
 In addition, we define peer selection strategies that decide which peer in a swarm is connected to which other peer and we estimate the transit costs for these strategies.
+This helps us to assess the optimization potential of overlay networks and the revenue of ISPs transit services.
 %(a) The random selection strategy is applied to peer selection of today's BitTorrent clients. (b) The locality aware selection strategy connects to the peers with shortest AS paths, to reduce AS hops and potentially latencies in the BitTorrent network. (c) The selfish-ISP selection connects peers preferentially to peers in the ISPs customer tree in order to maximize its revenue. The locality aware and selfish-ISP selection strategies are motivated by the optimization potential of the BitTorrent overlay network, as in \cite{Hossfeld2011}, and the optimization potential of the revenue of ISPs transit services, respectively.
 % These definitions are the approximative part of the work. We define three connection strategies that calculate which peer in a swarm is connected to which other peer and we estimate the transit costs for these strategies.
 

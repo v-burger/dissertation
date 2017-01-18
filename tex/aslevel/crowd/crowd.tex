@@ -8,7 +8,12 @@
 %However, the traffic from content delivery networks is highly asymmetric and produces a large amount of costly inter-domain traffic \cite{labovitz2010internet}. Especially Internet Service Providers~(ISPs) providing access to many end users have problems to deal with the huge amount of traffic originating from YouTube. Furthermore, the Google CDN is constantly growing and changing, which makes it difficult for access providers to adapt their infrastructure accordingly.
 
 % problem statement
-To understand and monitor the impact of YouTube traffic on ISPs and the topology of CDNs appropriate measurements are acquired. Due to YouTube's load-balancing and caching mechanisms the YouTube video server selection is highly dependent on the location of the measurement points. Hence, we need a globally distributed measurement platform to perform active measurements to uncover the location of YouTube servers.
+%To understand and monitor the impact of YouTube traffic on ISPs and the topology of CDNs appropriate measurements are acquired.
+Today the world's largest video CDN is YouTube.
+Since Google took over YouTube in 2006 the infrastructure of the video delivery platform has grown to be a global CDN.
+By measuring its characteristics, conclusions can be drawn in order to develop traffic management mechanisms that handle the huge amount of traffic the YouTube CDN puts on access networks.
+Due to YouTube's load-balancing and caching mechanisms the YouTube video server selection is highly dependent on the location of the measurement points.
+Hence, we need a globally distributed measurement platform to perform active measurements to uncover the location of YouTube servers.
 %Recent work \cite{adhikari2012vivisecting,adhikari2011you} has performed such measurements in PlanetLab~\cite{planetlab}, a global test bed that provides measurement nodes at universities and research institutes.
 The problem is that probes disseminated from PlanetLab nodes origin solely from National Research and Education Networks~(NRENs). This may not reflect the perspective of access ISPs which have a different connection to the YouTube CDN with different peering or transit agreements.
 % our methodology
@@ -32,7 +37,7 @@ In Section~\ref{sec:crowd:results} we provide details on the measurement results
 \subsection{Distributed Active Measurement Setup}
 \label{sec:crowd:method}
 
-To assess the capability of crowdsourcing for distributed active measurements we conduct measurements with both  PlanetLab and the commercial Crowdsourcing platform Microworkers~\cite{microworkers}.
+To assess the capability of crowdsourcing for distributed active measurements we conduct measurements with both  PlanetLab and the commercial crowdsourcing platform Microworkers~\cite{microworkers}.
 We measure the global expansion of the YouTube CDN by resolving physical server IP addresses for clients in different locations.
 
 \subsubsection{Description of the PlanetLab Measurement}
@@ -58,13 +63,14 @@ The IP addresses of video servers and of the workers client were sent to a serve
 In a first measurement run, in December 2011, 60 different users of Microworkers participated in the measurements.
 Previous evaluation have shown, that the majority of the platform users is located in Asia~\cite{conf2011-410}, and accordingly most of the participants of there first campaign were from Bangladesh.
 In order to obtain wide measurement coverage the number of Asian workers participating in a second measurement campaign, conducted in March 2012, was restricted.
-In total, 247 workers from 32 different countries finished the measurements successfully identifying 1592 unique physical YouTube server IP addresses.
+In total, 247 workers from 32 different countries finished the measurements successfully, identifying 1592 unique physical YouTube server IP addresses.
 
 \subsection{Measurement Results and Their Implications}
 \label{sec:crowd:results}
 
 In this section we show the results of the distributed measurement of the global CDN.
 The obtained results show the distribution of clients and servers over different countries.
+Using a crowdsourcing platform, we derive accurate models for the distribution of cache servers on ASs, which are required for the performance evaluation and optimization of CDNs.
 Furthermore, the mapping on autonomous systems gives insights to the coverage of the Internet.
 
 \subsubsection{Distribution of Vantage Points on Countries}

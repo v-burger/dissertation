@@ -1,27 +1,28 @@
 \section{Lessons Learned}\label{sec:aslevel:lessons_learned}
-In this chapter we characterized content delivery networks on autonomous systems level. %by evaluating measurements of the most common content delivery principles P2P and CDN.
-For that purpose we summarized related work and used measurements conducted on the distributed platform PlanetLab and a crowdsourcing platform.
-To assess the potential of peer assisted content delivery approaches, we determined the number of active IP-addresses from the Internet Census dataset.
+In this chapter we characterize content delivery networks on autonomous systems level. %by evaluating measurements of the most common content delivery principles P2P and CDN.
+For that purpose we summarize related work and use measurements conducted on the distributed platform PlanetLab and a crowdsourcing platform.
+To assess the potential of content delivery approaches that use local resources, e.g., on home routers, we determine the number of active IP-addresses from the Internet Census dataset.
 
 %P2P -> CDN
 %to accurately model content delivery networks ... is described.
 %While ... we find three major outcomes.
-First, we analyzed the Internet Census Dataset to derive the distribution of IP-addresses on autonomous systems.
-To this end, we used a mapping of IP-addresses to autonomous system numbers.
+First, we provide a comprehensive overview on content delivery network concepts and their evolution. We briefly describe the structure of the YouTube CDN and describe the concept of the next generation of hierarchical CDNs, which use local resources to support content delivery.
+In order assess the number of local resources available in each AS, we analyze the Internet Census Dataset to derive the distribution of IP-addresses on ASs.
+To this end, we use a mapping of IP-addresses to autonomous system numbers.
 we find that the distribution of IP-addresses is highly heterogeneous showing that 30\% of the active IPs belong to the 10 largest autonomous systems.
-This means that the potential of approaches that use resources of home routers highly depend on the ISP network.
+This means that the potential of approaches that use resources on home routers highly depend on the ISP network.
 
-Second, we proposed the usage of crowdsourcing platforms for distributed network measurements to increase the coverage of vantage points.
-We evaluated the capability to discover global networks by comparing the coverage of video server detected using a crowdsourcing platform as opposed to using the PlanetLab platform.
-To this end, we used exemplary measurements of the global video CDN YouTube, conducted in both the PlanetLab platform as well as the crowdsourcing platform Microworkers.
+Second, we propose the usage of crowdsourcing platforms for distributed network measurements to increase the coverage of vantage points.
+We evaluate the capability to discover global networks by comparing the coverage of video server detected, using a crowdsourcing platform as opposed to using the PlanetLab platform.
+To this end, we use exemplary measurements of the global video CDN YouTube, conducted in both the PlanetLab platform as well as the crowdsourcing platform Microworkers.
 Our results show that the vantage points of the concurring measurement platforms have very different characteristics.
-We could show that the distribution of vantage points has high impact on the capability of measuring a global content distribution network.
+We show that the distribution of vantage points has high impact on the capability of measuring a global content distribution network.
 The capability of PlanetLab to measure a global CDNs is rather low, since 80\% of requests are directed to the United States.
 Our results confirm that the coverage of vantage points is increased by crowdsourcing.
 Using the crowdsourcing platform we obtain a diverse set of vantage points that reveals more than twice as many autonomous systems deploying video servers than the widely used PlanetLab platform.
 %Part of future work is to determine if the coverage of vantage points can be even further increased by targeting workers from specific locations to get representative measurement points for all parts of the world.
 
-Finally, we have investigated where in the Internet BitTorrent traffic is located and which ISPs benefit from its optimization. To this end, we used measurements of live BitTorrent swarms to derive the location of BitTorrent peers and data provided by Caida.org in order to calculate the actual AS path between any two peers.
+Finally, we investigate where in the Internet BitTorrent traffic is located and which ISPs benefit from its optimization. To this end, we use measurements of live BitTorrent swarms to derive the location of BitTorrent peers and data provided by Caida.org in order to calculate the actual AS path between any two peers.
 Our results show that the traffic optimization potential depends heavily on the type of ISP. Different ISPs will pursue different strategies to increase revenues.
 Our results confirm that selecting peers based on their locality has a high potential to shorten AS paths between peers and to optimize the overlay network. In the observed BitTorrent swarms twice as much traffic can be kept intra-AS using locality peer selection. Thus, the inter-AS traffic is almost reduced by \unit[50]{\%} in \tier and in large ISPs.
 %If ...
