@@ -91,7 +91,7 @@ To enable the distribution of the content CDN providers run a network of globall
 \begin{figure}[bt]
 \centering
 %\vspace{-0.2cm}
-	\includegraphics[width=0.66\textwidth]{aslevel/figs/astopo}
+	\includegraphics[width=0.66\textwidth]{aslevel/figs/cdn}
 	\vspace{-0.2cm}
  	\caption{Content delivery network.}
  	\label{fig:aslevel:cdn}
@@ -120,11 +120,21 @@ To enable the distribution of the content CDN providers run a network of globall
 
 The global expansion of the CDNs also changes the structure of the Internet.
 Google has set up a global backbone which interconnects Google's data centers to important edge points of presence.
-Since these points of presence are distributed across the globe, Google can offer direct peering links to access networks with many end users, c.f. AS 3 and AS 7 in \reffig{fig:aslevel:cdn}.
+Since these points of presence are distributed across the globe an located at Internet exchange points (IXPs), Google can offer direct peering links to access networks with many end users consuming the content.
 Thus, access ISPs save transit costs, while Google is able to offer services with low latency.
-To bring content even closer to users, ISPs can deploy Google cache servers inside their own network to serve popular content, including YouTube videos~\cite{gcc}.
+To bring content even closer to users, ISPs can deploy Google edge cache nodes inside their own network to serve popular content, including YouTube videos~\cite{gcc}.
+
+\begin{figure}[bt]
+\centering
+%\vspace{-0.2cm}
+	\includegraphics[width=0.66\textwidth]{aslevel/figs/cacheServerSelection}
+	\vspace{-0.2cm}
+ 	\caption{Redirection of requests in the YouTube CDN.}
+ 	\label{fig:aslevel:serverselection}
+\end{figure}
 
 To select the closest server for a content request and to implement load balancing, CDNs use the Domain Name System (DNS).
+The redirection of requests for load balancing and server selection is depicted in \reffig{fig:aslevel:serverselection} for the YouTube CDN.
 Typically a user watches a YouTube video by visiting a YouTube video URL with a web browser.
 The browser then contacts the local DNS server to resolve the hostname.
 Thereafter, the HTTP request is directed to a front end web server that returns an HTML page including URLs for default and fallback video servers.
