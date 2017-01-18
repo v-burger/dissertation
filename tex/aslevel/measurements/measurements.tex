@@ -11,6 +11,8 @@ We summarize related work in the field of distributed active measurements of CDN
 
 \subsection{Measurements and Models of BitTorrent Networks}\label{aslevel:measurements:bittorrent}
 
+The measurements and models for the distribution of peers on ASs indicate the distribution of hosts on the Internet and help to identify groups that are interested in the same content.
+This information can be used for traffic models and to optimize CDNs on AS level. 
 As basis of our methodology for modeling inter-ISP BitTorrent traffic in \refsec{sec:aslevel:p2p}, the results in \cite{Hossfeld2011} are revisited. The authors provide measurements of a large number of live BitTorrent swarms taken from popular index servers such as \emph{The Pirate Bay}, \emph{Mininova}, and \emph{Demonoid}. Using the IP addresses of the peers, the authors associate every peer with its AS and estimate the potential of ALTO mechanisms based on the differentiation between local peers (peers in the same AS) and remote peers located in other ASs. In contrast, we consider the actual Internet topology in this work, i.e., the inter-ISP relations, the ISP classification in the Internet hierarchy, and the AS paths between the peers in order to estimate the optimization potential of ALTO mechanisms.
 
 The authors of \cite{Kryczka2011} use the peer exchange protocol (PEX) in order to measure the neighbor set of all peers participating in a number of live BitTorrent swarms. Based on this information, they model the graph topology of the swarms and compare the structure to random graphs. They also investigate clustering of peers within ASs and countries, but do not focus on inter-AS relations and AS paths between peers as we do in this chapter.
@@ -27,7 +29,8 @@ The authors of \cite{gkantsidis2006planet} investigate analytically the capabili
 A set of evaluations of ALTO mechanisms uses scenarios inspired by measurements of live BitTorrent swarms \cite{Cuevas2011,Blond2011,Lehrieder2011}. The studied scenarios consider heterogeneous peer distributions where some ASs contain more peers of a specific swarm than others. Nevertheless, they do not take into account inter-AS relations and the AS paths between two peers. This is different in our study. Using the AS affiliation of peers and the data obtained from Caida.org, we infer the actual paths of the BitTorrent connections in the Internet. In addition, we focus on the inter-ISP relations and investigate to which degree selfish ISPs profit from recommending their peers to preferentially use connections to peers located in lower tier ASs.
 
 \subsection{Measurements of Content Delivery Networks}\label{aslevel:measurements:cdn}
-There already exist a number of publications which study the structure of the YouTube CDN and its selection of video servers.
+There already exist a number of publications which study the structure of CDNs.
+Much focus is put on the YouTube CDN and its selection of video servers, as it is the most popular CDN for video content.
 A distributed active measurement platform is necessary for these evaluations, because the CDN mechanisms consider the client locations, both geographical as well as in terms of the connected access network.
 Recently, the physical server distribution of NetFlix's CDN was mapped in \cite{bottger2016open}, using a DNS crawler and exploiting the naming scheme of the cache servers.
 %It is differed between ISP and IXP deployment of the servers and find that a region-specific deployment of the servers is required dependent on the different markets.

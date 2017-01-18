@@ -1,3 +1,64 @@
 \chapter{Conclusion}\label{chap:conclusion}
 
+%Motivation
+CDNs efficiently distribute content and save bandwidth based on the Information Centric Networking paradigm by replicating popular content to caches in many geographical areas.
+This allows CDNs to carry the vast majority of Internet traffic.
+%to save bandwidth by avoiding unnecessary multihop retransmission.
+%CDNs handle enable transporting the huge amount of traffic demands in today Internet.
+%Problem Statement
+However, the current developments of wireless networks towards 5G with an increasing number of devices and increasing data rates bring new challenges for content delivery, since the backhaul capacity of access networks is not sufficient to transport the resulting data volume.
+Furthermore, there is a high number of spare resources available at the end users premises which is not used efficiently.
 
+%Consequence
+As a consequence current approaches suggest extending the CDNs by deploying local caches at the user premises, end devices or basestations.
+%A high potential to bring content closer to consumers and to reduce energy cost is achieved by caching at basestation, the user premises or at end devices.
+%consumption and operation cost of the system
+This forms a content delivery network consisting of a hierarchy of caches at different tiers that scales with the number of users.
+Since there is a high number of caches on user premises equipment, which has limited storage and bandwidth capacity, a coordination of the caches is necessary for efficient operation.
+%The backhaul bandwidth
+
+%Contribution
+In this monograph we study the performance of hierarchical content delivery networks with a high number of local caches with limited capacity.
+In \refchap{chap:aslevel} we first assess the Internet wide potential of such approaches by evaluating the Internet Census Dataset and providing a distribution of active IP addresses on autonomous systems, which is used to estimate the number of Internet subscriptions.
+%The caches are organized in an hierarchical network, which may include an ISP cache.
+The evaluation shows that autonomous system size in terms of active IP addresses is highly heterogeneous.
+The 10 largest autonomous systems already contain 30\% of the active IP addresses.
+Second, we use distributed active measurements, which were conducted on a crowdsouring platform and the PlanetLab platform, to discover the structure of current CDNs.
+The results show that the vantage points of the concurring measurement platforms have very different characteristics.
+We show that the distribution of vantage points has high impact on the capability of measuring a global content distribution network.
+Using the crowdsourcing platform we obtain a diverse set of vantage points that reveals more than twice as many autonomous systems deploying video servers than the widely used PlanetLab platform.
+In order to assess the transit costs produced by CDN and P2P traffic, we develop a charging model of inter-domain traffic using data on the ISP business relations.
+Our results confirm that selecting peers based on their locality has a high potential to shorten AS paths between peers and to optimize the overlay network. In the observed overlay network twice as much traffic can be kept intra-AS using locality peer selection.
+Thus, the inter-AS traffic is almost reduced by 50\% in large ISPs.
+
+The analysis of hierarchical caching systems is presented in \refchap{chap:hierarchical}.
+We develop a simulation framework for the evaluation of hierarchical caching systems and use the AS topology of the Internet to assess the inter-domain traffic.
+The results show that an overlay is imperative for the success of hierarchical caching systems consisting of a high number of small capacity caches.
+Moreover, by investigating the share of locally served content requests, the impact for the network operator is quantified,
+showing that the inter-domain traffic and the contribution required of an ISP-cache can be significantly reduced by an hierarchical cache network using an overlay.
+Once at least every thousandth user contributes to the overlay sharing spare resources in large ISPs, the ISP-cache can be discontinued.
+In order to evaluate the performance of cache systems with small capacities and limited upload bandwidth, we develop an analytical model based on the Erlang formula for loss networks.
+Our results show that the potential to increase the efficiency of the content delivery network is high if only a small or no ISP cache is available.
+If a larger ISP cache is available the benefit of the approach highly depends on the number of caches available and their upload bandwidth.
+
+To evaluate the potential to further increase the bandwidth available in access networks, we analyse bandwidth aggregation systems in \refchap{chap:aggregation}.
+%To reduce the load on cellular networks and to cope with the increasing demand of traffic carried by mobile networks, traffic is offloaded to WiFi networks.
+%To even increase the available bandwidth, recent concepts consider aggregating backhaul access link capacities.
+An approximation of a partial sharing scheme is presented, which is used to analyze the performance of a system with multiple access links that share their bandwidth.
+A joint fixed point iteration of an outer and an inner composite system is used to derive the state probabilities in heterogeneous load conditions.
+In parameter studies we investigate the potential of the mechanism depending on the number of cooperating systems.
+Our results show that the bandwidth of an overloaded system can exceed its capacity multiple times if the cooperating systems are underutilized, especially if the number of cooperating systems is high.
+By prioritizing systems, we can show that the mechanism is robust against free riders and thus provides incentives to contribute to increase the overall system capacity.
+
+One of the major insights we gain from the model is that, in contrary to the prevailing opinion, a complete sharing system can perform worse than a partitioned system if the load on the links is highly heterogeneous.
+Our results show that if the cooperating systems are overloaded, a system with low load might receive only marginally less bandwidth.
+However, this is compensated with receiving multiples of the base level bandwidth in high peak periods.
+This is a very promising result for bandwidth sharing systems, since the offloading policy results in a win-win situation if everybody contributes by sharing spare bandwidth.
+This provides incentives for end users to participate and thus enables fast deployment of bandwidth sharing mechanisms.
+%In respect to hierarchical caching systems another major insight shows that a coordination of the caches is integral for efficient content delivery.
+%The efficiency of the overlay can be even further increased by more than 10\% if an optimal content placement is used.
+
+%Impact on future work
+In this respect, the work presented in this monograph improves the understanding of
+During the next few years there is a steep increase in mobile traffic and the number of mobile devices which will put high loads on the backhaul of access networks.
+The models developed in this monograph serve as useful basis to design and evaluate mechanisms to further to reduce the load on the backhaul by improving content delivery and to efficiently use spare resources in the backhaul for caching and bandwidth aggregation.
