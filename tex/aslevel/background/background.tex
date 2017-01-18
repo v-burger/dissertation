@@ -92,7 +92,7 @@ To enable the distribution of the content CDN providers run a network of globall
 \centering
 %\vspace{-0.2cm}
 	\includegraphics[width=0.66\textwidth]{aslevel/figs/cdn}
-	\vspace{-0.2cm}
+	%\vspace{-0.2cm}
  	\caption{Content delivery network.}
  	\label{fig:aslevel:cdn}
 \end{figure}
@@ -146,7 +146,8 @@ The next generation of content delivery networks try to bring content even close
 A recent approach \cite{valancius2009greening} proposes to augment spare capacities on customer premise equipment (CPE) such as home routers to assist content delivery, showing that there is a high potential to save energy, although the capacity of home routers is small and the uplink is limited.
 The content is transported locally in a P2P manner keeping the traffic within the AS.
 Another example are femto caching architectures \cite{golrezaei2013femtocaching}, where content is cached on femto-basestations with small capacity but with considerable storage space.
-The potential of these approaches highly depends on the number of caches available and their capacity for content delivery.
+The resulting content delivery network forms a hierarchy, as depicted in \reffig{fig:aslevel:cdn}, with local caches in the access network in tier-1, edge caches or caches at the IXP in tier-2 and the data center of the content provider which holds the whole content catalog in tier-3.
+The potential of these approaches highly depends on the number of local caches available and their capacity for content delivery.
 In order to assess the number of home routers available in an AS, which can be equipped with caches, we characterize the Internet subscriptions on AS Level.
 
 % \subsection{Structure of Global Content Delivery Network}
@@ -157,7 +158,7 @@ In order to assess the number of home routers available in an AS, which can be e
 \subsection{Characterization of Internet Subscriptions on AS Level}\label{sec:aslevel:census}
 
 The performance of systems using CPE or resources provided by end-users depends on the capacity and number of devices available.
-To assess the potential of a CDN, which uses the home routers provided with Internet subscriptions as caches, the number of active subscribers in an AS has to be known.
+To assess the potential of a hierarchical CDN, which uses the home routers provided with Internet subscriptions as caches, the number of active subscribers in an AS has to be known.
 Hence, the goal is to identify the number of home routers with active Internet subscriptions in each AS.
 Assuming that the number of active IP-addresses is correlated to the number of subscribers in an AS, we use the Internet Census Dataset to determine the distribution of active IP-addresses on ASs.
 
