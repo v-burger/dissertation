@@ -13,7 +13,7 @@ Finally we run simulations with different service time distributions to assess t
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{aggregation/performance_model/figures/m2_n20_comp}
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/m2_n20_comp}
  	\caption{Blocking probability of two systems with equal load.}
  	\label{fig:m2_comp}
 \end{figure}
@@ -50,34 +50,62 @@ Therefore we analyse the symmetric case with $\rho_1=\rho_2$ and vary the thresh
 %Therefore we fix the load on the cooperating system to $\rho_2=0.5$ and vary the thresholds.
 
 \begin{figure}[tb]
-\centering
-\begin{subfigure}{.49\textwidth}
- \centering
- \includegraphics[width=\linewidth]{aggregation/performance_model/figures/m2_n20_alpha_equal}
- \caption{$\alpha$}
- \label{fig:m2_n20_alpha}
-\end{subfigure}%
-\begin{subfigure}{.49\textwidth}
- \centering
- \includegraphics[width=\linewidth]{aggregation/performance_model/figures/m2_n20_beta_equal}
- \caption{$\beta$}
- \label{fig:m2_n20_beta}
-\end{subfigure}
-\begin{subfigure}{.49\textwidth}
- \centering
- \includegraphics[width=\linewidth]{aggregation/performance_model/figures/m2_n20_alphaplus2_equal}
- \caption{$\alpha$ and $\beta$}
- \label{fig:m2_n20_alphaplus2_equal}
-\end{subfigure}
-\begin{subfigure}{.49\textwidth}
- \centering
- \includegraphics[width=\linewidth]{aggregation/performance_model/figures/bwgain_rhocomp}
- \caption{$\omega_1$}
- \label{fig:bwgain_rhocomp}
-\end{subfigure}
-\caption{Blocking probability $p_{b_1}$ dependent on thresholds (a) $\alpha$, (b) $\beta$ and (c) $\alpha$ and $\beta$, and (d) bandwidth gain $\omega_1$.}
-\label{fig:m2_n20}
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/m2_n20_alpha_equal}
+ 	\caption{Blocking probability $p_{b_1}$ dependent on thresholds $\alpha$.}
+ 	\label{fig:m2_n20_alpha}
 \end{figure}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/m2_n20_beta_equal}
+ 	\caption{Blocking probability $p_{b_1}$ dependent on thresholds $\beta$.}
+ 	\label{fig:m2_n20_beta}
+\end{figure}
+
+\begin{figure}[bth]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/m2_n20_alphaplus2_equal}
+ 	\caption{Blocking probability $p_{b_1}$ dependent on thresholds $\alpha$ and $\beta$.}
+ 	\label{fig:m2_n20_alphaplus2_equal}
+\end{figure}
+
+\begin{figure}[!bt]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/bwgain_rhocomp}
+ 	\caption{Bandwidth gain $\omega_1$ dependent on thresholds $\alpha$ and $\beta$.}
+ 	\label{fig:bwgain_rhocomp}
+\end{figure}
+
+% \begin{figure}[tb]
+% \centering
+% \begin{subfigure}{.49\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/m2_n20_alpha_equal}
+%  \caption{$\alpha$}
+%  \label{fig:m2_n20_alpha}
+% \end{subfigure}%
+% \begin{subfigure}{.49\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/m2_n20_beta_equal}
+%  \caption{$\beta$}
+%  \label{fig:m2_n20_beta}
+% \end{subfigure}
+% \begin{subfigure}{.49\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/m2_n20_alphaplus2_equal}
+%  \caption{$\alpha$ and $\beta$}
+%  \label{fig:m2_n20_alphaplus2_equal}
+% \end{subfigure}
+% \begin{subfigure}{.49\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/bwgain_rhocomp}
+%  \caption{$\omega_1$}
+%  \label{fig:bwgain_rhocomp}
+% \end{subfigure}
+% \caption{Blocking probability $p_{b_1}$ dependent on thresholds (a) $\alpha$, (b) $\beta$ and (c) $\alpha$ and $\beta$, and (d) bandwidth gain $\omega_1$.}
+% \label{fig:m2_n20}
+% \end{figure}
 
 % \begin{figure}[tb]
 % 	\centering

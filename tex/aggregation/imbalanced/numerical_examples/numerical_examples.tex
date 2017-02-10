@@ -6,26 +6,40 @@ The cooperating system can benefit if the load is heterogeneously distributed am
 In order to assess the potential of bandwidth aggregation of $m$ systems in heterogeneous load conditions, we study the load of the observed system $\rho_1$ and set the load of the other $m-1$ systems to the same value $\rho'$, i.e., $\rho_i=\rho',\forall i\in\{2,\dotsc,m\}$.
 %As performance metric we consider the normalized received bandwidth of the observed system $E[X_{A_1}]/n_1$ and the bandwidth gain of the observed system $\omega_1$. We first investigate the impact of the impact of $\rho'$, then we investigate the number of cooperating systems $m$ for a fixed load $\rho'$.
 
-\begin{figure*}[tb]
-\centering
-\begin{subfigure}{.49\textwidth}
- \centering
- \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bw_m8}
- \caption{Equal load}
- \label{fig:bw_m8}
-\end{subfigure}%
-\begin{subfigure}{.49\textwidth}
- \centering
- \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_m8}
- \caption{bandwidth gain $\omega_1$}
- \label{fig:bwgain_m8}
- % \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_m8}
- % \caption{bandwidth gain $\omega_1$}
- % \label{fig:bwgain_m8}
-\end{subfigure}
-\caption{Received bandwidth $E[X_{A_1}]/n_1$ dependent on load of the other links $\rho'$ for $m=8$}
-\label{fig:m8}
-\end{figure*}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bw_m8}
+ 	\caption{Received bandwidth $E[X_{A_1}]/n_1$ dependent on load of the other links $\rho'$ for $m=8$.}
+ 	\label{fig:bw_m8}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_m8}
+ 	\caption{Bandwidth gain $\omega_1$ dependent on load of the other links $\rho'$ for $m=8$.}
+ 	\label{fig:bwgain_m8}
+\end{figure}
+
+% \begin{figure*}[tb]
+% \centering
+% \begin{subfigure}{.49\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bw_m8}
+%  \caption{Equal load}
+%  \label{fig:bw_m8}
+% \end{subfigure}%
+% \begin{subfigure}{.49\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_m8}
+%  \caption{bandwidth gain $\omega_1$}
+%  \label{fig:bwgain_m8}
+%  % \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_m8}
+%  % \caption{bandwidth gain $\omega_1$}
+%  % \label{fig:bwgain_m8}
+% \end{subfigure}
+% \caption{Received bandwidth $E[X_{A_1}]/n_1$ dependent on load of the other links $\rho'$ for $m=8$}
+% \label{fig:m8}
+% \end{figure*}
 
 In the following we investigate how the load on the links in the composite system $\rho'$ affects the throughput of the observed system for $m=8$ cooperating systems.
 Figure~\ref{fig:bw_m8} shows the normalized received bandwidth of the observed system dependent on the throughput of the links in the composite system $\rho'$.
@@ -33,29 +47,50 @@ Figure~\ref{fig:bw_m8} shows the normalized received bandwidth of the observed s
 In case of $\rho'=0.3$ a lot of spare bandwidth is available for offloading. If the observed system is overloaded it can use the spare bandwidth and receives almost 400\% of its capacity if its load is 400\%. If the load $\rho'$ on the other links is higher, less bandwidth is available, which limits the received bandwidth. Still, the received bandwidth is above partitioning, although the links in the composite systems are overloaded with $\rho'=1.1$ if the observed system is even more overloaded.
 %This can also be seen in the bandwidth gain $\omega_1$ depicted in Figure~\ref{fig:bwgain_m8}, which is positive if the observed system is overloaded with $\rho_1>1$. The bandwidth gain is only marginally negative, if the load on the observed system is low, which is manageable in off-peak periods. In busy periods the observed system benefits a lot by gaining more than 2.5 times more bandwidth if $\rho'=0.3$.
 
-\begin{figure*}[tb]
-\centering
-\begin{subfigure}{.49\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_rho03}
-  \caption{Off peak ($\rho'=0.3$)}
-  \label{fig:fp_bwgain_rho03}
-\end{subfigure}%
-\begin{subfigure}{.49\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_rho11}
-  \caption{Overload ($\rho'=1.1$)}
-  \label{fig:fp_bwgain_rho11}
-\end{subfigure}
-\begin{subfigure}{.49\textwidth}
-  \centering
-\includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_prio11}
-  	\caption{Unfair: ($\alpha_1 \neq \alpha'$)}
-  	\label{fig:fp_bwgain_prio11}
-\end{subfigure}
-\caption{Bandwidth gain dependent on load of the observed system in off peak, overload and unfair operation.}
-\label{fig:fp_bwgain}
-\end{figure*}
+% \begin{figure*}[tb]
+% \centering
+% \begin{subfigure}{.7\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_rho03}
+%   \caption{Off peak ($\rho'=0.3$)}
+%   \label{fig:fp_bwgain_rho03}
+% \end{subfigure}%
+% \begin{subfigure}{.7\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_rho11}
+%   \caption{Overload ($\rho'=1.1$)}
+%   \label{fig:fp_bwgain_rho11}
+% \end{subfigure}
+% \begin{subfigure}{.55\textwidth}
+%   \centering
+% \includegraphics[width=\linewidth]{aggregation/performance_model/figures/fp_bwgain_prio11}
+%   	\caption{Unfair: ($\alpha_1 \neq \alpha'$)}
+%   	\label{fig:fp_bwgain_prio11}
+% \end{subfigure}
+% \caption{Bandwidth gain dependent on load of the observed system in off peak, overload operation.} %and unfair operation.}
+% \label{fig:fp_bwgain}
+% \end{figure*}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_rho03}
+ 	\caption{Bandwidth gain dependent on load of the observed system in off peak operation ($\rho'=0.3$).}
+ 	\label{fig:fp_bwgain_rho03}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_rho11}
+ 	\caption{Bandwidth gain dependent on load of the observed system in overload operation ($\rho'=1.1$).}
+ 	\label{fig:fp_bwgain_rho11}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_prio11}
+ 	\caption{Bandwidth gain dependent on load of the observed system in unfair operation ($\alpha_1 \neq \alpha'$).}
+ 	\label{fig:fp_bwgain_prio11}
+\end{figure}
 
 Figure~\ref{fig:fp_bwgain_rho03} shows the bandwidth gain of the observed system $\omega_1$ dependent on the number of cooperating systems $m$ for $\rho'=0.3$.
 Hence, in this case there is a high potential to obtain spare bandwidth from the cooperating systems.
@@ -99,30 +134,37 @@ The service times in the deterministic process are constant.
 In the hyper-exponential process we use two branches with probabilities 10\% and 90\%.
 For constant service times the blocking probability does not differ from the analytic model for high system loads. The blocking probability differs slightly from the analytic model for deterministic service times in low system loads, showing higher blocking probabilities if the load on the cooperating system is high. The reason for this has to be investigated and is part of future work. In case of the hyper-exponential distribution the service times are highly variant. Here the system which is highly loaded benefits from lower blocking probabilities compared to the analytic model.
 
-% \begin{figure}[tb]
-% 	\centering
-% 	\includegraphics[width=0.5\textwidth]{aggregation/performance_model/figures/m2_n20_rho2_sim}
-%  	\caption{Blocking probability dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
-%  	\label{fig:m2_n20_rho2_sim}
-% \end{figure}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/m2_n20_rho2_sim}
+ 	\caption{Blocking probability dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
+ 	\label{fig:m2_n20_rho2_sim}
+\end{figure}
 
-\begin{figure*}[tb]
-\centering
-\begin{subfigure}{.49\textwidth}
- \centering
- \includegraphics[width=\linewidth]{aggregation/performance_model/figures/m2_n20_rho2_sim}
- \caption{Blocking probability}
- \label{fig:m2_n20_rho2_sim}
-\end{subfigure}%
-\begin{subfigure}{.49\textwidth}
- \centering
- \includegraphics[width=\linewidth]{aggregation/performance_model/figures/bw_n20_rho2_sim}
- \caption{Received bandwidth}
- \label{fig:bw_n20_rho2_sim}
-\end{subfigure}
-\caption{Blocking probability and received bandwidth dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
-\label{fig:n20_rho2_sim}
-\end{figure*}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/bw_n20_rho2_sim}
+ 	\caption{Received bandwidth dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
+ 	\label{fig:bw_n20_rho2_sim}
+\end{figure}
+
+% \begin{figure*}[tb]
+% \centering
+% \begin{subfigure}{.49\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/m2_n20_rho2_sim}
+%  \caption{Blocking probability}
+%  \label{fig:m2_n20_rho2_sim}
+% \end{subfigure}%
+% \begin{subfigure}{.49\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{aggregation/performance_model/figures/bw_n20_rho2_sim}
+%  \caption{Received bandwidth}
+%  \label{fig:bw_n20_rho2_sim}
+% \end{subfigure}
+% \caption{Blocking probability and received bandwidth dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
+% \label{fig:n20_rho2_sim}
+% \end{figure*}
 
 In Figure~\ref{fig:bw_n20_rho2_sim}, which shows the received bandwidth of the reference system dependent on the load, simulation results are plotted for deterministic distributed and highly variant hyper-exponential distributed service times.
 For deterministic service times the analytic model fits the simulation results. If the service times are highly variant the reference system receives only slightly more bandwidth than in the model if it is overloaded. Hence, considering the available bandwidth the analytic model can be used to assess the system performance with general service time distributions.
