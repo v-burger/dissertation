@@ -96,42 +96,21 @@ In practice, such a selection could be realized e.g. with an \emph{iTracker} \ci
 The selfish-ISP selection algorithm tries to select as many peers from customer ASs as possible. Until the neighbor set contains $N$ peers it first adds peers from paths starting with provider-to-customer links, then peers of the same AS, then paths starting with peering links and finally customer-to-provider links.
 This selection algorithm is used to maximize the revenue of ISPs. This is achieved by the selfish-ISP strategy by selecting preferentially peers that are connected by customers and avoiding peers at providers. In practice an ISP must be able to control the neighbor set. Hence, ALTO mechanisms for selfish-ISP selection must be controllable by the ISP. One approach is that the ISP provides an information service to guide the peer selection, such as an oracle \cite{Aggarwal2007} or an information service \cite{hossfia}.
 
-\begin{figure}[bt]
-\centering
-	\includegraphics[width=0.49\textwidth]{aslevel/p2p/methodology/figs/npeers_perTier}
- 	\caption{Ratio of peers per ISP class aggregated over all swarms in the measurement set.}
- 	\label{fig:npeers_perTier}
-\end{figure}
-
-%\begin{figure}[bt]
-%\centering
-%	\includegraphics[width=0.49\textwidth]{aslevel/p2p/methodology/figs/CDF_npeers_perswarm}
-% 	\caption{CDF of the number of peers per swarm depending on the different ISP classes.}
-% 	\label{fig:CDF_npeers_perswarm}
-%\end{figure}
-
-%\begin{figure}[bt]
-%\centering
-%	\includegraphics[width=0.49\textwidth]{aslevel/p2p/methodology/figs/CDF_maxpeers_perswarm_perAS}
-% 	\caption{CDF of the maximum number of peers in same AS per swarm depending on the tier.}
-% 	\label{fig:CDF_maxpeers_perswarm_perAS}
-%\end{figure}
-
-\begin{figure*}[bt]
-\begin{minipage}[b]{0.49\textwidth}
-	\centering
-	\includegraphics[width=\textwidth]{aslevel/p2p/methodology/figs/CDF_npeers_perswarm}
- 	\caption{CDF of the number of peers per swarm depending on the different ISP classes.}
- 	\label{fig:CDF_npeers_perswarm}
-\end{minipage}
-\hspace{0.01\textwidth}
-\begin{minipage}[b]{0.49\textwidth}
-	\centering
-	\includegraphics[width=\textwidth]{aslevel/p2p/methodology/figs/CDF_maxpeers_perswarm_perAS}
- 	\caption{CDF of the maximum number of peers in same AS per swarm depending on the tier.}
- 	\label{fig:CDF_maxpeers_perswarm_perAS}
-\end{minipage}
-\end{figure*}
+% \begin{figure*}[bt]
+% \begin{minipage}[b]{0.49\textwidth}
+% 	\centering
+% 	\includegraphics[width=\textwidth]{aslevel/p2p/methodology/figs/CDF_npeers_perswarm}
+%  	\caption{CDF of the number of peers per swarm depending on the different ISP classes.}
+%  	\label{fig:CDF_npeers_perswarm}
+% \end{minipage}
+% \hspace{0.01\textwidth}
+% \begin{minipage}[b]{0.49\textwidth}
+% 	\centering
+% 	\includegraphics[width=\textwidth]{aslevel/p2p/methodology/figs/CDF_maxpeers_perswarm_perAS}
+%  	\caption{CDF of the maximum number of peers in same AS per swarm depending on the tier.}
+%  	\label{fig:CDF_maxpeers_perswarm_perAS}
+% \end{minipage}
+% \end{figure*}
 
 %\begin{figure*}[bt]
 %\begin{minipage}[b]{0.32\textwidth}

@@ -23,66 +23,51 @@
 %\end{minipage}
 %\end{figure*}
 
-\begin{figure*}[bt]
-\begin{minipage}[t]{0.49\textwidth}
-	\centering
-	\includegraphics[width=\textwidth]{aslevel/p2p/results/figs/hops}
- 	\caption{Distribution of AS path lengths weighted by the amount of traffic.}
- 	\label{fig:CDF_hops}
-\end{minipage}
-\hspace{0.01\textwidth}
-\begin{minipage}[t]{0.49\textwidth}
-	\centering
-	\includegraphics[width=\textwidth]{aslevel/p2p/results/figs/outgoing}
- 	\caption{Total outgoing AS traffic for different peer selection strategies.}
- 	\label{fig:outgoing}
-\end{minipage}
-\end{figure*}
+% \begin{figure*}[bt]
+% \begin{minipage}[t]{0.49\textwidth}
+% 	\centering
+% 	\includegraphics[width=\textwidth]{aslevel/p2p/results/figs/hops}
+%  	\caption{Distribution of AS path lengths weighted by the amount of traffic.}
+%  	\label{fig:CDF_hops}
+% \end{minipage}
+% \hspace{0.01\textwidth}
+% \begin{minipage}[t]{0.49\textwidth}
+% 	\centering
+% 	\includegraphics[width=\textwidth]{aslevel/p2p/results/figs/outgoing}
+%  	\caption{Total outgoing AS traffic for different peer selection strategies.}
+%  	\label{fig:outgoing}
+% \end{minipage}
+% \end{figure*}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.49\textwidth]{aslevel/p2p/results/figs/outgoing_CDF}
- 	\caption{CDF of the outgoing AS traffic grouped by AS size.}
- 	\label{fig:outgoing_CDF}
+\begin{figure}[bt]
+\centering
+	\includegraphics[width=0.5\textwidth]{aslevel/p2p/methodology/figs/npeers_perTier}
+ 	\caption{Ratio of peers per ISP class aggregated over all swarms in the measurement set.}
+ 	\label{fig:npeers_perTier}
+\end{figure}
+
+\begin{figure}[bt]
+\centering
+	\includegraphics[width=0.7\textwidth]{aslevel/p2p/methodology/figs/CDF_npeers_perswarm}
+	\caption{CDF of the number of peers per swarm depending on the different ISP classes.}
+	\label{fig:CDF_npeers_perswarm}
+\end{figure}
+
+\begin{figure}[bt]
+\centering
+	\includegraphics[width=0.7\textwidth]{aslevel/p2p/methodology/figs/CDF_maxpeers_perswarm_perAS}
+	\caption{CDF of the maximum number of peers in same AS per swarm depending on the tier.}
+	\label{fig:CDF_maxpeers_perswarm_perAS}
 \end{figure}
 
 In this section we present the numerical results obtained by applying our methodology to the measurement data and describe their importance for ISPs. First we show how the peers are distributed over the different ASs. Then we characterize the traffic emerged by BitTorrent swarms and investigate the impact of locality and selfish-ISP peer selection algorithm. Finally, we estimate the transit costs arising by the BitTorrent swarms and investigate the potential of ISPs to maximize their balance by the peer selection algorithms.
 
 \subsubsection{Distribution of Peers in the Internet Hierarchy}
+
 In the following we describe how peers of BitTorrent swarms are distributed over the Internet.
 Figure~\ref{fig:npeers_perTier} shows the distribution of peers over the different tiers. The peers of all torrents are considered. Most of the peers are in large ISP ASs, where \unit[40]{\%} of all peers are located. In small ISP and stub ASs a similar amount of \unit[29]{\%} and \unit[31]{\%} of the peers is located, respectively. Only very few peers are located in \tier ASs, which is less than \unit[1]{\%} of all peers in all swarms. Hence, the access to peers by \tier ASs is negligible. That means that \tier ASs barely have an impact on ALTO mechanisms that control only the peers of the own AS.
 
 Figure~\ref{fig:CDF_npeers_perswarm} shows the cumulative distribution function (CDF) of peers per swarm. We summed up the number of peers being in the same tier for each swarm and calculated the CDF. The probability that at least one peer in a small ISP is existing in a swarm is highest. Only about \unit[2]{\%} of the swarms do not contain any small ISP peer. About \unit[57]{\%} of the swarms contain stub AS peers and more than \unit[60]{\%} contain peers from large ISPs. The probability to find more than one peer of non \tier ASs is about \unit[45]{\%} for small ISPs and a bit higher for large ISPs and stub ASs. There are less than \unit[10]{\%} of the swarms which contain a peer from \tier. Finding more than one peer of \tier ASs in one swarm is very unlikely. Few swarms have a very large number of peers, with the maximum of \np{9467} peers of one distributed over all large ISPs.
-
-\begin{figure}[bt]
-	\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-	  \includegraphics[width=\textwidth]{aslevel/p2p/results/figs/costs_CDF}
-    \caption{Costs}
-    \label{fig:costs_CDF}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.49\textwidth}
-	  \includegraphics[width=\textwidth]{aslevel/p2p/results/figs/revenues_CDF}
-    \caption{Revenues}
- 	 	\label{fig:revenues_CDF}
-	\end{subfigure}
- 	\caption{Cumulative probability of transit costs (left) and revenues (right) normalized by the overall revenue for random peer selection grouped by AS size.}
-\end{figure}
-
-\begin{figure}[bt]
-	\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-	  \includegraphics[width=\textwidth]{aslevel/p2p/results/figs/total_balance}
-    \caption{Balance}
-    \label{fig:total_balance}
-  \end{subfigure}
-	\begin{subfigure}[b]{0.49\textwidth}
-	 	\includegraphics[width=\textwidth]{aslevel/p2p/results/figs/savings}
-    \caption{Savings}
-    \label{fig:savings}
-	\end{subfigure}
-	\caption{Total balance of transit costs (left) and total savings over random selection (right) normalized by the overall revenue for random peer selection.}
-\end{figure}
 
 % \begin{figure}[bt]
 % 	\centering
@@ -115,6 +100,27 @@ In this subsection we characterize the traffic produced by BitTorrent swarms. Fu
 First we look at the traffic characteristics of the standard BitTorrent algorithm and in the following we compare the different selection strategies.
 The number of AS hops is the number of ASs on the AS path connecting two peers without regarding the source AS. The number of hops are weighted by $L(\alpha,\beta)$, i.e. the amount of traffic and the number of concurring AS paths, see \refequ{equ:linkload}. Figure~\ref{fig:CDF_hops} shows the amount of traffic on AS paths with length in AS hops for the different selection strategies. The median is about 2 AS hops if peers are selected randomly. Most traffic is on paths with two or three AS hops without selection strategy. Paths are up to 10 AS hops in the investigated swarms.
 
+\begin{figure}[bt]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aslevel/p2p/results/figs/hops}
+ 	\caption{Distribution of AS path lengths weighted by the amount of traffic.}
+ 	\label{fig:CDF_hops}
+\end{figure}
+
+\begin{figure}[bt]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aslevel/p2p/results/figs/outgoing}
+ 	\caption{Total outgoing AS traffic for different peer selection strategies.}
+ 	\label{fig:outgoing}
+\end{figure}
+
+\begin{figure}[bt]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aslevel/p2p/results/figs/outgoing_CDF}
+ 	\caption{CDF of the outgoing AS traffic grouped by AS size.}
+ 	\label{fig:outgoing_CDF}
+\end{figure}
+
 % \begin{figure}[bt]
 % 	\centering
 % 	\includegraphics[width=\figwidth\textwidth]{figs/CDF_hops.eps}
@@ -146,28 +152,59 @@ Figure~\ref{fig:outgoing} depicts the outgoing traffic for the different selecti
 Figure~\ref{fig:outgoing_CDF} shows the cumulative distribution function of the outgoing AS traffic grouped by the AS type. The outgoing traffic is normalized by the overall outgoing AS traffic of the random peer selection strategy. AS mention before \tier ASs have most outgoing traffic on a per AS basis. Further on we observe that the outgoing traffic decreASs with size of the AS. Also noticeable is that with the locality peer selection algorithm we get less outgoing traffic, especially for large ISPs. The difference is not very big for a single AS, but the large number of ASs makes a big difference in the total outgoing AS traffic.
 
 \subsubsection{Transit Costs}
-Now we estimate the transit costs emerged by BitTorrent traffic for the different ISPs and show the potential to save costs and maximize revenues of the peer selection algorithms. We use the overall revenues for random selection, i.e., the sum of total revenues of all AS types, to normalize the values derived in this section. As the overall total balance is zero, the overall total revenues equal the overall total costs.
+
+We estimate the transit costs emerged by BitTorrent traffic for the different ISPs and show the potential to save costs and maximize revenues of the peer selection algorithms. We use the overall revenues for random selection, i.e., the sum of total revenues of all AS types, to normalize the values derived in this section. As the overall total balance is zero, the overall total revenues equal the overall total costs.
 As described in \refsec{sec:p2p:methodology} every customer/provider AS $\alpha$ on an AS path connecting peers is charged by $\pm L(\alpha,\beta)$.
+
+\begin{figure}[bt]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aslevel/p2p/results/figs/costs_CDF}
+ 	\caption{Cumulative probability of normalized transit costs for different peer selection strategies. The transit costs are grouped by AS types.}
+ 	\label{fig:costs_CDF}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{aslevel/p2p/results/figs/revenues_CDF}
+ 	\caption{Cumulative probability of normalized revenues for different peer selection strategies. The revenues are grouped by AS types.}
+ 	\label{fig:revenues_CDF}
+\end{figure}
+
 
 Figure~\ref{fig:costs_CDF} shows the cumulative distribution function of transit costs, as calculated in \refequ{equ:costs}, for the ASs grouped by AS types. Hence, the amount ASs pay providers for transit services. The costs are normalized by the overall revenues of random selection. \tier ASs do not have providers and therefore no transit costs. Local peer selection reduces the transit costs, regarding the overall distribution of costs, for all non \tier AS types. Costs of large ASs, i.e., ASs that have many customers and forward a lot of traffic, tend be higher.
 
 % \begin{figure}[bt]
 % 	\centering
-% 	\includegraphics[width=\figwidth\textwidth]{figs/costs_CDF.eps}
-%  	\caption{Cumulative probability of transit costs for different peer selection strategies. The transit costs are grouped by AS types. The overall revenues for random selection are used for normalization.}
-%  	\label{fig:costs_CDF}
-% \end{figure}
-
-% \begin{figure}[bt]
-% 	\centering
-% 	\includegraphics[width=\figwidth\textwidth]{figs/revenues_CDF.eps}
-%  	\caption{Cumulative probability of revenues for different peer selection strategies. The revenues are grouped by AS types. The overall revenues for random selection are used for normalization.}
-%  	\label{fig:revenues_CDF}
+% 	\begin{subfigure}[b]{0.49\textwidth}
+% 	  \includegraphics[width=\textwidth]{aslevel/p2p/results/figs/costs_CDF}
+%     \caption{Costs}
+%     \label{fig:costs_CDF}
+% 	\end{subfigure}
+% 	\begin{subfigure}[b]{0.49\textwidth}
+% 	  \includegraphics[width=\textwidth]{aslevel/p2p/results/figs/revenues_CDF}
+%     \caption{Revenues}
+%  	 	\label{fig:revenues_CDF}
+% 	\end{subfigure}
+%  	\caption{Cumulative probability of transit costs (left) and revenues (right) normalized by the overall revenue for random peer selection grouped by AS size.}
 % \end{figure}
 
 Figure~\ref{fig:revenues_CDF} shows the cumulative probability of revenues, see \refequ{equ:revenues}, of the ASs grouped by AS type. \Tier ASs achieve highest revenues. They have the largest customer tree which pay for transit services. ASs with a smaller customer tree get less revenues. The difference between the selection strategies is small for every single AS, but the large number of ASs makes a big difference in the total revenues and further total balance, as we explain in the next paragraph. However, we observe that stub ASs, small and large ISPs tend to have lower revenues using locality selection compared to random selection. In contrast revenues increase with higher probability for selfish-ISP selection in large intervals, in particular from $10^{-8}$ to $10^{-4}$ for stub and small ISPs. This was the aim of the selfish-ISP selection strategy. \Tier ISPs are loosing revenues if selection strategies are used. Hence, peer-to-peer guidance and selfish-ISP selection are not beneficial for \tier.
 
-The total balance over all measured BitTorrent swarms is calculated by subtracting costs from revenues of each AS. Figure~\ref{fig:total_balance} depicts the total balance depending on the AS size. The total balance is normalized by the overall revenues of random selection. The balance is calculated for the standard BitTorrent peer selection, the locality-aware and selfish strategy.
+\begin{figure}[bt]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aslevel/p2p/results/figs/total_balance}
+ 	\caption{Total balance of transit costs and revenues normalized by the overall revenue for random peer selection.}
+ 	\label{fig:total_balance}
+\end{figure}
+
+\begin{figure}[bt]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aslevel/p2p/results/figs/savings}
+ 	\caption{Total savings of locality and selfish-ISP selection strategy over random peer selection normalized by the overall revenue for random selection.}
+ 	\label{fig:savings}
+\end{figure}
+
+The total balance overall measured BitTorrent swarms is calculated by subtracting costs from revenues of each AS. Figure~\ref{fig:total_balance} depicts the total balance depending on the AS size. The total balance is normalized by the overall revenues of random selection. The balance is calculated for the standard BitTorrent peer selection, the locality-aware and selfish strategy.
 For all three strategies, \tier and large ISPs have a positive balance and small ISP and stub ASs have a negative balance. This corresponds to the expectation, because \tier and large ISPs have many customers whereas small ISPs and stub ASs have many providers. Hence, small ASs have to pay for the transit provided by large ASs.
 
 To highlight the effect of the peer selection strategies on the balance of the ASs, we investigate the savings over random selection.
@@ -176,17 +213,19 @@ Figure~\ref{fig:savings} shows the savings over random selection achieved by usi
 
 % \begin{figure}[bt]
 % 	\centering
-% 	\includegraphics[width=\figwidth\textwidth]{figs/total_balance.eps}
-%  	\caption{Total balance of transit costs and revenues normalized by the overall revenue for random peer selection.}
-%  	\label{fig:total_balance}
+% 	\begin{subfigure}[b]{0.49\textwidth}
+% 	  \includegraphics[width=\textwidth]{aslevel/p2p/results/figs/total_balance}
+%     \caption{Balance}
+%     \label{fig:total_balance}
+%   \end{subfigure}
+% 	\begin{subfigure}[b]{0.49\textwidth}
+% 	 	\includegraphics[width=\textwidth]{aslevel/p2p/results/figs/savings}
+%     \caption{Savings}
+%     \label{fig:savings}
+% 	\end{subfigure}
+% 	\caption{Total balance of transit costs (left) and total savings over random selection (right) normalized by the overall revenue for random peer selection.}
 % \end{figure}
 
-% \begin{figure}[bt]
-% 	\centering
-% 	\includegraphics[width=\figwidth\textwidth]{figs/savings.eps}
-%  	\caption{Total savings of locality and selfish-ISP selection strategy over random peer selection. The savings are normalized by the overall revenue for random selection.}
-%  	\label{fig:savings}
-% \end{figure}
 
 The only way to increase the prospect on higher profit for large ISPs is using the selfish strategy. But also small ISPs have a high potential to maximize their revenues being selfish. Thus, large and small ISPs are in a win-win situation, because they can connect to their plenty customers and do not have to pay for transit services by avoiding connections to providers. This is where \tier ASs loose, because less of the ISPs use them as provider in the selfish strategy. Thus, a \tier AS cannot be more selfish than in the random selection strategy. Having only few or no customers, stub ASs have poor capabilities to be selfish but avoiding providers also gives them a small advantage over random selection.
 
