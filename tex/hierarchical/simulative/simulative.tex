@@ -95,18 +95,26 @@ Finally, Simulation parameters are specified that define the random number seed,
 
 \subsubsection{Performance metrics}
 
+Of the total number of $n$ object requests to a cache, the objects of $k$ requests are stored in the cache and can potentially be served by the cache.
+Due to bandwidth constraints some of the $k$ requests may be blocked, such that only $k'\leq k$ of the $n$ object requests are served by the cache.
 To assess the performance of content delivery networks several metrics are considered:
 
 \begin{enumerate}
-\item Cache hit rate: The ratio of requests to a cache that find the object in the cache (cache hit).
-\item Cache serve rate: The ratio of requests to a cache that find the object in the cache and that are not blocked due to bandwidth constraints.
+\item Cache hit rate $p_\text{hit}$: The ratio of requests to a cache that find the object in the cache (cache hit) to the total number of requests to the cache.
+\begin{equation}
+  p_\text{hit}=\frac{k}{n}
+\end{equation}
+\item Cache serve rate $p_\text{serve}$: The ratio of requests to a cache that find the object in the cache and that are not blocked due to bandwidth constraints to the total number of requests to the cache.
+\begin{equation}
+  p_\text{serve}=\frac{k'}{n}
+\end{equation}
 \item Cache contribution: The share of all requests that is served by a cache.
 \item Inter-domain traffic: The share of requests by users in an AS that cannot be served by a cache in the same AS.
 \end{enumerate}
 
 \begin{figure}[bt]
   \centering
-  \includegraphics[width=0.6\textwidth]{hierarchical/simulative/figures/watch}
+  \includegraphics[width=0.8\textwidth]{hierarchical/simulative/figures/watch}
   \caption{Proccess diagram of a WATCH event.}
   \label{fig:WATCH}
 \end{figure}

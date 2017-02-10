@@ -10,12 +10,12 @@ We present a representative set of cache eviction policies and provide an overvi
 %Addressing content instead of physical servers allows utilizing local resources.
 %To enable addressing, content is identified with unique names.
 %Available storage in routers is used to cache content in these approaches.
-Modern content delivery networks use a tree like structure of content caches to delivery content efficiently.
+Modern content delivery networks use a tree like structure of content caches to deliver content efficiently.
 Since the tree like structure of caches spreads on the way to the end user, the content replication scales with the content demand.
 
 \begin{figure}[tb]
 \centering
-\includegraphics[width=75mm]{hierarchical/analyticbw/figures/hcmodeln1}
+\includegraphics[width=0.9\textwidth]{hierarchical/analyticbw/figures/hcmodeln1}
 \caption{System model.}
 \label{fig:hcmodel}
 \end{figure}
@@ -106,7 +106,7 @@ To account for temporal locality the request process can be modeled as renewal p
 In the renewal traffic model the request process for every content $m$ is described by an independent process with assigned inter-request time distribution.
 In this case the request process for each content is stationary.
 
-Stationary request processes also mean a static content popularity, which is a very strong assumption.
+Stationary request processes also result in a static content popularity, which is a very strong assumption.
 In practice the popularity of contents to be cached can be extremely dynamic over time.
 In modern content delivery networks, such as YouTube, a high number of new contents is uploaded every single day.
 While some contents are active only a few days after publishing, e.g. news, other contents, such as songs, remain popular over a long period of time.
@@ -170,7 +170,7 @@ The following replication strategies for cache networks decide how the object is
 A vast amount of studies on performance models for hierarchical caching systems have been conducted recently.
 \reftab{tab:litoverview} gives an overview on the literature on performance evaluation of caching systems.
 The table shows different categories, considering the caching strategy, the cache topology, the request processes, caching constraints and the methods used for performance evaluation and optimization.
-In the following we describe the performance models into more detail.
+In the following we describe the performance models in more detail.
 
 % \begin{sidewaystable}
 %   \centering
@@ -258,6 +258,7 @@ In \cite{leconte2016dynamic} the analysis under SNM traffic is further extended 
 
 The analytic models described above do not consider the service time of requests, which is limited by the bandwidth of the uplink of the cache.
 In this monograph we consider a tiered caching architecture, where the upload bandwidth of the caches is highly limited.
+In order to evaluate hierarchical caching systems for different content demand models considering social and temporal dynamics, different caching and resource selection policies, we develop a simulation framework, which is described in detail in \refsec{sec:hierarchical:simulative:simulative}.
 %A limited bandwidth or service time of the caches is not considered in any of the above analytic models.
 The paper closest to this works is \cite{valancius2009greening}, which proposes the NaDa approach and develops an optimal content placement on NaDas.
 The performance of the approach is evaluated with traces only.
@@ -267,8 +268,8 @@ The exact stationary distribution of the loss network is too complex to evaluate
 In \cite{tan2013optimal} the system is analyzed under large system asymptotics where the number of NaDas goes to infinity and simplifications occur.
 
 In order to evaluate the system for a finite number of NaDas, we use a different approach by approximating the arrival rate of requests.
-This allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss network.
+This allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss network, c.f., \refsec{sec:hierarchical:analyticbw:model}.
 %We combine the
 
-To optimize the content placement adaptively \cite{leconte2014adaptive} propose Least-Recently-Lost (LRL) replacement, which tries to optimize the loss rate in the first tier.
+To optimize the content placement adaptively, \cite{leconte2014adaptive} propose Least-Recently-Lost (LRL) replacement, which tries to optimize the loss rate in the first tier.
 A different approach is proposed by \cite{zhou2015unifying} which allocates bandwidth resources instead of content copies proportionally to the content popularity.

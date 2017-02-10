@@ -2,7 +2,7 @@
 
 To evaluate the performance of a CDN supported by home routers, two scenarios are simulated. The first scenario simulates requests to a CDN with caches organized in a tree structure and compares isolated caches to cooperating caches to assess the benefit of the overlay.
 The second scenario adds an AS topology with peering and transit links to evaluate the inter-domain traffic saving potential.
-As described in \refchap{chap:aslevel} a transit link exists between a customer ISP and its transit provider, if the customer ISP pays the transit provider to forward its traffic destined to parts of the Internet that the customer ISP does not own or cannot reach.
+As described in \refchap{chap:aslevel}, a transit link exists between a customer ISP and its transit provider, if the customer ISP pays the transit provider to forward its traffic destined to parts of the Internet that the customer ISP does not own or cannot reach.
 
 %\subsection{Caching}
 % To assess the impact of the number of shared home routers and the size of the ISP, a tiered caching architecture with resource locations at three different tiers, including the main data center of the content provider, CDN caches, and end-user equipment is evaluated.
@@ -13,27 +13,48 @@ We evaluate the performance dependent on the autonomous system size $n_\text{use
 
 \subsubsection{Benefits of an Overlay}
 
-To evaluate the performance of the overlay, two cases are considered (a) the tree case and (b) the overlay case. In the tree case (a), each user is assigned to one shared HR in its AS. If a user shares its HR, it is assigned only to its HR. A requested item is looked up in the assigned HR initially, i.e. in the tier-3 cache. If the requested item is not found, the request is forwarded to the next tier. The hierarchic caching strategy is leave-copy-everywhere, which means that the video is cached in each cache on the look up path. In the overlay case (b), a requested item is looked up in the HR of the user, if it is not found, it is looked up in shared HRs in the same autonomous system using the overlay. If no tier-3 cache in the AS contains the item it is looked up in tier-2 caches and finally in the data center of the content provider. The hierarchic caching strategy is leave-copy-everywhere, too, with the constraint, that the item is cached in the tier-3 cache only, which was looked up first.
+To evaluate the performance of the overlay, two cases are considered (a) the tree case and (b) the overlay case. In the tree case (a), each user is assigned to one shared HR in its AS. If a user shares its HR, it is assigned only to its HR. A requested item is looked up in the assigned HR initially, i.e. in the tier-3 cache. If the requested item is not found, the request is forwarded to the next tier. The hierarchical caching strategy is leave-copy-everywhere, which means that the video is cached in each cache on the look up path. In the overlay case (b), a requested item is looked up in the HR of the user, if it is not found, it is looked up in shared HRs in the same autonomous system using the overlay. If no tier-3 cache in the AS contains the item it is looked up in tier-2 caches and finally in the data center of the content provider. The hierarchical caching strategy is leave-copy-everywhere, too, with the constraint, that the item is cached in the tier-3 cache only, which was looked up first.
 
-\begin{figure*}[tb]
-\centering
-\begin{subfigure}[t]{0.49\textwidth}
-\includegraphics[width=\textwidth]{hierarchical/simulative/figures/overlay_nuser_hitrate}
-\caption{Hit rate of the overlay}
-\label{fig:overlay_nuser_hitrate}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\textwidth}
-\includegraphics[width=\textwidth]{hierarchical/simulative/figures/overlay_nuser_ISPcontrib}
-\caption{ISP cache contribution}
-\label{fig:overlay_nuser_ISPcontrib}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\textwidth}
-\includegraphics[width=\textwidth]{hierarchical/simulative/figures/overlay_interdomain}
-\caption{Inter-domain traffic}
-\label{fig:overlay_interdomain}
-\end{subfigure}
-\caption{Overlay and ISP cache contribution and inter-domain traffic dependent on home router sharing probability.}
-\end{figure*}
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{hierarchical/simulative/figures/overlay_nuser_hitrate}
+  \caption{Hit rate of the overlay dependent on home router sharing probability.}
+  \label{fig:overlay_nuser_hitrate}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{hierarchical/simulative/figures/overlay_nuser_ISPcontrib}
+  \caption{ISP cache contribution dependent on home router sharing probability.}
+  \label{fig:overlay_nuser_ISPcontrib}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{hierarchical/simulative/figures/overlay_interdomain}
+  \caption{Inter-domain traffic dependent on home router sharing probability.}
+  \label{fig:overlay_interdomain}
+\end{figure}
+
+% \begin{figure*}[tb]
+% \centering
+% \begin{subfigure}[t]{0.49\textwidth}
+% \includegraphics[width=\textwidth]{hierarchical/simulative/figures/overlay_nuser_hitrate}
+% \caption{Hit rate of the overlay}
+% \label{fig:overlay_nuser_hitrate}
+% \end{subfigure}
+% \begin{subfigure}[t]{0.49\textwidth}
+% \includegraphics[width=\textwidth]{hierarchical/simulative/figures/overlay_nuser_ISPcontrib}
+% \caption{ISP cache contribution}
+% \label{fig:overlay_nuser_ISPcontrib}
+% \end{subfigure}
+% \begin{subfigure}[t]{0.49\textwidth}
+% \includegraphics[width=\textwidth]{hierarchical/simulative/figures/overlay_interdomain}
+% \caption{Inter-domain traffic}
+% \label{fig:overlay_interdomain}
+% \end{subfigure}
+% \caption{Overlay and ISP cache contribution and inter-domain traffic dependent on home router sharing probability.}
+% \end{figure*}
 
 As the goal of this evaluation is to assess the potential of the overlay and to identify success scenarios, the simulation model assumes that the upload rate of caches is unlimited. However, in practice the upload rate limits the number of requests that can be served by a cache, especially for smaller devices like HRs. The evaluation uses a static and global popularity distribution. In practice the item request process is dynamic and dependent on personal and regional preferences.
 The simulation uses a catalog size of $N=10^6$. The results obtained show the average of ten simulation runs with $10^6$ requests and their respective 95\% confidence intervals.
@@ -91,25 +112,46 @@ If an item is not found on enabled HRs in the same AS, it is requested from othe
 	\item content provider
 \end{enumerate}
 
-\begin{figure*}[ht]
-\centering
-\begin{subfigure}[t]{0.49\textwidth}
-\includegraphics[width=\textwidth]{hierarchical/simulative/figures/RBHlocal}
-\caption{Share of requests served locally}
-\label{fig:RBHlocal}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\textwidth}
-\includegraphics[width=\textwidth]{hierarchical/simulative/figures/ISPcontrib}
-\caption{ISP cache contribution}
-\label{fig:ISPcontrib}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\textwidth}
-\includegraphics[width=\textwidth]{hierarchical/simulative/figures/RBHall}
-\caption{Share of requests served per domain}
-\label{fig:RBHall}
-\end{subfigure}
-\caption{Share of requests served locally and ISP cache contribution dependent on sharing probability and share of requests served per domain.}
-\end{figure*}
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{hierarchical/simulative/figures/RBHlocal}
+  \caption{Share of requests served locally dependent on sharing probability.}
+  \label{fig:RBHlocal}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{hierarchical/simulative/figures/ISPcontrib}
+  \caption{ISP cache contribution dependent on sharing probability.}
+  \label{fig:ISPcontrib}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{hierarchical/simulative/figures/RBHall}
+  \caption{Share of requests served per domain.}
+  \label{fig:RBHall}
+\end{figure}
+
+% \begin{figure*}[ht]
+% \centering
+% \begin{subfigure}[t]{0.49\textwidth}
+% \includegraphics[width=\textwidth]{hierarchical/simulative/figures/RBHlocal}
+% \caption{Share of requests served locally}
+% \label{fig:RBHlocal}
+% \end{subfigure}
+% \begin{subfigure}[t]{0.49\textwidth}
+% \includegraphics[width=\textwidth]{hierarchical/simulative/figures/ISPcontrib}
+% \caption{ISP cache contribution}
+% \label{fig:ISPcontrib}
+% \end{subfigure}
+% \begin{subfigure}[t]{0.49\textwidth}
+% \includegraphics[width=\textwidth]{hierarchical/simulative/figures/RBHall}
+% \caption{Share of requests served per domain}
+% \label{fig:RBHall}
+% \end{subfigure}
+% \caption{Share of requests served locally and ISP cache contribution dependent on sharing probability and share of requests served per domain.}
+% \end{figure*}
 
 A policy designed to prioritize ISP caches to remote HRs did not have a significant impact on traffic savings.
 %The capacity of ISP caches $C_\text{ISP}=\{0.001,0.01\}$ is relative to the catalogue size.

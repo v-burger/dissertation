@@ -12,28 +12,17 @@ The number of tier-1 caches is $n_1=1e4$, each having a capacity of $C_1=8$.
 There is one tier-2 cache with default capacity $C_2=1e4$.
 The tier-1 cache upload bandwidth is limited to $0.8\text{Mbps}$, whereas the tier-2 cache has unlimited upload bandwidth.
 
-%\begin{itemize}
-%	\item Methodology
-%	\item Performance metrics \\
-%    - cache capacity of ISP cache necessary to replace home routers
-%	\item Results
-%  \item upper bound wrt uploadrate optimal case, always hit in tier 2
-%  \item Optimal strat dependent on AS size and HG capacity
-%  \item Optimization -> LCP with P ~ overlay distribution
-%   \item request rate proportional AS size -> HWC
-%\end{itemize}
-
-\begin{figure*}[bt]
-\begin{minipage}[t]{0.49\textwidth}
+\begin{figure*}[!tb]
+\begin{minipage}[t]{\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_CISP0}
+  \includegraphics[width=0.7\textwidth]{hierarchical/analyticbw/figures/hwc_CISP0}
   \caption{Comparison of cache hit rate for optimal placement with LRU policy.}
   \label{fig:hwc_CISP0}
 \end{minipage}
-\hspace{0.01\textwidth}
-\begin{minipage}[t]{0.49\textwidth}
+%\hspace{0.01\textwidth}
+\begin{minipage}[t]{\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_l1C8_C2}
+  \includegraphics[width=0.7\textwidth]{hierarchical/analyticbw/figures/hwc_l1C8_C2}
   \caption{Cache hit rate dependent on the number of tier-1 caches for different tier-2 cache capacities.}
   \label{fig:hwc_l1C8_C2}
 \end{minipage}
@@ -45,6 +34,31 @@ The tier-1 cache upload bandwidth is limited to $0.8\text{Mbps}$, whereas the ti
 %   \label{fig:hwc_C8C1e3_l}
 % \end{minipage}
 \end{figure*}
+
+%\begin{itemize}
+%	\item Methodology
+%	\item Performance metrics \\
+%    - cache capacity of ISP cache necessary to replace home routers
+%	\item Results
+%  \item upper bound wrt uploadrate optimal case, always hit in tier 2
+%  \item Optimal strat dependent on AS size and HG capacity
+%  \item Optimization -> LCP with P ~ overlay distribution
+%   \item request rate proportional AS size -> HWC
+%\end{itemize}
+
+% \begin{figure}[tb]
+%   \centering
+%   \includegraphics[width=0.7\textwidth]{hierarchical/analyticbw/figures/hwc_CISP0}
+%   \caption{Comparison of cache hit rate for optimal placement with LRU policy.}
+%   \label{fig:hwc_CISP0}
+% \end{figure}
+%
+% \begin{figure}[tb]
+%   \centering
+%   \includegraphics[width=0.7\textwidth]{hierarchical/analyticbw/figures/hwc_l1C8_C2}
+%   \caption{Cache hit rate dependent on the number of tier-1 caches for different tier-2 cache capacities.}
+%   \label{fig:hwc_l1C8_C2}
+% \end{figure}
 
 % \begin{figure}[tb]
 % \centering
@@ -65,21 +79,35 @@ The tier-1 cache upload bandwidth is limited to $0.8\text{Mbps}$, whereas the ti
 % \label{fig:hwc_C8C1e3_l}
 % \end{figure}
 
-\begin{figure*}[bt]
-\begin{minipage}[t]{0.49\textwidth}
+\begin{figure}[tb]
   \centering
-  \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_C8C1e3_l0}
+  \includegraphics[width=0.7\textwidth]{hierarchical/analyticbw/figures/hwc_C8C1e3_l0}
   \caption{Cache hit rate dependent on the number of tier-1 caches for varying request rates $\lambda$.}
   \label{fig:hwc_C8C1e3_l}
-\end{minipage}
-\hspace{0.01\textwidth}
-\begin{minipage}[t]{0.49\textwidth}
+\end{figure}
+
+\begin{figure}[tb]
   \centering
-  \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_C8l100_gain}
+  \includegraphics[width=0.7\textwidth]{hierarchical/analyticbw/figures/hwc_C8l100_gain}
   \caption{Impact of the upload bandwidth $\rho_1$ on the cache hit rate gain $\omega$.}
   \label{fig:hwc_C8l100_gain}
-  \end{minipage}
-\end{figure*}
+\end{figure}
+
+% \begin{figure*}[bt]
+% \begin{minipage}[t]{0.49\textwidth}
+%   \centering
+%   \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_C8C1e3_l0}
+%   \caption{Cache hit rate dependent on the number of tier-1 caches for varying request rates $\lambda$.}
+%   \label{fig:hwc_C8C1e3_l}
+% \end{minipage}
+% \hspace{0.01\textwidth}
+% \begin{minipage}[t]{0.49\textwidth}
+%   \centering
+%   \includegraphics[width=\textwidth]{hierarchical/analyticbw/figures/hwc_C8l100_gain}
+%   \caption{Impact of the upload bandwidth $\rho_1$ on the cache hit rate gain $\omega$.}
+%   \label{fig:hwc_C8l100_gain}
+%   \end{minipage}
+% \end{figure*}
 
 We first consider a scenario without tier-2 cache.
 In this case the caching architecture only consists of tier-1 caches.
