@@ -1,7 +1,7 @@
 \chapter{Characterization of Content Delivery Networks on Autonomous System Level}\label{chap:aslevel}
 
 In the last decade content delivery has shifted from the host-centric to the information-centric network (ICN) paradigm.
-To enable efficient traffic management, ICN suggests the addressing of content.
+To enable efficient traffic management, ICN suggests addressing of content.
 Addressing content instead of physical hosts allows utilizing local resources.
 To enable addressing, ICN implements naming of information (or content) with unique identifiers.
 This allows caching content in the network on available storage on routers.
@@ -9,7 +9,7 @@ Since the tree-like structure of the routers unfolds on the path to the end user
 
 %To deliver content, it has to be transported from storage resources to clients that consume the content.
 %The two most important content delivery concepts in the Internet are peer-to-peer (P2P) networks and content delivery networks (CDNs).
-While in the past a large fraction of the total Internet traffic was carried by peer-to-peer (P2P) networks \cite{Cisc09}, the largest fraction of Internet traffic is now carried by content delivery networks (CDNs) \cite{cisco2016}, which realize the ICN paradigm.
+While in the past a large fraction of the total Internet traffic was carried by peer-to-peer (P2P) networks \cite{Cisc09}, the largest fraction of Internet traffic is now carried by content delivery networks (CDNs) \cite{cisco2016}, which follow the ICN paradigm.
 %In 2015, 61\% of all Internet video was carried by CDNs \cite{cisco2016}.
 
 %\reffig{fig:aslevel:p2pcdn} shows the AS topology for a P2P network, and a CDN.
@@ -58,14 +58,13 @@ The models derived are used for traffic characterization and to develop optimiza
 %In content delivery networks the resources are content caches that run in data centers. To get content even closer to users caches can also be installed at the last mile or on customer premise equipment in home networks.
 
 % details, figure
-In order to characterize P2P networks on AS level,
-we analyze a measurement study and identify the number of peers per swarm available in each AS and investigate the performance of different peer selection strategies.
+In order to characterize P2P networks on AS level, we analyze a measurement study and identify the number of peers per swarm available in each AS and investigate the performance of different peer selection strategies.
 % we consider + metrics
 As key performance indicators we determine the traffic volume and the traffic costs of ISPs.
 
-To characterize CDNs on AS level, a distributed measurement architecture is necessary to identify the server resources, due to the location based server assignment of CDNs.
+For the characterization of CDNs on AS level, a distributed measurement architecture is necessary to identify the server resources, due to the location based server assignment of CDNs.
 %While peers in P2P networks can easily be identified by probing trackers, the cache resources of CDNs can only be determined by probing the CDN from different locations.
-Typically distributed measurement platforms such as PlanetLab are used for that purpose.
+Typically, distributed measurement platforms such as PlanetLab are used for that purpose.
 The problem is that these measurement platforms may not reflect the perspective as consumer, since they are hosted in National Research and Education Networks (NRENs) and not in ISP networks.
 We compare the capabilities of a crowdsourcing platform and a PlanetLab testbed for distributed active measurements of CDNs.
 %In order to characterize the distribution of resources in content delivery networks, simple tracking is not possible, since no publicly available registers exist.

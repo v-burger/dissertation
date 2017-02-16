@@ -20,7 +20,7 @@ ISPs aim to provide reliable and high speed Internet access, but try to keep the
 %However, in today's Internet the inter-ISP traffic routing is based on a complex topology defined by inter-ISP relationships, e.g., peering or customer-to-provider, and ISP classifications such as \tier, large and small ISPs, and stub ISPs. Hence, these economic relations play an important role in the actual Internet traffic flow. However, this topology of the Internet is not taken into account by most evaluations of P2P guidance approaches, which limits the practical relevance of the results. Furthermore, it is an open question how much BitTorrent traffic is located in which region of the Internet. However, this is a prerequisite in order to estimate the potential of ALTO mechanisms.
 %Therefore in this thesis, we model
 
-In today's Internet new challenges arise in mobile networks.
+While CDNs are able to handle the huge traffic volume of highly demanded services, such as Internet video, new challenges arise in mobile networks in today's Internet.
 The increasing number of mobile devices such as smart phones and tablets, high definition video content and high resolution displays result in a continuous growth in mobile traffic.
 This growth in mobile traffic is further accelerated by newly emerging services, such as mobile live streaming and broadcasting services.
 The steep increase in mobile traffic is expected to reach by 2018 roughly 60\% of total network traffic \cite{cisco2016}, the majority of which will be video.
@@ -30,7 +30,7 @@ To handle the growth in mobile networks, the next generation of 5G mobile networ
 With the explosion of access rates and number of base stations the backhaul of wireless networks will become congested \cite{paschos2016wireless}.
 To reduce the load on the backhaul the research community suggests to install caches in gateway routers between the wireless network and the Internet, in base stations of different sizes (small or regular size cells), and in end-user devices.
 A recent approach \cite{valancius2009greening} proposes to augment spare capacities on customer premise equipment (CPE) such as home gateways or nano data-centers (NaDas) to assist content delivery, showing that there is a high potential to save energy, although the capacity of home gateways is small and the uplink is limited.
-The content is transported in a peer-to-peer manner keeping the traffic within the autonomous system (AS).
+The content is transported in a peer-to-peer manner keeping the traffic within the autonomous system (AS), i.e., the ISPs network.
 The caches are organized in a hierarchy, where caches in the lowest tier are requested first and the request is forwarded to the next tier, if the requested object is not found.
 Another example for a hierarchical caching system with bandwidth constraints are femto caching architectures \cite{golrezaei2013femtocaching}, where content is cached on femto-basestations with small capacity but with considerable storage space.
 The potential of these approaches highly depends on the number of caches available and their capacity for content delivery.
@@ -55,7 +55,8 @@ The first goal is to provide a thorough understanding of the nature of today's c
 This knowledge allows to assess the costs produced by current content delivery approaches and to estimate their optimization potential.
 Furthermore, we use this knowledge to design traffic management mechanisms that reduce costly inter-domain traffic and use spare resources in the backhaul to improve the overall system performance.
 The second goal is to analyze the performance of hierarchical cache networks with limited capacity in order to assess their potential to support content delivery.
-The final objective is to evaluate the performance of backhaul bandwidth aggregation systems.% in heterogeneous load conditions.
+The final objective is to evaluate the performance of backhaul bandwidth aggregation systems.
+% in heterogeneous load conditions.
 A detailed description of the scientific contribution in this monograph is given in the following.
 
 
@@ -69,7 +70,7 @@ An overview of the content of the studies is given and their relations are expla
 \begin{figure}
 \centering
 \includegraphics{figures/publications}
-\caption{Cartography of scientific contributions of the author on performance evaluation of hierarchical content delivery networks. The content of references presented in this monograph is depicted in bold.}\label{fig:introduction:publications}
+\caption{Cartography of scientific contributions of the author on performance evaluation of content delivery networks. The content of references presented in this monograph is depicted in bold.}\label{fig:introduction:publications}
 \end{figure}
 
 \reffig{fig:introduction:publications} classifies the publications according to the investigated topic on the x-axis and the investigation methodology on the y-axis.

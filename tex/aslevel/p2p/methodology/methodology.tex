@@ -87,12 +87,12 @@ The number of peers in the swarm is the swarm size $S$. The number of neighbors 
 N=min(N_{max},S-1) \, .
 \end{equation}
 We add peers to the neighbor set until it contains $N$ neighbors according to the following algorithms.
-\paragraph{random}
+\paragraph{a) random}
 In the random selection strategy we add random $N$ peers of the swarm to the neighbor set. In the standard BitTorrent algorithm the selection of neighbors is also random. Hence, with this selection strategy we try to estimate the traffic and costs produced by the standard BitTorrent algorithm.
-\paragraph{locality}
+\paragraph{b) locality}
 In the locality algorithm we sort the AS paths connecting two peers by the number of AS hops. Then we add the peers according to the sorted set of increasing AS paths until $N$ peers are in the neighbor set. Note, that first the peers located in the same AS, i.e., zero AS hops, are added. This selection algorithm is used to optimize the swarm by minimizing AS hops between peers and thereby potentially reducing latencies. Hence, the motivation for this algorithm is to optimize the swarm from the overlay's point of view.
 In practice, such a selection could be realized e.g. with an \emph{iTracker} \cite{Xie2008}, a database which maps IP-addresses to autonomous system numbers, or other ALTO mechanisms.
-\paragraph{selfish-ISP}
+\paragraph{c) selfish-ISP}
 The selfish-ISP selection algorithm tries to select as many peers from customer ASs as possible. Until the neighbor set contains $N$ peers it first adds peers from paths starting with provider-to-customer links, then peers of the same AS, then paths starting with peering links and finally customer-to-provider links.
 This selection algorithm is used to maximize the revenue of ISPs. This is achieved by the selfish-ISP strategy by selecting preferentially peers that are connected by customers and avoiding peers at providers. In practice an ISP must be able to control the neighbor set. Hence, ALTO mechanisms for selfish-ISP selection must be controllable by the ISP. One approach is that the ISP provides an information service to guide the peer selection, such as an oracle \cite{Aggarwal2007} or an information service \cite{hossfia}.
 

@@ -190,7 +190,8 @@ To identify the distribution of clients on ISPs  and to investigate the expansio
 %  	\label{fig:AS_mw_src}
 %\end{figure}
 
-Figure~\ref{fig:AS_pl_dst} shows the autonomous systems of YouTube servers accessed by PlanetLab nodes.
+%Figure~\ref{fig:AS_pl_dst} shows the autonomous systems of YouTube servers accessed by PlanetLab nodes.
+Figure~\ref{fig:AS_dst} shows the autonomous systems of YouTube servers accessed by PlanetLab and Crowdsourcing nodes.
 The autonomous systems were ranked by the number of YouTube servers located in the AS.
 The empirical probability $P(k)$ that a server belongs to AS with rank $k$ is depicted against the AS rank.
 The number of autonomous systems hosting YouTube servers that are accessed by PlanetLab nodes is limited to less than 30.
@@ -203,20 +204,27 @@ Hence, two thirds of the servers are located in an autonomous systems which is m
 Only few requests are served from datacenters not being located in a Google AS.
 The reason that request from PlanetLab are most frequently served by ASs owned by Google might be a good interconnection of the NRENs to the Google ASs.
 
-\begin{figure}[bt]
-    \centering
-	\begin{subfigure}[t]{0.49\textwidth}
-	\includegraphics[width=\textwidth]{aslevel/crowd/figs/valli_AS_pl_dst.pdf}
-  \caption{PlanetLab}
-	\label{fig:AS_pl_dst}
-  \end{subfigure}
-	\begin{subfigure}[t]{0.49\textwidth}
-	\includegraphics[width=\textwidth]{aslevel/crowd/figs/valli_AS_mw_dst.pdf}
-  \caption{Crowdsourcing}
- 	\label{fig:AS_mw_dst}
-  \end{subfigure}
-    \caption{Distribution of YouTube servers on autonomous systems from a) PlanetLab and b) Crowdsourcing perspective.}
-    \label{fig:AS_dst}
+% \begin{figure}[bt]
+%     \centering
+% 	\begin{subfigure}[t]{0.49\textwidth}
+% 	\includegraphics[width=\textwidth]{aslevel/crowd/figs/valli_AS_pl_dst.pdf}
+%   \caption{PlanetLab}
+% 	\label{fig:AS_pl_dst}
+%   \end{subfigure}
+% 	\begin{subfigure}[t]{0.49\textwidth}
+% 	\includegraphics[width=\textwidth]{aslevel/crowd/figs/valli_AS_mw_dst.pdf}
+%   \caption{Crowdsourcing}
+%  	\label{fig:AS_mw_dst}
+%   \end{subfigure}
+%     \caption{Distribution of YouTube servers on autonomous systems from a) PlanetLab and b) Crowdsourcing perspective.}
+%     \label{fig:AS_dst}
+% \end{figure}
+
+\begin{figure}[tb]
+	\centering
+ 	\includegraphics[width=0.7\textwidth]{aslevel/crowd/figs/mwvspllin}
+  	\caption{Distribution of YouTube servers on autonomous systems from PlanetLab and Crowdsourcing perspective.}
+  	\label{fig:AS_dst}
 \end{figure}
 
 %\begin{figure}[tb]
@@ -226,12 +234,12 @@ The reason that request from PlanetLab are most frequently served by ASs owned b
 %  	\label{fig:AS_pl_src}
 %\end{figure}
 
-Figure~\ref{fig:AS_mw_dst} depicts the autonomous systems where requests to YouTube videos from  the crowdsourcing workers were directed.
-The empirical probability that a server belongs to an AS has been plotted dependent on the AS rank.
+%Figure~\ref{fig:AS_mw_dst} depicts the autonomous systems where requests to YouTube videos from the crowdsourcing workers were directed.
+%The empirical probability that a server belongs to an AS has been plotted dependent on the AS rank.
 The YouTube servers identified by the crowdsourcing probes are located in more than 60 autonomous systems.
 Hence, the YouTube CDN is expanded on a higher range of ASs from the crowdsourcing perspective compared to PlanetLab.
 Again the three autonomous systems serving most requests are the ASs managed by Google, respectively YouTube.
-But the total number of requests served by a Google managed AS is only 41\%.
+However, the total number of requests served by a Google managed AS is only 41\% as opposed to almost 70\% in the PlanetLab case.
 Hence, in contrary to the PlanetLab measurement, requests are served most frequently from ASs not owned by Google.
 Here, caches at local ISPs  managed by YouTube could be used to bring the content close to users without providing own infrastructure.
 This would also explain the large number of identified ASs providing a YouTube server.
