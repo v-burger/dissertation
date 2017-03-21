@@ -1,6 +1,6 @@
 \section{Background and System Description}\label{sec:hierarchical:related_work}
 
-In this section we describe content popularity and traffic models used to evaluate the performance of contents delivery networks.
+In this section we introduce content popularity and traffic models used to evaluate the performance of contents delivery networks.
 We describe the systems model for hierarchical caching systems.
 We present a representative set of cache eviction policies and provide an overview of recent efforts in modeling the performance of isolated and interconnected caches.
 
@@ -10,8 +10,8 @@ We present a representative set of cache eviction policies and provide an overvi
 %Addressing content instead of physical servers allows utilizing local resources.
 %To enable addressing, content is identified with unique names.
 %Available storage in routers is used to cache content in these approaches.
-Modern content delivery networks use a tree like structure of content caches to deliver content efficiently.
-Since the tree like structure of caches spreads on the way to the end user, the content replication scales with the content demand.
+Modern content delivery networks use a tree-like structure of content caches to deliver content efficiently.
+Since the tree-like structure of caches spreads on the way to the end user, the content replication scales with the content demand.
 
 \begin{figure}[tb]
 \centering
@@ -20,7 +20,7 @@ Since the tree like structure of caches spreads on the way to the end user, the 
 \label{fig:hcmodel}
 \end{figure}
 
-To model tree like content delivery networks, we consider a set of caches $\Gamma$ that is organized in a tiered caching architecture as depicted in \reffig{fig:hcmodel}. Each cache in $\Gamma$ has a certain cache capacity $C$, which specifies the number of content items it can store.
+To model tree-like content delivery networks, we consider a set of caches $\Gamma$ that is organized in a tiered caching architecture as depicted in \reffig{fig:hcmodel}. Each cache in $\Gamma$ has a certain cache capacity $C$, which specifies the number of content items it can store.
 %TODO rephrase
 %bin-packing problems can arise and therefore size has been considered as an important factor in studies which assume complete files as transport unit.
 
@@ -195,12 +195,19 @@ In the following we describe the performance models in more detail.
 %   \end{tabular}}
 % \end{sidewaystable}
 
-\definecolor{myGray}{RGB}{221,223,255}
-\begin{sidewaystable}
+\begin{table}
+  \definecolor{myGray}{RGB}{221,223,255}
   \centering
   \caption{Overview on literature on performance evaluation of caching systems.}
-  \vspace{0.3cm}
-	 \label{tab:litoverview}
+  \label{tab:litoverview}
+
+%\begin{sidewaystable}
+%\begin{sideways}
+\begin{turn}{270}
+
+  %\caption{Overview on literature on performance evaluation of caching systems.}
+  %\vspace{0.3cm}
+	%\label{tab:litoverview}
 
     %\resizebox{\textwidth}{!}{%
 	\begin{tabular}{|l|ccccc|cc|cc|cc|cccc|} \hline
@@ -224,7 +231,8 @@ In the following we describe the performance models in more detail.
 % 		\rowcolor{myGray} Our approach with varying user den\-si\-ties & $\bullet$ & -- & $\bullet$ & \large\textcolor{red}{$\bullet$} & $\bullet$ & -- & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & \textcolor{red}{$\bullet$} & -- & $\bullet$ & -- & -- & -- & \textcolor{red}{$\bullet$} \\
 		\hline
 	\end{tabular}%}
-\end{sidewaystable}
+\end{turn}
+\end{table}
 
 \subsubsection{Analytic Performance Models for Caching Systems}
 
@@ -263,12 +271,12 @@ In order to evaluate hierarchical caching systems for different content demand m
 The paper closest to this works is \cite{valancius2009greening}, which proposes the NaDa approach and develops an optimal content placement on NaDas.
 The performance of the approach is evaluated with traces only.
 %\cite{applegate2010optimal}
-To evaluate the performance analytically considering bandwidth constraints the system can be modeled as loss network consisting of a server for each of the caches.
-The exact stationary distribution of the loss network is too complex to evaluate due to the high number of feasible content placements.
-In \cite{tan2013optimal} the system is analyzed under large system asymptotics where the number of NaDas goes to infinity and simplifications occur.
+To evaluate the performance analytically, considering bandwidth constraints, the system can be modeled as loss system consisting of a server for each of the caches.
+The exact stationary distribution of the loss system is too complex to evaluate due to the high number of feasible content placements.
+In \cite{tan2013optimal} the system is analyzed under large system asymptotic where the number of NaDas goes to infinity and simplifications occur.
 
 In order to evaluate the system for a finite number of NaDas, we use a different approach by approximating the arrival rate of requests.
-This allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss network, c.f., \refsec{sec:hierarchical:analyticbw:model}.
+This allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss system, c.f., \refsec{sec:hierarchical:analyticbw:model}.
 %We combine the
 
 To optimize the content placement adaptively, \cite{leconte2014adaptive} propose Least-Recently-Lost (LRL) replacement, which tries to optimize the loss rate in the first tier.

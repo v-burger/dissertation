@@ -2,26 +2,27 @@
 
 %The vast majority of Internet traffic is carried by content delivery networks (CDN).
 %Major CDNs comprise of inter-connected data-centers at various points of presence around the world.
-CDNs do not only carry a lot of traffic among the data-centers but also put huge loads on Internet Service Provider (ISP) networks that provide access to a high number of end-users consuming the content.
+Content Delivery Networks (CDNs) do not only carry a lot of traffic among the data-centers but also put huge loads on Internet Service Provider (ISP) networks that provide access to a high number of end-users consuming the content.
 Reducing the traffic carried by CDNs and the load put on ISP networks has high potential to reduce energy consumption and cost for content delivery.
 A common approach is to cache frequently requested content in or close to access networks to serve the content with low latency and few hops to save resources on the path.
 %The current Internet architecture is designed to address servers which is a problem to enable efficient caching, since a server
 %The field of content centric networking or information centric networking addresses this problem by making content addressable.
 The content centric networking architecture proposes content caches on routers on the network path.
 %when where which content requested
-Caches have a limited capacity to store content, which means that content items stored on the cache need to be replaced if a newly requested item has to be stored in the cache.
-%The key performance metric to optimize content delivery is the cache hit rate, which is the rate of requests that can be served by the cache directly in consequence of a cache hit, i.e., the content is stored on the cache at time of the request.
+Caches have a limited capacity to store content, which means that content items stored in the cache need to be replaced if a newly requested item has to be stored herein.
+The key performance metric to optimize content delivery is the cache hit rate, which is the rate of requests that can be served by the cache directly in consequence of a cache hit, i.e., the content is stored in the cache at time of the request.
+If the content is not stored in the cache, the request produces a cache miss and has to be forwarded to the next repository.
 
 %Existing work \cite{} studies the cache replacement strategies that try to maximise the hit rate considering different performance indicators.
 %Key indicator on the performance of caching strategies is the request process.
 %Request processes in web services such as Video-on-Demand exhibit a power-law \cite{} as well as temporal \cite{} and spatial dynamics \cite{}.
 A recent approach \cite{valancius2009greening} proposes to augment spare capacities on customer premise equipment (CPE) such as home routers or nano data-centers (NaDas) to assist content delivery, showing that there is a high potential to save energy, although the capacity of home gateways is small and the uplink is limited.
-The content is transported in a peer-to-peer manner keeping the traffic within the AS.
+The content is transported in a peer-to-peer manner, keeping the traffic within the AS.
 Requests are first directed to the overlay of home gateways or NaDas, and is only forwarded to a cache of the content delivery network, if the target object is not found in the overlay.
-In this way a hierarchy of caching systems is formed, in which the requests that cannot be served in one tier, i.e. the miss stream, is forwarded to the next tier in the hierarchy.
+In this way, a hierarchy of caching systems is formed, in which the requests that cannot be served in one tier, i.e. the miss stream, is forwarded to the next tier in the hierarchy.
 Another example for a hierarchical caching system with bandwidth constraints are femto caching architectures \cite{golrezaei2013femtocaching}, where content is cached on femto-basestations with small capacity but with considerable storage space.
 The potential of these approaches highly depends on the number of caches available and their capacity for content delivery.
-Our goal is to evaluate the performance of hierarchical content delivery networks using a high number of caches with limited capacity and to assess their potential to reduce inter-domain traffic.
+Our goal is to evaluate the performance of hierarchical content delivery networks using a high number of distributed caches with limited capacity and to assess their potential to reduce inter-domain traffic.
 
 %sharing probability
 
@@ -30,10 +31,10 @@ Our goal is to evaluate the performance of hierarchical content delivery network
 The performance of hierarchical cache networks can be accurately determined by analytic models developed in recent work \cite{che2002hierarchical, martina2014unified}.
 The models do not consider constraints that limit the capability of caches to upload content such as the bandwidth of the uplink.
 %In the NaDa approach the upload bandwidth of caches is limited.
-To consider the upload bandwidth the system is modeled as loss network consisting of a server for each of the caches. The exact stationary distribution of the loss network is too complex to evaluate.
+To consider the upload bandwidth the system is modeled as loss system consisting of a server for each of the caches. The exact stationary distribution of the loss system is too complex to evaluate.
 In \cite{tan2013optimal} the system is analyzed under large system asymptotic where simplifications occur.
 We use a different approach by approximating the arrival rate of requests at the caches.
-This allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss network.
+This allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss system.
 Even for traffic with highly heterogeneous request rates the approximation reflects the system performance.
 To determine the number home gateways available to assist content delivery we rely on the insights gained from the characterization of Internet subscriptions on AS level in \refchap{chap:aslevel}.
  In order to assess the potential of hierarchical caching systems to reduce inter-domain traffic, we use the model for transit traffic described in \refchap{chap:aslevel}.

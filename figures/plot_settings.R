@@ -21,8 +21,8 @@ linetypes.for <- function(values) {
   seq(1, length(unique(values)))
 }
 
-label.area <- 'Area'
-label.methodology <- 'Method'
+label.area <- 'Investigated Topic'
+label.methodology <- 'Investigation Method'
 label.appears <- 'Appears'
 
 # 2.2 done

@@ -1,6 +1,6 @@
 \section{Analysis of Caching Systems with Bandwidth Constraints}\label{sec:hierarchical:analyticbw:model}
 
-In order to evaluate content delivery networks based on the number of available home routers and their limited capacity, we define a system model for a tiered caching architecture.
+To evaluate content delivery networks based on the number of available home routers and their limited capacity, we define a system model for a tiered caching architecture.
 Tier-1 caches are on leaf nodes such as home routers, caches of the content delivery network are in tier-2 and ultimately tier-3 is the content provider.
 We use analytic models to calculate the efficiency of the tiered caching architecture.
 
@@ -34,9 +34,9 @@ In the following we provide analytic models to evaluate the performance of a tie
 We use existing models for systems without bandwidth constraints in order to determine baselines and upper bounds for comparison.
 We then show our approach to determine the hit rate of hierarchical cache networks with bandwidth constraints.
 
-\subsubsection{The Che Approximation}
+\subsubsection{The Che-approximation}
 
-We first consider the Che approximation \cite{che2002hierarchical} for the simple case of a single cache with LRU policy.
+We first consider the Che-approximation \cite{che2002hierarchical} for the simple case of a single cache with LRU policy.
 Let $C$ be the capacity of the single cache.
 $T_C(m)$ is the cache eviction time of object $m$, i.e., the time needed before $C$ objects, not including $m$, are requested at the cache.
 Object $m$ is in the cache if the last request for object $m$ is less than $T_C$ in the past.
@@ -45,7 +45,7 @@ Let $A_m$ be a random variable for the inter-arrival time for requests of object
 The probability that $A_m$ is smaller than $T_C$ is given by the cumulative distribution function, which is exponentially distributed:
 
 \begin{equation}
-	p_\text{hit}(m) = p_\text{in}(m) = P(A_m \leq T_C) = 1-e^{-\lambda_m T_C}
+	p_\text{hit}(m) = p_\text{in}(m) = P(A_m \leq T_C) = 1-e^{-\lambda_m T_C} \, .
 \end{equation}
 
 Due to the memoryless property of the Poisson process the hit probability equals the stationary probability that an item $m$ is in the cache.
@@ -55,8 +55,8 @@ We define the indicator function $\chi_m$ to determine if item $m$ is in the cac
 \begin{equation}
 \chi_m =
 	\begin{cases}
-		1, & m \, \text{in cache} \\
-      		0, & \text{otherwise}
+		1, & m \, \text{in cache} \, ,\\
+      		0, & \text{otherwise} \, .
 	\end{cases}
 \end{equation}
 
@@ -69,7 +69,7 @@ Following \cite{martina2014unified}, we obtain for the cache capacity $C$:
 and
 
 \begin{equation}
-	C=\mathbb{E}\left[\sum_m{\chi_m}\right]=\sum_m{\mathbb{E}\left[\chi_m\right]}=\sum_m{p_\text{in}(m)}
+	C=\mathbb{E}\left[\sum_m{\chi_m}\right]=\sum_m{\mathbb{E}\left[\chi_m\right]}=\sum_m{p_\text{in}(m)} \, .
 \end{equation}
 
 after averaging both sides.
@@ -77,33 +77,33 @@ after averaging both sides.
 $T_C$ is the only unknown in the above equation and can be determined by a fixed point iteration.
 Thus, the interaction among the contents is summarized by the cache eviction time $T_C$, which allows decoupling the dynamics of the different contents.
 
-The overall hit probability is calculated by considering the probability $p_m$ of requesting item $m$.
+The overall hit probability is calculated by considering the probability $p_m$ of requesting item $m$
 
 \begin{equation}
-p_\text{hit}=\sum_m p_m p_\text{hit}(m)
+p_\text{hit}=\sum_m p_m p_\text{hit}(m) \, .
 \end{equation}
 
 \subsubsection{No bandwidth constraints}
 
-We use the Che approximation for the LRU cache hit rate to calculate the baseline given by the cache hit rate of the tier-2 cache without tier-1 cache support $p'_\text{hit}(2)$. The characteristic time $T_{C_2}$ depends on the capacity of the tier-2 cache $C_2$ and is determined by a fixed point approximation.
+We use the Che-approximation for the LRU cache hit rate to calculate the baseline given by the cache hit rate of the tier-2 cache without tier-1 cache support $p'_\text{hit}(2)$. The characteristic time $T_{C_2}$ depends on the capacity of the tier-2 cache $C_2$ and is determined by a fixed point approximation
 
 \begin{equation}
-p_\text{hit}(2,m)=p_\text{in}(2,m)=1-e^{-\lambda_{m}T_{C_2}}
+p_\text{hit}(2,m)=p_\text{in}(2,m)=1-e^{-\lambda_{m}T_{C_2}} \, .
 \end{equation}
 
-The overall hit probability in tier-2 is calculated by considering the probability $p_m$ of requesting item $m$.
+The overall hit probability in tier-2 is calculated by considering the probability $p_m$ of requesting item $m$
 
 \begin{equation}
-p'_\text{hit}(2)=\sum_m p_m p_\text{hit}(2,m)
+p'_\text{hit}(2)=\sum_m p_m p_\text{hit}(2,m) \, .
 \end{equation}
 %\begin{equation}
 %p_m=\frac{\lambda_m}{\sum_i \lambda_i}
 %\end{equation}
 
-To calculate the maximum hit rate for LRU, we assume that tier-1 caches are completely organized with the tier-2 cache, and the capacity of tier-1 caches is added to the tier-2 cache capacity.
+To calculate the maximum hit rate for LRU, we assume that tier-1 caches are completely organized with the tier-2 cache, and the capacity of tier-1 caches is added to the tier-2 cache capacity
 
 \begin{equation}
-\hat p_\text{hit}(m)=\hat p_\text{in}(m)=1-e^{-\lambda_{m}T_{(C_2+n_1\cdot C_{1})}}
+\hat p_\text{hit}(m)=\hat p_\text{in}(m)=1-e^{-\lambda_{m}T_{(C_2+n_1\cdot C_{1})}} \, .
 \end{equation}
 
 It is practically not feasible to control the capacity of all tier-1 caches and coordinate them with the tier-2 cache.
@@ -122,16 +122,16 @@ If an overlay is used, the requests that cannot be served by the personal tier-1
 %The requests for object $m$ forwarded to tier-1 $\lambda_m^o(1)$ are not hit by any of the $n_2\approx p_{share}\cdot n_{user}$ tier-2 caches.
 
 We approximate the hit rate of the overlay by calculating the hit rate of a tandem network with two caches according to \cite{martina2014unified}. The tandem network consists of the tier-2 cache and a cache that has the sum of capacities of tier-1 caches. The miss stream of the consolidated tier-1 cache is forwarded to the tier-2 cache.
-The replacement strategy in the network is leave-copy-down, that means that an item is only placed in a cache if it is found in a higher tier cache. Thus only frequently requested items are propagated to lower tier-caches, which makes them more efficient. The Che approximation can be applied to tandem networks by determining $p_\text{in}(1,m)$ for the tier-1 caches.
+The replacement strategy in the network is leave-copy-down, that means that an item is only placed in a cache if it is found in a higher tier cache. Thus only frequently requested items are propagated to lower tier-caches, which makes them more efficient. The Che-approximation can be applied to tandem networks by determining $p_\text{in}(1,m)$ for the tier-1 caches
 
 \begin{equation}
-p_\text{in}(1,m) = 1-e^{\lambda(1,m)T_{n_1 C_1}}
+p_\text{in}(1,m) = 1-e^{\lambda(1,m)T_{n_1 C_1}} \, .
 \end{equation}
 
 The hit probability is no longer equal to the probability that an item is in the cache, as the cache miss stream arriving at the tier-2 cache is no longer Markov. According to \cite{martina2014unified} the hit probability can then be determined by:
 
 \begin{multline}
-p_\text{hit}(1,m) = ((1-p_\text{in}(1,m))p_\text{hit}(2,m) + p_\text{in}(1,m)) \\ \cdot(1-e^{\lambda(1,m)T_{n_1 C_1}})
+p_\text{hit}(1,m) = ((1-p_\text{in}(1,m))p_\text{hit}(2,m) + p_\text{in}(1,m)) \\ \cdot(1-e^{\lambda(1,m)T_{n_1 C_1}}) \, .
 \end{multline}
 
 The rate of the miss stream $\lambda(2,m)$ arriving at the tier-2 cache can then be determined as
@@ -140,16 +140,16 @@ The rate of the miss stream $\lambda(2,m)$ arriving at the tier-2 cache can then
 \lambda(2,m) = (1-p_\text{in}(1,m))\lambda(1,m) \, .
 \end{equation}
 
-The probability that an item is in the tier-2 cache is approximated assuming exponentially distributed inter request times.
+The probability that an item is in the tier-2 cache is approximated assuming exponentially distributed inter request times
 
 \begin{equation}
-p_\text{hit}(2,m) = p_\text{in}(2,m) = 1-e^{\lambda(2,m)T_{C_2}}
+p_\text{hit}(2,m) = p_\text{in}(2,m) = 1-e^{\lambda(2,m)T_{C_2}} \, .
 \end{equation}
 
-The total hit rate in tier-$i$ is then calculated by considering the probability of an item $m$ being requested at tier-$i$ cache $p(i,m)$.
+The total hit rate in tier-$i$ is then calculated by considering the probability of an item $m$ being requested at tier-$i$ cache $p(i,m)$
 
 \begin{equation}
-p_\text{hit}(i) = \sum_{m}p(i,m)p_\text{hit}(i,m), i\in\{1,2\}
+p_\text{hit}(i) = \sum_{m}p(i,m)p_\text{hit}(i,m), i\in\{1,2\} \, .
 \end{equation}
 %if tC(2) > tC(1)
 %   phit(2,:) = (1-exp(-l(2,:).*(tC(2)-tC(1))))+(1-phit(2,:)).*(1-exp(-l(1,:)*tC(1)));
@@ -205,10 +205,10 @@ We use the throughput of the tier-1 caches $\rho_1$ as parameter to specify the 
 %\bar\mu = \frac{\bar b}{\bar \rho_2}
 %\end{equation}
 
-The offered traffic of item $m$ at tier-1 cache $k$ can be calculated by the quotient of the arrival rate per cache $\frac{\lambda_m}{n_1}$ and the mean service rate, which is determined by the bitrate $b_m$ and the duration $d_m$ and the link throughput $\rho_1$ in case of video contents.
+The offered traffic of item $m$ at tier-1 cache $k$ can be calculated by the quotient of the arrival rate per cache $\frac{\lambda_m}{n_1}$ and the mean service rate, which is determined by the bitrate $b_m$ and the duration $d_m$ and the link throughput $\rho_1$ in case of video contents
 
 \begin{equation}
-a(m,k) = \frac{\lambda_m \cdot b_m \cdot d_m}{n_1\cdot \rho_1(k)}
+a(m,k) = \frac{\lambda_m \cdot b_m \cdot d_m}{n_1\cdot \rho_1(k)} \, .
 \end{equation}
 
 The total offered traffic of item $m$ is $a(m) = \sum_k a(m,k)$.
@@ -261,10 +261,10 @@ The constraint  $\forall k, \sum_m X(m,k)\leq C_1(k)$ has to be met, such that t
 
 Since not every hit can be served by tier-1 caches because of their limited bandwidth, we consider the loss rate $p_{b}(1,m)$, which is defined as the share of requests of item $m$ that is not hit in tier-1 or is blocked if none of the tier-1 caches storing the requested item has enough bandwidth left to serve the request.
 
-Let $\nu_m$ be the number of tier-1 caches that hold item $m$.
+Let $\nu_m$ be the number of tier-1 caches that hold item $m$
 
 \begin{equation}
-\nu_m=\sum_{k=1}^{n_1} X(m,k)
+\nu_m=\sum_{k=1}^{n_1} X(m,k) \, .
 \end{equation}
 
 %An item is not hit, if it is not placed in any of the tier-1, hence, if $X(m,k)=0 \forall k\in {1,\ldots,n_1}$.
@@ -295,23 +295,23 @@ The blocked requests are forwarded to the tier-2 cache and the arrival rate of r
 	\lambda_m(2) = \lambda_m\cdot p_\text{b}(1,m) \, .
 \end{equation}
 
-We determine the hit rate of the tier-2 cache $p_\text{hit}(2)$ again by using the Che approximation for cache capacity $C_2$ and arrival rates $\lambda_m(2)$, assuming that the miss stream of the tier-1 caches follows a Poisson processes.
+We determine the hit rate of the tier-2 cache $p_\text{hit}(2)$ again by using the Che-approximation for cache capacity $C_2$ and arrival rates $\lambda_m(2)$, assuming that the miss stream of the tier-1 caches follows a Poisson process
 
 %TODO describe
 \begin{equation}
-	p_b(1) = \sum_m p_m p_{b}(1,m)
+	p_b(1) = \sum_m p_m p_{b}(1,m) \, .
 \end{equation}
 
 The total rate of requests hit and served by tier-1 and tier-2 caches is then determined by
 
 \begin{equation}
-	p_\text{hit} = (1-p_b(1)) + p_b(1)\cdot p_\text{hit}(2)
+	p_\text{hit} = (1-p_b(1)) + p_b(1)\cdot p_\text{hit}(2) \, .
 \end{equation}
 
-In order to assess the benefit of the tiered architecture compared to a single ISP cache, we define the cache hit rate gain $\omega$ as the normalized difference of the total hit rate $p_\text{hit}$ and the cache hit rate of the tier-2 cache $p'_\text{hit}(2)$ without tier-1 cache support.
+In order to assess the benefit of the tiered architecture compared to a single ISP cache, we define the cache hit rate gain $\omega$ as the normalized difference of the total hit rate $p_\text{hit}$ and the cache hit rate of the tier-2 cache $p'_\text{hit}(2)$ without tier-1 cache support
 
 \begin{equation}
-\omega = \frac{p_\text{hit}-p'_\text{hit}(2)}{p'_\text{hit}(2)}
+\omega = \frac{p_\text{hit}-p'_\text{hit}(2)}{p'_\text{hit}(2)} \, .
 \end{equation}
 
 %\begin{equation}
