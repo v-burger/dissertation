@@ -29,13 +29,13 @@ i.e., the probability that $i$ bandwidth fractions are occupied in system 1 and 
   	\label{fig:statetransitions}
 \end{figure*}
 
-Having the state probabilities, we calculate the blocking probability $p_{b_i}$ of each system $i$ and the total blocking probability $p_b$, which is the sum of blocking probabilities of each system weighted by the probability that a request arrives at each respective system.
+Having the state probabilities, we calculate the blocking probability $p_{b_i}$ of each system $i$ and the total blocking probability $p_b$, which is the sum of blocking probabilities of each system weighted by the probability that a request arrives at each respective system
 
 \begin{equation}
-p_{b_1} = \sum_{k=\lfloor\alpha_2\cdot n_2\rfloor}^{n_2} x(n_1,k),\quad p_{b_2} = \sum_{k=\lfloor\alpha_1\cdot n_1\rfloor}^{n_1} x(k,n_2)
+p_{b_1} = \sum_{k=\lfloor\alpha_2\cdot n_2\rfloor}^{n_2} x(n_1,k),\quad p_{b_2} = \sum_{k=\lfloor\alpha_1\cdot n_1\rfloor}^{n_1} x(k,n_2) \, ,
 \end{equation}
 \begin{equation}
- p_{b} = \frac{\lambda_1}{\lambda_1+\lambda_2}\cdot p_{b_1}+\frac{\lambda_2}{\lambda_1+\lambda_2}\cdot p_{b_2}
+ p_{b} = \frac{\lambda_1}{\lambda_1+\lambda_2}\cdot p_{b_1}+\frac{\lambda_2}{\lambda_1+\lambda_2}\cdot p_{b_2} \, .
 \end{equation}
 
 Since requests can be offloaded from system 1 to system 2 in states $(n_1, k)$ for $k<\lfloor\alpha_2\cdot n_2\rfloor$, the requests are not blocked and the state probabilites are not added to the blocking probability $p_{b_1}$. The same holds for states $(k, n_2)$ with $k<\lfloor\alpha_1\cdot n_1\rfloor$ and $p_{b_2}$.
@@ -64,29 +64,29 @@ Therefore, we model an observed system, which will take into account offloading 
 
 \begin{align}
 \begin{split}
-p_1 &= \sum x(i),  0 \leq i < \lfloor\alpha\cdot n\rfloor \\
-p_2 &= \sum x(i), \lfloor\alpha\cdot n\rfloor\leq i < \lfloor\beta\cdot n\rfloor \\
-p_3 &= \sum x(i), \lfloor\beta\cdot n\rfloor \leq i \leq n
+p_1 &= \sum x(i),  0 \leq i < \lfloor\alpha\cdot n\rfloor  \, ,\\
+p_2 &= \sum x(i), \lfloor\alpha\cdot n\rfloor\leq i < \lfloor\beta\cdot n\rfloor  \, ,\\
+p_3 &= \sum x(i), \lfloor\beta\cdot n\rfloor \leq i \leq n \, .
 \end{split}
 \label{eq:macro}
 \end{align}
 
-In the support macro state, the arrival rate will be increased by $\lambda_s$, i.e., the arrivals that are offloaded by the composite system. $\lambda_s$ can be computed as shown in Equation~\ref{eq:lambda_s} from the multinomial probability that $j$ of the $m-1$ links in the composite system are in offloading state, and $k$ links in the composite system can support.
+In the support macro state, the arrival rate will be increased by $\lambda_s$, i.e., the arrivals that are offloaded by the composite system. $\lambda_s$ can be computed as shown in \refequ{eq:lambda_s} from the multinomial probability that $j$ of the $m-1$ links in the composite system are in offloading state, and $k$ links in the composite system can support
 
 \small
 \begin{equation}
-\lambda_{s} = \sum_{j=1}^{m-1}\sum_{k=0}^{m-1-j} \binom{m-1}{j}\binom{m-j-1}{k}p^j_3 p^k_1 p_2^{m-j-k-1}\frac{j\lambda}{k+1}
+\lambda_{s} = \sum_{j=1}^{m-1}\sum_{k=0}^{m-1-j} \binom{m-1}{j}\binom{m-j-1}{k}p^j_3 p^k_1 p_2^{m-j-k-1}\frac{j\lambda}{k+1} \, .
 \label{eq:lambda_s}
 \end{equation}
 \normalsize
 
-The arrival rate is decreased by $\lambda_o$ in the offloading macro state when the composite system can support the observed system, i.e., at least one of the $m-1$ systems is in support macro state.
+The arrival rate is decreased by $\lambda_o$ in the offloading macro state when the composite system can support the observed system, i.e., at least one of the $m-1$ systems is in support macro state
 
 \begin{equation}
-\lambda_{o} = (1-(1-p_1)^{m-1})\lambda
+\lambda_{o} = (1-(1-p_1)^{m-1})\lambda \, .
 \end{equation}
 
-This gives new steady state equations for the observed system as described in Equation~\ref{eq:iteration}. As all access links have equal load, and thus, show a homogeneous behavior, not only the state probabilities of the observed system, but also of the $m-1$ systems in the composite system are influenced. Thus, the state probabilities of all $m$ links can be obtained by computing the state probabilities of the observed system. Therefore, we initialize the observed system with equal state probabilities. Then, we iterate the offloading and support and normalize the state probabilities  until a fixed point is reached.
+This gives new steady state equations for the observed system as described in \refequ{eq:iteration}. As all access links have equal load, and thus, show a homogeneous behavior, not only the state probabilities of the observed system, but also of the $m-1$ systems in the composite system are influenced. Thus, the state probabilities of all $m$ links can be obtained by computing the state probabilities of the observed system. Therefore, we initialize the observed system with equal state probabilities. Then, we iterate the offloading and support and normalize the state probabilities  until a fixed point is reached:
 
 \begin{align}
 \begin{split}
@@ -96,7 +96,7 @@ This gives new steady state equations for the observed system as described in Eq
 \frac{x(i-1)\lambda}{i\cdot\mu}, &\lfloor\alpha\cdot n\rfloor\leq i < \lfloor\beta\cdot n\rfloor \\
 \frac{x(i-1)(\lambda-\lambda_o)}{i\cdot\mu}, &\lfloor\beta\cdot n\rfloor \leq i \leq n \\
 \end{cases}\\
-&\sum_{i=0}^n x(i) = 1
+&\sum_{i=0}^n x(i) = 1 \, .
 \end{split}
 \label{eq:iteration}
 \end{align}

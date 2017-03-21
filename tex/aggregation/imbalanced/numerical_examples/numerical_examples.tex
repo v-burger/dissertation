@@ -44,7 +44,7 @@ In order to assess the potential of bandwidth aggregation of $m$ systems in hete
 In the following we investigate how the load on the links in the composite system $\rho'$ affects the throughput of the observed system for $m=8$ cooperating systems.
 Figure~\ref{fig:bw_m8} shows the normalized received bandwidth of the observed system dependent on the throughput of the links in the composite system $\rho'$.
 %The fixed point approximation decently fits the simulation results.
-In case of $\rho'=0.3$ a lot of spare bandwidth is available for offloading. If the observed system is overloaded it can use the spare bandwidth and receives almost 400\% of its capacity if its load is 400\%. If the load $\rho'$ on the other links is higher, less bandwidth is available, which limits the received bandwidth. Still, the received bandwidth is above partitioning, although the links in the composite systems are overloaded with $\rho'=1.1$ if the observed system is even more overloaded.
+In case of $\rho'=0.3$ a lot of spare bandwidth is available for offloading. If the observed system is overloaded it can use the spare bandwidth and receives almost 400\% of its capacity if its offered load is 400\%. If the load $\rho'$ on the other links is higher, less bandwidth is available, which limits the received bandwidth. Still, the received bandwidth is above partitioning, although the links in the composite systems are overloaded with $\rho'=1.1$ if the observed system is even more overloaded.
 %This can also be seen in the bandwidth gain $\omega_1$ depicted in Figure~\ref{fig:bwgain_m8}, which is positive if the observed system is overloaded with $\rho_1>1$. The bandwidth gain is only marginally negative, if the load on the observed system is low, which is manageable in off-peak periods. In busy periods the observed system benefits a lot by gaining more than 2.5 times more bandwidth if $\rho'=0.3$.
 
 % \begin{figure*}[tb]
@@ -126,7 +126,7 @@ This provides incentives for systems to contribute.
 %The gain of the egoistic system decreases with the load of the cooperating system.
 %Hence, prioritizing is only viable if the cooperating system is highly loaded.
 
-\subsection{Simulation with General Service Times}\label{sec:simgeneral}
+\subsection{Simulation with Generally Distributed Service Times}\label{sec:simgeneral}
 
 To assess the system performance in more general cases we run simulations with different service time distributions.
 Figure~\ref{fig:m2_n20_rho2_sim} shows the blocking probability of the reference system dependent on the load of the systems. The mean values with 95\% confidence intervals of 8 simulation runs are plotted for the service time distributions deterministic and hyper-exponential.

@@ -4,13 +4,13 @@ In addition, we describe our system model of bandwidth aggregation systems with 
 
 \subsection{Bandwidth Aggregation Approaches}\label{sec:aggregation:background:aggr}
 
-The principle of sharing or offloading between multiple Internet access links is already widely used by commercial services as well as research work. WiFi-sharing communities like Fon\footnote{\url{http://www.fon.com}}, Karma\footnote{\url{https://yourkarma.com/}}, WeFi\footnote{\url{http://wefi.com/}}, and Boingo\footnote{\url{http://www.boingo.com/}} offer access to an alternative Internet link (WiFi instead of mobile), which provides a faster access bandwidth and reduces the load on stressed mobile networks. With respect to this so called WiFi offloading, the research community investigated incentives and algorithms for access sharing \cite{mamatas2010incentives}, and ubiquitous WiFi access architectures for deployment in metropolitan areas \cite{sastry2007architecting, vidales2009metropolitan}. Moreover, \cite{lafuente2011flexible,donelson2012patent,seufert2013horst} describe systems for trust-based WiFi password sharing via an online social network (OSN) app. WiFi sharing is not a legal vacuum and a first exemplary overview on Swiss and French rights and obligations was given in \cite{camponovo2005wlan} but must be treated with caution due to international differences and interim law revisions.
+The principle of sharing or offloading between multiple Internet access links is already widely used by commercial services as well as research work. WiFi-sharing communities like Fon\footnote{\url{http://www.fon.com}}, Karma\footnote{\url{https://yourkarma.com/}}, WeFi\footnote{\url{http://wefi.com/}}, and Boingo\footnote{\url{http://www.boingo.com/}} offer access to an alternative Internet link (WiFi instead of mobile), which provides a faster access bandwidth and reduces the load on stressed mobile networks. With respect to this so called ``WiFi offloading'', the research community investigated incentives and algorithms for access sharing \cite{mamatas2010incentives}, and ubiquitous WiFi access architectures for deployment in metropolitan areas \cite{sastry2007architecting, vidales2009metropolitan}. Moreover, \cite{lafuente2011flexible,donelson2012patent,seufert2013horst} describe systems for trust-based WiFi password sharing via an online social network (OSN) app. WiFi sharing is not a legal vacuum and a first exemplary overview on Swiss and French rights and obligations was given in \cite{camponovo2005wlan} but must be treated with caution due to international differences and interim law revisions.
 The opposite concept to Wifi offloading, i.e., WiFi onloading, is presented in \cite{rossi20133gol}. The idea is to utilize different peaks in mobile and fixed networks to onload data to the mobile network to support applications on short time scales (e.g., prebuffering of videos, asymmetric data uploads).
 
 %Bewifi
 An access link sharing concept, which goes beyond pure offloading, is BeWifi, which was developed by Telefonica \cite{goma2013patent} and builds on previous works about backhaul capacity aggregation \cite{kandula2008fatvap,giustiniano2010fair}. BeWifi uses modified access points, which act as normal access points until their clients saturate more than 80\% of the backhaul capacity. Then, the access point will scan for close access points, which will provide additional bandwidth if their utilization is below 70\%. Backhaul capacity and utilization are announced by each access point via beacon frames. Instead of introducing a secondary WiFi radio, BeWifi uses time-division multiple access (TDMA) and the 802.11 network allocation vector (NAV) to connect to neighboring access points for bandwidth aggregation in a round robin fashion with a weighted proportional fairness schedule.
 
-% The client based solution requires driver modifications on the wireless clients.
+% The client-based solution requires driver modifications on the wireless clients.
 % Each wireless client needs to feature a virtualized wireless card.
 % This implies that for a commercial deployment the operating system and wireless driver of every WiFi client needs to be modified, which would produce a high amount of costs.
 % %As one may realize, the cost of such an approach is absolutely prohibitive.
@@ -19,7 +19,7 @@ An access link sharing concept, which goes beyond pure offloading, is BeWifi, wh
 % However, current methods to perform aggregation with single-radio devices are not meant to be used in APs.
 % Introducing a secondary WiFi radio in the APs could provide a technical solution, but it increases the cost of a device that is subsidized by the ISP, making the solution impracticable.
 
-\reffig{fig:aggregation:background:aggr} shows a client based and an access point solution for the bandwidth aggregation proposed in \cite{goma2013patent}.
+\reffig{fig:aggregation:background:aggr} shows a client-based and an access point solution for the bandwidth aggregation proposed in \cite{goma2013patent}.
 The state of the art client-based system proposes to use a TDMA based access strategy for accessing selected access points in range in a round robin fashion, i.e., no concurrent data transmission via different frequencies is taking place.
 The system utilizes inband signalling, a switching frequency of 100ms and requires less than 1.5ms for switching.
 %The state of the art client-based aggregation schemes propose the use of TDMA to enable a single-radio client to connect to all the neighboring access points, as in \reffig{fig:aggregation:background:aggrclient} regardless of their frequency of operation. Over cycles of 100 ms the wireless client sequentially connects to all selected access points within range in a round robin fashion.
@@ -27,7 +27,7 @@ The system utilizes inband signalling, a switching frequency of 100ms and requir
 Using the standard 802.11 power saving feature, a client is able to notify its absence to the access points it is connected to, so that they buffer packets directed to it.
 A client performing aggregation appears to be sleeping in all access points but the one that is currently scheduled in the round robin cycle.
 %No concurrent data transmission via different frequencies is taking place.
-The access point based solution can be mapped to the client based solution, if an access point acts as access point to its clients, and as a client to neighboring access points.
+The access-point-based solution can be mapped to the client-based solution, if an access point acts as access point to its clients, and as a client to neighboring access points.
 %single-radio AP that acts as an AP to its clients, and as a client to neighboring APs, and show that the problem can be mapped to the client-based solutions allowing the same optimization objectives
 
 %acts as an AP and as a client of a neighboring AP
@@ -42,17 +42,17 @@ The access point based solution can be mapped to the client based solution, if a
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=.9\textwidth]{aggregation/background/figures/aggr_client_sw}
-        \caption{Client based}
+        \caption{Client-based}
 				\label{fig:aggregation:background:aggrclient}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=.9\textwidth]{aggregation/background/figures/aggr_ap_sw}
-        \caption{Access point based}
+        \caption{Access-point-based}
 				\label{fig:aggregation:background:aggrap}
     \end{subfigure}
-    \caption{Client based and access point based solution for bandwidth aggregation.}
+    \caption{Client-based and access-point-based solution for bandwidth aggregation.}
 		\label{fig:aggregation:background:aggr}
 \end{figure*}
 
@@ -175,9 +175,9 @@ Its utilization variations are modeled as a stationary process of singular and i
 In the BeWifi approach (cf.~\refsec{sec:aggregation:background:aggr}), two thresholds are used, which define the bandwidth aggregation/offloading policy. The support threshold $\alpha$ indicates up to which percentage of utilization (i.e., number of own occupied bandwidth fractions) the system will offer bandwidth fractions to other systems. Furthermore, the offloading threshold $\beta$ with $\alpha\leq\beta$ sets the percentage of utilization above which the system will try to use bandwidth of other systems. According to these thresholds, a system can be in one of the following three macro states:
 
 \begin{enumerate}
-	\item \textit{support} ($0 \leq X < \lfloor\alpha\cdot n\rfloor$):\\ low utilization and offering bandwidth
-	\item \textit{normal} ($\lfloor\alpha\cdot n\rfloor \leq X < \lfloor\beta\cdot n\rfloor$):\\ normal operation
-	\item \textit{offloading} ($\lfloor\beta\cdot n\rfloor \leq X \leq n$):\\ high utilization and offloading to other systems
+	\item \textit{support} ($0 \leq X < \lfloor\alpha\cdot n\rfloor$):\\ low utilization and offering bandwidth \, ,
+	\item \textit{normal} ($\lfloor\alpha\cdot n\rfloor \leq X < \lfloor\beta\cdot n\rfloor$):\\ normal operation \, ,
+	\item \textit{offloading} ($\lfloor\beta\cdot n\rfloor \leq X \leq n$):\\ high utilization and offloading to other systems \, .
 \end{enumerate}
 
 By applying the offloading policies, different Internet access links will collaborate and share traffic. More details on the investigated scenarios are presented in the following section.
