@@ -82,18 +82,19 @@ end
 
 #task all: [:process_graphics, :pdf]
 
-#task :check_for_typos do
-#  config["typos"].each do |typo_candidate|
-#    puts "Checking for '#{typo_candidate}'"
-#    Dir['**/*.tex'].each do |f|
-#      ack_result = `ack --output '$.: $_' \"#{typo_candidate}\" #{f}`
-#      unless ack_result.empty?
-#        puts f
-#        puts ack_result.gsub(typo_candidate, typo_candidate.red)
-#      end
-#    end
-#  end
-#end
+task :check_for_typos do
+  config["typos"].each do |typo_candidate|
+    puts "Checking for '#{typo_candidate}'"
+    Dir['**/*.tex'].each do |f|
+      ack_result = `ack --output '$.: $_' \"#{typo_candidate}\" #{f}`
+      unless ack_result.empty?
+        puts f
+        puts ack_result.gsub(typo_candidate, typo_candidate.red)
+      end
+    end
+  end
+end
+puts 'mocha'
 
 #task :check_fonts => :pdf do
 #  puts "checking fonts..."

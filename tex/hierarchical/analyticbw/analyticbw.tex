@@ -34,7 +34,7 @@ In the following we provide analytic models to evaluate the performance of a tie
 We use existing models for systems without bandwidth constraints in order to determine baselines and upper bounds for comparison.
 We then show our approach to determine the hit rate of hierarchical cache networks with bandwidth constraints.
 
-\subsubsection{The Che-approximation}
+\subsubsection{The Che-Approximation}
 
 We first consider the Che-approximation \cite{che2002hierarchical} for the simple case of a single cache with LRU policy.
 Let $C$ be the capacity of the single cache.
@@ -83,9 +83,10 @@ The overall hit probability is calculated by considering the probability $p_m$ o
 p_\text{hit}=\sum_m p_m p_\text{hit}(m) \, .
 \end{equation}
 
-\subsubsection{No bandwidth constraints}
+\subsubsection{Analysis with Unlimited Bandwidth}
 
-We use the Che-approximation for the LRU cache hit rate to calculate the baseline given by the cache hit rate of the tier-2 cache without tier-1 cache support $p'_\text{hit}(2)$. The characteristic time $T_{C_2}$ depends on the capacity of the tier-2 cache $C_2$ and is determined by a fixed point approximation
+We use the Che-approximation for the LRU cache hit rate to calculate the baseline given by the cache hit rate of the tier-2 cache without tier-1 cache support $p'_\text{hit}(2)$.
+The characteristic time $T_{C_2}$ depends on the capacity of the tier-2 cache $C_2$ and is determined by a fixed point approximation
 
 \begin{equation}
 p_\text{hit}(2,m)=p_\text{in}(2,m)=1-e^{-\lambda_{m}T_{C_2}} \, .
@@ -121,7 +122,8 @@ If an overlay is used, the requests that cannot be served by the personal tier-1
 %The requests that are forwarded to the tier-1 cache have looked up the object $m$ in all tier-2 caches.
 %The requests for object $m$ forwarded to tier-1 $\lambda_m^o(1)$ are not hit by any of the $n_2\approx p_{share}\cdot n_{user}$ tier-2 caches.
 
-We approximate the hit rate of the overlay by calculating the hit rate of a tandem network with two caches according to \cite{martina2014unified}. The tandem network consists of the tier-2 cache and a cache that has the sum of capacities of tier-1 caches. The miss stream of the consolidated tier-1 cache is forwarded to the tier-2 cache.
+
+For unlimited tier-2 cache bandwidth, we approximate the hit rate of the overlay by calculating the hit rate of a tandem network with two caches according to \cite{martina2014unified}. The tandem network consists of the tier-2 cache and a cache that has the sum of capacities of tier-1 caches. The miss stream of the consolidated tier-1 cache is forwarded to the tier-2 cache.
 The replacement strategy in the network is leave-copy-down, that means that an item is only placed in a cache if it is found in a higher tier cache. Thus only frequently requested items are propagated to lower tier-caches, which makes them more efficient. The Che-approximation can be applied to tandem networks by determining $p_\text{in}(1,m)$ for the tier-1 caches
 
 \begin{equation}
