@@ -15,7 +15,8 @@ In order to ensure an efficient replication of the content, content delivery net
 The aim of content delivery network providers is to replicate the content to the areas of interest, while limiting their capital and operational expenditures for network and storage infrastructure.
 The content provider and the content delivery network provider may be part of the same company.
 Finally, Internet Service Providers (ISPs) are responsible for providing Internet access and for delivering the content to the end users.
-ISPs aim to provide reliable and high speed Internet access, but try to keep the load on the network low and to reduce cost for connectivity with other ISPs.
+ISPs aim to provide reliable and high speed Internet access.
+They try to keep the load on the network low and to reduce cost for connectivity with other ISPs.
 
 %However, in today's Internet the inter-ISP traffic routing is based on a complex topology defined by inter-ISP relationships, e.g., peering or customer-to-provider, and ISP classifications such as \tier, large and small ISPs, and stub ISPs. Hence, these economic relations play an important role in the actual Internet traffic flow. However, this topology of the Internet is not taken into account by most evaluations of P2P guidance approaches, which limits the practical relevance of the results. Furthermore, it is an open question how much BitTorrent traffic is located in which region of the Internet. However, this is a prerequisite in order to estimate the potential of ALTO mechanisms.
 %Therefore in this thesis, we model
@@ -28,7 +29,7 @@ The steep increase in mobile traffic is expected to reach by 2018 roughly 60\% o
 To handle the growth in mobile networks, the next generation of 5G mobile networks are designed to have higher access rates and an increased densification of the network infrastructure.
 
 With the explosion of access rates and number of base stations the backhaul of wireless networks will become congested \cite{paschos2016wireless}.
-To reduce the load on the backhaul the research community suggests to install caches in gateway routers between the wireless network and the Internet, in base stations of different sizes (small or regular size cells), and in end-user devices.
+To reduce the load on the backhaul the research community suggests installing local caches in gateway routers between the wireless network and the Internet, in base stations and in end-user devices.
 A recent approach \cite{valancius2009greening} proposes to augment spare capacities on customer premise equipment (CPE) such as home gateways or nano data-centers (NaDas) to assist content delivery, showing that there is a high potential to save energy, although the capacity of home gateways is small and the uplink is limited.
 The content is transported in a peer-to-peer manner keeping the traffic within the autonomous system (AS), i.e., the ISPs network.
 The caches are organized in a hierarchy, where caches in the lowest tier are requested first. The request is forwarded to the next tier, if the requested object is not found.
@@ -42,11 +43,11 @@ The performance of hierarchical cache networks can be accurately determined by a
 The models do not consider constraints that limit the capability of caches to upload content, such as the bandwidth of the uplink.
 %In the NaDa approach the upload bandwidth of caches is limited.
 %Es werden Mechanismen benötigt, die die Inhalte optimal auf die lokalen Caches verteilen, um die begrenzten Ressourcen effizient zu nutzen.
-To account for a limited upload bandwidth of caches, in this thesis, the hierarchical caching system is modeled as loss network, consisting of a server for each of the caches.
+To account for a limited upload bandwidth of caches, in this thesis, the hierarchical caching system is modeled as loss system, consisting of a server for each of the caches.
 
-To further increase the overall backhaul capacity, current concepts also consider multiple connections to the Internet, thereby sharing and aggregating available backhaul access link capacities.
+To further increase the overall backhaul capacity, current concepts consider multiple connections to the Internet, thereby sharing and aggregating available backhaul access link capacities.
 %The question is which sharing policy to apply for which system characteristics.
-Current approaches consider access link sharing among neighboring users based on offloading thresholds.
+Recently proposed approaches are based on offloading thresholds to share access links among neighboring users.
 Each user should only share its access link for bandwidth offloading when having spare capacity, in order to avoid negatively affecting the own Internet connections.
 %Therefore, two thresholds were introduced, i) a support threshold until which utilization a user will offer bandwidth to other users, and ii) an offloading threshold indicating from which utilization a user can offload to supporting neighbors.
 It is hard and non-intuitive to determine the threshold settings for fair and effective operation of a bandwidth sharing system.
@@ -89,10 +90,11 @@ The studies may overlap different areas in both dimensions or only cover a singl
 
 The first major contribution of this monograph is a characterization of content delivery networks on AS level.
 In order to characterize the server infrastructure of CDNs, a distributed measurement architecture is necessary, due to the location based server assignment in CDNs.
-Typically distributed measurement platforms, which are generally not located in ISP networks, are used for that purpose.
+Typically distributed measurement platforms such as PlanetLab are used for that purpose.
+These measurement platforms may not reflect the perspective of an end user, since they are hosted in research networks and not in ISP networks.
 % The problem is that these measurement platforms may not reflect the perspective as consumer, since they are hosted in National Research and Education Networks (NRENs) and not in ISP networks.
 % We compare the capabilities of a crowdsourcing platform and a PlanetLab testbed for distributed active measurements.
-To achieve a better view on the YouTube CDN from the perspective of end users in access networks we use a commercial crowdsourcing platform to recruit regular Internet users as measurement probes, c.f. \cite{burger2014vantage}.
+To achieve a better view on the YouTube CDN from the perspective of end users in access networks, we use a commercial crowdsourcing platform to recruit regular Internet users as measurement probes, c.f. \cite{burger2014vantage}.
 Thus, we increase the coverage of vantage points for the distributed measurement of the YouTube CDN.
 To evaluate the impact of the measurement platform and the coverage of their vantage points, we perform the same measurements using PlanetLab nodes and crowdsourcing users and compare the obtained results.
 The results show that distributed measurements in PlanetLab are not capable to capture a globally distributed network, since the PlanetLab nodes are located in National Research and Education Networks (NRENs) where the view on the Internet is limited.
@@ -117,11 +119,11 @@ We use the inferred AS paths to calculate the real AS paths and assess the trans
 We develop a method to accurately assess the system performance of tiered caching architectures with bandwidth constraints analytically.
 %The models do not consider constraints that limit the capability of caches to upload content such as the bandwidth of the uplink.
 %In the NaDa approach the upload bandwidth of caches is limited.
-To consider the upload bandwidth the system is modeled as loss network consisting of a server for each of the caches.
-The exact stationary distribution of the loss network is too complex to evaluate.
+To consider the upload bandwidth the system is modeled as loss system consisting of a server for each of the caches.
+The exact stationary distribution of the loss system is too complex to evaluate.
 %In \cite{tan2013optimal} the system is analyzed under large system asymptotic where simplifications occur.
 %We use a different approach by approximating the arrival rate of requests at the caches.
-Approximating the arrival rate of requests at the cache allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss network, c.f. \cite{burger2016hierarchical}.
+Approximating the arrival rate of requests at the cache allows us to effectively assess the loss probability by using a simple form of the Erlang formula for a loss system, c.f. \cite{burger2016hierarchical}.
 Even for traffic with highly heterogeneous request rates the approximation reflects the system performance.
 By comparing uncoordinated caching strategies using an overlay with optimal content placements in parameter studies, we find that the overall system performance can be further increased by more than 10\% if an optimal content placement is used.
 The potential to increase the efficiency of the CDN is especially high if only a small or no ISP cache is available.
@@ -130,7 +132,7 @@ The potential to increase the efficiency of the CDN is especially high if only a
 The third major contribution presented in this monograph considers the aggregation of backhaul bandwidth to further increase the overall system capacity by using spare bandwidth resources.
 In a first step a two dimensional Markov model is developed to seamlessly evaluate the performance of systems between partitioning and complete sharing dependent on the threshold settings, c.f. \cite{burger2016phycom}.
 The results show that, in contrary to the prevailing opinion, a complete sharing system can perform worse than a partitioned system if the load on the links is highly heterogeneous.
-In order to extend the model to the case of more than two links an approximation of the state probabilities using a fixed point iteration is used, c.f. \cite{burger2017im}.
+In order to extend the model to the case of more than two links an approximation of the state probabilities using fixed point iteration is used, c.f. \cite{burger2017im}.
 This is highly relevant for praxis, since in densely populated areas far more than two access links are available for aggregation.
 Bandwidth sharing systems are designed to increase the throughput of systems that are currently overloaded by using spare bandwidth of under-utilized links.
 In such situations the load on the links is highly heterogeneous.
