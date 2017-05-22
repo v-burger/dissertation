@@ -55,7 +55,7 @@ BitTorrent is based on multi-source downloads between the users. All the users, 
 
 To join the swarm, a peer requests addresses of other peers at an index server called tracker.
 In the standard BitTorrent algorithm the tracker uses random peer selection to select a subset of peers that are in the swarm.
-Then, the joining peer tries to establish a neighbor relation to the peers it got from the tracker and collects all peers which accepted the request in his neighbor set.
+Then, the joining peer tries to establish a neighbor relation to the peers it got from the tracker and collects all peers which accepted the request in its neighbor set.
 The peer signals interest to all neighbors which have parts of the file it still needs to download.
 To which neighbor a peer is willing to upload data is decided by the choking algorithm, which is explained in \cite{cohen:bt}.
 
@@ -178,7 +178,7 @@ Unaffected by this issue are the logs based on ICMP pings and actual responses f
 In \cite{krenc2014internet} the scope of the dataset is taken into perspective and show that, although there are some qualitative problems, the measurement data seems to be authentic.
 %We use the Internet Census Dataset to determine the number of active IP-addresses for each autonomous system in the Internet.
 
-We use an IP to ASN mapping to derive the autonomous system number for each IP-address. There are different services, that provide an IP to ASN mapping.
+We use an IP to ASN mapping to derive the autonomous system number for each IP-address. There are different services that provide an IP to ASN mapping.
 The whois-service can be used to get the current ASN for an IP-address.
 To enable an efficient evaluation we used the MAXMIND GeoLite ASN database \cite{geo_ip}, which is updated every month and can be downloaded and used as a local database.
 The results of the MAXMIND GeoLite ASN database were cross checked with results obtained from whois, which showed no differences.

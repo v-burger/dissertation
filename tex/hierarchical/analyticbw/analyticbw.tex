@@ -124,7 +124,7 @@ If an overlay is used, the requests that cannot be served by the personal tier-1
 
 
 For unlimited tier-2 cache bandwidth, we approximate the hit rate of the overlay by calculating the hit rate of a tandem network with two caches according to \cite{martina2014unified}. The tandem network consists of the tier-2 cache and a cache that has the sum of capacities of tier-1 caches. The miss stream of the consolidated tier-1 cache is forwarded to the tier-2 cache.
-The replacement strategy in the network is leave-copy-down, that means that an item is only placed in a cache if it is found in a higher tier cache. Thus only frequently requested items are propagated to lower tier-caches, which makes them more efficient. The Che-approximation can be applied to tandem networks by determining $p_\text{in}(1,m)$ for the tier-1 caches
+The replacement strategy in the network is leave-copy-down that means that an item is only placed in a cache if it is found in a higher tier cache. Thus only frequently requested items are propagated to lower tier-caches, which makes them more efficient. The Che-approximation can be applied to tandem networks by determining $p_\text{in}(1,m)$ for the tier-1 caches
 
 \begin{equation}
 p_\text{in}(1,m) = 1-e^{\lambda(1,m)T_{n_1 C_1}} \, .
@@ -286,7 +286,7 @@ where we approximate the offer of item $m$ with
 \begin{equation}
 a_m \approx \frac{\lambda_m\cdot C_1}{\mu_m} \, .
 \end{equation}
-Note, that here we assume that the arrival rate of requests of the $C_1$ items stored in the cache is equal to the rate of item $m$.
+Note that here we assume that the arrival rate of requests of the $C_1$ items stored in the cache is equal to the rate of item $m$.
 In order to calculate the exact stationary distribution of the blocking probability, the arrival rate of requests has to be conditioned on the feasibility of the content placement, which is too complex to evaluate.
 Refer to \cite{tan2013optimal} for details.
 %We also tried other arrival rates, such as average arrival rate of the items cached, which did not improve the approximation.

@@ -32,8 +32,10 @@ FIGURE_PROCESSING_RULES = {
 
 #FIGURE_PATHMAP = "%{^figures,tex}d/figures/%n.pdf"
 
-#task default: :all
-task default: :references_figure
+task all: [:references_figure, :check_for_typos]
+
+task default: :all
+#task default: :references_figure
 
 #task :install_dependencies do
 #end
@@ -94,7 +96,6 @@ task :check_for_typos do
     end
   end
 end
-puts 'mocha'
 
 #task :check_fonts => :pdf do
 #  puts "checking fonts..."
