@@ -1,11 +1,11 @@
 \section{Lessons Learned}\label{sec:aggregation:lessonslearned}
 In this chapter we investigate the potential of bandwidth aggregation approaches with offloading policy.
-A direct application is the aggregation of backhaul link bandwidth to increase the overall capacity of the system to cope with the increasing demand of traffic. %to reduce the load on cellular networks; carried by mobile networks, traffic is offloaded to Wi-Fi networks.
+A direct application is the aggregation of backhaul link bandwidth to increase the overall capacity and cope with the increasing demand of traffic. %to reduce the load on cellular networks; carried by mobile networks, traffic is offloaded to Wi-Fi networks.
 
-To this end, we develop a simple Markov model that consists of an M/M/n loss system for each link.
+To this end, we develop a Markov model that consists of an M/M/n loss system for each link.
 The offloading policy is modeled by introducing a support and an offloading threshold.
-In parameter studies we investigate the impact of thresholds that decide when a system offloads to a helping system or share bandwidth to support depending on its load.
-The threshold settings used in the BeWiFi system using a support threshold of 70\% provides a good trade-off between providing spare bandwidth and leaving capacity as buffer for peak periods.
+In parameter studies we investigate the impact of the threshold setting on the blocking probability and the received bandwidth.
+The threshold settings implemented in the prototype BeWiFi with a support threshold of 70\% provides a good trade-off between sharing spare bandwidth and leaving capacity as buffer for peak periods.
 Our results show that even if the cooperating system is overloaded, only up to 1\% of the bandwidth is lost in off peak periods.
 %Cooperating systems benefit from aggregating bandwidth and can get close to the performance of complete sharing if thresholds are set accordingly.
 The received bandwidth of a system can exceed its capacity significantly if the cooperating system is underutilized.

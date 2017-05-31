@@ -1,17 +1,6 @@
 %\subsection{Model Validation}
 \subsection{Numerical Examples}\label{sec:hierarchical:analyticbw:results}
 
-We evaluate the performance of tiered caching systems with bandwidth constraints in parameter studies.
-We validate the model via simulations, which allows us to verify the accuracy of the analytical model and the validity of our conclusions based on the model for a wide range of system parameters.
-Before presenting numerical examples, we briefly describe the event-based simulation.
-%We compare the results derived from our analytical models with results derived by event-based simulation.
-The simulation framework used is implemented in Matlab and described in detail in \cite{info3-inproceedings-2015-530}. The results presented show the mean values of 8 runs with 95\% confidence intervals, each run simulating $10^5$ requests in the stationary phase.
-
-If not stated otherwise, in the remainder of this study, the catalogue size is $N=1e6$.
-The number of tier-1 caches is $n_1=1e4$, each having a capacity of $C_1=8$.
-There is one tier-2 cache with default capacity $C_2=1e4$.
-The tier-1 cache upload bandwidth is limited to $0.8\text{Mbps}$, whereas the tier-2 cache has unlimited upload bandwidth.
-
 \begin{figure*}[!tb]
 \begin{minipage}[t]{\textwidth}
   \centering
@@ -34,6 +23,19 @@ The tier-1 cache upload bandwidth is limited to $0.8\text{Mbps}$, whereas the ti
 %   \label{fig:hwc_C8C1e3_l}
 % \end{minipage}
 \end{figure*}
+
+We evaluate the performance of tiered caching systems with bandwidth constraints in parameter studies.
+We validate the model via simulations, which allows us to verify the accuracy of the analytical model and the validity of our conclusions based on the model for a wide range of system parameters.
+Before presenting numerical examples, we briefly describe the event-based simulation.
+%We compare the results derived from our analytical models with results derived by event-based simulation.
+The simulation framework used is implemented in Matlab and described in detail in \cite{info3-inproceedings-2015-530}. The results presented show the mean values of 8 runs with 95\% confidence intervals, each run simulating $10^5$ requests in the stationary phase.
+
+If not stated otherwise, in the remainder of this study, the catalogue size is $N=1e6$.
+The number of tier-1 caches is $n_1=1e4$, each having a capacity of $C_1=8$.
+There is one tier-2 cache with default capacity $C_2=1e4$.
+The tier-1 cache upload bandwidth is limited to $0.8\text{Mbps}$, whereas the tier-2 cache has unlimited upload bandwidth.
+
+
 
 %\begin{itemize}
 %	\item Methodology
@@ -117,9 +119,9 @@ The cache hit rate increases with the number of tier-1 caches and their upload b
 The analytic model slightly overestimates the cache hit rate for finite upload bandwidth of tier-1 caches.
 In the case of infinite upload bandwidth, the results can be compared to an LRU cache with capacity $n_1 C_1$.
 In the optimal placement, the items that are most frequently requested are placed on the caches, which explains the higher hit rate compared to LRU.
-Hence, there is a high potential to increase the hit rate of the system by using an optimal content placement used.
+Hence, there is a high potential to increase the hit rate of the system by using an optimal content placement.
 Furthermore, the results show that it is important to consider bandwidth constraints in the analysis of caching systems.
-If the bandwidth is limited to 1.6Mbps, the cache hit is reduced by about 30\% compared to the case of unlimited bandwidth.
+If the bandwidth is limited to 1.6Mbps, the cache hit rate is reduced by about 30\% compared to the case of unlimited bandwidth.
 
 % \begin{figure}[tb]
 % \centering

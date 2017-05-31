@@ -1,11 +1,5 @@
 \subsection{Numerical Examples and Implications on Fairness}\label{sec:aggregation:imbalanced:numerical_examples}
 
-The cooperating system can benefit if the load is heterogeneously distributed among the systems, such that a system which is currently busy can offload to an idle system.
-%To investigate the performance in heterogeneous load conditions we calculate the blocking probability $p_{b_1}$ of the observed system dependent on its load $\rho_1$ and the load on the links in the composite system $\rho' = \rho_i, i\in\{2,\ldots,m\}$.
-
-In order to assess the potential of bandwidth aggregation of $m$ systems in heterogeneous load conditions, we study the load of the observed system $\rho_1$ and set the load of the other $m-1$ systems to the same value $\rho'$, i.e., $\rho_i=\rho',\forall i\in\{2,\dotsc,m\}$.
-%As performance metric we consider the normalized received bandwidth of the observed system $E[X_{A_1}]/n_1$ and the bandwidth gain of the observed system $\omega_1$. We first investigate the impact of the impact of $\rho'$, then we investigate the number of cooperating systems $m$ for a fixed load $\rho'$.
-
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bw_m8}
@@ -18,6 +12,33 @@ In order to assess the potential of bandwidth aggregation of $m$ systems in hete
 	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_m8}
  	\caption{Bandwidth gain $\omega_1$ dependent on load of the other links $\rho'$ for $m=8$.}
  	\label{fig:bwgain_m8}
+\end{figure}
+
+The cooperating system can benefit if the load is heterogeneously distributed among the systems, such that a system which is currently busy can offload to an idle system.
+%To investigate the performance in heterogeneous load conditions we calculate the blocking probability $p_{b_1}$ of the observed system dependent on its load $\rho_1$ and the load on the links in the composite system $\rho' = \rho_i, i\in\{2,\ldots,m\}$.
+
+To assess the potential of bandwidth aggregation of $m$ systems in imbalanced load conditions, we study the load of the observed system $\rho_1$ and set the load of the other $m-1$ systems to the same value $\rho'$, i.e., $\rho_i=\rho',\forall i\in\{2,\dotsc,m\}$.
+%As performance metric we consider the normalized received bandwidth of the observed system $E[X_{A_1}]/n_1$ and the bandwidth gain of the observed system $\omega_1$. We first investigate the impact of the impact of $\rho'$, then we investigate the number of cooperating systems $m$ for a fixed load $\rho'$.
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_rho03}
+ 	\caption{Bandwidth gain dependent on load of the observed system in off peak operation ($\rho'=0.3$).}
+ 	\label{fig:fp_bwgain_rho03}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_rho11}
+ 	\caption{Bandwidth gain dependent on load of the observed system in overload operation ($\rho'=1.1$).}
+ 	\label{fig:fp_bwgain_rho11}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_prio11}
+ 	\caption{Bandwidth gain dependent on load of the observed system in unfair operation ($\alpha_1 \neq \alpha'$).}
+ 	\label{fig:fp_bwgain_prio11}
 \end{figure}
 
 % \begin{figure*}[tb]
@@ -73,23 +94,16 @@ In case of $\rho'=0.3$ a lot of spare bandwidth is available for offloading. If 
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_rho03}
- 	\caption{Bandwidth gain dependent on load of the observed system in off peak operation ($\rho'=0.3$).}
- 	\label{fig:fp_bwgain_rho03}
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/m2_n20_rho2_sim}
+ 	\caption{Blocking probability dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
+ 	\label{fig:m2_n20_rho2_sim}
 \end{figure}
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_rho11}
- 	\caption{Bandwidth gain dependent on load of the observed system in overload operation ($\rho'=1.1$).}
- 	\label{fig:fp_bwgain_rho11}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/fp_bwgain_prio11}
- 	\caption{Bandwidth gain dependent on load of the observed system in unfair operation ($\alpha_1 \neq \alpha'$).}
- 	\label{fig:fp_bwgain_prio11}
+	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/bw_n20_rho2_sim}
+ 	\caption{Received bandwidth dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
+ 	\label{fig:bw_n20_rho2_sim}
 \end{figure}
 
 Figure~\ref{fig:fp_bwgain_rho03} shows the bandwidth gain of the observed system $\omega_1$ dependent on the number of cooperating systems $m$ for $\rho'=0.3$.
@@ -103,8 +117,8 @@ Depending on the number of cooperating systems the bandwidth gain of the observe
 
 Figure~\ref{fig:fp_bwgain_rho11} shows the bandwidth gain of the observed system $\omega_1$ dependent on the number of cooperating systems $m$ for $\rho'=1.1$.
 In this case the links in the composite system are overloaded.
-This leads to a loss of up to 2\% bandwidth, if the observed system is not overloaded itself.
-If the load on the observed system is high, but low enough that it supports other systems, a traffic burst is more likely to block the system, since the overall load is higher than in the partitioning case.
+This leads to a loss of up to 2\% bandwidth if the observed system is not overloaded itself.
+If the load on the observed system is high, but low enough that it supports other systems, a traffic burst is more likely to block the system, since the overall load on the systems is higher than in partitioning case.
 %If the observed system is also overloaded its bandwidth gain increases dependent on the number of cooperating systems.
 
 To conclude, if the load on the other systems is low, an overloaded system can highly profit from their spare bandwidth by gaining multiples of its own bandwidth. The maximum bandwidth gain is limited by the number of cooperating systems $m$.
@@ -133,20 +147,6 @@ Figure~\ref{fig:m2_n20_rho2_sim} shows the blocking probability of the reference
 The service times in the deterministic process are constant.
 In the hyper-exponential process we use two branches with probabilities 10\% and 90\%.
 For constant service times the blocking probability does not differ from the analytic model for high system loads. The blocking probability differs slightly from the analytic model for deterministic service times in low system loads, showing higher blocking probabilities if the load on the cooperating system is high. The reason for this has to be investigated and is part of future work. In case of the hyper-exponential distribution the service times are highly variant. Here the system which is highly loaded benefits from lower blocking probabilities compared to the analytic model.
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/m2_n20_rho2_sim}
- 	\caption{Blocking probability dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
- 	\label{fig:m2_n20_rho2_sim}
-\end{figure}
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{aggregation/performance_model/figures/bw_n20_rho2_sim}
- 	\caption{Received bandwidth dependent on the load of reference and cooperating system. Simulation with different service time distributions.}
- 	\label{fig:bw_n20_rho2_sim}
-\end{figure}
 
 % \begin{figure*}[tb]
 % \centering

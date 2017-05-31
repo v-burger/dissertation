@@ -34,23 +34,23 @@ Thus, the inter-AS traffic is almost reduced by 50\% in large ISPs.
 The analysis of hierarchical caching systems is presented in \refchap{chap:hierarchical}.
 We develop a simulation framework for the evaluation of hierarchical caching systems and use the AS topology of the Internet to assess the inter-domain traffic.
 The results show that an overlay is imperative for the success of hierarchical caching systems consisting of a high number of small capacity caches.
-Moreover, by investigating the share of locally served content requests, the impact for the network operator is quantified, showing that the inter-domain traffic and the contribution required of an ISP-cache can be significantly reduced by an hierarchical cache network using an overlay.
-Once at least every thousandth user contributes to the overlay sharing spare resources in large ISPs, the ISP-cache can be discontinued.
-In order to evaluate the performance of cache systems with small capacities and limited upload bandwidth, we develop an analytical model based on the Erlang formula for loss networks.
+Moreover, by investigating the share of locally served content requests, the impact for the network operator is quantified, showing that the inter-domain traffic and the contribution required of an ISP cache can be significantly reduced by using an overlay.
+Once at least every thousandth user contributes to the overlay sharing spare resources in large ISPs, the ISP cache can be discontinued.
+In order to evaluate the performance of caching systems with small capacities and limited upload bandwidth, we develop an analytical model based on the Erlang formula for loss networks.
 Our results show that the potential to increase the efficiency of the content delivery network is high if only a small or no ISP cache is available.
 If a larger ISP cache is available the benefit of the approach highly depends on the number of caches available and their upload bandwidth.
-This allows IPSs to plan the number of local resources necessary to make a hierarchical caching system cost efficient.
+This allows IPSs to plan the number of local resources necessary to run a cost efficient hierarchical caching system.
 CDN providers can use available resources more efficiently by optimizing the content placement on caches.
 
-To evaluate the potential to further increase the bandwidth available in access networks, we analyse bandwidth aggregation systems in \refchap{chap:aggregation}.
+To evaluate the potential to further increase the bandwidth available in access networks, we analyze bandwidth aggregation systems in \refchap{chap:aggregation}.
 %To reduce the load on cellular networks and to cope with the increasing demand of traffic carried by mobile networks, traffic is offloaded to WiFi networks.
 %To even increase the available bandwidth, recent concepts consider aggregating backhaul access link capacities.
 An approximation of a partial sharing scheme is presented, which is used to analyze the performance of a system with multiple access links that share their bandwidth.
 To achieve feasible computational complexity, the $m$-dimensional Markov chain is reduced to one dimension by summing up the interaction between the system in two offloading rates.
 A joint fixed point iteration of an outer and an inner composite system is used to derive the state probabilities in heterogeneous load conditions.
 In parameter studies we investigate the potential of the mechanism depending on the number of cooperating systems.
-Our results show that the bandwidth of an overloaded system can exceed its capacity multiple times if the cooperating systems are underutilized, especially if the number of cooperating systems is high.
-By prioritizing systems, we show that the mechanism is robust against free riders and thus provides incentives to contribute to increase the overall system capacity.
+Our results show that the bandwidth of an overloaded system can exceed its capacity multiple times if the cooperating systems are underutilized.
+By prioritizing systems, we show that the mechanism is robust against egoistic users that try to exploit the system and thus provides incentives to contribute to increase the overall system capacity.
 
 One of the major insights we gain from the model is that, in contrary to the prevailing opinion, a complete sharing system can perform worse than a partitioned system if the load on the links is highly heterogeneous.
 Our results show that if the cooperating systems are overloaded, a system with low load might receive only marginally less bandwidth.

@@ -1,13 +1,13 @@
 \subsection{Numerical Examples and Threshold Setting}\label{sec:aggregation:performance_model:numerical_examples}
 
 Using the model we aim to calculate numerical examples to evaluate the performance of the system in different scenarios.
-%In the following we analyse the performance of a system with two server groups.
+%In the following we analyze the performance of a system with two links.
 %The analytical model and the simulation are described.
 As parameters we study the load on the reference system $\rho_1$ and the load on the cooperating system $\rho_2$.
 We consider the blocking probability of the reference system $p_{b_1}$ and the normalized received bandwidth of the reference system $E[X_{A_1}]/n_1$.
-To validate our model and to get a first assessment, we analyse the performance of systems with equal thresholds and compare the analytic results with the results obtained from simulation and those of simple reference systems.
+To validate our model and to get a first assessment, we analyze the performance of systems with equal thresholds and compare the analytic results with the results obtained from simulation and those of simple reference systems.
 We consider the symmetric case with even load $\rho_1=\rho_2$ to investigate the impact of the offloading thresholds and to optimize them.
-We then consider the asymmetric case to analyse the performance of systems with imbalanced load.
+We then consider the asymmetric case to analyze the performance of systems with imbalanced load.
 We conduct parameter studies to find system configurations where one of the systems can highly benefit from offloading, e.g. by being prioritized.
 Finally we run simulations with different service time distributions to assess the system performance in more general cases.
 
@@ -18,7 +18,7 @@ Finally we run simulations with different service time distributions to assess t
  	\label{fig:m2_comp}
 \end{figure}
 
-Figure~\ref{fig:m2_comp} shows the blocking probability dependent on the system load of two server groups with equal arrival processes.
+Figure~\ref{fig:m2_comp} shows the blocking probability dependent on the system load of two links with equal arrival processes.
 In this case the blocking probability is equal for both systems. Both systems have $n=20$ bandwidth fractions, and the thresholds are set to $\alpha=40\%$ and $\beta=80\%$.
 The black line shows the result based on the analytic model for a composite system as described in \refsec{sec:aggregation:performance_model:analytical_model:2_systems}.
 The markers show the mean of 8 simulation runs with 95\% confidence intervals.
@@ -26,15 +26,15 @@ The blocking probability increases with the load on the system as expected.
 The results of the simulation match the analytical model with high confidence.
 
 For comparison the analytic result for the approximation $\tilde{p}_b$, for partitioning and for complete sharing, i.e., with combined arrival process and bandwidth fractions, is plotted.
-The latter equals a system with a single server group, double arrival rate and double number of bandwidth fractions.
+The latter equals a system with a single link, double arrival rate and double number of bandwidth fractions.
 Compared to partitioning the composite system performs slightly better for low loads.
 For low system loads the probability is high that one of the two systems has less than $\alpha\cdot n$ active jobs and can help if the other system is in an offloading state.
 The load is taken from the highly loaded system and the blocking probability is decreased.
 This effect is negated for higher loads on the system, since the probability to be in a support state, with less than $\alpha\cdot n$ jobs, diminishes.
 If the systems cannot help each other, their performance equals partitioning the systems.
 
-To investigate the potential of the system, it is compared to a complete sharing system.
-The red dash dotted line shows the result of a system with double arrival rate and $n'=2\cdot n=40$ combined bandwidth fractions. The blocking probability is reduced by a magnitude. This effect is also known as the economy of scale.
+To investigate its potential, the system is compared to a complete sharing system.
+The red dash dotted line shows the result of a system with double arrival rate and $n'=2 n=40$ combined bandwidth fractions. The blocking probability is reduced by a magnitude. This effect is known as the economy of scale.
 
 %\begin{figure}[tb]
 %	\centering
@@ -46,7 +46,7 @@ The red dash dotted line shows the result of a system with double arrival rate a
 \subsubsection*{Offloading Thresholds}
 
 In the following we investigate the setting of the thresholds $\alpha$ and $\beta$ to optimize the performance of the system.
-Therefore we analyse the symmetric case with $\rho_1=\rho_2$ and vary the thresholds $\alpha$ and $\beta$. The number of bandwidth fractions per system is again set to $n=20$.
+Therefore we analyze the symmetric case with $\rho_1=\rho_2$ and vary the thresholds $\alpha$ and $\beta$. The number of bandwidth fractions per system is again set to $n=20$.
 %Therefore we fix the load on the cooperating system to $\rho_2=0.5$ and vary the thresholds.
 
 \begin{figure}[tb]
@@ -132,7 +132,7 @@ Figure~\ref{fig:m2_n20_beta} shows the blocking probability of the reference sys
 %  	\label{fig:m2_n20_alphaplusbeta}
 %\end{figure}
 
-We have seen that the performance of the system depends on the amount of jobs that can be offloaded, so the support threshold $\alpha$ needs to be set as high as possible. Theoretically, the support threshold could be set to the offloading threshold $\alpha=\beta$, so that a system would switch directly from support to offloading mode. However, in practice this may lead to problems, since the systems could switch unnecessarily frequently among the modes. This is especially the case if mode switches result in a high signaling overhead or imply expensive context switches. Therefore, a gap is left among the thresholds.
+The previous results show that the performance of the system depends on the amount of jobs that can be offloaded, so the support threshold $\alpha$ needs to be set as high as possible. Theoretically, the support threshold could be set to the offloading threshold $\alpha=\beta$, so that a system would switch directly from support to offloading mode. However, in practice this may lead to problems, since the systems could switch unnecessarily frequently among the modes. This is especially the case if mode switches result in a high signaling overhead or imply expensive context switches. Therefore, a gap is left among the thresholds.
 Hence, in order to prevent frequent mode switches, we set $\beta - \alpha$ to 10\%. In order to maximize the available bandwidth we can increase the support threshold $\alpha$.
 %In the following we investigate the impact of that gap $\beta-\alpha$.
 Figure~\ref{fig:m2_n20_alphaplus2_equal} shows the blocking probability of the reference system $p_{b_1}$ dependent on the load $\rho_1$ with fixed gap $\beta-\alpha$ for increasing support thresholds $\alpha$ from 5\% to 85\%. The blocking probability decreases with increasing $\alpha$, since more bandwidth fractions are shared among the systems.
